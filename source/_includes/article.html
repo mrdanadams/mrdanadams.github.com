@@ -1,0 +1,21 @@
+{% unless page.no_header %}
+  <header>
+    {% if index %}
+      <h2 class="entry-title"><a href="{{ root_url }}{{ post.url }}" rel="bookmark"><span>{% if site.titlecase %}{{ post.title | titlecase }}{% else %}{{ post.title }}{% endif %}</span></a></h2>
+    {% else %}
+      <h1 class="entry-title"><span>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</span></h1>
+    {% endif %}
+
+  </header>
+{% endunless %}
+{% if index %}
+  <div class="entry-content">
+    {{ content | excerpt }}
+  {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
+  {% if excerpted == 'true' %}
+    <!-- p><a rel="full-article" href="{{ root_url }}{{ post.url }}" class="more-link">{{ site.excerpt_link }}</a></p -->
+  {% endif %}
+  </div>
+{% else %}
+<div class="entry-content">{{ content }}</div>
+{% endif %}

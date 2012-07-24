@@ -1,0 +1,459 @@
+/*   
+see http://modularscale.com/scale/?px1=16&px2=18&ra1=1.5&ra2=0
+*/
+
+@import "compass";
+@import "_pems";
+
+/*@import url('http://fonts.googleapis.com/css?family=Vollkorn');*/
+/*@import url(http://fonts.googleapis.com/css?family=Syncopate|Orbitron:900);*/
+/*@import url(http://fonts.googleapis.com/css?family=Orbitron:900);*/
+@import url(http://fonts.googleapis.com/css?family=Didact+Gothic);
+
+@import "compass/reset"; /* actually creates styles */
+
+@mixin typeface() { font-family: 'Didact Gothic', 'Lucida Grande', Arial, sans-serif; }
+@mixin helvetica { font-family: Verdana, Arial, sans-serif; }
+
+$pageWidth: 960px;
+$contentMargin: 16;
+$contentSize: 16;
+
+/* space between the content and sidebar and items on the sidebar */
+$containerMargin: 24;
+
+$brightYellow: rgb(242,196,90);
+$darkYellow: rgb(191,179,90);
+$darkBlue: rgb(33,90,109);
+$lightBlue: rgb(146,199,163);
+$lightGreen: rgb(136,166,94);
+$darkGreen: rgb(94,140,106);
+
+/* debug */
+/*div { border: 1px solid #aaa; }*/
+#wpdb-profiling { display: none; }
+
+/* layout */
+
+#wrapper { max-width: $pageWidth; margin: 0 auto; }
+/*#wrapper div * { display: none;} */
+/*#header, #main, #footer { }*/
+
+#header { 
+  padding: 0 0 2em 0;
+  @include clearfix;
+}
+
+/* TODO could just use the blueprint liquid functions */
+#container { float: left; width: 72.5%; margin-right: pem($containerMargin); }
+#aside-container { float: left; width: 24.25%; } /* TODO width not needed? */
+
+#access { @include float-right; margin-right: 27.5%; margin-top: pem(36); }
+
+.sf-menu {
+  @include inline-block-list;
+  @include typeface;
+  overflow: visible;
+
+  a {
+    font-size: pem(18);
+    /* dry */
+    @include scale(text-shadow, black 0 0 1, 18);
+    text-decoration: none;
+    padding: 0 1em 0 0;
+    text-transform: lowercase;
+    font-weight: bold;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+/* TODO make the padding consistent within and between regions */
+#content { 
+  background-color: #101010;
+  @include border-radius(pem(5.333));
+  padding: pem(16);
+}
+
+.post { margin-bottom: 3em; }
+.single-post .post { margin-bottom: auto;}
+
+/* fonts / typography */
+
+body { color: #bbb; font-size: #{$baseFontSize}px; line-height: 18px; @include typeface; }
+a {
+  @include link-colors(rgb(212,238,94));
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+/*h1, h2, h3, h4, h5, h6, #blog-title { font-family: 'Orbitron', sans-serif; }*/
+h1, h2, h3, h4, h5, h6, #blog-title {  @include typeface; }
+
+/* colors */
+
+@mixin text-outline($color, $width : 1) {
+  @include text-shadow($color $width 0 0, $color $width $width 0, $color 0 pem($width * -1) 0, $color pem($width * -1) 0 0 );
+}
+
+body { background-color: #1f1f1f; }
+#header { border: none; }
+
+#blog-title { 
+  float: left;
+  font-size: pem(36);
+  margin-top: 1em;
+  text-decoration: none;
+  text-transform: lowercase;
+  margin-right: 1em;
+
+  a, a:hover, a:active {
+    text-decoration:none;
+  }
+
+  a { 
+    color: white - #111;
+    @include scale(text-shadow, black 0 0 1, 36);
+  }
+}
+
+@mixin separator() {
+  /* TODO create a line on the bottom */  
+}
+
+#about-box {
+  @include clearfix;
+  background-color: #101010 + #222;
+  padding: pem(8);
+  @include border-radius(pem(3));
+
+  p { font-size: pem(12); line-height: pem(18, 12); margin-bottom: 1em; @include helvetica; }
+
+  .avatar { 
+    $width: 80;
+    width: pem($width); height: pem($width); display: block; float: right;
+    margin: pem(5) 0 pem(5) pem(5);
+    background: url(http://www.gravatar.com/avatar/02f435577368c37cb8fdc3a2279650bd?s=#{$width}) 0 0 no-repeat;
+  }
+}
+
+/* all images placed in the sprite directory will be included in the sprites */
+$sprites: sprite-map("sprites/*.png"); /* */
+
+@mixin icon-link($class, $icon:$class) {
+  .#{$class} a { background:sprite($sprites, #{$icon}-icon) no-repeat; }
+}
+
+#follow-links {
+  label {
+    @include typeface; color: white; text-transform: lowercase;
+    font-size: pem(24);
+  }
+
+  ul {
+    @include inline-block-list; display: block;
+    margin: pem(8) 0 0 0;
+  }
+
+  li {
+    a { 
+      width: 41px; height: 41px; display: inline-block; opacity: .6;
+      @include single-transition(opacity, .5s);
+      &:hover { opacity: 1; }
+    }
+
+    span { display: none }
+  }
+
+  @include icon-link(rss, rss-big);
+  @include icon-link(twitter, twitter-big);
+  @include icon-link(linkedin, linkedin-big);
+}
+
+#aside-container .widget_featured_post_widget {
+  margin-bottom: $containerMargin;
+  padding: .5em;
+  border: none;
+  @include border-radius(pem(3.555));
+  border-top: pem(8) solid #F2C45A;
+
+  p:not(.featured-title) { font-size: .8em; line-height: 1.5em; }
+  .featured-title a { @include typeface; font-size: pem(24); line-height: 1em; margin-bottom: pem(16, 24); color: white; display: block; }
+  img { max-width: 75%; height: auto; display: block; margin: .5em auto;  }
+}
+
+.aside {
+  margin-bottom: pem($containerMargin);
+
+  h3 { color: white; text-transform: lowercase; font-size: pem(24); margin-bottom: pem(8, 24); }
+
+  .widgetcontainer { 
+    @include separator;
+    margin-bottom: 1em;
+
+    ul { font-size: pem(12); @include helvetica; }
+    li { margin-top: pem(10.667, 12); line-height: pem(16, 12); }
+  } 
+}
+
+.skip-link { display: none; }
+
+$header-color: white;
+
+.entry-title {  
+  @include scale(text-shadow, (black 0 0 1, #212121 2 2 1));
+
+  margin: 0 0 0 pem($contentMargin * -1);
+  @include scale(padding, 0 $contentMargin / 2);
+  border-left: pem($contentMargin / 2) solid $darkBlue;
+
+  a { 
+    color: $header-color;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+
+  span {
+    font-size: pem(36); line-height: 1em;
+    color: $header-color;
+  }
+}
+
+.single .entry-title span { font-size: pem(40.5); }
+
+/* appears in category listings and such above the results */
+.page-title {
+  color: $header-color;
+  margin-bottom: 1em;
+}
+
+@mixin header($name, $size, $borderColor, $borderSize) {
+  #{$name} {
+    font-size: pem($size);
+    line-height: 1em;
+    color: $header-color;
+    @include scale(margin, 16 0 16 $contentMargin * -1, $size);
+    @include scale(padding, 8 $contentMargin - $borderSize, $size);
+    border-left: pem($borderSize, $size) solid $borderColor;
+  }
+} 
+
+.entry-content {
+  margin: pem($contentMargin) 0;
+  @include helvetica;
+
+  p, ul, ol { font-size: pem($contentSize); line-height: 1.5em; }
+  p, ul, ol { margin-bottom: 1em; }
+  ul, ol { padding-left: 1em; margin-left: 1em; }
+  ul { list-style-type: disc; }
+  ol { list-style-type: decimal; }
+
+  @include header(h2, 36, $darkGreen, 8);
+  @include header(h3, 27, $lightGreen, 7.111);
+  @include header(h4, 24, $darkYellow, 5.333);
+  @include header(h5, 18, $brightYellow, 4.741);
+  @include header(h6, 16, $lightBlue, 3.555);
+
+  strong { font-weight: bold; }
+  em { font-style: italic;}
+  blockquote {
+    margin: pem(8);
+    @include scale(padding, 8 36 8 36);
+    /* background-color: #101010 + #777; */
+    /* color: #101010; */
+    /* @include border-radius(.5em); */
+
+    &:before {
+      $size: 91.125;
+      content: '“';
+      display: block;
+      position: absolute;
+      color: white;
+      font-size: pem($size);
+      margin-top: pem(27, $size);
+      margin-left: pem(-48, $size);
+      @include typeface;
+    }
+
+    /*
+    &:after {
+      content: '”';
+      display: block;
+      float: right;
+      color: white;
+      opacity: .7;
+      font-size: 10em;
+      margin-top: .07em;
+      margin-right: -.4em;
+      @include text-shadow(#222 1px 1px 1px);
+      @include typeface;
+    }
+    */
+  }
+}
+
+.entry-utility { font-size: pem(12); }
+
+/* okay, fine. so i just wanted to see if i could make a bubble in css... */
+.comment-count {
+  float: right;
+  margin-top: pem(-8);
+  margin-right: pem(-24);
+  display: none; /* hide by default */
+
+  a {
+    $size: 24;
+    font-size: pem($size);
+    line-height: 1em;
+    font-weight: normal;
+    display: block;
+    color: white;
+    text-decoration: none;
+    @include scale(padding, 5.333 16 8 14, $size);
+    border: pem(2.37, $size) solid #92c7a3;
+    @include border-radius(pem(12, $size));
+    background-color: #323232;
+    @include single-box-shadow(black * .4, pem(1, $size), pem(1, $size), pem(7, $size), false, false);
+  }
+  &:before { /* outer triangle */
+    content:' ';
+    position: absolute;
+    width:0; height:0;
+    margin-top: pem(40); margin-left: pem(12);
+    border: pem(7.111) solid;
+    border-color: #92c7a3 transparent transparent #92c7a3;
+  }
+  a:before { /* inner triangle. using the outer element so they are both on the left */
+    content:' ';
+    position: absolute;
+    width:0; height:0;
+    margin-top: pem(21); margin-left: pem(-2);
+    border: .25em solid;
+    border-color: #323232 transparent transparent #323232;
+  }
+}
+.has-comments .comment-count { display: block; }
+
+
+/* TODO post navigation disabled for now */
+.pagination { display: none; }
+
+/* disqus / commenting */
+#disqus_thread {
+  h3 { font-size: pem(24); line-height: 1em; color: $header-color;  }
+}
+#dsq-global-toolbar { display: none; }
+
+#main { @include clearfix; }
+#footer { margin-top: 1em; font-size: .8em; }
+#dsq-content .dsq-reply h3 {
+  color: $header-color;
+  @include scale(text-shadow, black 0 0 1, #212121 2 2 1);
+
+  margin: 0 pem(-16, 24) 1em;
+  padding: .2em .4em .25em;
+
+  /*border-left: .2em solid rgb(140,35,24);*/
+  border-left: .2em solid rgb(242,196,90);
+  position: auto;
+  vertical-align: middle;
+}
+#dsq-account-dropdown a {
+  display: inline-block;
+  /*
+  text-decoration: none;
+  background-color: #ccc;
+  border: 1px solid white;
+  @include single-box-shadow(white, 0px, 0px, 1px, false, true);
+  padding: 0 1em;
+  @include border-radius(3px);
+  color: black;
+  margin: .25em;
+  font-size: .8em;
+  @include text-shadow(#999 1px 1px 0px);
+  */
+}
+#dsq-sort-by { display: none; }
+.dsq-trackback-url { 
+  font-size: .8em;
+
+  input { @include single-transition(width); width: 40%; }
+  input:focus { width: 80%; }
+}
+
+/* IMAGES */
+
+/* TODO make image margin consistent */
+$image_margin: 1em;
+
+.entry-content .wp-post-image {
+  border: pem(1) solid #ccc;
+  float:right;
+  margin: 0 0 $image_margin $image_margin;
+  /*padding: .25em;*/
+}
+.entry-content img {
+    height:auto;
+    margin: $image_margin 0;
+    max-width:100%;
+}
+.alignleft, img.alignleft { @include float-left; margin-right: $image_margin; }
+.alignright, img.alignright { @include float-right; margin-left: $image_margin; }
+.aligncenter, img.aligncenter, img.featured {
+  margin-left:auto;
+  margin-right:auto;
+  display: block;
+  clear: both;
+  text-align: center; /* covers centered image with caption */
+}
+
+.wp-caption {
+  margin-bottom:1em;
+  padding:.5em 0 0;
+}
+.wp-caption img {
+  margin: 0;
+  padding: 0;
+}
+.wp-caption p.wp-caption-text {
+  @include helvetica;
+  font-size: pem(12);
+  margin: 0;
+  padding: 0 .25em;
+}
+
+/* TODO haven't changed these */
+.gallery-icon {
+  border: pem(1) solid #ccc;
+  margin: 0 pem(5.333);
+  padding-top: pem(7.111);
+}
+.gallery img {
+    margin:0;
+}
+.gallery-caption {
+  padding: pem(7.111) pem(7.111) 0;
+}
+.wp-smiley { /* Prevent the smileys from breaking line-height */
+  max-height:1em;
+  margin:0 !important;
+}
+
+/* lightbox */
+
+#cboxOverlay { background-color: black !important; }
+
+/* iPhone */
+@media only screen and (max-width: 480px), screen and (max-device-width: 480px) {
+  #container, #aside-container, #blog-title, #access { display: block; float: none; width: auto; margin: 0 3% 3% 3%; }
+
+  .sf-menu {
+    a { padding: 0; }
+    li { margin: 1em 1em 0 0; }
+  }
+
+  #header { margin: 1em 0 1em 0; padding: 0; }
+
+  .cboxPhoto { float: left; max-width: 270px; max-height: 300px; }
+  #cboxCurrent { text-indent: -9999px; }
+}
