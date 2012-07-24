@@ -5,5 +5,19 @@ body_class: single
 ---
 
 <article class="hentry" role="article">
-  {% include article.html %}
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<!-- AddThis Button END -->
+
+  {% include article.html %}  
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
 </article>
