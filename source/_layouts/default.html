@@ -25,8 +25,8 @@
       </div><!-- #content -->
     </div><!-- #container -->
 
-    <div id="aside-container">
-      <div id="follow-links" class="aside">
+    <aside id="aside-container">
+      <section id="follow-links" class="aside">
         <label>Follow &amp; Connect</label>
 
         <ul>
@@ -37,28 +37,27 @@
           <li class="rss"><a href="/feed" title="Dan Adams Post RSS feed"><span>RSS</span></a></li>
           <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
       </ul>
-    </div>
+    </section>
 
-    <div id="about-box" class="aside">
+    <section id="about-box" class="aside">
       <h3>About Dan</h3>
       <span class="avatar"></span>
 
       <p>I am a software engineer and consultant living and working in Boston at <a href="http://cantina.co" target="_blank" rel="nofollow">Cantina Consulting</a>.</p>
       <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
-    </div>
+    </section>
 
-    <div id="primary" class="aside main-aside">
+    <section id="primary" class="aside main-aside">
       <ul class="xoxo">
-        <!-- TODO make dynamic -->
-        <li id="featured_post_widget-2" class="widgetcontainer widget_featured_post_widget">
+        <li class="widgetcontainer widget_featured_post_widget">
           <p class="featured-title">
-            <a href="http://mrdanadams.com/2012/your-career-is-a-business/" title="Permalink to What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
+            <a href="/2012/your-career-is-a-business/" title="What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
           </p>
-          <a href="http://mrdanadams.com/2012/your-career-is-a-business/">
-            <img width="530" height="179" src="http://cdn.mrdanadams.com/wp-content/uploads/2012/03/career_growth.png" class="attachment-post-thumbnail wp-post-image" alt="Which does your career value look like?" title="career growth" /></a>
-          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment. <a href="http://mrdanadams.com/2012/your-career-is-a-business/" title="Permalink to What every software engineer should know: your career is a business">[more]</a></p>
+          <a href="/2012/your-career-is-a-business/">{% thumbnail /images/career_growth.png 150x150 %}</a>
+          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
         </li>
-        <li id="linkcat-42" class="widgetcontainer widget_links">
+
+        <li class="widgetcontainer widget_links">
           <h3 class="widgettitle">Projects</h3>
 
           <ul class='xoxo blogroll'>
@@ -68,29 +67,14 @@
           </ul>
         </li>
       </ul>
-    </div><!-- #primary .aside -->
-
-    <!-- TODO replace recent posts -->
-    <div id="secondary" class="aside main-aside">
-      <ul class="xoxo">
-        <li id="recent-posts-3" class="widgetcontainer widget_recent_entries">    <h3 class="widgettitle">Recent</h3>
-        <ul>
-            <li><a href="http://mrdanadams.com/2012/ios-universal-frameworks-xcode/" title="&lt;span&gt;Round-up of iOS universal frameworks with Xcode&lt;/span&gt;"><span>Round-up of iOS universal frameworks with Xcode</span></a></li>
-            <li><a href="http://mrdanadams.com/2012/abnqe/" title="&lt;span&gt;abnqe: A better Netflix queue experience&lt;/span&gt;"><span>abnqe: A better Netflix queue experience</span></a></li>
-            <li><a href="http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds/" title="&lt;span&gt;Heroku Postgres: Shared, Dedicated or use Amazon RDS?&lt;/span&gt;"><span>Heroku Postgres: Shared, Dedicated or use Amazon RDS?</span></a></li>
-            <li><a href="http://mrdanadams.com/2012/career-story-trajectory-context/" title="&lt;span&gt;Career story, trajectory and context&lt;/span&gt;"><span>Career story, trajectory and context</span></a></li>
-            <li><a href="http://mrdanadams.com/2012/your-career-is-a-business/" title="&lt;span&gt;What every software engineer should know: your career is a business&lt;/span&gt;"><span>What every software engineer should know: your career is a business</span></a></li>
-            </ul>
-        </li>
-      </ul>
-    </div><!-- #secondary .aside -->
-  </div><!-- #aside-container -->
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
 
   </div><!-- #main -->
 
-  <div id="footer">
+  <footer id="footer">
     <div id="siteinfo">&copy; 2011 &ndash; 2012 Dan Adams</div><!-- #siteinfo -->
-  </div><!-- #footer -->
+  </footer><!-- #footer -->
 
 </div><!-- #wrapper -->
 
