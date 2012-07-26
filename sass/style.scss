@@ -349,8 +349,6 @@ $header-color: white;
 .has-comments .comment-count { display: block; }
 
 
-/* TODO post navigation disabled for now */
-.pagination { display: none; }
 
 /* disqus / commenting */
 #disqus_thread {
@@ -451,6 +449,12 @@ $image_margin: 1em;
 .wp-smiley { /* Prevent the smileys from breaking line-height */
   max-height:1em;
   margin:0 !important;
+}
+
+#blogArchives {
+  @include header(h2, 36, $darkGreen, 8); /* TODO duplicate */
+  article { margin: 0 0 1em 3em; }
+  time { text-decoration: italic; }
 }
 
 /* lightbox */
