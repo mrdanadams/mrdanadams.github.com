@@ -1,0 +1,1549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Dan Adams]]></title>
+  <link href="http://mrdanadams.com/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-07-26T16:14:28-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Round-up of iOS universal frameworks with Xcode]]></title>
+    <link href="http://mrdanadams.com/2012/ios-universal-frameworks-xcode/"/>
+    <updated>2012-04-18T13:38:39-04:00</updated>
+    <id>http://mrdanadams.com/2012/ios-universal-frameworks-xcode</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/ios_xcode.jpg" title="iOS universal frameworks with Xcode" ></p>
+
+<p>If you are looking to share code between projects or distribute a 3rd party framework (such as a product API) a bit of googling will find you a solution. Or two. Or three. The solutions are all similar with some subtle differences. Here I&#8217;ve collected the best solutions I&#8217;ve found (going back to 2008) and which one worked well for me.</p>
+
+<p>For the impatient, I recommend this <a href="https://github.com/jverkoey/iOS-Framework">iOS universal framework</a> solution.</p>
+
+<!-- more -->
+
+
+<h2>The problem: dynamic linked libraries, architectures and performance</h2>
+
+<p>All the system libraries for iOS are dynamically linked. This allows dynamic loading and sharing of libraries between applications for more efficient memory management. In order to simplify the handling of applications, this is not allowed for libraries shipped with an app even if two apps use the same library. These libraries must be statically linked. This is an issue simply because Xcode 4 does not directly support creating static iOS frameworks.</p>
+
+<p>Additionally, libraries need to support multiple architectures: arm6 / arm7 on the devices and<a href="http://stackoverflow.com/questions/7874519/ios-simulator-on-mac-is-running-i386-architecture-not-armv7"> i386 when run in the simulator</a>. Distributing a fat binary allows developers to drop the framework into their project but embedding the whole fat binary in the application should be avoided as it can substantially increase the size of the deployed app.</p>
+
+<p>The developer experience is also important. For instance, if you are developing the framework in the context of an app that is using it, minimizing turn-around time for changes in the framework appearing in the app could be a big win (as it likely is for most).</p>
+
+<h2>Documented solutions</h2>
+
+<h3>iOS-Framework by Jeff Verkoeyen</h3>
+
+<p>My preferred <a href="https://github.com/jverkoey/iOS-Framework">solution is by Jeff Verkoeyen</a> (jverkoey). It&#8217;s an evolution on the older solutions and focuses on an easier, faster build process while maintaining a good integration experience for users and optimal deployment. It still has some improvements to be made:</p>
+
+<ul>
+<li>A manual process. It&#8217;s easy, but not exactly a 1-step process. He&#8217;s documented it well enough that you could do it for a new project quickly if you couldn&#8217;t remember all the steps.</li>
+<li>Bundling resources requires more work on the part of both the framework author and users. Code-only frameworks shouldn&#8217;t have to deal with this, luckily.</li>
+</ul>
+
+
+<h3>Blog post by Jonah Williams of Carbon Five</h3>
+
+<p><a href="http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/">This post</a> offers a well-written guide and explanation of the problem. However, it&#8217;s not as comprehensive as the others. It also uses the framework in a way that isn&#8217;t entirely representative of the way your users will. This increasing the risk that you might be missing something big when cutting a distribution. However, it&#8217;s a good guide and shares a lot of similarities with jverkoey&#8217;s approach.</p>
+
+<h3>iOS-Universal-Framework by Karl Stenerud</h3>
+
+<p><a href="https://github.com/kstenerud/iOS-Universal-Framework">iOS-Universal-Framework</a> offers a way of bending Xcode to your will so it will produce a static framework by introducing a new project template, possibly making life better if you need to do this a lot. The solution by jverkoey specifically improves on the method in a some marginal, yet important, ways such as resource handling and compile time. As with <a href="http://www.chrisboyd.net/2011/06/creating-ios-framework-projects/">Chris Boyd</a>, this method has made some people very happy.</p>
+
+<p>See <a href="https://github.com/michaeltyson/iOS-Universal-Library-Template">iOS-Universal-Library-Template</a> for a similar project not focused on frameworks.</p>
+
+<h3>Blog post by db-in</h3>
+
+<p>As noted by jverkoey, the approach in <a href="http://db-in.com/blog/2011/07/universal-framework-iphone-ios-2-0/">this post</a> is essentially the same as iOS-Universal-Framework but not as good.</p>
+
+<h2>Useful Links</h2>
+
+<p>An assortment of useful links related to this:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/5584317/compile-build-or-archive-problems-with-xcode-4-and-dependancies">Compile, Build or Archive problems with Xcode 4</a></li>
+<li><a href="http://stackoverflow.com/questions/989738/how-to-get-headers-into-framework-in-xcode">Getting headers into frameworks in xcode</a></li>
+<li><a href="http://developer.apple.com/library/ios/#featuredarticles/XcodeConcepts/Concept-Workspace.html">Xcode workspaces</a> and <a href="http://developer.apple.com/library/mac/#recipes/xcode_help-structure_navigator/articles/adding_a_project_to_a_workspace.html">adding projects to workspaces</a></li>
+<li><a href="http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html#//apple_ref/doc/uid/TP40001873-SW">Xcode docs on dynamic libraries</a></li>
+<li><a href="https://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPFrameworks/Tasks/CreatingFrameworks.html#//apple_ref/doc/uid/20002258-BAJDHDAF">Creating Frameworks</a></li>
+<li><a href="http://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html#//apple_ref/doc/uid/20002303-BBCEIJFI">Framework Programming Guide</a></li>
+<li><a href="https://developer.apple.com/library/mac/#documentation/CoreFOundation/Conceptual/CFBundles/AboutBundles/AboutBundles.html">Bundle Programming Guide</a></li>
+<li><a href="http://www.icodeblog.com/2011/04/07/creating-static-libraries-for-ios/">Creating static libraries for iOS</a></li>
+<li><a href="http://spin.atomicobject.com/2011/12/13/building-a-universal-framework-for-ios/">Building a Universal Framework for iOS</a></li>
+</ul>
+
+
+<p>Older, probably totally out of date (but possibly informative):</p>
+
+<ul>
+<li><a href="http://www.clintharris.net/2009/iphone-app-shared-libraries/">Sharing code across iPhone apps</a></li>
+<li><a href="http://www.cocoanetics.com/2010/05/making-your-own-iphone-frameworks-in-xcode/">Making your own iPhone framework</a></li>
+<li><a href="http://accu.org/index.php/articles/1594">Creating a framework for the iPhone</a></li>
+<li><a href="http://blog.stormyprods.com/2008/11/using-static-libraries-with-iphone-sdk.html">Building static libraries for the iPhone</a></li>
+<li><a href="http://the.ornyx.net/post/1222915969/universal-framework">Universal Framework</a></li>
+<li><a href="http://mobileorchard.com/sharing-compiled-code-building-static-libraries-in-xcode-for-the-iphone/">Building Static Libraries in Xcode for the iPhone</a></li>
+<li><a href="http://mobileorchard.com/code-sharing-via-static-libraries-and-cross-project-references/">Code sharing via static libraries and cross-project references</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[abnqe: A better Netflix queue experience]]></title>
+    <link href="http://mrdanadams.com/2012/abnqe/"/>
+    <updated>2012-04-02T11:29:37-04:00</updated>
+    <id>http://mrdanadams.com/2012/abnqe</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/queue-300x164.jpg"></p>
+
+<p><strong>UPDATE:</strong> abnqe is <a href="https://github.com/mrdanadams/abnqe">now on github</a>.</p>
+
+<p>I&#8217;m a long-time Netflix customer. As someone who uses the website to watch movies and shows connected to a <a href="http://en.wikipedia.org/wiki/Home_theater_PC">HTPC</a> it&#8217;s become very clear that the website user experience is not a priority. Specifically, the instant watch queue management and ability to finding something to watch is just horrible. <a href="http://abnqe.com/">abnqe</a> (<a href="http://abnqe.com/">A Better Netflix Queue Experience</a>) is a small project to fix this.</p>
+
+<!-- more -->
+
+
+<h2>The missing experience</h2>
+
+<p>The queue on Netflix, as used by instant queue customers, is an interesting example of an interface providing the basic functionality required in a way that is nearly useless to users. Well, that may be unfair. If you want to manage the order of physical DVDs that will be shipped to you in a specific order, it&#8217;s okay. However, for instant watching and finding something to watch from what is essentially my library of titles, it&#8217;s awful. The order of your shows simply doesn&#8217;t matter with instant as it did with shipping physical disks.</p>
+
+<p>Consider this: I&#8217;m plop down on the couch after a long day, craft beer in hand and to watch something. Not sure what. But something. Fire up the instant queue. What do I get? I text list of all my items in no meaningful order without the ability to filter, sort or otherwise grok the 200+ items present. Ugh.</p>
+
+<p>abnqe, as first released, is the bare minimum set of features I wanted: a nice UI for visually seeing my queue with the ability to instantly search titles. I&#8217;m already so much happier.</p>
+
+<h2>Future direction</h2>
+
+<p>I&#8217;ve got a long list of things I&#8217;d like to do to this thing. We&#8217;ll see what gets done. Here are some of the things I have in mind:</p>
+
+<ul>
+<li>Filtering by type (TV / movies)</li>
+<li>Basic queue management (removing, adding)</li>
+<li>Get more detailed movie info</li>
+<li>Adding movies to lists / tags (dude movies, wife movies, kids shows, documentaries, foreign flicks).</li>
+<li>Filter by genre, rating, recently watched</li>
+<li>Discovering new titles (without suggesting titles I&#8217;ve already seen; something that annoys me endlessly)</li>
+<li>Rotten tomatoes ratings</li>
+<li>See what&#8217;s trending with other users, added recently and expiring</li>
+<li>Social sharing and recommendations from friends</li>
+</ul>
+
+
+<h2>Under the hood</h2>
+
+<p>abnqe is a Rails 3 app hosted on Heroku using OAuth and the Netflix REST API to grab account and movie info. The first version was basically a saturday project.</p>
+
+<h2>Who is this for?</h2>
+
+<p>I made this for me (and my wife and kid). It&#8217;s free to use. Use it if you want. Or don&#8217;t. But if you do, drop me a comment. How are you using it? Have any problems? Any suggestions for improving the experience?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Heroku Postgres: Shared, Dedicated or use Amazon RDS?]]></title>
+    <link href="http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds/"/>
+    <updated>2012-03-28T12:20:44-04:00</updated>
+    <id>http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds</id>
+    <content type="html"><![CDATA[<p><img class="featured right" src="http://mrdanadams.com/images/heroku_rds_postgres.png"></p>
+
+<p>Heroku shared databases can&#8217;t be beat for convenience or cost during development (assuming you are on Heroku already). What about when the app goes live? Here are some thoughts on whether the app should stay on a <a href="https://postgres.heroku.com/">Heroku shared Postgres database</a>, switch to a dedicated database or use something else entirely such as <a href="http://aws.amazon.com/rds/">Amazon RDS</a>.</p>
+
+<!-- more -->
+
+
+<h2>Basic Considerations</h2>
+
+<p>We have a startup Rails app hosted on Heroku getting ready to push for an early alpha release. For such an app, what are the questions you should be asking?</p>
+
+<ul>
+<li>How will you handle traffic spikes?</li>
+<li>What determines growth in the size of the database?</li>
+<li>Is the data read only/read mostly or does it contain quick growth data like page views and social activity?</li>
+<li>How closely do costs need to be controlled?</li>
+<li>How much traffic and data do you need to support?</li>
+<li>How much maintenance will the solution cost and what staff is needed to support it?</li>
+</ul>
+
+
+<p>For this app, the following were important to consider:</p>
+
+<ul>
+<li>Since Heroku runs on EC2 they recommend (not surprisingly) that you grab a database plan where your entire DB can be in RAM. Dedicated plans range from 1.7 GB to 68 GB. Both our databases, being loaded with just testing data for alpha testing, were under 1 MB. That&#8217;s not very helpful for evaluating the size we needed.</li>
+<li>We don&#8217;t store anything growth- or data-heavy in our DB: we don&#8217;t log analytics and all binary data is stored on S3. The data is going to grow with the number user accounts and related records. This is all very small, slow-growth data and even with a large number of new objects shouldn&#8217;t blow out the database size. All the search indexes are stored in <a href="http://websolr.com">WebSolr</a> which will help keep the DB size down.</li>
+<li>While it&#8217;s safer to go to a dedicated plan now, it&#8217;s starts at $200 in the door and we don&#8217;t appear to be anywhere near needing the storage or performance provided.</li>
+</ul>
+
+
+<h2>Heroku Database Migration Options</h2>
+
+<p>There are a few options for migrating databases if and when you want to go from shared to dedicated. Note that you should have a <a href="http://onehub.com/blog/posts/rails-maintenance-pages-done-right/">maintenance page</a> while migrating your database, especially if using a manual migration method. During migration your database won&#8217;t accept any modifications (or if it does they will be lost).</p>
+
+<h3>Backup &amp; Restore</h3>
+
+<p>This is the only option on Heroku for migrating from a shared to dedicated database. See <a href="https://devcenter.heroku.com/articles/pgbackups">PG Backups</a>.</p>
+
+<ul>
+<li>Works across all plans</li>
+<li>Can be slower than other migration methods (especially with large databases) since you need to export and re-import the entire database and transfer it across the network doing so. However, it&#8217;s a pretty simple process and appears to be easy and fairly low risk.</li>
+</ul>
+
+
+<h3>Fast Changeover</h3>
+
+<p>In <a href="https://devcenter.heroku.com/articles/fast-database-changeovers">fast database changeover</a>, you use followers (read-only slaves) or forking (snapshots) and then point the app at the new database. This isn&#8217;t an option for migrating from a shared to dedicated database or moving to or from the Heroku platform in general. However, it&#8217;s a good tool to know about.</p>
+
+<ul>
+<li>Works for large databases better than a manual migration</li>
+<li>Minimizes app downtime</li>
+<li>Migrating shouldn&#8217;t require changes to the <a href="http://websolr.com/">WebSolr</a> index as the IDs should be the same</li>
+</ul>
+
+
+<h2>Use Something Else (like Amazon RDS)</h2>
+
+<p>Rather than staying on <a href="https://postgres.heroku.com/">Heroku Postgres</a>, you could switch to something external such as Amazon RDS (which is clearly MySQL and not Postgres if that&#8217;s an issue for you).</p>
+
+<ul>
+<li>A switch from Postgres to MySQL might be an issue if you have lots of migrations and some use something database-specific</li>
+<li>Heroku offers Postgres as a service (outside hosting apps)</li>
+<li>Includes a nice admin panel and lots of scaling / migration features and support for scaling horizontally (if it should ever come to that)</li>
+<li>We could host a Postgres install on EC2 but we now have to roll all that scalability stuff ourselves (which we could do). We&#8217;d probably consider using RDS rather than any self-run db cluster.</li>
+<li>For us it&#8217;s mostly a matter of price and if the service Heroku provides is worth not doing it ourselves. Given that we don&#8217;t have a dedicated IT team for this project the time spent maintaining the cluster is an important factor.</li>
+</ul>
+
+
+<p>At the point of putting out an alpha we didn&#8217;t even need the 15 MB database which is $15 / month. Again, the DB should grow in proportion to the number of actually accounts, etc none of which should grow quickly (unless we are actually getting a ton of usage). If we started tracking analytics of any kind this would change.</p>
+
+<h2>Getting Heroku Database Size</h2>
+
+<p>You can use <code>heroku pg:info --remote=production</code> to get the database size. For shared databases the output is not very interesting:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>heroku pg:info --remote<span class="o">=</span><span class="nv">production</span>
+</span><span class='line'><span class="o">===</span> SHARED_DATABASE <span class="o">(</span>DATABASE_URL<span class="o">)</span>
+</span><span class='line'>Data Size 648k
+</span><span class='line'><span class="nv">$ </span>heroku pg:info --remote<span class="o">=</span><span class="nv">staging</span>
+</span><span class='line'><span class="o">===</span> SHARED_DATABASE <span class="o">(</span>DATABASE_URL<span class="o">)</span>
+</span><span class='line'>Data Size 688k
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Where We Left It: EC2 for Cost Reduction</h2>
+
+<p>If this app really takes off (like huge) we will likely move to EC2 / RDS to reduce cost. Again, this depends on the numbers (particularly how many staff we need to support an AWS deployment). <a href="http://www.quora.com/How-easy-is-it-to-get-off-Heroku-once-you-grow-out-of-it">This discussion</a> has a good example of an experience comparing Heroku and RDS in the long-term:</p>
+
+<blockquote><p>The only way to achieve any concurrency in Heroku is to turn up dynos and workers. These are 5c/hour each ~ $36/month. The first dyno (but not the worker) is free. Therefore, if you want a concurrency of 4 dynos and 1 worker, you are looking at $144/month. We have found that we can easily achieve 4 times this concurrency on one small EC2 instance. You would want load balancing and failover, so assuming that you are going to use 2 reserved small EC2 on the east coast (Heroku is on the east coast too), that comes to 2 X ($227.50 per year + 3c/hour) ~ $81/month. This can be equivalent of approximately $576/month on Heroku.</p>
+
+<p>Continuing with the $144/month figure for Heroku, shared database in Heroku is free, but the smallest dedicated instance is $200! Compare this with RDS, where an equivalent reserved multi-availability zone instance costs $455 yearly + 9.2c/hour ~ $104/month.</p>
+
+<p>In other words, at a concurrency of 4 dynos and 1 worker with a free shared database, Heroku costs $144 a month, while Amazon with a potential of atleast 4 times that concurrency with failover for the database and the server costs a total of $81 + $104 = $185/month. At the full capacity of the EC2 machines with a dedicated database instance, Heroku will cost approximately $776/month while Amazon will continue to run at under $200.</p>
+
+<p>&#8230;</p>
+
+<p>The operational cost of maintaining the databases on Amazon is near zero, except for the initial setup, which can be super easy too if you have used it in the past. Web server operations can be a little more ongoing work, compared to zero for Heroku. However, once you have load balancing set up, and like in our case, capistrano + git based push system, you can be off and running at almost nil system administration time.</p></blockquote>
+
+<p>What considerations and decisions have you made regarding where your database lives?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Career story, trajectory and context]]></title>
+    <link href="http://mrdanadams.com/2012/career-story-trajectory-context/"/>
+    <updated>2012-03-21T14:13:08-04:00</updated>
+    <id>http://mrdanadams.com/2012/career-story-trajectory-context</id>
+    <content type="html"><![CDATA[<p>An important aspect of good <a href="http://mrdanadams.com/2012/your-career-is-a-business/">career management</a> is understanding your career story. Where you came from, where are you now and where you are going. Knowing this is critical to maximizing your market value and communicating that value to others (such as in interviews).</p>
+
+<!-- more -->
+
+
+<h2>Career Trajectory</h2>
+
+<p><img src="http://mrdanadams.com/images/career_trajectory.png"></p>
+
+<p>Let&#8217;s assume you are considering buying a stock. The current price is $42 / share. Should you buy? I hope at this point you&#8217;re thinking &#8220;I have no idea!&#8221;. Exactly.</p>
+
+<p>If I&#8217;m interviewing software engineers I need to know not just where you are now but where you&#8217;ve been and where you&#8217;re going. Consider the following profiles for potential candidates:</p>
+
+<ul>
+<li>Middle-aged set in his ways who hasn&#8217;t changed in years</li>
+<li>Middle-aged who just changed markets and is slightly behind but clearly has a passion and ability to learn</li>
+<li>Middle-aged who is mature, rock solid and still has a passion for the craft</li>
+<li>Junior with very little experience but incredible work ethic and hunger to grow</li>
+<li>Mid-twenties &#8220;rock star&#8221; who&#8217;s smart with loads of talent but doesn&#8217;t have the hunger or humility to grow quickly</li>
+</ul>
+
+
+<p>This list is by no means comprehensive. The point is to show that someone&#8217;s career trajectory is critical in understanding their real value. Are you a good investment? Or a liability?</p>
+
+<h2>Context is Critical</h2>
+
+<p>A subtlety of history and trajectory is context. Understanding the situations someone has been in and decisions they&#8217;ve made is incredibly informative. Great people can come from all sorts of backgrounds and crush whatever preconceptions you had about where rock stars come from and what really makes one.</p>
+
+<p>For interviewers, the <a href="http://en.wikipedia.org/wiki/5_Whys">5 Why&#8217;s</a> is an excellent way of discovering someone&#8217;s depth. What was a big project you worked on or led? What were your responsibilities? What problems did you encounter and how did you solve them? Which design decisions did you make that you later discovered were wrong? How did you fix performance problems? What do you wish you had done? Dig down and find how they handle tough situations, how they think and their motivations.</p>
+
+<p>Be introspective. Consider your own history. What do you thrive on? What do you hate doing? Where are your opportunities for improvement?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What every software engineer should know: your career is a business]]></title>
+    <link href="http://mrdanadams.com/2012/your-career-is-a-business/"/>
+    <updated>2012-03-21T13:59:47-04:00</updated>
+    <id>http://mrdanadams.com/2012/your-career-is-a-business</id>
+    <content type="html"><![CDATA[<p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment. Here are some tips to set you in the right direction managing your career effectively.</p>
+
+<!-- more -->
+
+
+<h2>Business 101: Supply &amp; Demand</h2>
+
+<p>You have something to offer. There is some demand out here for it. In working, you exchange your time and effort for money and other goodies. The more demand there is the more you get and vice versa.</p>
+
+<p><img src="http://mrdanadams.com/images/supply_demand.png"></p>
+
+<p>The above is a basic <a href="http://en.wikipedia.org/wiki/Supply_and_demand">supply and demand</a> graph. Price tracks the demand line. If supply increases above demand prices drop. When the reverse happens price goes up. Like a good stock portfolio, your value (or price) over time should be increasing:</p>
+
+<p><img src="http://mrdanadams.com/images/career_growth.png" title="Which does your career value look like?" ></p>
+
+<p>So what&#8217;s your value? What do you have to offer? Here are a few examples:</p>
+
+<ul>
+<li><strong>Technical expertise:</strong> You just know it better and deeper. Someone has a question about <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript hoisting</a>? You the man.</li>
+<li><strong>Domain knowledge</strong>: You really get your business and it&#8217;s nuances.</li>
+<li><strong>Dependability:</strong> People know when they give you something it well get done. Really done. If you run into a weird bug you don&#8217;t give up; you pound on it until a solution is found.</li>
+<li><strong>Culture:</strong> You make the environment around you better. People like coming to work a little  more when they work with you.</li>
+<li><strong>Leadership:</strong> You can get people going in the same direction and get things done that require team effort.</li>
+<li><strong>Creativity and insight:</strong> You understand what is really going on and can find novel solutions to the problems at hand.</li>
+<li><strong>Communication:</strong> You work well with designers, project managers, clients, etc and can resolve conflict without freaking out.</li>
+</ul>
+
+
+<p>I&#8217;m sure you could come up with others. The critical point here is that a marketable skill set often extends way beyond the purely technical. Many recent graduates feel scammed by their Computer Science programs in being ill prepared for the &#8220;real world&#8221;.</p>
+
+<h2>Know Your Market(s)</h2>
+
+<p>First things first: what is your market?</p>
+
+<p>Your first market is simply where you work. The world that is your coworkers and clients / customers is a market all its own with a specific slant of supply and demand. What are the unmet needs? How can you increase your demand by improving existing skills or getting new ones? Can you get ahead of the curve by acquiring skills soon to be in demand? In some cases you can even create (artificial) demand by introducing a new technology or service. <a href="http://mrdanadams.com/2012/its-your-company-act-like-an-owner/">Act like an owner</a> and you&#8217;ll discover a number of opportunities to increase your value.</p>
+
+<p>The wider market is harder to define. It could be in a specific technology (Rails or Java), a specific industry (healthcare, finance, retail), a certain kind of company culture (startups) or an odd niche (such a project manager specializing in bailing out projects in trouble: I actually know one of these). Within this market how do you stack up? Who are the leaders? What skills are most in demand?</p>
+
+<p>Identifying and really understanding your markets can take a lot of thought and investigation but is well worth the effort. Once you&#8217;ve done this you can begin to strategically change your position. This means improving your current set of skills or changing your position altogether by picking up a new set.</p>
+
+<h2>Don&#8217;t Be a T-Rex: Awesome and Extinct</h2>
+
+<p>Being a &#8220;dinosaur&#8221; has little to do with age except the longer you work the more opportunity you have to let this happen. Being &#8220;dinosaured&#8221; is the result of being left with skills that have no demand in the market. For instance, focusing your skills on a niche may be a good idea as it could make you more specialized. If that market grows you could be a leader. However, if that market evaporates you may find yourself with something to sell and no buyers. Welcome to dinosaur-hood.</p>
+
+<h2>Talking Turkey</h2>
+
+<p>Talking money is rarely fun for engineers. It just feels dirty. Or selfish. I have one thing to say to this: get over it.</p>
+
+<p>You may love what you do, the people you work with and your company (and that&#8217;s awesome). You may even work for a company that really takes care of you. But don&#8217;t forget for a second this is a business relationship; I assure you the business hasn&#8217;t.</p>
+
+<p>This isn&#8217;t to say you shouldn&#8217;t love where you are (because I do and that&#8217;s always been important to me) or that there are company owners who are good people and try to do right by their people (because I know a few). The business has a bottom line and so should you. They write you a check (and provide benefits, vacation, etc) and get something in return. What that &#8220;something&#8221; is and how much it&#8217;s worth to them is the important bit.</p>
+
+<p>By advocating &#8220;talking turkey&#8221; I don&#8217;t mean negotiation skills (although that&#8217;s important). I&#8217;m emphasizing being more conscious of your bottom line. Your company isn&#8217;t doing you a favor by paying you and you owe them nothing. You have a responsibility to yourself (and others that depend on you) to maximize your value.</p>
+
+<p>Do you think about your career as a business? How do you manage your market value?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[It's your company too, act like an owner]]></title>
+    <link href="http://mrdanadams.com/2012/its-your-company-act-like-an-owner/"/>
+    <updated>2012-03-06T14:58:51-05:00</updated>
+    <id>http://mrdanadams.com/2012/its-your-company-act-like-an-owner</id>
+    <content type="html"><![CDATA[<p>Company ownership is a funny thing. Who really owns the company? Well, it&#8217;s probably the guy with risk in one pocket and a checkbook in the other. So your company isn&#8217;t exactly a co-op. You don&#8217;t have shares or equity. You aren&#8217;t a partner. Let&#8217;s assume you are at the &#8216;bottom&#8217; of the company. I propose there is tremendous value in an ownership mentality: this is my company and I&#8217;m going to work to make it the kind of company I think it should be.</p>
+
+<!-- more -->
+
+
+<p>I am, without question, a small company person. Large companies, bureaucracy, and overly defined roles give me hives. I like open air, accountability, no place to hide. It&#8217;s like a small town: everyone knows what everyone else is up to.</p>
+
+<p>In small companies (think consultancies, start-ups, small agencies) there simply isn&#8217;t room for depending on someone else to pick up the slack. When everyone collectively takes responsibility for what&#8217;s going on quality is higher, things get done, problems fixed.</p>
+
+<p>The company gets a lot out of the individuals acting like owners. Is the reverse true? Yes. Even in a company of great people, there will always be unmet needs. What can you do to add value? How can you make yourself indispensable? Perhaps something can be done better. Perhaps something isn&#8217;t being done at all and should be. Step into the gap and become a leader. Find roles you can play in your team and in your company.</p>
+
+<p>Act like an owner and you will find yourself taking ownership: first of roles, perhaps tools, then teams, departments, and even companies.</p>
+
+<p>If, like me, you want to stay at the tech level and don&#8217;t want to pursue company ownership, the rule is still the same: what can I do to add value that nobody else is doing?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Changing Dropbox location for 1Password storage]]></title>
+    <link href="http://mrdanadams.com/2012/change-dropbox-location-1password/"/>
+    <updated>2012-02-13T06:41:47-05:00</updated>
+    <id>http://mrdanadams.com/2012/change-dropbox-location-1password</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/dropbox_1password.png"></p>
+
+<p>Dropbox is awesome. 1Password is awesome. When their powers combine&#8230; it&#8217;s awesome. Except if you need to change where 1Password stores it&#8217;s file in Dropbox. Here&#8217;s a simple way to change that.</p>
+
+<!-- more -->
+
+
+<p>From the mouth of 1Password support:</p>
+
+<blockquote><p>You have 1Password 3.9 which is from the Mac App Store. Apple requires (or will soon be requiring) all applications on the Mac App Store to conform to various Sandboxing rules. One of those rules is strict limitations on where the data files the application accesses are located.</p>
+
+<p>In this case we allow 1Password to read the file 1Password.agilekeychain inside of ~/Dropbox/1Password/</p>
+
+<p>So it will always prompt you to tell you that it is copying the file to that location and that the other one will remain in the prior location as a backup.</p>
+
+<p>Long story short, you&#8217;ll have to keep your data file at ~/Dropbox/1Password/1Password.agilekeychain</p>
+
+<p>I do apologize for the inconvenience though. Hopefully this helps.</p></blockquote>
+
+<p>Bummer. Here&#8217;s how to change it:</p>
+
+<ol>
+<li>Open 1Password and go to <strong>1Password > Preferences&#8230; > General</strong></li>
+<li>Disable using Dropbox. This will now store the files under /Users/yourname/Dropbox/Personal/&#8230;</li>
+<li>Close 1Password</li>
+<li>Open a terminal and follow the script below</li>
+</ol>
+
+
+<p>Assuming you want to store your files in ~/Dropbox/Personal/1Password instead of ~/Dropbox/1Password (for instance, if you are using <a href="http://mrdanadams.com/multiple-dropbox-accounts-same-machine-sharing/">multiple Dropbox accounts on the same machine</a>) do the following in a Terminal:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>mv ~/Library/Containers/com.agilebits.onepassword-osx-helper/Data/Documents ~/Dropbox/Personal/1Password
+</span><span class='line'><span class="nv">$ </span>ln -s ~/Dropbox/Personal/1Password ~/Library/Containers/com.agilebits.onepassword-osx-helper/Data/Documents
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Starting Emerging Business Tech meetup with first event on native / HTML5-based mobile apps]]></title>
+    <link href="http://mrdanadams.com/2012/emerging-business-tech-meetup-native-html5-mobile/"/>
+    <updated>2012-02-03T06:23:15-05:00</updated>
+    <id>http://mrdanadams.com/2012/emerging-business-tech-meetup-native-html5-mobile</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/logo.png"></p>
+
+<p>I&#8217;m extremely excited to announce a new meetup, <a href="http://www.meetup.com/emerging-business-technology/">Emerging Business Technology</a>, lead by myself and sponsored by Cantina Consulting. We&#8217;ve tried very hard to make this meetup one that provides a lot of value to it&#8217;s members, extremely high quality events and content, and satisfies a need not currently met by other meetups in the Boston area. We&#8217;ve already seen rapid growth and intense interest from a wide range of people working in technology.</p>
+
+<!-- more -->
+
+
+<p>From the meetup description:</p>
+
+<blockquote><p>This meetup provides engineers, practitioners and managers the context needed to evaluate and adopt rapidly evolving business technologies. Leave with an understanding of what the technology is, why it’s used, when to use it, and next steps to take. We’ll review use cases, processes, tools, and practices in a mini-conference format through short presentations, hands-on tutorials, Q&A; and code walkthroughs.</p>
+
+<p>Topics may include Mobile app development, HTML5, responsive design, high-concurrency applications, interaction design, modern languages and frameworks, NoSQL databases, and mobile / tablet application design.</p></blockquote>
+
+<p>The first event, <strong><a href="http://www.meetup.com/emerging-business-technology/events/50411132/">Native and HTML5-based mobile: strategies for mobile app development</a></strong>, has been scheduled and will be an awesome event. We&#8217;ve got 3 or 4 sessions by some awesome speakers planned, both from inside Cantina and from outside vendors. It&#8217;s a free event so check it out if you have any interest in strategies for developing mobile apps.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Beware using active_admin and Sunspot Rails gems together]]></title>
+    <link href="http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together/"/>
+    <updated>2012-02-02T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together</id>
+    <content type="html"><![CDATA[<p>If you are using <a href="http://activeadmin.info/">Active Admin</a> and the <a href="http://sunspot.github.com/">Sunspot</a> gem for Rails, beware: they conflict on the search method leading to some very confusing results.</p>
+
+<!-- more -->
+
+
+<p>Active Admin has a dependency on <a href="https://github.com/ernie/meta_search">meta_search</a> which provides a <code>.search()</code> method on Active Record classes. Sunspot attempts to provide the same method, aliased from <code>solr_search</code>, but only if the method does not already exist.</p>
+
+<p>In short, searching can be done using <code>solr_search()</code> rather than <code>search()</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@search</span> <span class="o">=</span> <span class="no">Profile</span><span class="o">.</span><span class="n">solr_search</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">keywords</span> <span class="n">params</span><span class="o">[</span><span class="ss">:q</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">paginate</span> <span class="n">page</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="n">page_size</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="vi">@results</span> <span class="o">=</span> <span class="vi">@search</span><span class="o">.</span><span class="n">results</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Sunspot, Websolr, and Solr on Heroku]]></title>
+    <link href="http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/"/>
+    <updated>2012-02-01T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/sunspot-websolr-solr-heroku</id>
+    <content type="html"><![CDATA[<p>Having recently deployed a Rails app using Sunspot and Solr on Heroku, here are some tips for getting started, testing, searching, and deploying.</p>
+
+<!--more-->
+
+
+<h2>Getting the right gem</h2>
+
+<p>As noted in <a href="http://blog.derekperez.com/post/552826277/the-proper-websolr-gem-for-heroku" target="_blank">this post</a>, getting the right gem for Websolr is important (yet confusing): the Heroku documentation is not consistent on which gem to use. In short, use the <a href="https://github.com/onemorecloud/websolr-sunspot_rails" target="_blank">websolr-sunspot_rails</a> gem which tracks the version of <a href="http://sunspot.github.com/" target="_blank">Sunspot</a> needed by <a href="http://www.websolr.com/" target="_blank">Websolr</a>.</p>
+
+<p>The following gems are used:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=Gemfile'></script>
+<noscript><pre><code>gem 'sunspot_rails'
+gem 'kaminari'
+gem 'sunspot_with_kaminari'</code></pre></noscript></div>
+
+
+<p>UPDATE (per Nick Zadrozny):</p>
+
+<blockquote><p>the docs at https://devcenter.heroku.com/articles/websolr are correct: You want to use Sunspot directly, not websolr-sunspot_rails. The only thing the devcenter document gets wrong right now is the version. The current version of Sunspot is 1.3.0. I&#8217;ll add that to my todo list ;)</p>
+
+<p>The websolr-sunspot_rails gem was only needed for earlier versions of Sunspot in order to support the WEBSOLR_URL variable, which is supported natively in Sunspot as of its 1.2.0.</p>
+
+<p>So all you need is <code>gem 'sunspot_rails'</code> in your Gemfile and you&#8217;re all set!</p></blockquote>
+
+<h2>Configuration</h2>
+
+<p><em>config/sunspot.yml</em> provides a base config file for development and production only. <code>ENV['SOLR_URL']</code> and <code>ENV['WEBSOLR_URL']</code> override any values in this file.</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=solr.yml'></script>
+<noscript><pre><code># Note: ENV['SOLR_URL'] and ENV['WEBSOLR_URL'] override any values here
+# The defaults are same as what's below  so you only need to override as desired.
+# Removed production since that should never be used in heroku.
+# See Sunspot::Rails::Configuration.solr_url
+
+development:
+  solr:
+    hostname: localhost
+    port: 8982
+    log_level: INFO
+
+test:
+  solr:
+    hostname: localhost
+    port: 8981
+    log_level: WARNING
+</code></pre></noscript></div>
+
+
+<h2>Starting Solr (locally)</h2>
+
+<p>Solr can be started (and stopped) locally with:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=run.sh'></script>
+<noscript><pre><code>bundle exec rake sunspot:solr:start
+bundle exec rake sunspot:solr:stop
+</code></pre></noscript></div>
+
+
+<h2>Testing</h2>
+
+<p>If using rspec the following can get you started:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=rspec_solr.rb'></script>
+<noscript><pre><code>RSpec.configure do |c|
+  c.before :suite do
+    module Sunspot
+      def self.stub_session
+        @sub_session ||= Sunspot::Rails::StubSessionProxy.new self.session
+      end
+    end
+
+  end
+
+  c.before :each do
+    Sunspot.session = Sunspot.stub_session
+    Sunspot.session = Sunspot.session.original_session if example.metadata[:solr]
+
+    Sunspot.remove_all!
+  end
+end
+</code></pre></noscript></div>
+
+
+<p>Your search spec may look like this:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=search_spec.rb'></script>
+<noscript><pre><code>describe 'Search' do
+  def commit
+    Sunspot.commit
+  end
+
+  def search(q)
+    visit &quot;/search?q=#{q}&quot;
+  end
+
+  it 'does something interesting', :solr do
+    Something.create!
+    commit
+    search 'foobar'
+end
+</code></pre></noscript></div>
+
+
+<p>The following allows Cucumber features not to explode:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=cucumber_config.rb'></script>
+<noscript><pre><code># Solr faking.
+# see http://opensoul.org/blog/archives/2010/04/07/cucumber-and-sunspot/
+# Note: we need to do more than this if we start doing search tests in cucumber
+$original_sunspot_session = Sunspot.session
+
+Before(&quot;~@search&quot;) do
+  Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
+end
+</code></pre></noscript></div>
+
+
+<h2>Searching and paginating</h2>
+
+<p>Perform the search in the controller:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=search_controller.rb'></script>
+<noscript><pre><code>class SearchController &lt; ApplicationController
+    def search
+        page_size = 10
+
+        @search = Profile.solr_search do
+            keywords params[:q] do
+                boost_fields name: 10.0, user: 4.0
+            end
+
+            with :include_search, true
+            paginate page: params[:page], per_page: page_size
+        end
+
+        @results = @search.results
+
+        @total = @search.total
+        @paging = @total &gt; page_size
+        @start = (@search.current_page - 1) * page_size + 1
+        @end = [@start + page_size - 1, @total].min
+
+        render (if @results.empty? then :no_results else :results end)
+    end
+
+end
+</code></pre></noscript></div>
+
+
+<p>In the template show results and paging:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=results.html.erb'></script>
+<noscript><pre><code>&lt;h3 class=&quot;summary&quot;&gt;&lt;%= t('.your-search-header'), start: @start, end: @end, total: pluralize(@total, 'result') %&gt;&lt;/h3&gt;
+
+&lt;% @results.each do |p| %&gt;
+&lt;div class=&quot;result&quot;&gt;&lt;!-- ... --&gt;&lt;/div&gt;
+&lt;% end %&gt;
+
+&lt;%= paginate @search, window: 1 %&gt;
+</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sphinx versus Solr and other Heroku search solutions]]></title>
+    <link href="http://mrdanadams.com/2012/sphinx-solr-heroku-search/"/>
+    <updated>2012-02-01T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/sphinx-solr-heroku-search</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/heroku_search.png"></p>
+
+<p>A recent Heroku-hosted Rails application required fulltext search of the content including field boosting. The best options quickly narrowed down to <a href="http://lucene.apache.org/solr/">Solr</a> and <a href="http://sphinxsearch.com/">Sphinx</a>. I&#8217;ll detail some of the reasons Solr won and the differences between the two.</p>
+
+<!-- more -->
+
+
+<h2>Available search solutions</h2>
+
+<h3>Solr</h3>
+
+<p><a href="http://lucene.apache.org/solr/">Solr</a> is quickly becoming the de-facto search solution, even outside the Java / JVM spaces. It&#8217;s fast, scales, is rock solid, and has a great feature set including advanced features like stemming, nearness, fuzzy queries, search suggestion, and spatial search.</p>
+
+<p>Integration with Heroku is provided by <a href="http://addons.heroku.com/websolr">Websolr</a>, one of the first Heroku add-ons. <a href="http://sunspot.github.com/">Sunspot</a> is a great gem and highly recommended.</p>
+
+<h3>Sphinx</h3>
+
+<p><a href="http://sphinxsearch.com/">Sphinx</a>, provided via the <a href="http://addons.heroku.com/flying_sphinx">Flying Sphinx add-on</a>, is also quite popular due to it&#8217;s ability to quickly index and search nearly any SQL database, great search features, and blindingly-fast indexing speeds. As we shall see, it comes with important limitations due to it&#8217;s design.</p>
+
+<h3>IndexTank</h3>
+
+<p><a href="http://indextank.com/documentation/heroku-addon">IndexTank</a> used to be a great option for Heroku search until it got bought by LinkedIn. It&#8217;s now <a href="https://github.com/linkedin/indextank-engine">open source on github</a> but no service currently provides a hosted solution (yet).</p>
+
+<h3>Database search</h3>
+
+<p>Barely worth mentioning, some would say, database search is an option if you need cheap search with minimal features. Projects like <a href="http://code.google.com/p/acts-as-tsearch/">acts-as-tsearch</a> provide integration but don&#8217;t appear to be well-supported.</p>
+
+<h3>Host your own</h3>
+
+<p>You don&#8217;t <strong>have</strong> to host your search on Heroku or use one of their add-ons. For instance, run your own <a href="http://www.elasticsearch.org/">Elastic Search</a> cluster on EC2 and use it from Heroku as you would any other service. A great option if Heroku doesn&#8217;t yet support what you need or provide what you want.</p>
+
+<h2>Solr versus Sphnix</h2>
+
+<p>Wanting to go with something that fit our requirements yet was easy to use, we chose to go with Websolr add-on for Heroku (at least for now). Consider your own requirements but here are my reasons for Solr over Sphinx.</p>
+
+<p>A critical factor is the design of each solution. Solr is a collection of documents in which each document may be updated (replaced) and, upon commit, a new searcher is created for the updated index. It also supports fast reloads of the index not requiring a reload of the entire index. This provides better support for indexes not read-only or read-mostly. Furthermore, Solr is schema-less, supports dynamic fields, and knows nothing about your SQL data model.</p>
+
+<p>Sphinx, conversely, is designed to quickly index and search a SQL database. While this provides significantly faster indexing than Solr (since it can connect directly to your database) it limits you to searching the fields in your data model. Sphinx is also optimized for read-mostly or read-only data meaning less frequent, and more complex, indexing.</p>
+
+<p>Sphinx is new to Heroku to the extent they don&#8217;t (yet) officially support running it against Heroku dedicated databases. It&#8217;s primarily designed to work with Amazon RDS.</p>
+
+<p>Sphinx doesn&#8217;t support partial updates to an index: it&#8217;s all or nothing. You can use a &#8220;delta index&#8221;, containing just the changed documents, and search that and the main index. A cron job merges them every night to keep the delta index from becoming too large. There is more delay on when you see documents in the index, since there is no immediate indexing, and it&#8217;s more moving parts.</p>
+
+<p>It&#8217;s not clear that delta indexes will really work at all across multiple Heroku dynos given how the processes are set up and how it&#8217;s distributed.</p>
+
+<p>See <a href="http://stackoverflow.com/questions/1284083/choosing-a-stand-alone-full-text-search-server-sphinx-or-solr">this question</a> for additional info on the differences between them.</p>
+
+<p>Which search solution have you used or considered?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Boosting search results for Facebook friends with fb_graph, omniauth, Sunspot and Solr]]></title>
+    <link href="http://mrdanadams.com/2012/boosting-facebook-friends-omniauth-sunspot-solr/"/>
+    <updated>2012-01-31T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/boosting-facebook-friends-omniauth-sunspot-solr</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/solr_facebook.png"></p>
+
+<p>Boosting in Solr allows customizing search relevance to offer users the best experience. Here&#8217;s the short and sweet on boosting at search time using the <a href="http://sunspot.github.com/">Sunspot</a> gem so documents associated with other users who are your Facebook friends show up first.</p>
+
+<!-- more -->
+
+
+<h2>Grab the user&#8217;s Facebook friends</h2>
+
+<p>This application allows users to register with their Facebook account using <a href="https://github.com/plataformatec/devise">devise</a> and <a href="https://github.com/intridea/omniauth">omniauth</a>. On login, we&#8217;ll use <a href="https://github.com/nov/fb_graph">fb_graph</a> to get the user&#8217;s Facebook friend ids and store them with the account. We&#8217;ll also store their API key so we can refresh this info later to ensure the list is up to date. See this page for info on <a href="https://github.com/plataformatec/devise/wiki/OmniAuth%3a-Overview">getting started with omniauth and facebook</a>.</p>
+
+<div><script src='https://gist.github.com/2230436.js?file=user.rb'></script>
+<noscript><pre><code># Returns a user associated with a facebook account.
+def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+  data = access_token.extra.raw_info
+  if user = User.where(:email =&gt; data.email).first
+    user
+  else # Create a user with a stub password.
+    user = User.new email: data.email, first_name: data.first_name, last_name: data.last_name, password: Devise.friendly_token[0,20]
+
+    facebook_id = data.id
+    token = access_token.credentials.token
+
+    user.facebook_info = { 'id' =&gt; facebook_id, 'token' =&gt; token }
+
+    # in the future we could save the user and get the friends in a background worker if it's too slow
+    fb_user = FbGraph::User.fetch facebook_id, access_token: token
+    user.facebook_friends = fb_user.friends.map &amp;:identifier
+
+    user.save!
+    user.confirm!
+    user
+  end
+end
+</code></pre></noscript></div>
+
+
+<h2>Indexing Facebook ids for search</h2>
+
+<p>In our Active Record model we index the Facebook id of the user associated with the document to a &#8220;facebook_id&#8221; field:</p>
+
+<div><script src='https://gist.github.com/2230436.js?file=model.rb'></script>
+<noscript><pre><code>searchable do
+  # some normal fields to search
+  text :name, :description
+
+  # index the ids as an array of strings (not text) as we want exact match, no stemming, etc
+  string :facebook_id do
+    user.facebook_id
+  end
+end
+</code></pre></noscript></div>
+
+
+<h2>Searching and boosting by Facebook id</h2>
+
+<p>When searching we&#8217;ll use <a href="https://github.com/sunspot/sunspot">adjust_solr_params</a> and a <a href="http://wiki.apache.org/solr/DisMaxQParserPlugin">boost query with the dismax query parser</a> to boost any documents matching the friend ids of the current user.</p>
+
+<p>Note the use of solr_search() versus search() due to <a href="http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together/">a conflict with active_admin</a>.</p>
+
+<div><script src='https://gist.github.com/2230436.js?file=controller.rb'></script>
+<noscript><pre><code>ids = current_user.facebook_friends if current_user
+@search = Profile.solr_search do
+  keywords params[:q] do
+    boost_fields name: 10.0, user: 4.0
+  end
+
+  unless ids.blank?
+    adjust_solr_params do |params|
+      # See &quot;bq (boost query)&quot; in http://wiki.apache.org/solr/DisMaxQParserPlugin
+      params[:bq] = &quot;facebook_id_s:(#{ids.join(' OR ')})^10&quot;
+    end
+  end
+
+  paginate page: params[:page], per_page: page_size
+end
+
+@results = @search.results
+</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Better pixel to EMs CSS conversion with a Sass mixin]]></title>
+    <link href="http://mrdanadams.com/2012/pixel-ems-css-conversion-sass-mixin/"/>
+    <updated>2012-01-31T09:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/pixel-ems-css-conversion-sass-mixin</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/sass.png"></p>
+
+<p>While working on a project (to be announced) creating <a href="http://mrdanadams.com/2011/fluid-grids-responsive-design-thematic-wordpress/">responsive design</a> templates from PSDs, I wanted to structure the positions and sizings in a way that allowed the greatest flexibility and sanity. Enter <a href="http://www.alistapart.com/articles/howtosizetextincss">EMs</a>. A great technique but requires conversion of pixels to EMs based on the current font size leaving you with cryptic &#8220;0.875em&#8221; and &#8220;1.125em&#8221; expressions throughout your CSS. Not the most maintainable code. A <a href="http://sass-lang.com/">Sass mixin</a> allows expressing measurements in pixels in code while using EMs in the final output.</p>
+
+<p><strong>UPDATE:</strong> I&#8217;ve published the code I use in a bunch of projects as a gist: <a href="https://gist.github.com/2237465">PX to EMs conversion</a></p>
+
+<!-- more -->
+
+
+<h2>Motivation and Usage</h2>
+
+<p>Say you have a base font size of 16 pixels and want something 25 pixels. You could express it this way:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nt">width</span><span class="o">:</span> <span class="nt">1</span><span class="nc">.5625em</span> <span class="c">/* 25 / 16 */</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Perhaps a better version would be the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="k">@include</span><span class="nd"> scale</span><span class="p">(</span><span class="no">width</span><span class="o">:</span> <span class="mi">25</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Which would result in the same output.</p>
+
+<p>In fact, we can create a version allowing us to express any CSS expression where we use pixels to do the conversion:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="cm">/* the simplest version */</span>
+</span><span class='line'><span class="k">@include</span><span class="nd"> scale</span><span class="p">(</span><span class="no">line-height</span><span class="o">,</span> <span class="mi">30</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* overrides the default 16px with a different base font size </span><span class="c">*/</span>
+</span><span class='line'><span class="o">@</span><span class="n">include</span> <span class="nf">scale</span><span class="p">(</span><span class="no">line-height</span><span class="o">,</span> <span class="mi">30</span><span class="o">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* short-hand specifying 2 properties with the same value </span><span class="c">*/</span>
+</span><span class='line'><span class="o">@</span><span class="n">include</span> <span class="nf">scale</span><span class="p">(</span><span class="no">width</span> <span class="no">height</span><span class="o">,</span> <span class="mi">125</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* a property taking multiple values. output: padding: 0em 1.5625em; */</span>
+</span><span class='line'><span class="k">@include</span><span class="nd"> scale</span><span class="p">(</span><span class="no">padding</span><span class="o">,</span> <span class="mi">0</span> <span class="mi">25</span><span class="o">,</span> <span class="mi">16</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="cm">/* A property allowing non-size values (passed through unchanged) accepting multiple properties</span>
+</span><span class='line'><span class="cm">output: text-shadow: #0d6e28 0.0625em 0.0625em, #777 0em 0em 0.125em;</span>
+</span><span class='line'><span class="cm">*/</span>
+</span><span class='line'><span class="k">@include</span><span class="nd"> scale</span><span class="p">(</span><span class="no">text-shadow</span><span class="o">,</span> <span class="p">(</span><span class="mh">#0d6e28</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span> <span class="p">(</span><span class="mh">#777</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">2</span><span class="p">)</span><span class="o">,</span> <span class="mi">16</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>scale Sass mixin (and function)</h2>
+
+<p>The following is the mixin and function I ended up with allowing each of the given usages:</p>
+
+<div><script src='https://gist.github.com/2237465.js?file='></script>
+<noscript><pre><code>/* See http://mrdanadams.com/2012/pixel-ems-css-conversion-sass-mixin/ */
+
+/* Default font size in pixels if not overridden. */
+$baseFontSize: 16;
+
+/* Convert PX units to EMs.
+Ex: margin-right: pem(16);
+*/
+@function pem($pxval, $base: $baseFontSize) {
+  @return #{$pxval / $base}em;
+}
+
+/* Used to convert PX to EMs for multiple properties or values or both.
+$base is an optional measurement that allows making measurements relative to the parent font size rather than the current. Also accepts a list of lists (instead a list of values) for properties that accept multiple lists of values. Only numbers of converted; everything else is passed through.
+
+Examples:
+
+@include scale(line-height, 30)
+@include scale(line-height, 30, 16)
+@include scale(width height, 125);
+@include scale(padding, 0 25, 16);
+@include scale(text-shadow, (#0d6e28 1 1) (#777 0 0 2), 16);
+@include scale(box-shadow, (inset 0 0 0 1 #2a9022) (inset 0 0 3 #459966), 16);
+*/
+@mixin scale($props, $sizes, $base: $baseFontSize) {
+    $values: ();
+    $sublists: false;
+    @each $s in $sizes {
+        /* unwrap lists for values that have multiple list of values such as text-shadow */
+        @if type-of($s) == list {
+            $sublists: true;
+            $vv: ();
+            @each $ss in $s {
+                $vv: append($vv, if(type-of($ss) == number, #{$ss / $base}em, $ss));
+            }
+            $values: append($values, join((), $vv));
+        } @else {
+            $values: append($values, if(type-of($s) == number, #{$s / $base}em, $s));
+        }
+    }
+    $value: join((), $values, if($sublists, comma, space));
+    @each $prop in $props { #{$prop}: $value }
+}</code></pre></noscript></div>
+
+
+<p>Moving this out into a custom extension in Ruby would have made the code cleaner but would have added an external dependency. Having the mixin in the same .scss makes it easier to work with (for now).</p>
+
+<p>The largest improvement I would make to this is it&#8217;s dependence on the base font size. Ideally, whenever you call <code>scale()</code> it could inspect the current font size in the stylesheet and automatically pick the best one rather than assuming 16px or having to specify it.</p>
+
+<h2>A new unit</h2>
+
+<p>Another approach could be to introduce a new Sass unit: pem (px + em = pem). This would allow extending Sass to automatically interpret a measurement in this unit and translate to EMs in the final output based on the current font size:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#foo</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">18</span><span class="n">pem</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">50</span><span class="n">pem</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Assuming a base font size of 16 this would result in:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="nf">#foo</span> <span class="p">{</span> <span class="k">font-size</span><span class="o">:</span> <span class="m">1.125em</span><span class="p">;</span> <span class="m">2.778em</span><span class="p">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What approaches have you taken to deal with the pixel / EM relationship?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Blood Boston: There's blood in the water, startups are circling]]></title>
+    <link href="http://mrdanadams.com/2012/new-blood-boston/"/>
+    <updated>2012-01-11T07:21:59-05:00</updated>
+    <id>http://mrdanadams.com/2012/new-blood-boston</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/newbloodboston.png"></p>
+
+<p>I attended the <a href="http://new-blood-boston.eventbrite.com">New Blood Boston</a> event, hosted by <a href="http://bocoup.com">Bocoup</a>, which featured and introduced a handful of Boston startups. Awesome food (<a href="http://www.grilledcheesenation.net/">grilled cheese</a> and <a href="http://www.prettythingsbeertoday.com">good beer</a>) combined with a crowd of some of the most capable people in the boston tech scene made for a great event.</p>
+
+<!-- more -->
+
+
+<h2>Hopper</h2>
+
+<p>Hopper, recent Montreal imports now located in Central Square, is using big data to bring new options to the already crowded travel industry. Be sure to check out <a href="http://www.facebook.com/hackreduce">HackReduce</a>, their social coding space with a free-to-use 100 node cluster.</p>
+
+<h2>Kinvey</h2>
+
+<p><a href="http://www.kinvey.com/">Kinvey</a>, located in Kendall Square, offers &#8220;Backend as a Service&#8221; (BaaS?) targeted at making &#8220;I need somewhere to put the data for my mobile app and an API to query it&#8221; easy. It was interesting hearing their initial usage of <a href="http://couchdb.apache.org/">CouchDB</a> and subsequently dropping it for <a href="http://www.mongodb.org/">MongoDB</a> based on customer feedback.</p>
+
+<h2>Insight Squared</h2>
+
+<p><a href="http://www.insightsquared.com">Insight Squared</a>, located in Central Square, offers data analytics for small- and medium-sized businesses. <a href="http://www.linkedin.com/in/bryansstevenson">Bryan Stevenson</a> gave a nice talk on overcoming the challenges or highly dynamic querying on big, tabular data.</p>
+
+<h2>Objective Logistics</h2>
+
+<p><a href="http://objectivelogistics.com/">Objective Logistics</a>, located in Kendall Square, attempts to increase labor force yield through stats, competition, and incentives. <a href="https://twitter.com/#!/mattastica">Matthew Grace</a> gave an excellent talk; if I had a labor force I&#8217;d be signing up.</p>
+
+<h2>Lucky Labs</h2>
+
+<p><a href="http://luckylabs.com/">Lucky Labs</a>, located in Kendall Square, uses high concurrency and big data to target the mobile, commodity gaming market.</p>
+
+<h2>ABINE</h2>
+
+<p><a href="http://www.abine.com/">ABINE</a>, who just left Central Square for Fort Point, offers consumers privacy on the internet. That&#8217;s no small technical feat with challenges at all levels of the stack.</p>
+
+<h2>GrabCAD</h2>
+
+<p><a href="http://grabcad.com">GrabCAD</a>, formerly of Estonia and now located in Kendall Square, offers mechanical engineers a place to share models and collaborate.</p>
+
+<h2>PowerInbox</h2>
+
+<p><a href="http://powerinbox.com/">PowerInbox</a> turns boring, static email into interactive, useful applications.</p>
+
+<p>Do you know of any new startups in Boston?</p>
+
+<p>Image created with <a href="http://logolifter.com/">Logo Lifter</a></p>
+
+<p>[Image sources: http://a3.twimg.com/profile_images/1147508475/hopper-logo-twitter_bigger.png, http://urbanairship.com/wp-content/uploads/2011/11/kinvey.gif, http://d16esojukvf550.cloudfront.net/wp-content/themes/yesware/images/content/logos/insightsquared.png, http://www.finsmes.com/wp-content/uploads/2011/11/objective_logistics_logo.jpg, http://www.abine.com/wordpress/wp-content/uploads/2011/02/logo-abine1.png, http://a2.twimg.com/profile_images/878736099/twitter.png, http://a1.twimg.com/profile_images/1588367263/cheshire-smile_normal.png]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails integration tests, RSpec, Capybara, and MySQL deadlocks]]></title>
+    <link href="http://mrdanadams.com/2012/rails-rspec-capybara-mysql-deadlocks/"/>
+    <updated>2012-01-06T09:22:18-05:00</updated>
+    <id>http://mrdanadams.com/2012/rails-rspec-capybara-mysql-deadlocks</id>
+    <content type="html"><![CDATA[<p>In the midst of writing integration tests with <a href="https://github.com/jnicklas/capybara">Capybara</a> and <a href="https://www.relishapp.com/rspec">RSpec</a>, my tests started freezing and eventually giving me the error <code>ActiveRecord::StatementInvalid (Mysql::Error: Lock wait timeout exceeded; try restarting transaction</code>. Turns out this is a problem with RSpecs database cleaning strategy and manually seeding the database during a test run.</p>
+
+<!-- more -->
+
+
+<p>The full error looks like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Started POST "/users/sign_in" for 127.0.0.1 at 2012-01-03 16:53:04 -0500
+</span><span class='line'>  Processing by Devise::SessionsController#create as HTML
+</span><span class='line'>  Parameters: {"utf8"=&gt;"✓", "authenticity_token"=&gt;"MlvjJC4/4pxs+8cMhn4f5pGpb1aK7fULSHAEp649hGo=", "user"=&gt;{"email"=&gt;"user@example.com", "password"=&gt;"[FILTERED]", "remember_me"=&gt;"0"}, "commit"=&gt;"Sign in"}
+</span><span class='line'>  User Load (0.9ms)  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'user@example.com' LIMIT 1
+</span><span class='line'>  SQL (0.2ms)  BEGIN
+</span><span class='line'>   (0.5ms)  SELECT COUNT(*) FROM `roles` INNER JOIN `assignments` ON `roles`.`id` = `assignments`.`role_id` WHERE `assignments`.`user_id` = 112
+</span><span class='line'>   (50630.0ms)  UPDATE `users` SET `last_sign_in_at` = '2012-01-03 21:53:04', `current_sign_in_at` = '2012-01-03 21:53:04', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2012-01-03 21:53:04' WHERE `users`.`id` = 112
+</span><span class='line'>Mysql::Error: Lock wait timeout exceeded; try restarting transaction: UPDATE `users` SET `last_sign_in_at` = '2012-01-03 21:53:04', `current_sign_in_at` = '2012-01-03 21:53:04', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2012-01-03 21:53:04' WHERE `users`.`id` = 112
+</span><span class='line'>   (0.3ms)  ROLLBACK
+</span><span class='line'>Completed 500 Internal Server Error in 50895ms
+</span><span class='line'>
+</span><span class='line'>ActiveRecord::StatementInvalid (Mysql::Error: Lock wait timeout exceeded; try restarting transaction: UPDATE `users` SET `last_sign_in_at` = '2012-01-03 21:53:04', `current_sign_in_at` = '2012-01-03 21:53:04', `last_sign_in_ip` = '127.0.0.1', `current_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2012-01-03 21:53:04' WHERE `users`.`id` = 112):
+</span><span class='line'>  app/controllers/application_controller.rb:21:in `set_current_user'</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>The root cause: dangling transactions</h2>
+
+<p>On sign in, <a href="https://github.com/plataformatec/devise">devise</a> updates the users account with the last time they logged in. However, there is already a transaction started, and stalled, so it eventually times out.</p>
+
+<p>The general testing pattern used looks like this:</p>
+
+<ol>
+<li>Clean the database</li>
+<li>Put in initial data (if any)</li>
+<li>Do something in the app using Capybara. App alters the database.</li>
+<li>Verify the result from the test</li>
+<li>Alter the data in the test and repeat as necessary</li>
+</ol>
+
+
+<p>One of the reasons this method is useful is the data is left in the database after the test run which is great for faster debugging and development.</p>
+
+<h2>The solution</h2>
+
+<p>As noted in <a href="http://atevans.com/rspec-db-cleaning-causing-mysqlerror-savepoin">this blog post</a>, the issue is with RSpec&#8217;s use of transactions during testing. Before step 1, RSpec starts a database transaction which is open when we get to step 3. At this point the application blocks due to the transaction and bad things happen. Like the aforementioned post states, the answer is as simple as changing the configuration in <em>spec_helper.rb</em> to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">false</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the same file, I used the <a href="https://github.com/bmabey/database_cleaner">database_cleaner</a> gem to nicely clear the database before test:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">before</span> <span class="ss">:suite</span><span class="p">,</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:truncation</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">before</span> <span class="ss">:each</span><span class="p">,</span> <span class="k">do</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">clean</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <a href="https://github.com/thoughtbot/factory_girl">factory_girl</a> gem is used to create the test data during tests:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="vi">@user</span> <span class="o">=</span> <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span> <span class="ss">:user</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">visit</span> <span class="s1">&#39;/users/sign_in&#39;</span>
+</span><span class='line'>  <span class="n">fill_in</span> <span class="s1">&#39;user_email&#39;</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span>
+</span><span class='line'>  <span class="n">fill_in</span> <span class="s1">&#39;user_password&#39;</span><span class="p">,</span> <span class="n">with</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password</span>
+</span><span class='line'>  <span class="n">click_button</span> <span class="s2">&quot;Sign in&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Debugging and cleaning up MySQL deadlocks</h2>
+
+<p>In the process of figuring this out, I found some new tricks in debugging MySQL transactions. Use <a href="http://dev.mysql.com/doc/refman/5.0/en/innodb-monitors.html">SHOW ENGINE&#8230;</a> to find out what&#8217;s going on inside the database with the locks:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">show</span> <span class="n">engine</span> <span class="n">innodb</span> <span class="n">status</span><span class="p">;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When queries are not being run the output may look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="err">…</span><span class="p">.</span>
+</span><span class='line'><span class="c1">------------</span>
+</span><span class='line'><span class="n">TRANSACTIONS</span>
+</span><span class='line'><span class="c1">------------</span>
+</span><span class='line'><span class="n">Trx</span> <span class="n">id</span> <span class="n">counter</span> <span class="mi">16</span><span class="n">B0B</span>
+</span><span class='line'><span class="n">Purge</span> <span class="n">done</span> <span class="k">for</span> <span class="n">trx</span><span class="err">&#39;</span><span class="n">s</span> <span class="n">n</span><span class="p">:</span><span class="n">o</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="n">B04</span> <span class="n">undo</span> <span class="n">n</span><span class="p">:</span><span class="n">o</span> <span class="o">&lt;</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">History</span> <span class="n">list</span> <span class="k">length</span> <span class="mi">2530</span>
+</span><span class='line'><span class="n">LIST</span> <span class="k">OF</span> <span class="n">TRANSACTIONS</span> <span class="k">FOR</span> <span class="k">EACH</span> <span class="k">SESSION</span><span class="p">:</span>
+</span><span class='line'><span class="c1">---TRANSACTION 0, not started</span>
+</span><span class='line'><span class="n">MySQL</span> <span class="n">thread</span> <span class="n">id</span> <span class="mi">2</span><span class="p">,</span> <span class="n">query</span> <span class="n">id</span> <span class="mi">311</span> <span class="n">localhost</span> <span class="n">root</span>
+</span><span class='line'><span class="k">show</span> <span class="n">engine</span> <span class="n">innodb</span> <span class="n">status</span>
+</span><span class='line'><span class="c1">---TRANSACTION 16B06, not started</span>
+</span><span class='line'><span class="n">MySQL</span> <span class="n">thread</span> <span class="n">id</span> <span class="mi">7</span><span class="p">,</span> <span class="n">query</span> <span class="n">id</span> <span class="mi">250</span> <span class="n">localhost</span> <span class="n">root</span>
+</span><span class='line'><span class="c1">---TRANSACTION 16B0A, not started</span>
+</span><span class='line'><span class="n">MySQL</span> <span class="n">thread</span> <span class="n">id</span> <span class="mi">1</span><span class="p">,</span> <span class="n">query</span> <span class="n">id</span> <span class="mi">294</span> <span class="n">localhost</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span> <span class="n">root</span>
+</span><span class='line'><span class="c1">---TRANSACTION 16B04, ACTIVE 62863 sec</span>
+</span><span class='line'><span class="mi">11</span> <span class="k">lock</span> <span class="n">struct</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">heap</span> <span class="k">size</span> <span class="mi">1248</span><span class="p">,</span> <span class="mi">12</span> <span class="k">row</span> <span class="k">lock</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">undo</span> <span class="n">log</span> <span class="n">entries</span> <span class="mi">10</span>
+</span><span class='line'><span class="n">MySQL</span> <span class="n">thread</span> <span class="n">id</span> <span class="mi">6</span><span class="p">,</span> <span class="n">query</span> <span class="n">id</span> <span class="mi">249</span> <span class="n">localhost</span> <span class="n">root</span>
+</span><span class='line'><span class="n">Trx</span> <span class="k">read</span> <span class="k">view</span> <span class="n">will</span> <span class="k">not</span> <span class="n">see</span> <span class="n">trx</span> <span class="k">with</span> <span class="n">id</span> <span class="o">&gt;=</span> <span class="mi">16</span><span class="n">B05</span><span class="p">,</span> <span class="n">sees</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="n">B05</span>
+</span><span class='line'><span class="err">…</span><span class="p">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">--------------</span>
+</span><span class='line'><span class="k">ROW</span> <span class="n">OPERATIONS</span>
+</span><span class='line'><span class="c1">--------------</span>
+</span><span class='line'><span class="mi">0</span> <span class="n">queries</span> <span class="n">inside</span> <span class="n">InnoDB</span><span class="p">,</span> <span class="mi">0</span> <span class="n">queries</span> <span class="k">in</span> <span class="n">queue</span>
+</span><span class='line'><span class="mi">2</span> <span class="k">read</span> <span class="n">views</span> <span class="k">open</span> <span class="n">inside</span> <span class="n">InnoDB</span>
+</span><span class='line'><span class="n">Main</span> <span class="n">thread</span> <span class="n">id</span> <span class="mi">4488679424</span><span class="p">,</span> <span class="k">state</span><span class="p">:</span> <span class="n">waiting</span> <span class="k">for</span> <span class="n">server</span> <span class="n">activity</span>
+</span><span class='line'><span class="nb">Number</span> <span class="k">of</span> <span class="k">rows</span> <span class="n">inserted</span> <span class="mi">14</span><span class="p">,</span> <span class="n">updated</span> <span class="mi">0</span><span class="p">,</span> <span class="n">deleted</span> <span class="mi">6</span><span class="p">,</span> <span class="k">read</span> <span class="mi">310</span>
+</span><span class='line'><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">inserts</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">updates</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">deletes</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="k">reads</span><span class="o">/</span><span class="n">s</span>
+</span><span class='line'><span class="err">…</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>See the <code>TRANSACTION 16B04, ACTIVE 62863 sec</code>? This transaction has stalled and been alive for a long time. While the querying is running, and waiting, it looks like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="err">…</span><span class="p">.</span>
+</span><span class='line'><span class="c1">------------</span>
+</span><span class='line'><span class="n">TRANSACTIONS</span>
+</span><span class='line'><span class="c1">------------</span>
+</span><span class='line'><span class="n">Trx</span> <span class="n">id</span> <span class="n">counter</span> <span class="mi">16</span><span class="n">B0D</span>
+</span><span class='line'><span class="n">Purge</span> <span class="n">done</span> <span class="k">for</span> <span class="n">trx</span><span class="s1">&#39;s n:o &lt; 16B04 undo n:o &lt; 0</span>
+</span><span class='line'><span class="s1">History list length 2530</span>
+</span><span class='line'><span class="s1">LIST OF TRANSACTIONS FOR EACH SESSION:</span>
+</span><span class='line'><span class="s1">---TRANSACTION 0, not started</span>
+</span><span class='line'><span class="s1">MySQL thread id 2, query id 339 localhost root</span>
+</span><span class='line'><span class="s1">show engine innodb status</span>
+</span><span class='line'><span class="s1">---TRANSACTION 16B06, not started</span>
+</span><span class='line'><span class="s1">MySQL thread id 7, query id 250 localhost root</span>
+</span><span class='line'><span class="s1">---TRANSACTION 16B0C, ACTIVE 11 sec starting index read</span>
+</span><span class='line'><span class="s1">mysql tables in use 1, locked 1</span>
+</span><span class='line'><span class="s1">LOCK WAIT 2 lock struct(s), heap size 376, 1 row lock(s)</span>
+</span><span class='line'><span class="s1">MySQL thread id 1, query id 333 localhost 127.0.0.1 root Updating</span>
+</span><span class='line'><span class="s1">UPDATE `users` SET `last_sign_in_at` = &#39;</span><span class="mi">2012</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">42</span><span class="s1">&#39;, `current_sign_in_at` = &#39;</span><span class="mi">2012</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">42</span><span class="s1">&#39;, `last_sign_in_ip` = &#39;</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="s1">&#39;, `current_sign_in_ip` = &#39;</span><span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="s1">&#39;, `sign_in_count` = 1, `updated_at` = &#39;</span><span class="mi">2012</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">04</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">42</span><span class="err">&#39;</span> <span class="k">WHERE</span> <span class="o">`</span><span class="n">users</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="o">=</span> <span class="mi">112</span>
+</span><span class='line'><span class="n">Trx</span> <span class="k">read</span> <span class="k">view</span> <span class="n">will</span> <span class="k">not</span> <span class="n">see</span> <span class="n">trx</span> <span class="k">with</span> <span class="n">id</span> <span class="o">&gt;=</span> <span class="mi">16</span><span class="n">B0D</span><span class="p">,</span> <span class="n">sees</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="n">B04</span>
+</span><span class='line'><span class="c1">------- TRX HAS BEEN WAITING 11 SEC FOR THIS LOCK TO BE GRANTED:</span>
+</span><span class='line'><span class="n">RECORD</span> <span class="n">LOCKS</span> <span class="k">space</span> <span class="n">id</span> <span class="mi">0</span> <span class="n">page</span> <span class="k">no</span> <span class="mi">462</span> <span class="n">n</span> <span class="n">bits</span> <span class="mi">168</span> <span class="k">index</span> <span class="o">`</span><span class="k">PRIMARY</span><span class="o">`</span> <span class="k">of</span> <span class="k">table</span> <span class="o">`</span><span class="n">myapp</span><span class="o">`</span><span class="p">.</span><span class="o">`</span><span class="n">users</span><span class="o">`</span> <span class="n">trx</span> <span class="n">id</span> <span class="mi">16</span><span class="n">B0C</span> <span class="n">lock_mode</span> <span class="n">X</span> <span class="n">locks</span> <span class="n">rec</span> <span class="n">but</span> <span class="k">not</span> <span class="n">gap</span> <span class="n">waiting</span>
+</span><span class='line'><span class="n">Record</span> <span class="k">lock</span><span class="p">,</span> <span class="n">heap</span> <span class="k">no</span> <span class="mi">98</span> <span class="n">PHYSICAL</span> <span class="n">RECORD</span><span class="p">:</span> <span class="n">n_fields</span> <span class="mi">18</span><span class="p">;</span> <span class="n">compact</span> <span class="n">format</span><span class="p">;</span> <span class="n">info</span> <span class="n">bits</span> <span class="mi">32</span>
+</span><span class='line'> <span class="mi">0</span><span class="p">:</span> <span class="n">len</span> <span class="mi">4</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">80000070</span><span class="p">;</span> <span class="k">asc</span>    <span class="n">p</span><span class="p">;;</span>
+</span><span class='line'> <span class="mi">1</span><span class="p">:</span> <span class="n">len</span> <span class="mi">6</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">000000016</span><span class="n">b04</span><span class="p">;</span> <span class="k">asc</span>     <span class="n">k</span> <span class="p">;;</span>
+</span><span class='line'> <span class="mi">2</span><span class="p">:</span> <span class="n">len</span> <span class="mi">7</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">04000002291</span><span class="n">e44</span><span class="p">;</span> <span class="k">asc</span>     <span class="p">)</span> <span class="n">D</span><span class="p">;;</span>
+</span><span class='line'> <span class="mi">3</span><span class="p">:</span> <span class="n">len</span> <span class="mi">16</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">75736572406578616</span><span class="n">d706c652e636f6d</span><span class="p">;</span> <span class="k">asc</span> <span class="k">user</span><span class="o">@</span><span class="n">example</span><span class="p">.</span><span class="n">com</span><span class="p">;;</span>
+</span><span class='line'> <span class="mi">4</span><span class="p">:</span> <span class="n">len</span> <span class="mi">30</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">243261243034247036376</span><span class="n">c426b7032726e6148384471747635744b654f75</span><span class="p">;</span> <span class="k">asc</span> <span class="err">$</span><span class="mi">2</span><span class="n">a</span><span class="err">$</span><span class="mi">04</span><span class="err">$</span><span class="n">p67lBkp2rnaH8Dqtv5tKeOu</span><span class="p">;</span> <span class="p">(</span><span class="n">total</span> <span class="mi">60</span> <span class="n">bytes</span><span class="p">);</span>
+</span><span class='line'> <span class="mi">5</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">6</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">7</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">8</span><span class="p">:</span> <span class="n">len</span> <span class="mi">4</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">80000000</span><span class="p">;</span> <span class="k">asc</span>     <span class="p">;;</span>
+</span><span class='line'> <span class="mi">9</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">10</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">11</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">12</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">13</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">14</span><span class="p">:</span> <span class="n">len</span> <span class="mi">8</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">8000124</span><span class="n">c939ad602</span><span class="p">;</span> <span class="k">asc</span>    <span class="n">L</span>    <span class="p">;;</span>
+</span><span class='line'> <span class="mi">15</span><span class="p">:</span> <span class="k">SQL</span> <span class="k">NULL</span><span class="p">;</span>
+</span><span class='line'> <span class="mi">16</span><span class="p">:</span> <span class="n">len</span> <span class="mi">8</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">8000124</span><span class="n">c939ad602</span><span class="p">;</span> <span class="k">asc</span>    <span class="n">L</span>    <span class="p">;;</span>
+</span><span class='line'> <span class="mi">17</span><span class="p">:</span> <span class="n">len</span> <span class="mi">8</span><span class="p">;</span> <span class="n">hex</span> <span class="mi">8000124</span><span class="n">c939ad602</span><span class="p">;</span> <span class="k">asc</span>    <span class="n">L</span>    <span class="p">;;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">------------------</span>
+</span><span class='line'><span class="c1">---TRANSACTION 16B04, ACTIVE 63275 sec</span>
+</span><span class='line'><span class="mi">11</span> <span class="k">lock</span> <span class="n">struct</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">heap</span> <span class="k">size</span> <span class="mi">1248</span><span class="p">,</span> <span class="mi">12</span> <span class="k">row</span> <span class="k">lock</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="n">undo</span> <span class="n">log</span> <span class="n">entries</span> <span class="mi">10</span>
+</span><span class='line'><span class="n">MySQL</span> <span class="n">thread</span> <span class="n">id</span> <span class="mi">6</span><span class="p">,</span> <span class="n">query</span> <span class="n">id</span> <span class="mi">249</span> <span class="n">localhost</span> <span class="n">root</span>
+</span><span class='line'><span class="n">Trx</span> <span class="k">read</span> <span class="k">view</span> <span class="n">will</span> <span class="k">not</span> <span class="n">see</span> <span class="n">trx</span> <span class="k">with</span> <span class="n">id</span> <span class="o">&gt;=</span> <span class="mi">16</span><span class="n">B05</span><span class="p">,</span> <span class="n">sees</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="n">B05</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">…</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Notice the &#8220;Trx read view will not see trx with id >= 16B0D, sees &lt; 16B04&#8221; which gives the transaction (16B04) we are waiting on.</p>
+
+<p>To remedy the situation you can see the active processes in the engine with <a href="http://dev.mysql.com/doc/refman/5.1/en/show-processlist.html">SHOW PROCESSLIST</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="n">processlist</span><span class="p">;</span>
+</span><span class='line'><span class="o">+</span><span class="c1">----+------+-----------------+---------------+---------+-------+-------+------------------+</span>
+</span><span class='line'><span class="o">|</span> <span class="n">Id</span> <span class="o">|</span> <span class="k">User</span> <span class="o">|</span> <span class="k">Host</span>            <span class="o">|</span> <span class="n">db</span>            <span class="o">|</span> <span class="n">Command</span> <span class="o">|</span> <span class="n">Time</span>  <span class="o">|</span> <span class="k">State</span> <span class="o">|</span> <span class="n">Info</span>             <span class="o">|</span>
+</span><span class='line'><span class="o">+</span><span class="c1">----+------+-----------------+---------------+---------+-------+-------+------------------+</span>
+</span><span class='line'><span class="o">|</span>  <span class="mi">1</span> <span class="o">|</span> <span class="n">root</span> <span class="o">|</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">49172</span> <span class="o">|</span> <span class="n">myapp</span>         <span class="o">|</span> <span class="n">Sleep</span>   <span class="o">|</span>   <span class="mi">441</span> <span class="o">|</span>       <span class="o">|</span> <span class="k">NULL</span>             <span class="o">|</span>
+</span><span class='line'><span class="o">|</span>  <span class="mi">2</span> <span class="o">|</span> <span class="n">root</span> <span class="o">|</span> <span class="n">localhost</span>       <span class="o">|</span> <span class="n">myapp</span>         <span class="o">|</span> <span class="n">Query</span>   <span class="o">|</span>     <span class="mi">0</span> <span class="o">|</span> <span class="k">NULL</span>  <span class="o">|</span> <span class="k">show</span> <span class="n">processlist</span> <span class="o">|</span>
+</span><span class='line'><span class="o">|</span>  <span class="mi">5</span> <span class="o">|</span> <span class="n">root</span> <span class="o">|</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">49675</span> <span class="o">|</span> <span class="n">myapp</span>         <span class="o">|</span> <span class="n">Sleep</span>   <span class="o">|</span> <span class="mi">63876</span> <span class="o">|</span>       <span class="o">|</span> <span class="k">NULL</span>             <span class="o">|</span>
+</span><span class='line'><span class="o">|</span>  <span class="mi">6</span> <span class="o">|</span> <span class="n">root</span> <span class="o">|</span> <span class="n">localhost</span>       <span class="o">|</span> <span class="n">myapp</span>         <span class="o">|</span> <span class="n">Sleep</span>   <span class="o">|</span> <span class="mi">63703</span> <span class="o">|</span>       <span class="o">|</span> <span class="k">NULL</span>             <span class="o">|</span>
+</span><span class='line'><span class="o">|</span>  <span class="mi">7</span> <span class="o">|</span> <span class="n">root</span> <span class="o">|</span> <span class="n">localhost</span>       <span class="o">|</span> <span class="n">myapp</span>         <span class="o">|</span> <span class="n">Sleep</span>   <span class="o">|</span> <span class="mi">63703</span> <span class="o">|</span>       <span class="o">|</span> <span class="k">NULL</span>             <span class="o">|</span>
+</span><span class='line'><span class="o">+</span><span class="c1">----+------+-----------------+---------------+---------+-------+-------+------------------+</span>
+</span><span class='line'><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://dev.mysql.com/doc/refman/5.0/en/kill.html">KILL</a> can then be used to stop any stalled transactions.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">kill</span> <span class="mi">6</span><span class="p">;</span>
+</span><span class='line'><span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://code.google.com/p/innotop/">innotop</a> also appeared useful but I didn&#8217;t end up needing it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Managing multiple Node.js / NPM versions and installs]]></title>
+    <link href="http://mrdanadams.com/2012/managing-multiple-node-js-npm-versions-installs/"/>
+    <updated>2012-01-04T05:00:50-05:00</updated>
+    <id>http://mrdanadams.com/2012/managing-multiple-node-js-npm-versions-installs</id>
+    <content type="html"><![CDATA[<p>If you are using <a href="http://nodejs.org/">Node.js</a>, particularly on <a href="http://www.heroku.com/">Heroku</a> which mandates a specific version, and need to work across multiple versions doing this manually can be frustrating (and insane). &#8220;No such module&#8221; problems like <a href="https://github.com/isaacs/npm/issues/1711">this</a> and <a href="https://github.com/isaacs/npm/issues/1711">this</a> have naturally led to some nice tools for managing <a href="http://npmjs.org/">NPM</a> and Node.js versions.</p>
+
+<!-- more -->
+
+
+<h2>n</h2>
+
+<p>I have found <a href="https://github.com/visionmedia/n">n</a>, like it&#8217;s name, to be simple and useful and haven&#8217;t yet had any issues with it.</p>
+
+<h2>Nave</h2>
+
+<p><a href="https://github.com/isaacs/nave">Nave</a> borrows from <a href="https://github.com/creationix/nvm">NVM</a> and sea.</p>
+
+<h2>NVM</h2>
+
+<p><a href="https://github.com/creationix/nvm">NVM</a>, presumably inspired by <a href="http://beginrescueend.com/">RVM</a>, has a number of dependencies, more complicated installation, and appears to have been superseded by more recent tools like n and nave.</p>
+
+<p>What is your tool of choice? Do you use one or just do it manually?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Node.js PaaS hosting services]]></title>
+    <link href="http://mrdanadams.com/2012/node-js-paas-hosting-services/"/>
+    <updated>2012-01-03T09:22:55-05:00</updated>
+    <id>http://mrdanadams.com/2012/node-js-paas-hosting-services</id>
+    <content type="html"><![CDATA[<p>Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | &#8220;title text&#8221; [&#8220;alt text&#8221;]] %}</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a> (Platform as a Service) with support for specific stacks is the latest wave of cloud-based hosting services. Awesome providers such as <a href="http://www.heroku.com/">Heroku</a> show you why; simple (and often free) deployment and scaling of common stacks like <a href="http://rubyonrails.org/">Rails</a>. Here are the best known <a href="http://nodejs.org/">Node.js</a> PaaS offerings.</p>
+
+<!-- more -->
+
+
+<h2>Heroku</h2>
+
+<p><a href="http://devcenter.heroku.com/articles/node-js">Heroku now offers Node.js support</a> which, as a huge Heroku fan, I&#8217;m glad to see. See <a href="http://blog.heroku.com/archives/2010/4/28/node_js_support_experimental/">here</a> for the announcement and additional details. So far Heroku is my chosen Node.js host as I&#8217;m sure it is for many. Compared to the rest it appears to have the best support and be keeping up with the competition. For me, the pricing at Heroku and ease of use makes it a no-brainer for small projects or even just playing with Node.js.</p>
+
+<p>Heroku mandates Node.js v0.4.7 and WebSockets are not yet supported. Dependency management requires <a href="http://npmjs.org/">NPM</a> and <a href="https://github.com/ddollar/foreman">foreman</a> (with a Procfile) is used to <a href="http://blog.heroku.com/archives/2011/6/20/the_new_heroku_1_process_model_procfile/">create web and worker processes</a>. See this page for details on <a href="http://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku">Heroku socket.io support</a>.</p>
+
+<h2>DuoStack / dotCloud</h2>
+
+<p><a href="https://www.dotcloud.com/">dotCloud</a> (which acquired <a href="http://blog.duostack.com/">Duostack</a>) now offers <a href="http://docs.dotcloud.com/services/nodejs/">Node.js support</a>. Like Heroku, you can get started for free and must use NPM for package management. The application structure is dotCloud-specific and uses <a href="http://docs.dotcloud.com/guides/build-file/">YAML build files</a>. WebSockets are not supported though socket.io provides fall-back to other methods. Documentation doesn&#8217;t say if a specific Node.js version is required or what versions are supported.</p>
+
+<h2>nodeSocket</h2>
+
+<p><a href="http://www.nodesocket.com/">nodeSocket</a> is currently in private beta. While the site doesn&#8217;t offer much detail the <a href="http://blog.nodesocket.com/">nodeSocket blog</a> has a peak under the covers.</p>
+
+<p>A feature of note is getting root access to your VPS. While this sounds like a good thing it blurs the line between VPS hosting and a PaaS. Not needing to know host details is one of the reasons for a PaaS and why working with Heroku is so great. I&#8217;d love to hear the compelling reason to use nodeSocket over a standard AMI on EC2 or Nodester.</p>
+
+<h2>bejes.us / Nodester</h2>
+
+<p><a href="http://bejes.us/">bejes.us</a> is a hosted version of <a href="http://www.nodester.com/">nodester</a>, an open source (via <a href="https://github.com/nodester/nodester">github</a>) Node.js PaaS with a REST API, CLI, and git integration. If you want to run your own Heroku, this could be a good option.</p>
+
+<h2>Cloudnode</h2>
+
+<p><a href="http://cloudno.de/">Cloudnode</a>, current in private beta, appears to be very Heroku-esque although not much in known. The <a href="https://github.com/dvbportal/cloudnode-cli">Cloudnode CLI</a> offers some insight.</p>
+
+<h2>nodejitsu</h2>
+
+<p><a href="http://nodejitsu.com/">nodejitsu</a>, in private beta, also appears to be a Heroku competitor. However, many of the core projects are <a href="https://github.com/nodejitsu/">open source on github</a> and appear to be useful outside nodejitsu.</p>
+
+<h2>Update: no.de by Joyent</h2>
+
+<p><a href="https://no.de/">no.de by Joyent</a> provides &#8220;SmartMachines&#8221; similar to other services using NPM for dependency management and git for deployment. See the <a href="http://wiki.joyent.com/display/node/Getting+Started+with+a+Node.js+SmartMachine">Joyent wiki</a> and the <a href="http://wiki.joyent.com/display/node/Node.js+SmartMachine+FAQ">FAQ</a> for a quick sense of what&#8217;s involved. Node.js v0.4.11 is supported by default but the <a href="http://wiki.joyent.com/display/node/Setting+the+Node.js+Version">version can be changed</a>. Based on the info on <a href="http://wiki.joyent.com/display/node/Installing+Node.js+on+a+Joyent+SmartOS+SmartMachine">getting a production deployment</a>, it&#8217;s unclear what the scaling plan is as your have root access and install it yourself on a Solaris box.</p>
+
+<h2>Update: Cloud Foundry</h2>
+
+<p><a href="http://www.cloudfoundry.com/">Cloud Foundry</a>, a general purpose cloud hosting platform, <a href="http://support.cloudfoundry.com/entries/505133-deploying-a-node-js-app-with-npm-dependencies">does support Node.js</a> and <a href="http://joyeur.com/2011/11/08/joyent-is-community-lead-for-node-js-on-cloud-foundry/">Joyent is the community leader for it</a>. <a href="http://www.mihswat.com/2011/05/04/getting-started-with-cloud-foundry-using-a-node-js-and-mongodb-application/">This post</a> has a nice tutorial on getting started.</p>
+
+<p>Know of any not listed here? How do you host your Node.js apps?</p>
+
+<p>[Image sources: http://www.helicontech.com/zoo/media/icons/nodejs-100x100.png, http://a0.twimg.com/profile_images/473641368/logo-twitter.png, http://djangocon.us/site_media/media/sponsor_logos/dotcloud_png_180x140_q85.PNG, https://s3.amazonaws.com/photos.angel.co/startups/i/20387-0f44d2f264e195591716f9f82f30f5b3-thumb.png, http://a3.twimg.com/profile_images/1543095199/ndoesterrocket.png, https://secure.gravatar.com/avatar/fff4946e54f73818117b075009c985cc?s=140&d;=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png, http://nodesummit.com/wp-content/uploads/nodejitsu-small-e1324592710612.png]</p>
+
+<p>Image created with <a href="http://logolifter.com/">Logo Lifter</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Excluding active_admin JS and CSS from your Rails app]]></title>
+    <link href="http://mrdanadams.com/2011/exclude-active-admin-js-css-rails/"/>
+    <updated>2011-12-23T05:34:47-05:00</updated>
+    <id>http://mrdanadams.com/2011/exclude-active-admin-js-css-rails</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/gregbell/active_admin" target="_blank">active_admin</a> is a cool gem for quickly creating an admin interface over your Active Record models. By default, it puts it&#8217;s JS and CSS files into your app/assets folder which then get included in your application. Not what you want.</p>
+
+<!--more-->
+
+
+<h2>Excluding active_admin.js and active_admin.css.scss</h2>
+
+<p>Create the folders <code>app/assets/javascripts/admin</code> and <code>app/assets/stylesheets/admin</code> and move the files <code>active_admin.js</code> and <code>active_admin.css.scss</code> into these folders, respectively.</p>
+
+<p>In your <code>app/assets/stylesheets/application.css.scss</code> you will find the following near the top:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> *= require_self
+</span><span class='line'> *= require_true .</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Change this to:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> *= require_self
+</span><span class='line'> *= require_directory .</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Do the same for <code>application.js</code>.</p>
+
+<p>This changes what&#8217;s included in application.css from anything under the stylesheets folder (and it&#8217;s subfolders) and the contents of the application.css.scss file to only files directly under the stylesheets folder and the contents of the application.css.scss file. You should notice the active_admin files no longer being included. However, they are also no longer in active admin either.</p>
+
+<h2>Re-including the files in active admin</h2>
+
+<p>The culprit is active_admin&#8217;s asset_registration.rb and application.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">register_default_assets</span>
+</span><span class='line'>  <span class="n">register_stylesheet</span> <span class="s1">&#39;active_admin.css&#39;</span>
+</span><span class='line'>  <span class="n">register_javascript</span> <span class="s1">&#39;active_admin.js&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To clear these and replace them with the new files, add the following to the bottom of config/initializers/active_admin.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">clear_stylesheets!</span>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">register_stylesheet</span> <span class="s1">&#39;admin/active_admin.css&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">clear_javascripts!</span>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">register_javascript</span> <span class="s1">&#39;admin/active_admin.js&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Active admin should be back to normal.</p>
+
+<h2>Heroku deployment problems</h2>
+
+<p>When deploying to heroku, you may see something like this in the logs:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Started</span> <span class="no">GET</span> <span class="s2">&quot;/admin/login&quot;</span> <span class="k">for</span> <span class="mi">146</span><span class="o">.</span><span class="mi">115</span><span class="o">.</span><span class="mi">108</span><span class="o">.</span><span class="mi">146</span> <span class="n">at</span> <span class="mi">2011</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span> <span class="mi">16</span><span class="p">:</span><span class="mo">03</span><span class="p">:</span><span class="mi">32</span> <span class="o">+</span><span class="mo">0000</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">ActionView</span><span class="o">::</span><span class="no">Template</span><span class="o">::</span><span class="no">Error</span> <span class="p">(</span><span class="n">admin</span><span class="o">/</span><span class="n">active_admin</span><span class="o">.</span><span class="n">css</span> <span class="n">isn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">precompiled</span><span class="p">):</span>
+</span><span class='line'>    <span class="mi">6</span><span class="p">:</span>   <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;&lt;</span><span class="sx">%= [</span>
+</span><span class='line'>
+</span><span class='line'><span class="sx">    7: </span>
+</span><span class='line'><span class="sx">    8:   &lt;% ActiveAdmin.application.stylesheets.each do |path| %&gt;</span>
+</span><span class='line'><span class="sx">    9:     &lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="n">path</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    10:   &lt;% end %&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>    <span class="mi">12</span><span class="p">:</span>     <span class="o">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="n">path</span> <span class="sx">%&gt;</span>
+</span><span class='line'><span class="sx">    11:   &lt;% ActiveAdmin.application.javascripts.each do |path| %&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The files need to be precompiled for production, as noted in <a href="https://github.com/gregbell/active_admin/issues/483" target="_blank">this issue</a>. Add the following to <code>application.rb</code> (or config file of choice):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="sx">%w[admin/active_admin.css admin/active_admin.js]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Logo Lifter launched for easier creation of blog post featured images]]></title>
+    <link href="http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/"/>
+    <updated>2011-12-14T12:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images</id>
+    <content type="html"><![CDATA[<p>Introducing <a href="http://logolifter.com/">http://logolifter.com</a>, a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.</p>
+
+<p><strong>UPDATE:</strong> The project is <a href="https://github.com/mrdanadams/logolifter">now on github</a>.</p>
+
+<!-- more -->
+
+
+<p><img src="http://mrdanadams.com/images/screenshot-668x1024.jpg"></p>
+
+<p>While the name suggests it&#8217;s meant for logos, it could be used for any kind of content pulling in other images. Search for &#8220;kitten&#8221; and you&#8217;ll see what I mean.</p>
+
+<p>It allows you to currently do the following:</p>
+
+<ul>
+<li>Instantly search for images of various sizes (using Google image search)</li>
+<li>Drag multiple search results into a single image</li>
+<li>Arrange the images to your liking including auto-arrangements (horizontal and vertical), resizing all images to the same size, and adding padding to the outside of the image</li>
+<li>Downloading the resulting image</li>
+</ul>
+
+
+<p>Let me know if you have any feature comments. I&#8217;d love to hear feedback from people using it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MongoDB on Rails slides from the Rails meetup]]></title>
+    <link href="http://mrdanadams.com/2011/mongodb-rails-meetup-slides/"/>
+    <updated>2011-12-14T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/mongodb-rails-meetup-slides</id>
+    <content type="html"><![CDATA[<p>I had a great time at the <a href="http://www.meetup.com/Rails-Boston">Rails meetup</a> hosted by <a href="http://cantina.co/2011/11/30/come-to-the-meetup-boston-ruby-on-rails-meetup-group-lightning-round/">Cantina</a> last week. People were gracious enough to sit through my talk no MongoDB, an overview how to use it, and how to use it with Ruby / Rails. Slides are <a href="http://speakerdeck.com/u/danadams/p/mongodb-on-rails">posted on Speaker Deck</a> and embedded below. Thanks to those who attended and I&#8217;m looking forward to the next one.</p>
+
+<script src="http://speakerdeck.com/embed/4ee9106abc1ba9004c01407b.js" type="text/javascript"></script>
+
+]]></content>
+  </entry>
+  
+</feed>

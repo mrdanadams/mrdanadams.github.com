@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Events | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/events/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-07-26T16:14:28-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Starting Emerging Business Tech meetup with first event on native / HTML5-based mobile apps]]></title>
+    <link href="http://mrdanadams.com/2012/emerging-business-tech-meetup-native-html5-mobile/"/>
+    <updated>2012-02-03T06:23:15-05:00</updated>
+    <id>http://mrdanadams.com/2012/emerging-business-tech-meetup-native-html5-mobile</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/logo.png"></p>
+
+<p>I'm extremely excited to announce a new meetup, <a href="http://www.meetup.com/emerging-business-technology/">Emerging Business Technology</a>, lead by myself and sponsored by Cantina Consulting. We've tried very hard to make this meetup one that provides a lot of value to it's members, extremely high quality events and content, and satisfies a need not currently met by other meetups in the Boston area. We've already seen rapid growth and intense interest from a wide range of people working in technology.</p>
+
+<!-- more -->
+
+
+<p>From the meetup description:</p>
+
+<blockquote><p>This meetup provides engineers, practitioners and managers the context needed to evaluate and adopt rapidly evolving business technologies. Leave with an understanding of what the technology is, why it’s used, when to use it, and next steps to take. We’ll review use cases, processes, tools, and practices in a mini-conference format through short presentations, hands-on tutorials, Q&A; and code walkthroughs.</p>
+
+<p>Topics may include Mobile app development, HTML5, responsive design, high-concurrency applications, interaction design, modern languages and frameworks, NoSQL databases, and mobile / tablet application design.</p></blockquote>
+
+<p>The first event, <strong><a href="http://www.meetup.com/emerging-business-technology/events/50411132/">Native and HTML5-based mobile: strategies for mobile app development</a></strong>, has been scheduled and will be an awesome event. We've got 3 or 4 sessions by some awesome speakers planned, both from inside Cantina and from outside vendors. It's a free event so check it out if you have any interest in strategies for developing mobile apps.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New Blood Boston: There's blood in the water, startups are circling]]></title>
+    <link href="http://mrdanadams.com/2012/new-blood-boston/"/>
+    <updated>2012-01-11T07:21:59-05:00</updated>
+    <id>http://mrdanadams.com/2012/new-blood-boston</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/newbloodboston.png"></p>
+
+<p>I attended the <a href="http://new-blood-boston.eventbrite.com">New Blood Boston</a> event, hosted by <a href="http://bocoup.com">Bocoup</a>, which featured and introduced a handful of Boston startups. Awesome food (<a href="http://www.grilledcheesenation.net/">grilled cheese</a> and <a href="http://www.prettythingsbeertoday.com">good beer</a>) combined with a crowd of some of the most capable people in the boston tech scene made for a great event.</p>
+
+<!-- more -->
+
+
+<h2>Hopper</h2>
+
+<p>Hopper, recent Montreal imports now located in Central Square, is using big data to bring new options to the already crowded travel industry. Be sure to check out <a href="http://www.facebook.com/hackreduce">HackReduce</a>, their social coding space with a free-to-use 100 node cluster.</p>
+
+<h2>Kinvey</h2>
+
+<p><a href="http://www.kinvey.com/">Kinvey</a>, located in Kendall Square, offers "Backend as a Service" (BaaS?) targeted at making "I need somewhere to put the data for my mobile app and an API to query it" easy. It was interesting hearing their initial usage of <a href="http://couchdb.apache.org/">CouchDB</a> and subsequently dropping it for <a href="http://www.mongodb.org/">MongoDB</a> based on customer feedback.</p>
+
+<h2>Insight Squared</h2>
+
+<p><a href="http://www.insightsquared.com">Insight Squared</a>, located in Central Square, offers data analytics for small- and medium-sized businesses. <a href="http://www.linkedin.com/in/bryansstevenson">Bryan Stevenson</a> gave a nice talk on overcoming the challenges or highly dynamic querying on big, tabular data.</p>
+
+<h2>Objective Logistics</h2>
+
+<p><a href="http://objectivelogistics.com/">Objective Logistics</a>, located in Kendall Square, attempts to increase labor force yield through stats, competition, and incentives. <a href="https://twitter.com/#!/mattastica">Matthew Grace</a> gave an excellent talk; if I had a labor force I'd be signing up.</p>
+
+<h2>Lucky Labs</h2>
+
+<p><a href="http://luckylabs.com/">Lucky Labs</a>, located in Kendall Square, uses high concurrency and big data to target the mobile, commodity gaming market.</p>
+
+<h2>ABINE</h2>
+
+<p><a href="http://www.abine.com/">ABINE</a>, who just left Central Square for Fort Point, offers consumers privacy on the internet. That's no small technical feat with challenges at all levels of the stack.</p>
+
+<h2>GrabCAD</h2>
+
+<p><a href="http://grabcad.com">GrabCAD</a>, formerly of Estonia and now located in Kendall Square, offers mechanical engineers a place to share models and collaborate.</p>
+
+<h2>PowerInbox</h2>
+
+<p><a href="http://powerinbox.com/">PowerInbox</a> turns boring, static email into interactive, useful applications.</p>
+
+<p>Do you know of any new startups in Boston?</p>
+
+<p>Image created with <a href="http://logolifter.com/">Logo Lifter</a></p>
+
+<p>[Image sources: http://a3.twimg.com/profile_images/1147508475/hopper-logo-twitter_bigger.png, http://urbanairship.com/wp-content/uploads/2011/11/kinvey.gif, http://d16esojukvf550.cloudfront.net/wp-content/themes/yesware/images/content/logos/insightsquared.png, http://www.finsmes.com/wp-content/uploads/2011/11/objective_logistics_logo.jpg, http://www.abine.com/wordpress/wp-content/uploads/2011/02/logo-abine1.png, http://a2.twimg.com/profile_images/878736099/twitter.png, http://a1.twimg.com/profile_images/1588367263/cheshire-smile_normal.png]</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MongoDB on Rails slides from the Rails meetup]]></title>
+    <link href="http://mrdanadams.com/2011/mongodb-rails-meetup-slides/"/>
+    <updated>2011-12-14T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/mongodb-rails-meetup-slides</id>
+    <content type="html"><![CDATA[<p>I had a great time at the <a href="http://www.meetup.com/Rails-Boston">Rails meetup</a> hosted by <a href="http://cantina.co/2011/11/30/come-to-the-meetup-boston-ruby-on-rails-meetup-group-lightning-round/">Cantina</a> last week. People were gracious enough to sit through my talk no MongoDB, an overview how to use it, and how to use it with Ruby / Rails. Slides are <a href="http://speakerdeck.com/u/danadams/p/mongodb-on-rails">posted on Speaker Deck</a> and embedded below. Thanks to those who attended and I'm looking forward to the next one.</p>
+
+<script src="http://speakerdeck.com/embed/4ee9106abc1ba9004c01407b.js" type="text/javascript"></script>
+
+]]></content>
+  </entry>
+  
+</feed>

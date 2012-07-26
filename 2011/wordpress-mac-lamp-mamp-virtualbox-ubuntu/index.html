@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <title>Wordpress development on Mac with LAMP / MAMP, VirtualBox, and Ubuntu - Dan Adams</title>
+  <meta name="author" content="Dan Adams">
+
+  
+  <meta name="description" content="Wordpress development on Mac with LAMP / MAMP, VirtualBox, and Ubuntu How do you host multiple wordpress installs under different domains in a LAMP &hellip;">
+  
+
+  <meta name="robots" content="index,follow,noodp,noydir" />
+
+  <!-- http://t.co/dKP3o1e -->
+<!--   <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+
+  
+  <link rel="canonical" href="http://mrdanadams.com/2011/wordpress-mac-lamp-mamp-virtualbox-ubuntu/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+-->
+  <link href="http://feeds.feedburner.com/MisterDanAdams" rel="alternate" title="Dan Adams" type="application/atom+xml">
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25728031-2']);
+  _gaq.push(['_setDomainName', 'mrdanadams.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body  class="  single">
+
+<div id="wrapper" class="hfeed">
+  
+  <div id="header">
+    <div id="branding">
+      <div id="blog-title">
+        <h1><a href="/" title="Dan Adams" rel="home">Dan Adams</a></h1>
+      </div>
+    </div><!--  #branding -->
+    
+    <div id="access">
+      <div class="skip-link"><a href="#content" title="Skip navigation to the content">Skip to content</a></div><!-- .skip-link -->
+        
+      <div class="menu"></div>
+    </div><!-- #access -->
+  </div><!-- #header-->
+
+  <div id="main">  
+    <div id="container">
+      <div id="content">
+        <article class="hentry" role="article">
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<!-- AddThis Button END -->
+
+  
+  <header>
+    
+      <h1 class="entry-title"><span>Wordpress development on Mac with LAMP / MAMP, VirtualBox, and Ubuntu</span></h1>
+    
+
+  </header>
+
+
+<div class="entry-content"><p>How do you host multiple wordpress installs under different domains in a LAMP stack on your local Mac? You don&#8217;t. You use Ubuntu and VirtualBox.</p>
+
+<p>I recently needed a full LAMP setup (or MAMP, in this case) with virtual host mapping on .dev domains for local wordpress development. After going the native Mac route I switched to a vastly easier (and superior) option: an Ubuntu server in VirtualBox with communication between the machines.</p>
+
+<!--more-->
+
+
+<p>In this setup you run Ubuntu as a guest OS in VirtualBox with network access between the machines, host mappings on the host machine for the domain names, and the host files shared and mounted on the guest OS. This allows you to happily check out (with git, for instance) and edit files on the host OS with your favorite tools while Ubuntu takes care of serving the deployment (and related assets such as a MySQL db) directly from your files.</p>
+
+<p>One of the reasons I love this setup is the flexibility: if you mess up your LAMP stack you can blow it away and recreate it or back-up / clone the machine image entirely.</p>
+
+<p>As a long-time linux user (recently moved to a Mac) I also desperately miss the package management and ease of server installation and configuration (and don&#8217;t say &#8216;homebrew&#8217; or &#8216;macports&#8217;).</p>
+
+<p>I did try <a href="http://www.mamp.info/en/index.html">MAMP</a> directly and found it lacking. The configuration files are annoyingly different than any linux distro I&#8217;ve used, located in an odd spot, and duplicate of the main apache config in /etc.</p>
+
+<h2>Install VirtualBox and Ubuntu</h2>
+
+<p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Download and install VirtualBox</a>.</p>
+
+<p>After installing, <a href="http://www.ubuntu.com/download/ubuntu/download" target="_blank">download Ubuntu</a> (I recommend one of the torrents). I used the 64-bit version although I think the 32 will work as well.</p>
+
+<p>Now that you have the Ubuntu ISO, create a new VM in VirtualBox:</p>
+
+<p><img src="/images/create_vm.jpg"></p>
+
+<p>I&#8217;ll leave it to <a href="http://maketecheasier.com/install-ubuntu-linux-on-your-mac/2010/11/08" target="_blank">other tutorials</a> on the details of the install. However, I think I used all the defaults.</p>
+
+<h2>Create a host-only network</h2>
+
+<p>You need to add a second network device to your VM in order to have a host-only network. This network allows you to have direct, private communication between your machine and the VM so the VM looks like just another machine on the network with a fixed IP address.</p>
+
+<p>First you need to create the second adapter. Go to <strong>VirtualBox > Preferences&#8230;</strong> and create a new adapter.</p>
+
+<p><img src="/images/host_network.jpg"></p>
+
+<p>You then create a new adapter in the VM itself:</p>
+
+<p><img src="/images/network_adapter.jpg"></p>
+
+<p>Start up your VM and you should see the network adapter (see ifconfig).</p>
+
+<h2>Share and mount host files</h2>
+
+<p>In the VM settings, go to Shared Folders and add a new shared folder. If you set it to auto-mount, it will be owned by the root preventing you from running Apache directly from the files.</p>
+
+<p><img src="/images/folder_share.jpg"></p>
+
+<p>We&#8217;ll mount it manually as root:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>sudo mkdir /mnt/host-home
+</span><span class='line'><span class="nv">$ </span>mount -t vboxsf -o <span class="nv">uid</span><span class="o">=</span>33,gid<span class="o">=</span>33 host-home /mnt/host-home
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The uid and gid here you can get from /etc/passwd and /etc/groups as the user and group to mount as (such as www-data for apache).</p>
+
+<h2>Deploy mounted files directly in Apache</h2>
+
+<p>As root symlink the project in the host files to the apache sites directory:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> /var/www
+</span><span class='line'><span class="nv">$ </span>ln -s /mnt/host-home/work/yoursite
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then enable in your Apache virtual host configuration:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;VirtualHost</span> <span class="err">*:80</span><span class="nt">&gt;</span>
+</span><span class='line'>#...
+</span><span class='line'>        DocumentRoot /var/www/yoursite
+</span><span class='line'>        Options FollowSymLinks
+</span><span class='line'>
+</span><span class='line'>        <span class="nt">&lt;Directory</span> <span class="nt">/&gt;</span>
+</span><span class='line'>                Options FollowSymLinks
+</span><span class='line'>                AllowOverride FileInfo
+</span><span class='line'>        <span class="nt">&lt;/Directory&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;Directory</span> <span class="err">/var/www/yoursite</span><span class="nt">&gt;</span>
+</span><span class='line'>                Options Indexes FollowSymLinks MultiViews
+</span><span class='line'>                AllowOverride FileInfo Indexes
+</span><span class='line'>                Order allow,deny
+</span><span class='line'>                allow from all
+</span><span class='line'>        <span class="nt">&lt;/Directory&gt;</span>
+</span><span class='line'>#...
+</span><span class='line'><span class="nt">&lt;/VirtualHost&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Be sure to enable symlinks or you will get Forbidden errors trying to access the site.</p>
+
+<h2>Host mappings between the machines</h2>
+
+<p>In this case we&#8217;ll use <strong>yoursite.dev</strong> on both the host and guest so we need to add it to both /etc/hosts files.</p>
+
+<p>On the host (using the IP address of the guest machine on the host-only network):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>192.168.56.101  ubuntu yoursite.dev yourothersite.dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>On the guest (in case it needs to reference itself by the same name):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>127.0.0.1       localhost yoursite.dev yourothersite.dev
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Have at it!</h2>
+
+<p>While I&#8217;ve left out some details (such as configuring the full LAMP stack) you should have what you need to easily run servers from one (or even multiple) guest Ubuntu servers while developing natively on your host OS.</p>
+
+<p>After running with this setup for a few weeks I&#8217;m really pleased with it and find it a perfect fit: I can customize my Mac development environment and use the tools I&#8217;m used too while having all the server goodness of Ubuntu where it counts.</p>
+
+<p>One enhancement would be to auto-mount the host drive on startup on the guest OS but, since I rarely ever restart the instance, I simply haven&#8217;t bothered.</p>
+</div>
+
+
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2011/wordpress-mac-lamp-mamp-virtualbox-ubuntu/';
+  var disqus_url = 'http://mrdanadams.com/2011/wordpress-mac-lamp-mamp-virtualbox-ubuntu/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+
+</article>
+
+      </div><!-- #content -->
+    </div><!-- #container -->
+
+    <aside id="aside-container">
+      <section id="follow-links" class="aside">
+        <label>Follow &amp; Connect</label>
+
+        <ul>
+          <li class="twitter"><a href="http://twitter.com/#!/danadams" title="@danadams on Twitter" target="_blank"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank"><span>Linked In</span></a></li>
+          <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
+          <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
+          <li class="rss"><a href="/feed" title="Dan Adams Post RSS feed"><span>RSS</span></a></li>
+          <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
+      </ul>
+    </section>
+
+    <section id="about-box" class="aside">
+      <h3>About Dan</h3>
+      <span class="avatar"></span>
+
+      <p>I am a software engineer and consultant living and working in Boston at <a href="http://cantina.co" target="_blank" rel="nofollow">Cantina Consulting</a>.</p>
+      <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
+    </section>
+
+    <section id="primary" class="aside main-aside">
+      <ul class="xoxo">
+        <li class="widgetcontainer widget_featured_post_widget">
+          <p class="featured-title">
+            <a href="/2012/your-career-is-a-business/" title="What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
+          </p>
+          <a href="/2012/your-career-is-a-business/"><img src='/images/career_growth_150x150.png' /></a>
+          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
+        </li>
+
+        <li class="widgetcontainer widget_links">
+          <h3 class="widgettitle">Projects</h3>
+
+          <ul class='xoxo blogroll'>
+            <li><a href="http://abnqe.com" rel="me" title="Browse your Netflix instant queue visually and search for titles" target="_blank">abnqe (A Better Netflix Queue Experience)</a></li>
+            <li><a href="http://www.meetup.com/emerging-business-technology" target="_blank">Emerging Business Tech Meetup</a></li>
+            <li><a href="http://logolifter.com" rel="me" title="Create new images by searching for others and combining them. Great for blog post featured images." target="_blank">Logo Lifter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
+
+  </div><!-- #main -->
+
+  <footer id="footer">
+    <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
+    <div id="siteinfo">&copy; 2011 &ndash; 2012 Dan Adams</div><!-- #siteinfo -->
+  </footer><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+</body>
+</html>

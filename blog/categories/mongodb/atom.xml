@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: MongoDB | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/mongodb/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-07-26T16:14:28-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MongoDB on Rails slides from the Rails meetup]]></title>
+    <link href="http://mrdanadams.com/2011/mongodb-rails-meetup-slides/"/>
+    <updated>2011-12-14T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/mongodb-rails-meetup-slides</id>
+    <content type="html"><![CDATA[<p>I had a great time at the <a href="http://www.meetup.com/Rails-Boston">Rails meetup</a> hosted by <a href="http://cantina.co/2011/11/30/come-to-the-meetup-boston-ruby-on-rails-meetup-group-lightning-round/">Cantina</a> last week. People were gracious enough to sit through my talk no MongoDB, an overview how to use it, and how to use it with Ruby / Rails. Slides are <a href="http://speakerdeck.com/u/danadams/p/mongodb-on-rails">posted on Speaker Deck</a> and embedded below. Thanks to those who attended and I'm looking forward to the next one.</p>
+
+<script src="http://speakerdeck.com/embed/4ee9106abc1ba9004c01407b.js" type="text/javascript"></script>
+
+]]></content>
+  </entry>
+  
+</feed>

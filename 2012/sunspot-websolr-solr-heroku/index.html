@@ -1,0 +1,346 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <title>Using Sunspot, Websolr, and Solr on Heroku - Dan Adams</title>
+  <meta name="author" content="Dan Adams">
+
+  
+  <meta name="description" content="Using Sunspot, Websolr, and Solr on Heroku Having recently deployed a Rails app using Sunspot and Solr on Heroku, here are some tips for getting &hellip;">
+  
+
+  <meta name="robots" content="index,follow,noodp,noydir" />
+
+  <!-- http://t.co/dKP3o1e -->
+<!--   <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+
+  
+  <link rel="canonical" href="http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+-->
+  <link href="http://feeds.feedburner.com/MisterDanAdams" rel="alternate" title="Dan Adams" type="application/atom+xml">
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25728031-2']);
+  _gaq.push(['_setDomainName', 'mrdanadams.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body  class="  single">
+
+<div id="wrapper" class="hfeed">
+  
+  <div id="header">
+    <div id="branding">
+      <div id="blog-title">
+        <h1><a href="/" title="Dan Adams" rel="home">Dan Adams</a></h1>
+      </div>
+    </div><!--  #branding -->
+    
+    <div id="access">
+      <div class="skip-link"><a href="#content" title="Skip navigation to the content">Skip to content</a></div><!-- .skip-link -->
+        
+      <div class="menu"></div>
+    </div><!-- #access -->
+  </div><!-- #header-->
+
+  <div id="main">  
+    <div id="container">
+      <div id="content">
+        <article class="hentry" role="article">
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<!-- AddThis Button END -->
+
+  
+  <header>
+    
+      <h1 class="entry-title"><span>Using Sunspot, Websolr, and Solr on Heroku</span></h1>
+    
+
+  </header>
+
+
+<div class="entry-content"><p>Having recently deployed a Rails app using Sunspot and Solr on Heroku, here are some tips for getting started, testing, searching, and deploying.</p>
+
+<!--more-->
+
+
+<h2>Getting the right gem</h2>
+
+<p>As noted in <a href="http://blog.derekperez.com/post/552826277/the-proper-websolr-gem-for-heroku" target="_blank">this post</a>, getting the right gem for Websolr is important (yet confusing): the Heroku documentation is not consistent on which gem to use. In short, use the <a href="https://github.com/onemorecloud/websolr-sunspot_rails" target="_blank">websolr-sunspot_rails</a> gem which tracks the version of <a href="http://sunspot.github.com/" target="_blank">Sunspot</a> needed by <a href="http://www.websolr.com/" target="_blank">Websolr</a>.</p>
+
+<p>The following gems are used:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=Gemfile'></script>
+<noscript><pre><code>gem 'sunspot_rails'
+gem 'kaminari'
+gem 'sunspot_with_kaminari'</code></pre></noscript></div>
+
+
+<p>UPDATE (per Nick Zadrozny):</p>
+
+<blockquote><p>the docs at https://devcenter.heroku.com/articles/websolr are correct: You want to use Sunspot directly, not websolr-sunspot_rails. The only thing the devcenter document gets wrong right now is the version. The current version of Sunspot is 1.3.0. I&#8217;ll add that to my todo list ;)</p>
+
+<p>The websolr-sunspot_rails gem was only needed for earlier versions of Sunspot in order to support the WEBSOLR_URL variable, which is supported natively in Sunspot as of its 1.2.0.</p>
+
+<p>So all you need is <code>gem 'sunspot_rails'</code> in your Gemfile and you&#8217;re all set!</p></blockquote>
+
+<h2>Configuration</h2>
+
+<p><em>config/sunspot.yml</em> provides a base config file for development and production only. <code>ENV['SOLR_URL']</code> and <code>ENV['WEBSOLR_URL']</code> override any values in this file.</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=solr.yml'></script>
+<noscript><pre><code># Note: ENV['SOLR_URL'] and ENV['WEBSOLR_URL'] override any values here
+# The defaults are same as what's below  so you only need to override as desired.
+# Removed production since that should never be used in heroku.
+# See Sunspot::Rails::Configuration.solr_url
+
+development:
+  solr:
+    hostname: localhost
+    port: 8982
+    log_level: INFO
+
+test:
+  solr:
+    hostname: localhost
+    port: 8981
+    log_level: WARNING
+</code></pre></noscript></div>
+
+
+<h2>Starting Solr (locally)</h2>
+
+<p>Solr can be started (and stopped) locally with:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=run.sh'></script>
+<noscript><pre><code>bundle exec rake sunspot:solr:start
+bundle exec rake sunspot:solr:stop
+</code></pre></noscript></div>
+
+
+<h2>Testing</h2>
+
+<p>If using rspec the following can get you started:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=rspec_solr.rb'></script>
+<noscript><pre><code>RSpec.configure do |c|
+  c.before :suite do
+    module Sunspot
+      def self.stub_session
+        @sub_session ||= Sunspot::Rails::StubSessionProxy.new self.session
+      end
+    end
+
+  end
+
+  c.before :each do
+    Sunspot.session = Sunspot.stub_session
+    Sunspot.session = Sunspot.session.original_session if example.metadata[:solr]
+
+    Sunspot.remove_all!
+  end
+end
+</code></pre></noscript></div>
+
+
+<p>Your search spec may look like this:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=search_spec.rb'></script>
+<noscript><pre><code>describe 'Search' do
+  def commit
+    Sunspot.commit
+  end
+
+  def search(q)
+    visit &quot;/search?q=#{q}&quot;
+  end
+
+  it 'does something interesting', :solr do
+    Something.create!
+    commit
+    search 'foobar'
+end
+</code></pre></noscript></div>
+
+
+<p>The following allows Cucumber features not to explode:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=cucumber_config.rb'></script>
+<noscript><pre><code># Solr faking.
+# see http://opensoul.org/blog/archives/2010/04/07/cucumber-and-sunspot/
+# Note: we need to do more than this if we start doing search tests in cucumber
+$original_sunspot_session = Sunspot.session
+
+Before(&quot;~@search&quot;) do
+  Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
+end
+</code></pre></noscript></div>
+
+
+<h2>Searching and paginating</h2>
+
+<p>Perform the search in the controller:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=search_controller.rb'></script>
+<noscript><pre><code>class SearchController &lt; ApplicationController
+    def search
+        page_size = 10
+
+        @search = Profile.solr_search do
+            keywords params[:q] do
+                boost_fields name: 10.0, user: 4.0
+            end
+
+            with :include_search, true
+            paginate page: params[:page], per_page: page_size
+        end
+
+        @results = @search.results
+
+        @total = @search.total
+        @paging = @total &gt; page_size
+        @start = (@search.current_page - 1) * page_size + 1
+        @end = [@start + page_size - 1, @total].min
+
+        render (if @results.empty? then :no_results else :results end)
+    end
+
+end
+</code></pre></noscript></div>
+
+
+<p>In the template show results and paging:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=results.html.erb'></script>
+<noscript><pre><code>&lt;h3 class=&quot;summary&quot;&gt;&lt;%= t('.your-search-header'), start: @start, end: @end, total: pluralize(@total, 'result') %&gt;&lt;/h3&gt;
+
+&lt;% @results.each do |p| %&gt;
+&lt;div class=&quot;result&quot;&gt;&lt;!-- ... --&gt;&lt;/div&gt;
+&lt;% end %&gt;
+
+&lt;%= paginate @search, window: 1 %&gt;
+</code></pre></noscript></div>
+
+
+
+</div>
+
+
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/';
+  var disqus_url = 'http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+
+</article>
+
+      </div><!-- #content -->
+    </div><!-- #container -->
+
+    <aside id="aside-container">
+      <section id="follow-links" class="aside">
+        <label>Follow &amp; Connect</label>
+
+        <ul>
+          <li class="twitter"><a href="http://twitter.com/#!/danadams" title="@danadams on Twitter" target="_blank"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank"><span>Linked In</span></a></li>
+          <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
+          <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
+          <li class="rss"><a href="/feed" title="Dan Adams Post RSS feed"><span>RSS</span></a></li>
+          <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
+      </ul>
+    </section>
+
+    <section id="about-box" class="aside">
+      <h3>About Dan</h3>
+      <span class="avatar"></span>
+
+      <p>I am a software engineer and consultant living and working in Boston at <a href="http://cantina.co" target="_blank" rel="nofollow">Cantina Consulting</a>.</p>
+      <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
+    </section>
+
+    <section id="primary" class="aside main-aside">
+      <ul class="xoxo">
+        <li class="widgetcontainer widget_featured_post_widget">
+          <p class="featured-title">
+            <a href="/2012/your-career-is-a-business/" title="What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
+          </p>
+          <a href="/2012/your-career-is-a-business/"><img src='/images/career_growth_150x150.png' /></a>
+          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
+        </li>
+
+        <li class="widgetcontainer widget_links">
+          <h3 class="widgettitle">Projects</h3>
+
+          <ul class='xoxo blogroll'>
+            <li><a href="http://abnqe.com" rel="me" title="Browse your Netflix instant queue visually and search for titles" target="_blank">abnqe (A Better Netflix Queue Experience)</a></li>
+            <li><a href="http://www.meetup.com/emerging-business-technology" target="_blank">Emerging Business Tech Meetup</a></li>
+            <li><a href="http://logolifter.com" rel="me" title="Create new images by searching for others and combining them. Great for blog post featured images." target="_blank">Logo Lifter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
+
+  </div><!-- #main -->
+
+  <footer id="footer">
+    <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
+    <div id="siteinfo">&copy; 2011 &ndash; 2012 Dan Adams</div><!-- #siteinfo -->
+  </footer><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+</body>
+</html>
