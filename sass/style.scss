@@ -5,6 +5,20 @@ see http://modularscale.com/scale/?px1=16&px2=18&ra1=1.5&ra2=0
 @import "compass";
 @import "_pems";
 
+/* defaults used by the octopress theming */
+$type-border: #ddd !default;
+$link-color: rgb(212,238,94) !default;
+$noise-bg: image-url('noise.png') top left !default;
+$blockquote: $type-border !default;
+$sans: "PT Sans", "Helvetica Neue", Arial, sans-serif !default;
+$serif: "PT Serif", Georgia, Times, "Times New Roman", serif !default;
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !default;
+$heading-font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif !default;
+$header-title-font-family: $heading-font-family !default;
+$header-subtitle-font-family: $heading-font-family !default;
+@import "_utilities";
+@import "_solarized";
+
 /*@import url('http://fonts.googleapis.com/css?family=Vollkorn');*/
 /*@import url(http://fonts.googleapis.com/css?family=Syncopate|Orbitron:900);*/
 /*@import url(http://fonts.googleapis.com/css?family=Orbitron:900);*/
@@ -82,7 +96,7 @@ $darkGreen: rgb(94,140,106);
 
 body { color: #bbb; font-size: #{$baseFontSize}px; line-height: 18px; @include typeface; }
 a {
-  @include link-colors(rgb(212,238,94));
+  @include link-colors($link-color);
   text-decoration: none;
   &:hover { text-decoration: underline; }
 }
@@ -457,3 +471,5 @@ $image_margin: 1em;
   .cboxPhoto { float: left; max-width: 270px; max-height: 300px; }
   #cboxCurrent { text-indent: -9999px; }
 }
+
+@import "_syntax";

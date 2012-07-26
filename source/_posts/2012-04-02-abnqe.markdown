@@ -9,13 +9,14 @@ categories:
 - Projects
 ---
 
-{% img featured http://mrdanadams.com/wp-content/uploads/2012/04/queue-300x164.jpg a better netflix queue experience %}
+{% img featured /images/queue-300x164.jpg %}
 
 **UPDATE:** abnqe is [now on github](https://github.com/mrdanadams/abnqe).
 
 I'm a long-time Netflix customer. As someone who uses the website to watch movies and shows connected to a [HTPC](http://en.wikipedia.org/wiki/Home_theater_PC) it's become very clear that the website user experience is not a priority. Specifically, the instant watch queue management and ability to finding something to watch is just horrible. [abnqe](http://abnqe.com/) ([A Better Netflix Queue Experience](http://abnqe.com/)) is a small project to fix this.
 
 <!-- more -->
+
 
 
 ## The missing experience
@@ -33,34 +34,15 @@ abnqe, as first released, is the bare minimum set of features I wanted: a nice U
 
 I've got a long list of things I'd like to do to this thing. We'll see what gets done. Here are some of the things I have in mind:
 
-
-
-	
-  * Filtering by type (TV / movies)
-
-	
-  * Basic queue management (removing, adding)
-
-	
-  * Get more detailed movie info
-
-	
-  * Adding movies to lists / tags (dude movies, wife movies, kids shows, documentaries, foreign flicks).
-
-	
-  * Filter by genre, rating, recently watched
-
-	
-  * Discovering new titles (without suggesting titles I've already seen; something that annoys me endlessly)
-
-	
-  * Rotten tomatoes ratings
-
-	
-  * See what's trending with other users, added recently and expiring
-
-	
-  * Social sharing and recommendations from friends
+* Filtering by type (TV / movies)
+* Basic queue management (removing, adding)
+* Get more detailed movie info
+* Adding movies to lists / tags (dude movies, wife movies, kids shows, documentaries, foreign flicks).
+* Filter by genre, rating, recently watched
+* Discovering new titles (without suggesting titles I've already seen; something that annoys me endlessly)
+* Rotten tomatoes ratings
+* See what's trending with other users, added recently and expiring
+* Social sharing and recommendations from friends
 
 
 

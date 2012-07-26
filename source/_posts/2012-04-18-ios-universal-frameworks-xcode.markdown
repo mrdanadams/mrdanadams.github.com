@@ -9,13 +9,14 @@ categories:
 - iOS
 ---
 
-{% img featured http://mrdanadams.com/wp-content/uploads/2012/04/ios_xcode.jpg iOS universal frameworks with Xcode %}
+{% img featured /images/ios_xcode.jpg iOS universal frameworks with Xcode %}
+
 
 If you are looking to share code between projects or distribute a 3rd party framework (such as a product API) a bit of googling will find you a solution. Or two. Or three. The solutions are all similar with some subtle differences. Here I've collected the best solutions I've found (going back to 2008) and which one worked well for me.
 
-<!-- more -->
 For the impatient, I recommend this [iOS universal framework](https://github.com/jverkoey/iOS-Framework) solution.
 
+<!-- more -->
 
 ## The problem: dynamic linked libraries, architectures and performance
 
@@ -37,9 +38,6 @@ The developer experience is also important. For instance, if you are developing 
 
 My preferred [solution is by Jeff Verkoeyen](https://github.com/jverkoey/iOS-Framework) (jverkoey). It's an evolution on the older solutions and focuses on an easier, faster build process while maintaining a good integration experience for users and optimal deployment. It still has some improvements to be made:
 
-
-
-	
 * A manual process. It's easy, but not exactly a 1-step process. He's documented it well enough that you could do it for a new project quickly if you couldn't remember all the steps.
 * Bundling resources requires more work on the part of both the framework author and users. Code-only frameworks shouldn't have to deal with this, luckily.
 

@@ -7,35 +7,24 @@ title: Career story, trajectory and context
 wordpress_id: 356
 ---
 
-An important aspect of good [career management](http://mrdanadams.com/2012/your-career-is-a-business/) is understanding your career story. Where you came from, where are you now and where you are going. Knowing this is critical to maximizing your market value and communicating that value to others (such as in interviews).
+An important aspect of good [career management](/2012/your-career-is-a-business/) is understanding your career story. Where you came from, where are you now and where you are going. Knowing this is critical to maximizing your market value and communicating that value to others (such as in interviews).
 
 <!-- more -->
 
 ## Career Trajectory
 
 
-![](http://mrdanadams.com/wp-content/uploads/2012/03/career_trajectory.png)
+{% img /images/career_trajectory.png %}
 
 Let's assume you are considering buying a stock. The current price is $42 / share. Should you buy? I hope at this point you're thinking "I have no idea!". Exactly.
 
 If I'm interviewing software engineers I need to know not just where you are now but where you've been and where you're going. Consider the following profiles for potential candidates:
 
-
-
-	
-  * Middle-aged set in his ways who hasn't changed in years
-
-	
-  * Middle-aged who just changed markets and is slightly behind but clearly has a passion and ability to learn
-
-	
-  * Middle-aged who is mature, rock solid and still has a passion for the craft
-
-	
-  * Junior with very little experience but incredible work ethic and hunger to grow
-
-	
-  * Mid-twenties "rock star" who's smart with loads of talent but doesn't have the hunger or humility to grow quickly
+* Middle-aged set in his ways who hasn't changed in years
+* Middle-aged who just changed markets and is slightly behind but clearly has a passion and ability to learn
+* Middle-aged who is mature, rock solid and still has a passion for the craft
+* Junior with very little experience but incredible work ethic and hunger to grow
+* Mid-twenties "rock star" who's smart with loads of talent but doesn't have the hunger or humility to grow quickly
 
 
 

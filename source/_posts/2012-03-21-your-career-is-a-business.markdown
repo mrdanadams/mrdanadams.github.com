@@ -12,41 +12,27 @@ Your career is a business and you should manage it like one. There is a lot to b
 <!-- more -->
 
 
+
 ## Business 101: Supply & Demand
 
 
 You have something to offer. There is some demand out here for it. In working, you exchange your time and effort for money and other goodies. The more demand there is the more you get and vice versa.
 
-![](http://mrdanadams.com/wp-content/uploads/2012/03/supply_demand.png)
+{% img /images/supply_demand.png %}
 
 The above is a basic [supply and demand](http://en.wikipedia.org/wiki/Supply_and_demand) graph. Price tracks the demand line. If supply increases above demand prices drop. When the reverse happens price goes up. Like a good stock portfolio, your value (or price) over time should be increasing:
 
-[caption id="attachment_358" align="aligncenter" width="530" caption="Which does your career value look like?"]![](http://mrdanadams.com/wp-content/uploads/2012/03/career_growth.png)[/caption]
+{% img /images/career_growth.png Which does your career value look like? %}
 
 So what's your value? What do you have to offer? Here are a few examples:
 
-
-
-	
-  * **Technical expertise:** You just know it better and deeper. Someone has a question about [JavaScript hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)? You the man.
-
-	
-  * **Domain knowledge**: You really get your business and it's nuances.
-
-	
-  * **Dependability:** People know when they give you something it well get done. Really done. If you run into a weird bug you don't give up; you pound on it until a solution is found.
-
-	
-  * **Culture:** You make the environment around you better. People like coming to work a little  more when they work with you.
-
-	
-  * **Leadership:** You can get people going in the same direction and get things done that require team effort.
-
-	
-  * **Creativity and insight:** You understand what is really going on and can find novel solutions to the problems at hand.
-
-	
-  * **Communication:** You work well with designers, project managers, clients, etc and can resolve conflict without freaking out.
+* **Technical expertise:** You just know it better and deeper. Someone has a question about [JavaScript hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting)? You the man.
+* **Domain knowledge**: You really get your business and it's nuances.
+* **Dependability:** People know when they give you something it well get done. Really done. If you run into a weird bug you don't give up; you pound on it until a solution is found.
+* **Culture:** You make the environment around you better. People like coming to work a little  more when they work with you.
+* **Leadership:** You can get people going in the same direction and get things done that require team effort.
+* **Creativity and insight:** You understand what is really going on and can find novel solutions to the problems at hand.
+* **Communication:** You work well with designers, project managers, clients, etc and can resolve conflict without freaking out.
 
 
 I'm sure you could come up with others. The critical point here is that a marketable skill set often extends way beyond the purely technical. Many recent graduates feel scammed by their Computer Science programs in being ill prepared for the "real world".
@@ -57,7 +43,7 @@ I'm sure you could come up with others. The critical point here is that a market
 
 First things first: what is your market?
 
-Your first market is simply where you work. The world that is your coworkers and clients / customers is a market all its own with a specific slant of supply and demand. What are the unmet needs? How can you increase your demand by improving existing skills or getting new ones? Can you get ahead of the curve by acquiring skills soon to be in demand? In some cases you can even create (artificial) demand by introducing a new technology or service. [Act like an owner](http://mrdanadams.com/2012/its-your-company-act-like-an-owner/) and you'll discover a number of opportunities to increase your value.
+Your first market is simply where you work. The world that is your coworkers and clients / customers is a market all its own with a specific slant of supply and demand. What are the unmet needs? How can you increase your demand by improving existing skills or getting new ones? Can you get ahead of the curve by acquiring skills soon to be in demand? In some cases you can even create (artificial) demand by introducing a new technology or service. [Act like an owner](/2012/its-your-company-act-like-an-owner/) and you'll discover a number of opportunities to increase your value.
 
 The wider market is harder to define. It could be in a specific technology (Rails or Java), a specific industry (healthcare, finance, retail), a certain kind of company culture (startups) or an odd niche (such a project manager specializing in bailing out projects in trouble: I actually know one of these). Within this market how do you stack up? Who are the leaders? What skills are most in demand?
 
