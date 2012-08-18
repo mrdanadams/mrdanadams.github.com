@@ -4,7 +4,7 @@
   <title><![CDATA[Dan Adams]]></title>
   <link href="http://mrdanadams.com/atom.xml" rel="self"/>
   <link href="http://mrdanadams.com/"/>
-  <updated>2012-07-27T10:39:04-04:00</updated>
+  <updated>2012-08-18T16:04:41-04:00</updated>
   <id>http://mrdanadams.com/</id>
   <author>
     <name><![CDATA[Dan Adams]]></name>
@@ -12,6 +12,155 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Creating a custom OpenLayers build by profiling usage]]></title>
+    <link href="http://mrdanadams.com/2012/custom-openlayers-build/"/>
+    <updated>2012-08-18T12:45:00-04:00</updated>
+    <id>http://mrdanadams.com/2012/custom-openlayers-build</id>
+    <content type="html"><![CDATA[<p><a href="http://openlayers.org/">OpenLayers</a> is a great library for integrating maps especially when creating custom mapping interfaces. However, with great functionality can come great size. Weighing in at nearly 1MB for the full library, you should pair it down to only the modules used.</p>
+
+<p><a href="https://github.com/mrdanadams/openlayers-instrumenter">openlayers-instrumenter</a> creates a custom OpenLayers build profile by instrumenting the JavaScript dynamically and tracking what&#8217;s used.</p>
+
+<!-- more -->
+
+
+<h2>Instrument the OpenLayers JS</h2>
+
+<p>Load the instrumenter after OpenLayers but before using it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/OpenLayers-2.12/lib/OpenLayers.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/openlayers-instrumenter.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;you-app-code.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  <strong>Note:</strong> It&#8217;s not for production use so only include it while creating the build profile.</p>
+
+<p>Load your page. About 2 seconds after page load, you&#8217;ll see something like this console.log&#8217;d:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>[first]
+</span><span class='line'>
+</span><span class='line'>[last]
+</span><span class='line'>
+</span><span class='line'>[include]
+</span><span class='line'>OpenLayers/Map.js
+</span><span class='line'>OpenLayers/BaseTypes/Size.js
+</span><span class='line'>OpenLayers/BaseTypes/Bounds.js
+</span><span class='line'>OpenLayers/Util.js
+</span><span class='line'>OpenLayers/BaseTypes/Element.js
+</span><span class='line'>OpenLayers/Events.js
+</span><span class='line'>OpenLayers/Function.js
+</span><span class='line'>OpenLayers/Event.js
+</span><span class='line'>OpenLayers/String.js
+</span><span class='line'>OpenLayers/Control/Navigation.js
+</span><span class='line'>OpenLayers/Control/Zoom.js
+</span><span class='line'>OpenLayers/Control/ArgParser.js
+</span><span class='line'>OpenLayers/Control/Attribution.js
+</span><span class='line'>OpenLayers/Handler/Click.js
+</span><span class='line'>OpenLayers/Control/DragPan.js
+</span><span class='line'>OpenLayers/Control/ZoomBox.js
+</span><span class='line'>OpenLayers/Handler/Drag.js
+</span><span class='line'>OpenLayers/Handler/Box.js
+</span><span class='line'>OpenLayers/Handler/MouseWheel.js
+</span><span class='line'>OpenLayers/Control/PinchZoom.js
+</span><span class='line'>OpenLayers/Handler/Pinch.js
+</span><span class='line'>OpenLayers/Events/buttonclick.js
+</span><span class='line'>OpenLayers/Layer/WMS.js
+</span><span class='line'>OpenLayers/Layer/Vector.js
+</span><span class='line'>OpenLayers/Renderer/SVG.js
+</span><span class='line'>OpenLayers/StyleMap.js
+</span><span class='line'>OpenLayers/Style.js
+</span><span class='line'>OpenLayers/Projection.js
+</span><span class='line'>OpenLayers/Control/LayerSwitcher.js
+</span><span class='line'>OpenLayers/Lang.js
+</span><span class='line'>OpenLayers/Control/MousePosition.js
+</span><span class='line'>OpenLayers/Control/DrawFeature.js
+</span><span class='line'>OpenLayers/Handler/Point.js
+</span><span class='line'>OpenLayers/Handler/Path.js
+</span><span class='line'>OpenLayers/Handler/Polygon.js
+</span><span class='line'>OpenLayers/Handler/RegularPolygon.js
+</span><span class='line'>OpenLayers/BaseTypes/LonLat.js
+</span><span class='line'>OpenLayers/Animation.js
+</span><span class='line'>OpenLayers/BaseTypes/Pixel.js
+</span><span class='line'>
+</span><span class='line'>[exclude]
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is the build profile used by OpenLayers to create a custom distribution for your app.</p>
+
+<p>If you load new OpenLayers classes during page use, exercise those functions then call <code>OLI.createProfile()</code> in the console to dump the updated profile.</p>
+
+<h2>Using the OpenLayers build profile</h2>
+
+<p>Save the build profile into <code>OpenLayers-2.12/build/custom.cfg</code>. OpenLayers ships with a script to load the profile and create the distribution:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>OpenLayers-2.12/build/
+</span><span class='line'><span class="nv">$ </span>./build.py custom
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The compiled file is put in the same directory as <code>OpenLayers.js</code>.</p>
+
+<p>The full build includes <strong>261 files</strong> weighing in at whopping <strong>942 KB</strong> (minified!). For most builds it will probably be reduced to about <strong>60 files</strong> totaling <strong>271 KB</strong>.</p>
+
+<h2>Room for improvement</h2>
+
+<p>A &#8220;reduced&#8221; build of nearly 300 KB minified is still quite large. I&#8217;ve used it in a Rails app targeted for the iPad and it worked great. Using a custom build made a noticable difference both in page load speed and responsivess when using the UI. However, I&#8217;d be surprised if we didn&#8217;t see a mapping microlibrary or two give OpenLayers a run for it&#8217;s money.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Migrating a WordPress custom theme to Octopress / Jekyll]]></title>
@@ -1695,36 +1844,6 @@ Examples:
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="sx">%w[admin/active_admin.css admin/active_admin.js]</span>
 </span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Logo Lifter launched for easier creation of blog post featured images]]></title>
-    <link href="http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/"/>
-    <updated>2011-12-14T12:00:00-05:00</updated>
-    <id>http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images</id>
-    <content type="html"><![CDATA[<p>Introducing <a href="http://logolifter.com/">http://logolifter.com</a>, a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.</p>
-
-<p><strong>UPDATE:</strong> The project is <a href="https://github.com/mrdanadams/logolifter">now on github</a>.</p>
-
-<!-- more -->
-
-
-<p><img src="http://mrdanadams.com/images/screenshot-668x1024.jpg"></p>
-
-<p>While the name suggests it&#8217;s meant for logos, it could be used for any kind of content pulling in other images. Search for &#8220;kitten&#8221; and you&#8217;ll see what I mean.</p>
-
-<p>It allows you to currently do the following:</p>
-
-<ul>
-<li>Instantly search for images of various sizes (using Google image search)</li>
-<li>Drag multiple search results into a single image</li>
-<li>Arrange the images to your liking including auto-arrangements (horizontal and vertical), resizing all images to the same size, and adding padding to the outside of the image</li>
-<li>Downloading the resulting image</li>
-</ul>
-
-
-<p>Let me know if you have any feature comments. I&#8217;d love to hear feedback from people using it.</p>
 ]]></content>
   </entry>
   
