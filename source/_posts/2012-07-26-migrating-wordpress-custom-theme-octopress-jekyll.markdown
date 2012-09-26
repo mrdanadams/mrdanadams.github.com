@@ -15,7 +15,7 @@ I decided to move from a VPS-hosted Wordpress with a custom theme to Octopress. 
 I'm not. Wordpress is popular for good reason and I've used it for a while. However, it's not without it's warts and I was often left wanting. Here's what I require from whatever is running my blog:
 
 * Creating posts should be easy
-* Hosting should be [very cheap](how-to-host-all-your-projects-for-6-per-month) ($s / month or even free)
+* Hosting should be [very cheap](/2011/how-to-host-all-your-projects-for-6-per-month) ($s / month or even free)
 * It should be fast. The output should be optimized for better user experience and SEO. Page load times should be low. [Google PageSpeed](https://developers.google.com/speed/pagespeed/) rating should be > 90%.
 * I want to spend time authoring, not maintaining. I don't want to think about if my blog is running or not. I certainly don't want to spend my evening repairing a hacked Wordpress or fixing a failed upgrade.
 * I want to be able to customize the theme or functionality if needed.
@@ -68,13 +68,13 @@ This is another instance where things often just don't work. After one of the Wo
 
 ### Wordpress custom theme to Octopress theme
 
-Octopress ships with a default theme. At first glance, it feels like working with a Wordpress theme framework. Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).
+Octopress ships with a default theme. At first glance, it feels like [working with a Wordpress theme framework](/2011/tips-thematic-wordpress-theme-framework/). Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).
 
-The default Octopress theme is well coded and nicely structured. Like any theme, it has it's own markup structure and styles. Migrating from a custom theme (child theme based on the Thematic theme framework), I already had my own markup and CSS that, since I'm just moving the site, should ideally stay the same.
+The default Octopress theme is well coded and nicely structured. Like any theme, it has it's own markup structure and styles. Migrating from a custom theme ([child theme based on the Thematic theme framework](/2011/fluid-grids-responsive-design-thematic-wordpress)), I already had my own markup and CSS that, since I'm just moving the site, should ideally stay the same.
 
 So that's what I did.
 
-I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to move the SCSS in without any changes at all.
+I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to [move the SCSS](/2011/wordpress-theme-sass-compass/) in without any changes at all.
 
 ### Featured images
 
@@ -94,7 +94,7 @@ thumbnail /path/to/local/image.png 50x50<
 
 ### Compass sprites & image paths
 
-If you want to use [Compass sprites](http://compass-style.org/help/tutorials/spriting/) like this:
+If you want to use [Compass sprites](/2011/wordpress-theme-sass-compass/) like this:
 
 ```scss
 $sprites: sprite-map("sprites/*.png");

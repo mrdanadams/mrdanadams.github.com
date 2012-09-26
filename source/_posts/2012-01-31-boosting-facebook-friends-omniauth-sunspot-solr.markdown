@@ -16,7 +16,7 @@ tags:
 
 {% img featured /images/solr_facebook.png %}
 
-Boosting in Solr allows customizing search relevance to offer users the best experience. Here's the short and sweet on boosting at search time using the [Sunspot](http://sunspot.github.com/) gem so documents associated with other users who are your Facebook friends show up first.
+Boosting in [Solr](/2012/sunspot-websolr-solr-heroku/) allows customizing search relevance to offer users the best experience. Here's the short and sweet on boosting at search time using the [Sunspot](http://sunspot.github.com/) gem so documents associated with other users who are your Facebook friends show up first.
 
 <!-- more -->
 
