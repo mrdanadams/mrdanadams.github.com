@@ -4,7 +4,7 @@
   <title><![CDATA[Dan Adams]]></title>
   <link href="http://mrdanadams.com/atom.xml" rel="self"/>
   <link href="http://mrdanadams.com/"/>
-  <updated>2012-08-18T16:04:41-04:00</updated>
+  <updated>2012-09-26T15:08:32-04:00</updated>
   <id>http://mrdanadams.com/</id>
   <author>
     <name><![CDATA[Dan Adams]]></name>
@@ -178,7 +178,7 @@
 
 <ul>
 <li>Creating posts should be easy</li>
-<li>Hosting should be <a href="how-to-host-all-your-projects-for-6-per-month">very cheap</a> ($s / month or even free)</li>
+<li>Hosting should be <a href="http://mrdanadams.com/2011/how-to-host-all-your-projects-for-6-per-month">very cheap</a> ($s / month or even free)</li>
 <li>It should be fast. The output should be optimized for better user experience and SEO. Page load times should be low. <a href="https://developers.google.com/speed/pagespeed/">Google PageSpeed</a> rating should be > 90%.</li>
 <li>I want to spend time authoring, not maintaining. I don&#8217;t want to think about if my blog is running or not. I certainly don&#8217;t want to spend my evening repairing a hacked Wordpress or fixing a failed upgrade.</li>
 <li>I want to be able to customize the theme or functionality if needed.</li>
@@ -236,13 +236,13 @@
 
 <h3>Wordpress custom theme to Octopress theme</h3>
 
-<p>Octopress ships with a default theme. At first glance, it feels like working with a Wordpress theme framework. Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).</p>
+<p>Octopress ships with a default theme. At first glance, it feels like <a href="http://mrdanadams.com/2011/tips-thematic-wordpress-theme-framework/">working with a Wordpress theme framework</a>. Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).</p>
 
-<p>The default Octopress theme is well coded and nicely structured. Like any theme, it has it&#8217;s own markup structure and styles. Migrating from a custom theme (child theme based on the Thematic theme framework), I already had my own markup and CSS that, since I&#8217;m just moving the site, should ideally stay the same.</p>
+<p>The default Octopress theme is well coded and nicely structured. Like any theme, it has it&#8217;s own markup structure and styles. Migrating from a custom theme (<a href="http://mrdanadams.com/2011/fluid-grids-responsive-design-thematic-wordpress">child theme based on the Thematic theme framework</a>), I already had my own markup and CSS that, since I&#8217;m just moving the site, should ideally stay the same.</p>
 
 <p>So that&#8217;s what I did.</p>
 
-<p>I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to move the SCSS in without any changes at all.</p>
+<p>I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to <a href="http://mrdanadams.com/2011/wordpress-theme-sass-compass/">move the SCSS</a> in without any changes at all.</p>
 
 <h3>Featured images</h3>
 
@@ -262,7 +262,7 @@
 
 <h3>Compass sprites &amp; image paths</h3>
 
-<p>If you want to use <a href="http://compass-style.org/help/tutorials/spriting/">Compass sprites</a> like this:</p>
+<p>If you want to use <a href="http://mrdanadams.com/2011/wordpress-theme-sass-compass/">Compass sprites</a> like this:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1058,7 +1058,7 @@ end
     <id>http://mrdanadams.com/2012/boosting-facebook-friends-omniauth-sunspot-solr</id>
     <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/solr_facebook.png"></p>
 
-<p>Boosting in Solr allows customizing search relevance to offer users the best experience. Here&#8217;s the short and sweet on boosting at search time using the <a href="http://sunspot.github.com/">Sunspot</a> gem so documents associated with other users who are your Facebook friends show up first.</p>
+<p>Boosting in <a href="http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/">Solr</a> allows customizing search relevance to offer users the best experience. Here&#8217;s the short and sweet on boosting at search time using the <a href="http://sunspot.github.com/">Sunspot</a> gem so documents associated with other users who are your Facebook friends show up first.</p>
 
 <!-- more -->
 

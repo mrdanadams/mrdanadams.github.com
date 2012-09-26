@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby / Rails | Dan Adams]]></title>
   <link href="http://mrdanadams.com/blog/categories/ruby-rails/atom.xml" rel="self"/>
   <link href="http://mrdanadams.com/"/>
-  <updated>2012-08-18T16:04:41-04:00</updated>
+  <updated>2012-09-26T15:08:32-04:00</updated>
   <id>http://mrdanadams.com/</id>
   <author>
     <name><![CDATA[Dan Adams]]></name>
@@ -380,7 +380,7 @@ end
     <id>http://mrdanadams.com/2012/boosting-facebook-friends-omniauth-sunspot-solr</id>
     <content type="html"><![CDATA[<p><img class="featured" src="/images/solr_facebook.png"></p>
 
-<p>Boosting in Solr allows customizing search relevance to offer users the best experience. Here's the short and sweet on boosting at search time using the <a href="http://sunspot.github.com/">Sunspot</a> gem so documents associated with other users who are your Facebook friends show up first.</p>
+<p>Boosting in <a href="/2012/sunspot-websolr-solr-heroku/">Solr</a> allows customizing search relevance to offer users the best experience. Here's the short and sweet on boosting at search time using the <a href="http://sunspot.github.com/">Sunspot</a> gem so documents associated with other users who are your Facebook friends show up first.</p>
 
 <!-- more -->
 

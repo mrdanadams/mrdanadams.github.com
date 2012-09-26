@@ -102,7 +102,7 @@
 
 <ul>
 <li>Creating posts should be easy</li>
-<li>Hosting should be <a href="how-to-host-all-your-projects-for-6-per-month">very cheap</a> ($s / month or even free)</li>
+<li>Hosting should be <a href="/2011/how-to-host-all-your-projects-for-6-per-month">very cheap</a> ($s / month or even free)</li>
 <li>It should be fast. The output should be optimized for better user experience and SEO. Page load times should be low. <a href="https://developers.google.com/speed/pagespeed/">Google PageSpeed</a> rating should be > 90%.</li>
 <li>I want to spend time authoring, not maintaining. I don&#8217;t want to think about if my blog is running or not. I certainly don&#8217;t want to spend my evening repairing a hacked Wordpress or fixing a failed upgrade.</li>
 <li>I want to be able to customize the theme or functionality if needed.</li>
@@ -160,13 +160,13 @@
 
 <h3>Wordpress custom theme to Octopress theme</h3>
 
-<p>Octopress ships with a default theme. At first glance, it feels like working with a Wordpress theme framework. Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).</p>
+<p>Octopress ships with a default theme. At first glance, it feels like <a href="/2011/tips-thematic-wordpress-theme-framework/">working with a Wordpress theme framework</a>. Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).</p>
 
-<p>The default Octopress theme is well coded and nicely structured. Like any theme, it has it&#8217;s own markup structure and styles. Migrating from a custom theme (child theme based on the Thematic theme framework), I already had my own markup and CSS that, since I&#8217;m just moving the site, should ideally stay the same.</p>
+<p>The default Octopress theme is well coded and nicely structured. Like any theme, it has it&#8217;s own markup structure and styles. Migrating from a custom theme (<a href="/2011/fluid-grids-responsive-design-thematic-wordpress">child theme based on the Thematic theme framework</a>), I already had my own markup and CSS that, since I&#8217;m just moving the site, should ideally stay the same.</p>
 
 <p>So that&#8217;s what I did.</p>
 
-<p>I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to move the SCSS in without any changes at all.</p>
+<p>I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to <a href="/2011/wordpress-theme-sass-compass/">move the SCSS</a> in without any changes at all.</p>
 
 <h3>Featured images</h3>
 
@@ -186,7 +186,7 @@
 
 <h3>Compass sprites &amp; image paths</h3>
 
-<p>If you want to use <a href="http://compass-style.org/help/tutorials/spriting/">Compass sprites</a> like this:</p>
+<p>If you want to use <a href="/2011/wordpress-theme-sass-compass/">Compass sprites</a> like this:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -281,6 +281,10 @@
 
 
 
+  <div id="cta">
+    <p>I&apos;m a Boston-based software engineer and consultant. Follow me <a href="https://twitter.com/danadams">@danadams</a> or connect directly on <a href="http://www.linkedin.com/in/mrdanadams">LinkedIn</a>.</p>
+  </div>
+
   <div id="disqusThread"></div>
 
   <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
@@ -300,7 +304,6 @@
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   }());
 </script>
-
 
 
 
@@ -341,7 +344,7 @@
           <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
         </li>
 
-        <li class="widgetcontainer widget_links">
+        <li class="widgetcontainer widget_links" id="projects">
           <h3 class="widgettitle">Projects</h3>
 
           <ul class='xoxo blogroll'>
@@ -358,7 +361,7 @@
 
   <footer id="footer">
     <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
-    <div id="siteinfo">&copy; 2011 &ndash; 2012 Dan Adams</div><!-- #siteinfo -->
+    <div id="siteinfo">&copy; 2011 &ndash; 2012 <a href="https://plus.google.com/106806765342241351959?rel=author">Dan Adams</a></div><!-- #siteinfo -->
   </footer><!-- #footer -->
 
 </div><!-- #wrapper -->
