@@ -4,7 +4,7 @@
   <title><![CDATA[Dan Adams]]></title>
   <link href="http://mrdanadams.com/atom.xml" rel="self"/>
   <link href="http://mrdanadams.com/"/>
-  <updated>2012-09-26T15:08:32-04:00</updated>
+  <updated>2012-09-26T15:20:02-04:00</updated>
   <id>http://mrdanadams.com/</id>
   <author>
     <name><![CDATA[Dan Adams]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[MongoHQ vs MongoLab: Selecting a Hosted MongoDB Provider]]></title>
+    <link href="http://mrdanadams.com/2012/mongohq-mongolab-mongodb-customer-service/"/>
+    <updated>2012-09-26T10:19:00-04:00</updated>
+    <id>http://mrdanadams.com/2012/mongohq-mongolab-mongodb-customer-service</id>
+    <content type="html"><![CDATA[<p><img class="feature" src="http://mrdanadams.com/images/mongohq_mongolab.jpg" title="MongoLab vs MongoHQ" ></p>
+
+<p>In the course of building <a href="http://blockavenue.com">BlockAvenue</a>, one of the decisions I made was whether to host our own <a href="http://www.mongodb.org">MongoDB</a> or use a hosted provider. Here&#8217;s the short tale of what I selected and the importance of top-tier customer service.</p>
+
+<!-- more -->
+
+
+<h2>Self-hosted or managed hosting?</h2>
+
+<p>We were under intense deadline, had no resources to spend setting up or maintaining a MongoDB cluster, needed no heavy customizations, and needed the database up and running yesterday. Since the app was Heroku hosted, we also needed some control over which region it would be located in. The decision to use a hosted service was a no-brainer even if it meant higher costs for the EC2 instances in the short term. <a href="https://www.mongohq.com">MongoHQ</a> and <a href="https://mongolab.com">MongoLab</a> were clearly the top two choices. But which provider to use? And which size deployment?</p>
+
+<h2>A first-look at MongoHQ and MongoLab</h2>
+
+<p>My first impression comparing MongoHQ and MongoLab put me slightly in favor of MongoLab. In fact, we used the free plan on MongoLab for a short period (and I&#8217;ve used them for small stuff on other projects). As a customer walking in the door, I found the MongoLab pricing and info about their offering much clearer and more informative. Even when choosing a database, having clear pricing and product info is important and eye candy makes some difference. The MongoHQ page provides the basics on pricing but not much else.</p>
+
+<p>With their dedicated plans, for instance, you know the pricing for a Large instance without a replica set ($525 / mo) and the Extra Large instance with replica set ($1,950 / mo). But what about starting with a single Extra Large instance and going to replica set later? How do I expand my cluster? What&#8217;s the process and costs involved?</p>
+
+<p><img src="http://mrdanadams.com/images/mongohq_pricing.png" title="MongoHQ pricing" ></p>
+
+<p>The MongoLab documentation is much clearer and their technical architecture page (aka &#8220;What will I get?&#8221;) makes a <strong>lot</strong> of sense is and very well done. Overall, MongoLab was more informative and, frankly, better looking. Even when choosing a back end technology, visual goodness conveys a sense of quality.</p>
+
+<p><img src="http://mrdanadams.com/images/mongolab_pricing.png" title="MongoLab pricing" ></p>
+
+<p><img src="http://mrdanadams.com/images/mongolab_arch.jpg" title="MongoLab architecture" ></p>
+
+<h2>Interaction with a real human</h2>
+
+<p>At this point, I&#8217;m on the fence and out of time; I need a deployment up, my data loaded, and to start setting up the production environment. I still have big questions about the specifics of the data we are handling; large amounts of geospatial data with very fast response times and a lot of queries.</p>
+
+<p>I email <a href="http://www.10gen.com">10gen</a> asking to get on the phone with someone to ask a few questions about index structure, the amount of memory needed and overhead to plan for, and other performance concerns. Within 30 minutes I am on the phone with a 10gen engineer. Awesome. I could not have had a better experience with 10gen and would absolutely recommend people with non-trivial deployments consider a support contract or initial consultation.</p>
+
+<p>Having my strategy worked out, I need to select a vendor and get the deployment up. I fire off emails to MongoHQ and MongoLab. Within 10 minutes, a real person with real experience and knowledge of MongoDB calls my cell (Chris from Birmingham). Chris is awesome; I explain our project particulars and he immediately comes back with solid questions and recommendations based on their experiences with other customers. 15 minutes on the phone and I am ready to pull the trigger. This was, without a doubt, one of the best customer experiences I&#8217;ve ever had (I sent him an email later saying as much).</p>
+
+<p>I walk back to my desk, create my account, set up a new deployment, wait for the EC2 instances to come up (which took a few minutes), create my database, and am off and running. 30 minutes in and I have my instance with GBs of data and many millions of documents loaded and serving our Heroku-hosted app. Everything should be this easy. Rock on, MongoHQ.</p>
+
+<p>I hear back from MongoLab several hours later (which, admittedly, isn&#8217;t <strong>that</strong> bad) but MongoHQ beat them to it and totally delighted me with their customer service. My production db was up and serving our app by the time MongoLab responded.</p>
+
+<h2>Living with MongoHQ</h2>
+
+<p>A few days later, we need to make the move to a replica set in preparation for <a href="http://blog.blockavenue.com/corporate/we-are-live-n-kickin/">go-live</a>. I email support with specific questions about cost, process, time line, and scaling up / down as needed based on traffic (<a href="http://techcrunch.com/2012/09/20/blockavenue-launch">we knew we were going to get TechCrunch&#8217;d</a>). Again, I have a response within minutes. A day or two later, on a Saturday, we circle back on this and are ready to make a decision. Email is sent to support giving them the go-ahead to both increase the instance size and create the replica set. Response was that they are on it but may not get to it by Monday. A few hours later, I&#8217;m delighted to see an email that the new cluster is up with the URLs for each server. Again, MongoHQ goes above expectations for customer support.</p>
+
+<p>Once up and running, the clusters are largely self-service and we&#8217;ve had no problems so far. An admin panel shows the status of each node, connection and database info, and what&#8217;s happening on each instance now and in recent history. The old admin is a bit ugly and dated but the new admin (in alpha) is already awesome. It&#8217;s also responsive meaning it works well as a large view showing and as a mini dashboard. In fact, on launch day, I left it running in the corner of my second monitor all day to keep an eye on things.</p>
+
+<h2>Final thoughts</h2>
+
+<p>In the end, the offerings between MongoHQ and MongoLab may be marginally different, at least in terms of pricing and technology. However, MongoHQ support has so far proven to be top notch. For many of my clients without IT or dev ops resources, this makes the price increase over running their own MongoDB cluster on EC2 well worth it.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Creating a custom OpenLayers build by profiling usage]]></title>
@@ -1734,116 +1788,6 @@ Examples:
 <p>[Image sources: http://www.helicontech.com/zoo/media/icons/nodejs-100x100.png, http://a0.twimg.com/profile_images/473641368/logo-twitter.png, http://djangocon.us/site_media/media/sponsor_logos/dotcloud_png_180x140_q85.PNG, https://s3.amazonaws.com/photos.angel.co/startups/i/20387-0f44d2f264e195591716f9f82f30f5b3-thumb.png, http://a3.twimg.com/profile_images/1543095199/ndoesterrocket.png, https://secure.gravatar.com/avatar/fff4946e54f73818117b075009c985cc?s=140&d;=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png, http://nodesummit.com/wp-content/uploads/nodejitsu-small-e1324592710612.png]</p>
 
 <p>Image created with <a href="http://logolifter.com/">Logo Lifter</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Excluding active_admin JS and CSS from your Rails app]]></title>
-    <link href="http://mrdanadams.com/2011/exclude-active-admin-js-css-rails/"/>
-    <updated>2011-12-23T05:34:47-05:00</updated>
-    <id>http://mrdanadams.com/2011/exclude-active-admin-js-css-rails</id>
-    <content type="html"><![CDATA[<p><a href="https://github.com/gregbell/active_admin" target="_blank">active_admin</a> is a cool gem for quickly creating an admin interface over your Active Record models. By default, it puts it&#8217;s JS and CSS files into your app/assets folder which then get included in your application. Not what you want.</p>
-
-<!--more-->
-
-
-<h2>Excluding active_admin.js and active_admin.css.scss</h2>
-
-<p>Create the folders <code>app/assets/javascripts/admin</code> and <code>app/assets/stylesheets/admin</code> and move the files <code>active_admin.js</code> and <code>active_admin.css.scss</code> into these folders, respectively.</p>
-
-<p>In your <code>app/assets/stylesheets/application.css.scss</code> you will find the following near the top:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> *= require_self
-</span><span class='line'> *= require_true .</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Change this to:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> *= require_self
-</span><span class='line'> *= require_directory .</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Do the same for <code>application.js</code>.</p>
-
-<p>This changes what&#8217;s included in application.css from anything under the stylesheets folder (and it&#8217;s subfolders) and the contents of the application.css.scss file to only files directly under the stylesheets folder and the contents of the application.css.scss file. You should notice the active_admin files no longer being included. However, they are also no longer in active admin either.</p>
-
-<h2>Re-including the files in active admin</h2>
-
-<p>The culprit is active_admin&#8217;s asset_registration.rb and application.rb:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">register_default_assets</span>
-</span><span class='line'>  <span class="n">register_stylesheet</span> <span class="s1">&#39;active_admin.css&#39;</span>
-</span><span class='line'>  <span class="n">register_javascript</span> <span class="s1">&#39;active_admin.js&#39;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>To clear these and replace them with the new files, add the following to the bottom of config/initializers/active_admin.rb:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">clear_stylesheets!</span>
-</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">register_stylesheet</span> <span class="s1">&#39;admin/active_admin.css&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">clear_javascripts!</span>
-</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">register_javascript</span> <span class="s1">&#39;admin/active_admin.js&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Active admin should be back to normal.</p>
-
-<h2>Heroku deployment problems</h2>
-
-<p>When deploying to heroku, you may see something like this in the logs:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Started</span> <span class="no">GET</span> <span class="s2">&quot;/admin/login&quot;</span> <span class="k">for</span> <span class="mi">146</span><span class="o">.</span><span class="mi">115</span><span class="o">.</span><span class="mi">108</span><span class="o">.</span><span class="mi">146</span> <span class="n">at</span> <span class="mi">2011</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">22</span> <span class="mi">16</span><span class="p">:</span><span class="mo">03</span><span class="p">:</span><span class="mi">32</span> <span class="o">+</span><span class="mo">0000</span>
-</span><span class='line'>
-</span><span class='line'><span class="no">ActionView</span><span class="o">::</span><span class="no">Template</span><span class="o">::</span><span class="no">Error</span> <span class="p">(</span><span class="n">admin</span><span class="o">/</span><span class="n">active_admin</span><span class="o">.</span><span class="n">css</span> <span class="n">isn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">precompiled</span><span class="p">):</span>
-</span><span class='line'>    <span class="mi">6</span><span class="p">:</span>   <span class="o">&lt;</span><span class="n">title</span><span class="o">&gt;&lt;</span><span class="sx">%= [</span>
-</span><span class='line'>
-</span><span class='line'><span class="sx">    7: </span>
-</span><span class='line'><span class="sx">    8:   &lt;% ActiveAdmin.application.stylesheets.each do |path| %&gt;</span>
-</span><span class='line'><span class="sx">    9:     &lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="n">path</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">    10:   &lt;% end %&gt;</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>    <span class="mi">12</span><span class="p">:</span>     <span class="o">&lt;%=</span> <span class="n">javascript_include_tag</span> <span class="n">path</span> <span class="sx">%&gt;</span>
-</span><span class='line'><span class="sx">    11:   &lt;% ActiveAdmin.application.javascripts.each do |path| %&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The files need to be precompiled for production, as noted in <a href="https://github.com/gregbell/active_admin/issues/483" target="_blank">this issue</a>. Add the following to <code>application.rb</code> (or config file of choice):</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">+=</span> <span class="sx">%w[admin/active_admin.css admin/active_admin.js]</span>
-</span></code></pre></td></tr></table></div></figure>
-
 ]]></content>
   </entry>
   
