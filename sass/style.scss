@@ -5,6 +5,12 @@ see http://modularscale.com/scale/?px1=16&px2=18&ra1=1.5&ra2=0
 @import "compass";
 @import "_pems";
 
+%avatar {
+  $width: 80;
+  width: pem($width); height: pem($width); display: block;
+  background: url(http://www.gravatar.com/avatar/02f435577368c37cb8fdc3a2279650bd?s=#{$width}) 0 0 no-repeat;
+}
+
 /* defaults used by the octopress theming */
 $type-border: #ddd !default;
 $link-color: rgb(212,238,94) !default;
@@ -142,13 +148,7 @@ body { background-color: #1f1f1f; }
   @include border-radius(pem(3));
 
   p { font-size: pem(12); line-height: pem(18, 12); margin-bottom: 1em; @include helvetica; }
-
-  .avatar { 
-    $width: 80;
-    width: pem($width); height: pem($width); display: block; float: right;
-    margin: pem(5) 0 pem(5) pem(5);
-    background: url(http://www.gravatar.com/avatar/02f435577368c37cb8fdc3a2279650bd?s=#{$width}) 0 0 no-repeat;
-  }
+  .avatar { @extend %avatar; float: right; margin: pem(5) 0 pem(5) pem(5); }
 }
 
 /* all images placed in the sprite directory will be included in the sprites */
@@ -462,6 +462,22 @@ $image_margin: 1em;
 /* lightbox */
 
 #cboxOverlay { background-color: black !important; }
+
+#cta {
+  background: #1b475c; 
+  border-radius: pem(3.555);
+  margin: pem(40.5) 0; padding: pem(12);
+  @include clearfix;
+
+  p { color: #c9e3f5; font-size: pem(24); line-height: 1.25em; margin: 0; padding: 0; }
+  &:before {
+    @extend %avatar;
+    content: ""; display: block; float: left;
+    margin-right: pem(12);
+  }  
+}
+
+#projects { display: none; }
 
 /* iPhone */
 @media only screen and (max-width: 480px), screen and (max-device-width: 480px) {
