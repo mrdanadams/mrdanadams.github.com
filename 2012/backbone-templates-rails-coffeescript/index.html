@@ -6,12 +6,12 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta charset="utf-8">
-  <title>Category: Events - Dan Adams</title>
+  <title>Embedding Backbone Templates in Rails with CoffeeScript - Dan Adams</title>
   <meta name="author" content="Dan Adams">
 
   
-  <meta name="description" content="Category: Events">
-  
+  <meta name="description" content="Embedding Backbone Templates in Rails with CoffeeScript Multiline string support in CoffeeScript offers a great way to embed your Backbone templates &hellip;">
+  <meta name="keywords" content="CoffeeScript, Backbone JS, Rails, Ruby on Rails, Views">
 
   <meta name="robots" content="index,follow,noodp,noydir" />
 
@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
 
   
-  <link rel="canonical" href="http://mrdanadams.comblog/categories/events/">
+  <link rel="canonical" href="http://mrdanadams.com/2012/backbone-templates-rails-coffeescript/">
   <link href="/favicon.ico" rel="icon">
   <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
   <!--
@@ -49,7 +49,7 @@
 </script>
 </head>
 
-<body  class="  ">
+<body  class="  single">
 
 <div id="wrapper" class="hfeed">
   
@@ -70,53 +70,114 @@
   <div id="main">  
     <div id="container">
       <div id="content">
-        <div>
-<article role="article">
+        <article class="hentry" role="article">
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<!-- AddThis Button END -->
+
   
   <header>
-    <h1 class="entry-title">Category: Events</h1>
     
+      <h1 class="entry-title"><span>Embedding Backbone Templates in Rails with CoffeeScript</span></h1>
+    
+
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><a href="http://coffeescript.org/#strings">Multiline string support in CoffeeScript</a> offers a great way to embed your <a href="http://backbonejs.org/#View-render">Backbone templates</a>. In this approach, you can easily edit your templates while still taking advantage of JS minification, combination, and client-side caching.</p>
 
-  
-  <h2>2012</h2>
-
-<article>
-  Included file 'archive_post.html' not found in _includes directory
-</article>
+<!-- more -->
 
 
+<h2>Registering and caching templates</h2>
 
-<article>
-  Included file 'archive_post.html' not found in _includes directory
-</article>
+<p>We&#8217;ll create a top-level object in our namespace to hold our templates which are cached for efficient use across many view instances.</p>
+
+<div><script src='https://gist.github.com/3880219.js?file=templates.coffee'></script>
+<noscript><pre><code># Our top-level namespace (which I'll just call NS for sample purposes)
+NS = @NS
+NS.Templates =
+  templates: {} # empty object to cache compiled templates
+
+  # gets a compiled template rendering by ID
+  get: (id) -&gt; @templates[id]
+
+  # caches a new template
+  register: (id, source) -&gt;
+    @templates[id] = _.template(source)
+
+# Register a template embedding the sources in a multi-line string
+NS.Templates.register &quot;ourAwesomeTemplate&quot;, &quot;&quot;&quot;
+&lt;div class=&quot;inner&quot;&gt;
+  &lt;h3&gt;&lt;%= name %&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&quot;&quot;&quot;
+
+NS.Templates.register &quot;anotherAwesomeTemplate&quot;, &quot;&quot;&quot;
+&lt;span&gt;&lt;%= foo %&gt;&lt;/span&gt;
+&quot;&quot;&quot;
+</code></pre></noscript></div>
 
 
+<h2>Using the templates</h2>
 
-  
-  <h2>2011</h2>
+<p>An example of using the template in a Backbone view:</p>
 
-<article>
-  Included file 'archive_post.html' not found in _includes directory
-</article>
+<div><script src='https://gist.github.com/3880219.js?file=view.coffee'></script>
+<noscript><pre><code>NS = @NS
+NS.View.SomethingGreat = @Backbone.View.extend
+  className:'my-awesome-thing'
 
+  initialize: (options) -&gt;
+    # could also do this in render()
+    @template = NS.Templates.get('ourAwesomeTemplate')
+    this
+
+  render: -&gt;
+    $(@el).html(@template(@model.toJSON()))
+    this
+</code></pre></noscript></div>
+
+
+<p>In this case I&#8217;m registering and caching our templates on load. If we had more templates, or they were used less often, we could register them to be compiled on-demand which might be more efficient.</p>
 </div>
 
-  
+
+
+  <div id="cta">
+    <p>I&apos;m a Boston-based software engineer and consultant. Follow me <a href="https://twitter.com/danadams">@danadams</a> or connect directly on <a href="http://www.linkedin.com/in/mrdanadams">LinkedIn</a>.</p>
+  </div>
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2012/backbone-templates-rails-coffeescript/';
+  var disqus_url = 'http://mrdanadams.com/2012/backbone-templates-rails-coffeescript/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
 </article>
-
-</div>
-
-<aside class="sidebar">
-  
-    
-  
-</aside>
-
 
       </div><!-- #content -->
     </div><!-- #container -->
