@@ -4,7 +4,7 @@
   <title><![CDATA[Dan Adams]]></title>
   <link href="http://mrdanadams.com/atom.xml" rel="self"/>
   <link href="http://mrdanadams.com/"/>
-  <updated>2012-10-26T18:38:15-04:00</updated>
+  <updated>2012-11-08T18:04:22-05:00</updated>
   <id>http://mrdanadams.com/</id>
   <author>
     <name><![CDATA[Dan Adams]]></name>
@@ -12,6 +12,193 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[5-10x Speed Ups by Pipeling Multiple REDIS Commands in Ruby]]></title>
+    <link href="http://mrdanadams.com/2012/pipeline-redis-commands-ruby/"/>
+    <updated>2012-11-08T14:36:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/pipeline-redis-commands-ruby</id>
+    <content type="html"><![CDATA[<p><a href="http://redis.io">REDIS</a> is fast. Really fast. And awesome. But that doesn&#8217;t mean you can get lazy with how you use it. <a href="http://redis.io/topics/pipelining">Pipelining REDIS commands</a> allows you to execute multiple commands in REDIS and return the results at once. I&#8217;ve seen this provide a 5x-10x speedup. He&#8217;s how to do it with the Ruby driver.</p>
+
+<!-- more -->
+
+
+<h2>Why You Should Pipeline</h2>
+
+<p>(If your code isn&#8217;t performance sensitive the following is probably unnecessary.) When working with REDIS, look out for code blocks that look like this:</p>
+
+<ol>
+<li>ask REDIS for something</li>
+<li>do something with it</li>
+<li>repeat</li>
+</ol>
+
+
+<p>Depending on the number of calls you make, you could be paying a lot in over-the-wire and connection overhead (even within the same data center). A better model is to do something like this:</p>
+
+<ol>
+<li>collect all your commands</li>
+<li>send them to REDIS</li>
+<li>unpack the result and do something with it</li>
+</ol>
+
+
+<p>Even with REDIS being very, very fast and the server being close to the client, this can lead to significant improvements in speed. I&#8217;ve seen a handful of commands (&lt; 10) pipelined to drop a 250ms page render to 50ms.</p>
+
+<h2>Get Your Pipe On</h2>
+
+<p>Here&#8217;s the general structure of using the Ruby driver to pipeline multiple REDIS commands. When you execute a command, rather than getting the result you get a <a href="https://github.com/redis/redis-rb#futures">Future</a> object which you can ask for the result when it&#8217;s available.</p>
+
+<p>Using Future comes with a few challenges:</p>
+
+<ul>
+<li>If you are executing the command based on some context (such as a related object) you need that context when you get the result</li>
+<li>Future doesn&#8217;t provide a nice way of waiting for the value to be realized or even checking if it has been</li>
+</ul>
+
+
+<p>In this example, we&#8217;ll iterate through a number of objects each one needing a REDIS hash.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># we&#39;ll collect a number of Futures with their related context</span>
+</span><span class='line'><span class="c1"># Let&#39;s pretend have a number of objects and need to get their associated data</span>
+</span><span class='line'><span class="n">cmds</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="n">objects</span> <span class="o">=</span> <span class="o">[]</span> <span class="c1"># we&#39;ll pretend this isn&#39;t empty</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Create the pipelined commands. Any REDIS commands executing in this block will return Futures rather than values</span>
+</span><span class='line'><span class="n">redis</span><span class="o">.</span><span class="n">pipelined</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">objects</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">object</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">cmds</span> <span class="o">&lt;&lt;</span> <span class="p">{</span> <span class="n">future</span><span class="p">:</span> <span class="n">redis</span><span class="o">.</span><span class="n">hgetall</span><span class="p">(</span><span class="n">object</span><span class="o">.</span><span class="n">key</span><span class="p">),</span> <span class="n">object</span><span class="p">:</span> <span class="n">object</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Now that we have our commands executing we need to wait for the values to come back</span>
+</span><span class='line'><span class="n">cmds</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># wait for each one to come back before proceeding. this is not ideal but simple and seems to work fine.</span>
+</span><span class='line'>  <span class="k">while</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="no">Redis</span><span class="o">::</span><span class="no">FutureNotReady</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">value</span> <span class="o">=</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span>
+</span><span class='line'>  <span class="n">object</span> <span class="o">=</span> <span class="n">c</span><span class="o">[</span><span class="ss">:object</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># do something with the REDIS return value and our context</span>
+</span><span class='line'>  <span class="n">object</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">value</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Improvements</h2>
+
+<p>You can see that the model here is pretty disjointed and makes for less-maintainable code. The problem is having to break your code up causing you to lose context. Something like this might make more sense (<strong>warning</strong> untested ruby pseudocode ahead):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Pipeliner</span><span class="o">.</span><span class="n">pipeline</span> <span class="n">redis</span> <span class="k">do</span> <span class="o">|</span><span class="n">pipe</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">objects</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">object</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">pipe</span><span class="o">.</span><span class="n">enqueue</span> <span class="n">redis</span><span class="o">.</span><span class="n">hgetall</span><span class="p">(</span><span class="n">object</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">result</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">object</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">result</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>Pipeline</code> could look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Pipeliner</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">redis</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@redis</span> <span class="o">=</span> <span class="n">redis</span>
+</span><span class='line'>    <span class="vi">@cmds</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@cmds</span> <span class="o">&lt;&lt;</span> <span class="p">{</span> <span class="n">future</span><span class="p">:</span> <span class="n">future</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="nb">proc</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">wait</span>
+</span><span class='line'>    <span class="vi">@cmds</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+</span><span class='line'>      <span class="k">while</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="no">Redis</span><span class="o">::</span><span class="no">FutureNotReady</span><span class="p">)</span>
+</span><span class='line'>        <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">c</span><span class="o">[</span><span class="ss">:callback</span><span class="o">].</span><span class="n">call</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">pipeline</span><span class="p">(</span><span class="n">redis</span><span class="p">,</span> <span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Executes callbacks with each result. This blocks.</span>
+</span><span class='line'>    <span class="n">pipeliner</span> <span class="o">=</span> <span class="no">Pipeliner</span><span class="o">.</span><span class="n">new</span> <span class="n">redis</span>
+</span><span class='line'>    <span class="n">redis</span><span class="o">.</span><span class="n">pipelined</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">proc</span><span class="o">.</span><span class="n">call</span> <span class="n">pipeliner</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">pipeliner</span><span class="o">.</span><span class="n">wait</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Embedding Backbone Templates in Rails with CoffeeScript]]></title>
@@ -1770,32 +1957,6 @@ Examples:
 
 
 <p><a href="http://code.google.com/p/innotop/">innotop</a> also appeared useful but I didn&#8217;t end up needing it.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Managing multiple Node.js / NPM versions and installs]]></title>
-    <link href="http://mrdanadams.com/2012/managing-multiple-node-js-npm-versions-installs/"/>
-    <updated>2012-01-04T05:00:50-05:00</updated>
-    <id>http://mrdanadams.com/2012/managing-multiple-node-js-npm-versions-installs</id>
-    <content type="html"><![CDATA[<p>If you are using <a href="http://nodejs.org/">Node.js</a>, particularly on <a href="http://www.heroku.com/">Heroku</a> which mandates a specific version, and need to work across multiple versions doing this manually can be frustrating (and insane). &#8220;No such module&#8221; problems like <a href="https://github.com/isaacs/npm/issues/1711">this</a> and <a href="https://github.com/isaacs/npm/issues/1711">this</a> have naturally led to some nice tools for managing <a href="http://npmjs.org/">NPM</a> and Node.js versions.</p>
-
-<!-- more -->
-
-
-<h2>n</h2>
-
-<p>I have found <a href="https://github.com/visionmedia/n">n</a>, like it&#8217;s name, to be simple and useful and haven&#8217;t yet had any issues with it.</p>
-
-<h2>Nave</h2>
-
-<p><a href="https://github.com/isaacs/nave">Nave</a> borrows from <a href="https://github.com/creationix/nvm">NVM</a> and sea.</p>
-
-<h2>NVM</h2>
-
-<p><a href="https://github.com/creationix/nvm">NVM</a>, presumably inspired by <a href="http://beginrescueend.com/">RVM</a>, has a number of dependencies, more complicated installation, and appears to have been superseded by more recent tools like n and nave.</p>
-
-<p>What is your tool of choice? Do you use one or just do it manually?</p>
 ]]></content>
   </entry>
   
