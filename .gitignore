@@ -14,3 +14,4 @@ node_modules
 wp-index.html
 wp-single.html
 out.html
+/.preview-mode
