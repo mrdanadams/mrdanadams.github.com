@@ -4,7 +4,6 @@ title: "5-10x Speed Ups by Pipeling Multiple REDIS Commands in Ruby"
 date: 2012-11-08 14:36
 comments: true
 categories: 
-published: false
 ---
 
 [REDIS](http://redis.io) is fast. Really fast. And awesome. But that doesn't mean you can get lazy with how you use it. [Pipelining REDIS commands](http://redis.io/topics/pipelining) allows you to execute multiple commands in REDIS and return the results at once. I've seen this provide a 5x-10x speedup. He's how to do it with the Ruby driver.
