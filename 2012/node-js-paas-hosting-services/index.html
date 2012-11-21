@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <title>Node.js PaaS hosting services - Dan Adams</title>
+  <meta name="author" content="Dan Adams">
+
+  
+  <meta name="description" content="Node.js PaaS hosting services Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text &hellip;">
+  
+
+  <meta name="robots" content="index,follow,noodp,noydir" />
+
+  <!-- http://t.co/dKP3o1e -->
+<!--   <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+
+  
+  <link rel="canonical" href="http://mrdanadams.com/2012/node-js-paas-hosting-services/">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+-->
+  <link href="http://feeds.feedburner.com/MisterDanAdams" rel="alternate" title="Dan Adams" type="application/atom+xml">
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25728031-2']);
+  _gaq.push(['_setDomainName', 'mrdanadams.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body  class="  single">
+
+<div id="wrapper" class="hfeed">
+  
+  <div id="header">
+    <div id="branding">
+      <div id="blog-title">
+        <h1><a href="/" title="Dan Adams" rel="home">Dan Adams</a></h1>
+      </div>
+    </div><!--  #branding -->
+    
+    <div id="access">
+      <div class="skip-link"><a href="#content" title="Skip navigation to the content">Skip to content</a></div><!-- .skip-link -->
+        
+      <div class="menu"></div>
+    </div><!-- #access -->
+  </div><!-- #header-->
+
+  <div id="main">  
+    <div id="container">
+      <div id="content">
+        <article class="hentry" role="article">
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<!-- AddThis Button END -->
+
+  
+  <header>
+    
+      <h1 class="entry-title"><span>Node.js PaaS hosting services</span></h1>
+    
+
+  </header>
+
+
+<div class="entry-content"><p>Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | &#8220;title text&#8221; [&#8220;alt text&#8221;]] %}</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a> (Platform as a Service) with support for specific stacks is the latest wave of cloud-based hosting services. Awesome providers such as <a href="http://www.heroku.com/">Heroku</a> show you why; simple (and often free) deployment and scaling of common stacks like <a href="http://rubyonrails.org/">Rails</a>. Here are the best known <a href="http://nodejs.org/">Node.js</a> PaaS offerings.</p>
+
+<!-- more -->
+
+
+<h2>Heroku</h2>
+
+<p><a href="http://devcenter.heroku.com/articles/node-js">Heroku now offers Node.js support</a> which, as a huge Heroku fan, I&#8217;m glad to see. See <a href="http://blog.heroku.com/archives/2010/4/28/node_js_support_experimental/">here</a> for the announcement and additional details. So far Heroku is my chosen Node.js host as I&#8217;m sure it is for many. Compared to the rest it appears to have the best support and be keeping up with the competition. For me, the pricing at Heroku and ease of use makes it a no-brainer for small projects or even just playing with Node.js.</p>
+
+<p>Heroku mandates Node.js v0.4.7 and WebSockets are not yet supported. Dependency management requires <a href="http://npmjs.org/">NPM</a> and <a href="https://github.com/ddollar/foreman">foreman</a> (with a Procfile) is used to <a href="http://blog.heroku.com/archives/2011/6/20/the_new_heroku_1_process_model_procfile/">create web and worker processes</a>. See this page for details on <a href="http://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku">Heroku socket.io support</a>.</p>
+
+<h2>DuoStack / dotCloud</h2>
+
+<p><a href="https://www.dotcloud.com/">dotCloud</a> (which acquired <a href="http://blog.duostack.com/">Duostack</a>) now offers <a href="http://docs.dotcloud.com/services/nodejs/">Node.js support</a>. Like Heroku, you can get started for free and must use NPM for package management. The application structure is dotCloud-specific and uses <a href="http://docs.dotcloud.com/guides/build-file/">YAML build files</a>. WebSockets are not supported though socket.io provides fall-back to other methods. Documentation doesn&#8217;t say if a specific Node.js version is required or what versions are supported.</p>
+
+<h2>nodeSocket</h2>
+
+<p><a href="http://www.nodesocket.com/">nodeSocket</a> is currently in private beta. While the site doesn&#8217;t offer much detail the <a href="http://blog.nodesocket.com/">nodeSocket blog</a> has a peak under the covers.</p>
+
+<p>A feature of note is getting root access to your VPS. While this sounds like a good thing it blurs the line between VPS hosting and a PaaS. Not needing to know host details is one of the reasons for a PaaS and why working with Heroku is so great. I&#8217;d love to hear the compelling reason to use nodeSocket over a standard AMI on EC2 or Nodester.</p>
+
+<h2>bejes.us / Nodester</h2>
+
+<p><a href="http://bejes.us/">bejes.us</a> is a hosted version of <a href="http://www.nodester.com/">nodester</a>, an open source (via <a href="https://github.com/nodester/nodester">github</a>) Node.js PaaS with a REST API, CLI, and git integration. If you want to run your own Heroku, this could be a good option.</p>
+
+<h2>Cloudnode</h2>
+
+<p><a href="http://cloudno.de/">Cloudnode</a>, current in private beta, appears to be very Heroku-esque although not much in known. The <a href="https://github.com/dvbportal/cloudnode-cli">Cloudnode CLI</a> offers some insight.</p>
+
+<h2>nodejitsu</h2>
+
+<p><a href="http://nodejitsu.com/">nodejitsu</a>, in private beta, also appears to be a Heroku competitor. However, many of the core projects are <a href="https://github.com/nodejitsu/">open source on github</a> and appear to be useful outside nodejitsu.</p>
+
+<h2>Update: no.de by Joyent</h2>
+
+<p><a href="https://no.de/">no.de by Joyent</a> provides &#8220;SmartMachines&#8221; similar to other services using NPM for dependency management and git for deployment. See the <a href="http://wiki.joyent.com/display/node/Getting+Started+with+a+Node.js+SmartMachine">Joyent wiki</a> and the <a href="http://wiki.joyent.com/display/node/Node.js+SmartMachine+FAQ">FAQ</a> for a quick sense of what&#8217;s involved. Node.js v0.4.11 is supported by default but the <a href="http://wiki.joyent.com/display/node/Setting+the+Node.js+Version">version can be changed</a>. Based on the info on <a href="http://wiki.joyent.com/display/node/Installing+Node.js+on+a+Joyent+SmartOS+SmartMachine">getting a production deployment</a>, it&#8217;s unclear what the scaling plan is as your have root access and install it yourself on a Solaris box.</p>
+
+<h2>Update: Cloud Foundry</h2>
+
+<p><a href="http://www.cloudfoundry.com/">Cloud Foundry</a>, a general purpose cloud hosting platform, <a href="http://support.cloudfoundry.com/entries/505133-deploying-a-node-js-app-with-npm-dependencies">does support Node.js</a> and <a href="http://joyeur.com/2011/11/08/joyent-is-community-lead-for-node-js-on-cloud-foundry/">Joyent is the community leader for it</a>. <a href="http://www.mihswat.com/2011/05/04/getting-started-with-cloud-foundry-using-a-node-js-and-mongodb-application/">This post</a> has a nice tutorial on getting started.</p>
+
+<p>Know of any not listed here? How do you host your Node.js apps?</p>
+
+<p>[Image sources: http://www.helicontech.com/zoo/media/icons/nodejs-100x100.png, http://a0.twimg.com/profile_images/473641368/logo-twitter.png, http://djangocon.us/site_media/media/sponsor_logos/dotcloud_png_180x140_q85.PNG, https://s3.amazonaws.com/photos.angel.co/startups/i/20387-0f44d2f264e195591716f9f82f30f5b3-thumb.png, http://a3.twimg.com/profile_images/1543095199/ndoesterrocket.png, https://secure.gravatar.com/avatar/fff4946e54f73818117b075009c985cc?s=140&d;=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png, http://nodesummit.com/wp-content/uploads/nodejitsu-small-e1324592710612.png]</p>
+
+<p>Image created with <a href="http://logolifter.com/">Logo Lifter</a>.</p>
+</div>
+
+
+
+  <div id="cta">
+    <p>I&apos;m a Boston-based software engineer and consultant. Follow me <a href="https://twitter.com/danadams">@danadams</a> or connect directly on <a href="http://www.linkedin.com/in/mrdanadams">LinkedIn</a>.</p>
+  </div>
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2012/node-js-paas-hosting-services/';
+  var disqus_url = 'http://mrdanadams.com/2012/node-js-paas-hosting-services/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+</article>
+
+      </div><!-- #content -->
+    </div><!-- #container -->
+
+    <aside id="aside-container">
+      <section id="follow-links" class="aside">
+        <label>Follow &amp; Connect</label>
+
+        <ul>
+          <li class="twitter"><a href="https://twitter.com/danadams" title="@danadams on Twitter" target="_blank"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank"><span>Linked In</span></a></li>
+          <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
+          <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
+          <li class="rss"><a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams Post RSS feed"><span>RSS</span></a></li>
+          <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
+      </ul>
+    </section>
+
+    <section id="about-box" class="aside">
+      <h3>About Dan</h3>
+      <span class="avatar"></span>
+
+      <p>I am a software engineer and consultant living and working in Boston at <a href="http://cantina.co" target="_blank" rel="nofollow">Cantina Consulting</a>.</p>
+      <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
+    </section>
+
+    <section id="primary" class="aside main-aside">
+      <ul class="xoxo">
+        <li class="widgetcontainer widget_featured_post_widget">
+          <p class="featured-title">
+            <a href="/2012/your-career-is-a-business/" title="What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
+          </p>
+          <a href="/2012/your-career-is-a-business/"><img src='/images/career_growth_150x150.png' /></a>
+          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
+        </li>
+
+<!--
+        <li class="widgetcontainer widget_links" id="projects">
+          <h3 class="widgettitle">Projects</h3>
+
+          <ul class='xoxo blogroll'>
+            <li><a href="http://abnqe.com" title="Browse your Netflix instant queue visually and search for titles" target="_blank">abnqe (A Better Netflix Queue Experience)</a></li>
+            <li><a href="http://www.meetup.com/emerging-business-technology" target="_blank">Emerging Business Tech Meetup</a></li>
+            <li><a href="http://logolifter.com" title="Create new images by searching for others and combining them. Great for blog post featured images." target="_blank">Logo Lifter</a></li>
+          </ul>
+        </li>
+-->
+      </ul>
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
+
+  </div><!-- #main -->
+
+  <footer id="footer">
+    <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
+    <div id="siteinfo">
+      &copy; 2011 &ndash; 2012 <a href="https://plus.google.com/106806765342241351959?rel=author">Dan Adams</a>
+    </div><!-- #siteinfo -->
+  </footer><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+</body>
+</html>

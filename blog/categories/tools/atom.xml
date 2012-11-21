@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tools | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/tools/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-11-08T18:04:22-05:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Changing Dropbox location for 1Password storage]]></title>
+    <link href="http://mrdanadams.com/2012/change-dropbox-location-1password/"/>
+    <updated>2012-02-13T06:41:47-05:00</updated>
+    <id>http://mrdanadams.com/2012/change-dropbox-location-1password</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/dropbox_1password.png"></p>
+
+<p>Dropbox is awesome. 1Password is awesome. When their powers combine... it's awesome. Except if you need to change where 1Password stores it's file in Dropbox. Here's a simple way to change that.</p>
+
+<!-- more -->
+
+
+<p>From the mouth of 1Password support:</p>
+
+<blockquote><p>You have 1Password 3.9 which is from the Mac App Store. Apple requires (or will soon be requiring) all applications on the Mac App Store to conform to various Sandboxing rules. One of those rules is strict limitations on where the data files the application accesses are located.</p>
+
+<p>In this case we allow 1Password to read the file 1Password.agilekeychain inside of ~/Dropbox/1Password/</p>
+
+<p>So it will always prompt you to tell you that it is copying the file to that location and that the other one will remain in the prior location as a backup.</p>
+
+<p>Long story short, you'll have to keep your data file at ~/Dropbox/1Password/1Password.agilekeychain</p>
+
+<p>I do apologize for the inconvenience though. Hopefully this helps.</p></blockquote>
+
+<p>Bummer. Here's how to change it:</p>
+
+<ol>
+<li>Open 1Password and go to <strong>1Password > Preferences... > General</strong></li>
+<li>Disable using Dropbox. This will now store the files under /Users/yourname/Dropbox/Personal/...</li>
+<li>Close 1Password</li>
+<li>Open a terminal and follow the script below</li>
+</ol>
+
+
+<p>Assuming you want to store your files in ~/Dropbox/Personal/1Password instead of ~/Dropbox/1Password (for instance, if you are using <a href="/multiple-dropbox-accounts-same-machine-sharing/">multiple Dropbox accounts on the same machine</a>) do the following in a Terminal:</p>
+
+<p><code>sh
+$ mv ~/Library/Containers/com.agilebits.onepassword-osx-helper/Data/Documents ~/Dropbox/Personal/1Password
+$ ln -s ~/Dropbox/Personal/1Password ~/Library/Containers/com.agilebits.onepassword-osx-helper/Data/Documents
+</code></p>
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Logo Lifter launched for easier creation of blog post featured images]]></title>
+    <link href="http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/"/>
+    <updated>2011-12-14T12:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images</id>
+    <content type="html"><![CDATA[<p>Introducing <a href="http://logolifter.com/">http://logolifter.com</a>, a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.</p>
+
+<p><strong>UPDATE:</strong> The project is <a href="https://github.com/mrdanadams/logolifter">now on github</a>.</p>
+
+<!-- more -->
+
+
+<p><img src="/images/screenshot-668x1024.jpg"></p>
+
+<p>While the name suggests it's meant for logos, it could be used for any kind of content pulling in other images. Search for "kitten" and you'll see what I mean.</p>
+
+<p>It allows you to currently do the following:</p>
+
+<ul>
+<li>Instantly search for images of various sizes (using Google image search)</li>
+<li>Drag multiple search results into a single image</li>
+<li>Arrange the images to your liking including auto-arrangements (horizontal and vertical), resizing all images to the same size, and adding padding to the outside of the image</li>
+<li>Downloading the resulting image</li>
+</ul>
+
+
+<p>Let me know if you have any feature comments. I'd love to hear feedback from people using it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to host all your projects for $6 per month]]></title>
+    <link href="http://mrdanadams.com/2011/how-to-host-all-your-projects-for-6-per-month/"/>
+    <updated>2011-11-04T06:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/how-to-host-all-your-projects-for-6-per-month</id>
+    <content type="html"><![CDATA[<p>Looking for hosting of your personal projects or WordPress site(s) but don't want to pay the price for specialized services or shared servers that limit your access? Here's how to run your own server on the cheap including a CDN (Content Distribution Network), specifically for one or more WordPress blogs.</p>
+
+<!-- more -->
+
+
+<p>For developers with the know-how to set up and manage a server the options for hosting are endless. At one point, if you wanted to host a project you could take some old hardware you had lying around, throw linux on it, and you have yourself a server. Hosting is so cheap now this no longer makes sense.</p>
+
+<p>In my case I have personal projects including at least 2 blogs as well as random projects like a Rails / MongoDB app. I need a server to host it on but don't want to pay a premium, especially when traffic is low. If a project takes off it can be moved to bigger, redundant setups.</p>
+
+<h2>The basic setup</h2>
+
+<p><img src="/images/architecture.jpg"></p>
+
+<p>The overall setup for a new project looks like this:</p>
+
+<ul>
+<li>$8 for a domain name on godaddy (if exposing to the world). For strictly private stuff (like a staging site) Dyn.com provides free dynamic hostnames.</li>
+<li>$6 / month for a small VPS. You heard that right. Keep reading.</li>
+<li>$30 for several months of a CDN. Optional but highly recommended.</li>
+<li><a href="/2011/github-free-private-git-repositories-dropbox/">Source control via git and Dropbox</a> with projects backed up regularly using Dropbox</li>
+</ul>
+
+
+<p>Both the VPS and the CDN can be used for all your projects so the cost for a new project might be just the domain name.</p>
+
+<h2>Shared, specialized, and VPS hosting</h2>
+
+<p>Let's say you want to host a WordPress blog. What are your options?</p>
+
+<p><img src="/images/wordpress-com.jpg"></p>
+
+<p>You could, of course, just use <a href="http://en.wordpress.com/products/">wordpress.com</a> which is an example of a specialized hosting service optimized around WordPress and providing enhanced features. However, like most specialized hosts, you are limited in what you can do. In fact, just removing ads will cost you $30 / yr, a custom domain is at least $12 / yr, and extra storage starts at $20 / yr. Customizing the theme is $30 / yr. Not a lot but it can add up especially for multiple blogs. Not sure what the options are for installing custom plugins. Keep in mind most of the wordpress.com features are bundled in the <a href="http://wordpress.org/extend/plugins/jetpack/">Jetpack plugin</a> which can be used with any WordPress install.</p>
+
+<p><img src="/images/wpengine-logo3.jpg"></p>
+
+<p>Another option would be something like <a href="http://wpengine.com/pricing/">WP Engine</a> which provides live and staging sites and a bundled CDN but starts at $40. Probably not a fit for a couple low-traffic side projects.</p>
+
+<h2>Shared hosting</h2>
+
+<p>Another option is shared hosting like <a href="http://dreamhost.com/">DreamHost</a> which starts at $9 / month for shared and $15 / month for a tiny VPS. Services like this often provide LAMP stacks and other related tools like phpMyAdmin out of the box but lock down your access. You probably have FTP access, might have SSH access, and definitely don't have root access.</p>
+
+<p>If you want to host Java or Rails apps you'll need a separate, specialized host started around $9 / month.</p>
+
+<h2>VPS Hosting</h2>
+
+<p><img src="/images/OpenVZ-logo.jpg"></p>
+
+<p>Technologies like <a href="http://wiki.openvz.org/">OpenVZ</a> have made it possible for hosting providers to offer dirt-cheap hosting of virtual machines. You sign up, they assign you an IP address and create a new VM, and you are off and running.</p>
+
+<p>With hosting providers like <a href="http://vpsfuze.com/">VPSFuze</a> (what I use) you can get an Ubuntu server with root access, 40 GB storage, 1200GB of transfer, 512 - 1024 MB RAM, and a dedicated IP address for $6 / month. Even a larger server with 2-4GB RAM is only $22 / month. After using this service for a while now I still only run one VM, haven't had any outages, and have been really pleased with the support.</p>
+
+<p>For the price of less than a sandwich per month you can host WordPress / Java / Rails / whatever. Since I've got SSH access I can mount the filesystem locally (using <a href="http://www.panic.com/transmit/">Transmit</a>) and root access lets me do whatever I like. You can even run a VNC server if you want.</p>
+
+<h2>CDN (Content Distribution Network)</h2>
+
+<p><img src="/images/maxcdn-logo.jpg"></p>
+
+<p>A CDN allows you to offload a lot of transfer to your VPS and serve the content from the "edges" of the internet resulting in faster page load times for you visitors. On my WordPress blogs the only content returned from the VPS itself is the page HTML; everything else is served by 3rd-party services or the CDN.</p>
+
+<p>There are a number of options for CDNs. I use <a href="http://www.maxcdn.com/">MaxCDN</a>: it's $30 for 1 TB ($40 / TB after that), has a great admin panel, and works great. Over the course of a year that's $2.50 / month. Unless you have a large amount of transfer you'll have a hard time finding a CDN that offers better features and price. <a href="http://aws.amazon.com/cloudfront/">Amazon's CloudFront</a> is also an option but the price only becomes cheaper after 300 GB / month or so. Once you have a lot of transfer there is a different class of CDNs available to you but for small sites and personal projects, MaxCDN is great.</p>
+
+<p>Using the CDN in a WordPress install is fairly easy:</p>
+
+<ol>
+<li>Create a "pull zone" in the CDN. Any requests to this will pull the content from your site and cache them in the CDN and distribute them around the world. All requests for static assets (JS, CSS, etc) will go to the CDN rather than your VPS.</li>
+<li>Create a CNAME (or alias) to the pull zone. Whoever controls your domain name will allow you to do this. This maps a URL like cdn.yoursite.com to the host name your CDN will provide for the pull zone.</li>
+<li>Enable CDN support in the <a href="http://wordpress.org/extend/plugins/w3-total-cache/">W3 Total Cache plugin</a>. This will rewrite all static asset references to your CDN.</li>
+</ol>
+
+
+<h2>Measure performance and optimize</h2>
+
+<p><img src="/images/GTMetrics.jpg"></p>
+
+<p><a href="http://gtmetrix.com/">GTmetrix</a> is a great, free tool for measuring performance. It will tell you a lot about the user experience and how to improve it including page load times, Google PageSpeed results, and YSlow results. You can retest as much as you want and the results are aggregated over time so you can see performance over the long run.</p>
+
+<p>W3 Total Cache is sort of a one-stop-shop for WordPress performance. It really is excellent. See this post as a starting point for <a href="http://www.wpbeginner.com/plugins/how-to-install-and-setup-w3-total-cache-for-beginners/">configuring W3TC</a>.</p>
+
+<p>Using W3TC with minification and combination of JS and CSS, page and query caching, and serving of assets from the CDN you should be able to get &lt; 1s (at least &lt; 2s) load times on a blog with a reasonable page weight.</p>
+
+<h2>What's your setup?</h2>
+
+<p>Do you have a different setup that works well or have other services you use?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Wordpress development on Mac with LAMP / MAMP, VirtualBox, and Ubuntu]]></title>
+    <link href="http://mrdanadams.com/2011/wordpress-mac-lamp-mamp-virtualbox-ubuntu/"/>
+    <updated>2011-11-01T06:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/wordpress-mac-lamp-mamp-virtualbox-ubuntu</id>
+    <content type="html"><![CDATA[<p>How do you host multiple wordpress installs under different domains in a LAMP stack on your local Mac? You don't. You use Ubuntu and VirtualBox.</p>
+
+<p>I recently needed a full LAMP setup (or MAMP, in this case) with virtual host mapping on .dev domains for local wordpress development. After going the native Mac route I switched to a vastly easier (and superior) option: an Ubuntu server in VirtualBox with communication between the machines.</p>
+
+<!--more-->
+
+
+<p>In this setup you run Ubuntu as a guest OS in VirtualBox with network access between the machines, host mappings on the host machine for the domain names, and the host files shared and mounted on the guest OS. This allows you to happily check out (with git, for instance) and edit files on the host OS with your favorite tools while Ubuntu takes care of serving the deployment (and related assets such as a MySQL db) directly from your files.</p>
+
+<p>One of the reasons I love this setup is the flexibility: if you mess up your LAMP stack you can blow it away and recreate it or back-up / clone the machine image entirely.</p>
+
+<p>As a long-time linux user (recently moved to a Mac) I also desperately miss the package management and ease of server installation and configuration (and don't say 'homebrew' or 'macports').</p>
+
+<p>I did try <a href="http://www.mamp.info/en/index.html">MAMP</a> directly and found it lacking. The configuration files are annoyingly different than any linux distro I've used, located in an odd spot, and duplicate of the main apache config in /etc.</p>
+
+<h2>Install VirtualBox and Ubuntu</h2>
+
+<p><a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">Download and install VirtualBox</a>.</p>
+
+<p>After installing, <a href="http://www.ubuntu.com/download/ubuntu/download" target="_blank">download Ubuntu</a> (I recommend one of the torrents). I used the 64-bit version although I think the 32 will work as well.</p>
+
+<p>Now that you have the Ubuntu ISO, create a new VM in VirtualBox:</p>
+
+<p><img src="/images/create_vm.jpg"></p>
+
+<p>I'll leave it to <a href="http://maketecheasier.com/install-ubuntu-linux-on-your-mac/2010/11/08" target="_blank">other tutorials</a> on the details of the install. However, I think I used all the defaults.</p>
+
+<h2>Create a host-only network</h2>
+
+<p>You need to add a second network device to your VM in order to have a host-only network. This network allows you to have direct, private communication between your machine and the VM so the VM looks like just another machine on the network with a fixed IP address.</p>
+
+<p>First you need to create the second adapter. Go to <strong>VirtualBox > Preferences...</strong> and create a new adapter.</p>
+
+<p><img src="/images/host_network.jpg"></p>
+
+<p>You then create a new adapter in the VM itself:</p>
+
+<p><img src="/images/network_adapter.jpg"></p>
+
+<p>Start up your VM and you should see the network adapter (see ifconfig).</p>
+
+<h2>Share and mount host files</h2>
+
+<p>In the VM settings, go to Shared Folders and add a new shared folder. If you set it to auto-mount, it will be owned by the root preventing you from running Apache directly from the files.</p>
+
+<p><img src="/images/folder_share.jpg"></p>
+
+<p>We'll mount it manually as root:</p>
+
+<p><code>sh
+$ sudo mkdir /mnt/host-home
+$ mount -t vboxsf -o uid=33,gid=33 host-home /mnt/host-home
+</code></p>
+
+<p>The uid and gid here you can get from /etc/passwd and /etc/groups as the user and group to mount as (such as www-data for apache).</p>
+
+<h2>Deploy mounted files directly in Apache</h2>
+
+<p>As root symlink the project in the host files to the apache sites directory:</p>
+
+<p><code>sh
+$ cd /var/www
+$ ln -s /mnt/host-home/work/yoursite
+</code></p>
+
+<p>Then enable in your Apache virtual host configuration:</p>
+
+<p>```xml
+<VirtualHost *:80></p>
+
+<h1>...</h1>
+
+<pre><code>    DocumentRoot /var/www/yoursite
+    Options FollowSymLinks
+
+    &lt;Directory /&gt;
+            Options FollowSymLinks
+            AllowOverride FileInfo
+    &lt;/Directory&gt;
+    &lt;Directory /var/www/yoursite&gt;
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride FileInfo Indexes
+            Order allow,deny
+            allow from all
+    &lt;/Directory&gt;
+</code></pre>
+
+<h1>...</h1>
+
+<p></VirtualHost>
+```</p>
+
+<p>Be sure to enable symlinks or you will get Forbidden errors trying to access the site.</p>
+
+<h2>Host mappings between the machines</h2>
+
+<p>In this case we'll use <strong>yoursite.dev</strong> on both the host and guest so we need to add it to both /etc/hosts files.</p>
+
+<p>On the host (using the IP address of the guest machine on the host-only network):</p>
+
+<p><code>
+192.168.56.101  ubuntu yoursite.dev yourothersite.dev
+</code></p>
+
+<p>On the guest (in case it needs to reference itself by the same name):</p>
+
+<p><code>
+127.0.0.1       localhost yoursite.dev yourothersite.dev
+</code></p>
+
+<h2>Have at it!</h2>
+
+<p>While I've left out some details (such as configuring the full LAMP stack) you should have what you need to easily run servers from one (or even multiple) guest Ubuntu servers while developing natively on your host OS.</p>
+
+<p>After running with this setup for a few weeks I'm really pleased with it and find it a perfect fit: I can customize my Mac development environment and use the tools I'm used too while having all the server goodness of Ubuntu where it counts.</p>
+
+<p>One enhancement would be to auto-mount the host drive on startup on the guest OS but, since I rarely ever restart the instance, I simply haven't bothered.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Forget github limits: Free private git repositories with Dropbox]]></title>
+    <link href="http://mrdanadams.com/2011/github-free-private-git-repositories-dropbox/"/>
+    <updated>2011-10-31T12:30:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/github-free-private-git-repositories-dropbox</id>
+    <content type="html"><![CDATA[<p>Need private git repositories for your personal projects but don't want to pony up the lunch money for a github personal account? git combined with Dropbox creates personal repos that can be synced to multiple machines, host any number of repositories, give you the assurance of cloud backup, and with a 2 GB limit for a personal account provides ample storage (I currently only use 10% of my quota).</p>
+
+<!-- more -->
+
+
+<h2>Create a normal git repo</h2>
+
+<p>Assuming you have an existing project you wish to git-dropbox-ify, go to the project directory, create a repo in it, and add and commit your files.</p>
+
+<p><code>sh
+$ cd yourproject
+$ git init
+$ git add *
+$ git commit
+</code></p>
+
+<h2>Create a git folder to hold your repos</h2>
+
+<p>Go to your dropbox directory and create a directory (just to be organized) to hold your repos.</p>
+
+<p><code>sh
+$ cd ~/Dropbox
+$ mkdir git
+</code></p>
+
+<h2>Create a bare origin repo</h2>
+
+<p>Now create an empty repo to act as the remote origin for your working copy repo. This is essentially the same as when working with github or another remote repo except it's stored locally and pushes are auto-syncronized to other machines and backed up by dropbox.</p>
+
+<p><code>sh
+$ cd git
+$ mkdir yourproject.git
+$ cd yourproject.git
+$ git --bare init
+</code></p>
+
+<h2>Add remote origin and push changes</h2>
+
+<p>Add the dropbox folder as the remote origin and push your changes. Whenever you push to the remote origin the changes will be detected by dropbox and synced.</p>
+
+<p><code>sh
+$ cd yourproject
+$ git remote add origin ~/Dropbox/git/yourproject.git
+$ git push origin master
+</code></p>
+
+<h2>Beware shared folders</h2>
+
+<p>I have had no problems with this setup but others have reported problems when trying the model shared with multiple users. This makes sense due to the conflicts and how dropbox handles them but at least for a single user (or multiple users who don't conflict) it works great.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: NoSQL | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/nosql/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-11-08T18:04:22-05:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[MongoDB on Rails slides from the Rails meetup]]></title>
+    <link href="http://mrdanadams.com/2011/mongodb-rails-meetup-slides/"/>
+    <updated>2011-12-14T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/mongodb-rails-meetup-slides</id>
+    <content type="html"><![CDATA[<p>I had a great time at the <a href="http://www.meetup.com/Rails-Boston">Rails meetup</a> hosted by <a href="http://cantina.co/2011/11/30/come-to-the-meetup-boston-ruby-on-rails-meetup-group-lightning-round/">Cantina</a> last week. People were gracious enough to sit through my talk no MongoDB, an overview how to use it, and how to use it with Ruby / Rails. Slides are <a href="http://speakerdeck.com/u/danadams/p/mongodb-on-rails">posted on Speaker Deck</a> and embedded below. Thanks to those who attended and I'm looking forward to the next one.</p>
+
+<script src="http://speakerdeck.com/embed/4ee9106abc1ba9004c01407b.js" type="text/javascript"></script>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[db.eval() and server-side updates on MongoDB with the Ruby driver]]></title>
+    <link href="http://mrdanadams.com/2011/mongodb-eval-ruby-driver/"/>
+    <updated>2011-11-25T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/mongodb-eval-ruby-driver</id>
+    <content type="html"><![CDATA[<p>If you need to update a number of documents in MongoDB, such as calculating simple statistics, <a href="http://www.mongodb.org/display/DOCS/Updating">in-place updates</a> and <a href="http://www.mongodb.org/display/DOCS/MapReduce">MapReduce</a> are available. There is a third option, eval(), allowing the <a href="http://www.mongodb.org/display/DOCS/Server-side+Code+Execution">execution of arbitrary code server-side</a>.</p>
+
+<!-- more -->
+
+
+<h2>Making a case for eval()</h2>
+
+<p>In-place updates are fast and atomic and should be used whenever possible. However, they can be very limiting. Consider this use case: a user performs an action marking two different documents: one a winner and another a loser. We calculate simple statistics on both based on the updates.</p>
+
+<p>In-place updates are not an option since the statistics depending on updates to other fields are too complex to be expressed in a MongoDB update.</p>
+
+<p>A second option is to grab both documents, calculate the statistics in Ruby, and save the changes. With many concurrent requests the time required to query the documents and process the update increases the window for a race condition. A small amount of inaccuracy is acceptable but should be limited.</p>
+
+<p>A third option is in-place updates to update the simple counts on the documents and MapReduce to calculate the statistics later. The loss is setting up periodic jobs to trigger the MapReduce (not a big deal) and a window in which the data is out of date. For this application, the statistics power major functionality so having them out of date would affect the user experience.</p>
+
+<h2>The good and bad of eval()</h2>
+
+<p>Using eval() allows us to quickly grab the documents, calculate the statistics, and update them in-database limiting the window in which the update takes place and eliminating translation between the application and database.</p>
+
+<p>The most significant limitation to eval() is acquiring a write lock (server wide) by default. The 'nolock' option allows disabling this (see below).</p>
+
+<p>See this page on <a href="http://www.mongodb.org/display/DOCS/How+does+concurrency+work">MongoDB concurrency and lock usage</a> (in 2.0). Locking may not be an issue due to the yielding strategy for long-running operations.</p>
+
+<p>Another limitation: "only one thread in the mongod process executes Javascript at a time (other database operations are often possible concurrent with this)". There is a ticket, <a href="https://jira.mongodb.org/browse/SERVER-4258">SERVER-4258</a>, to improve this but in the meantime we should be careful not to overuse javascript execution. It does appear, as with MapReduce and groups, effort is made to interleave the operations.</p>
+
+<h2>eval() Basics</h2>
+
+<p>The mongo console provides best illustrates the basic usage:</p>
+
+<p><div><script src='https://gist.github.com/2230825.js?file=runCommand.txt'></script>
+<noscript><pre><code>&gt; db.runCommand({ $eval: function(abool) { return abool; }, args: [false], nolock: true });
+Tue Nov 22 11:55:02 [conn1] query test.$cmd ntoreturn:1 command: { $eval: function (abool) {
+    return abool;
+}, args: [ false ], nolock: true } reslen:62 183ms
+{ &quot;retval&quot; : false, &quot;ok&quot; : 1 }
+</code></pre></noscript></div>
+</p>
+
+<p>Note:</p>
+
+<ul>
+<li>'args' is used to pass an array of arguments to our function which we'll see comes in handy</li>
+<li>nolock in necessary to prevent db.eval() from blocking the entire mongod process while running. This means the update will no longer be atomic but will allow other queries to be run.</li>
+<li>The order of arguments is important and $eval has to be first.</li>
+</ul>
+
+
+<h2>eval() from Ruby / Rails</h2>
+
+<p>This application is using Mongoid which provides no direct support for eval() and doesn't need to as the underlying Ruby MongoDB driver connection is easily accessible. The driver sources show this is how many operations are implemented anyway.</p>
+
+<p>Now for the code:</p>
+
+<p><div><script src='https://gist.github.com/2230825.js?file=controller.rb'></script>
+<noscript><pre><code>  # Records the vote against 2 items.
+  # Both parameters are strings
+  def record_votes(winner_id, loser_id)
+    # grab the connection from the underlying driver
+    db = Mongoid::Config::master
+
+    # a future improvement would be to store this away somewhere, perhaps as a constant
+    # note: javascript comments added for the post: they are not in the real code
+    f = &quot;&quot;&quot;
+function(winner_id, loser_id) {
+  // will update one of the documents based on if it won the vote or not
+  var update = function(id, win) {
+    var doc = db.items.findOne({_id: ObjectId(id)});
+    if (!doc) return; // just ignore if can't find it
+
+    // updated automatically be Mongoid but we need to do it ourselves here
+    doc.updated_at = new Date();
+
+    // the simple updates that could have been done in-place
+    doc.votes++;
+    if (win) doc.wins++; else doc.losses++;
+
+    // stats calculations. the actual calculation is not important.
+    doc.percent_wins = Math.round(doc.wins / doc.votes * 100);
+    doc.percent_losses = Math.round(doc.losses / doc.votes * 100);
+    doc.rank = doc.percent_wins * (doc.votes &gt;= #{ItemsController::VOTE_THRESHOLD} ? 100 : 10);
+
+    db.items.save(doc);
+  }
+
+  // perform separate updates on each document
+  update(winner_id, true);
+  update(loser_id, false);
+}
+    &quot;&quot;&quot;
+
+    # note $eval has to be first
+    db.command({:$eval =&gt; f, args: [winner_id, loser_id], nolock: true})
+  end
+</code></pre></noscript></div>
+</p>
+
+<p>Note the get-calculate-update operation is done for each document individually rather than for both at the same time further decreasing the race condition.</p>
+
+<h2>Final considerations</h2>
+
+<p>eval() could also be a fit for simple calculations on a few documents where MapReduce is too heavy-weight.</p>
+
+<p>I have not yet performance tested this under high load so I can't comment. Based on performance considerations, MapReduce could be used to calculate the statistics.</p>
+
+<p>How have you used eval() or considered using it? What for and what was your experience?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Testing MongoDB with Mongoid, RSpec, and Rails]]></title>
+    <link href="http://mrdanadams.com/2011/mongodb-rspec-clearing-collections-waits/"/>
+    <updated>2011-11-24T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/mongodb-rspec-clearing-collections-waits</id>
+    <content type="html"><![CDATA[<p>Whether using unit tests or rspec, you may find some support missing for testing your MongoDB-based application such as clearing the collections before test and waiting for updates to finish before proceeding. With a little Ruby both are easily supported.</p>
+
+<!-- more -->
+
+
+<h2>Clearing collections before test</h2>
+
+<p>Each test will populate the collection(s) under test with the necessary documents so we need to clear those collections before the test to make our world sane again. Tests that fail from the leftovers of other tests are no fun.</p>
+
+<p>While you could do this in a super class, I'll add it to the RSpec config in spec_helper.rb:</p>
+
+<p><div><script src='https://gist.github.com/2230855.js?file=spec_helper.rb'></script>
+<noscript><pre><code>RSpec.configure do |config|
+# ... 
+  config.before(:each) do
+    db = Mongoid::Config::master
+    # ignore stuff like system.indexes
+    db.collection_names.reject {|c| c =~ /^system/}.each {|c| db.drop_collection c}
+  end
+# ...
+</code></pre></noscript></div>
+</p>
+
+<h2>Waiting for updates and conditions</h2>
+
+<p>If the operation under test is an update to the database, you could easily create race conditions:</p>
+
+<p><div><script src='https://gist.github.com/2230855.js?file=controller_spec.rb'></script>
+<noscript><pre><code># do our update
+@controller.record_votes(winner._id.to_s, loser._id.to_s)
+
+# will this pass or fail? who knows!?
+Item.count(conditions:{ votes:1 }).should == 0
+</code></pre></noscript></div>
+</p>
+
+<p>With the addition of a wait function in spec_helper.rb:</p>
+
+<p><div><script src='https://gist.github.com/2230855.js?file=wait_until.rb'></script>
+<noscript><pre><code>def wait_until
+  i = 0
+  while !(result = yield) and i &lt; 3 do
+    sleep 1
+    i += 1
+  end
+  raise &quot;timed out&quot; if !result
+end
+</code></pre></noscript></div>
+</p>
+
+<p>We can now wait until the condition is true or fail after a short timeout if it is not:</p>
+
+<p><div><script src='https://gist.github.com/2230855.js?file=controller_spec2.rb'></script>
+<noscript><pre><code># do our update
+@controller.record_votes(winner._id.to_s, loser._id.to_s)
+
+# wait until we get what we want (within reason, of course)
+wait_until { Item.count(conditions:{ votes:1 }) &gt; 0 }
+</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Getting started with MongoDB and Mongoid on Rails]]></title>
+    <link href="http://mrdanadams.com/2011/starting-mongodb-mongoid-rails/"/>
+    <updated>2011-11-22T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/starting-mongodb-mongoid-rails</id>
+    <content type="html"><![CDATA[<p>Having recently delved into the world of <a href="http://www.mongodb.org/">MongoDB</a> and <a href="http://mongoid.org/">Mongoid</a> here's a few resources (some obvious and some not) I found quite handy.</p>
+
+<!-- more -->
+
+
+<h2>Start here</h2>
+
+<p>Be sure to start with the official <a href="http://www.mongodb.org/display/DOCS/Home">MongoDB</a>, <a href="http://mongoid.org/docs.html">Mongoid</a>, and <a href="http://api.mongodb.org/ruby/current/file.TUTORIAL.html">MongoDB Ruby driver</a> documentation. There is a lot of good stuff in there.</p>
+
+<h2>SQL to Mongo Mapping Chart</h2>
+
+<p><img src="/images/sql-to-mongo.jpg"></p>
+
+<p>If you prefer to learn by example, the official MongoDB docs have a great table of <a href="http://www.mongodb.org/display/DOCS/SQL+to+Mongo+Mapping+Chart">SQL / MongoDB statement equivalents</a>.</p>
+
+<h2>MapReduce and server-side code execution</h2>
+
+<p><img src="/images/SQL-to-MongoDB.png"></p>
+
+<p>If you heavily use aggregates in SQL you will quickly miss them in MongoDB. Rick Osborne put together a great infographic on <a href="http://rickosborne.org/blog/2010/02/infographic-migrating-from-sql-to-mapreduce-with-mongodb/">translating SQL to MapReduce</a> (at least in your head). Here's the <a href="http://rickosborne.org/download/SQL-to-MongoDB.pdf">PDF version</a>.</p>
+
+<p>Also be sure to check out the reference on <a href="http://www.mongodb.org/display/DOCS/Server-side+Code+Execution">server-side code execution</a>.</p>
+
+<p><a href="https://gist.github.com/865065">This gist</a> provides an example (in Java) of executing server-side code when MapReduce is too heavy and in-place updates are not possible.</p>
+
+<p>What are your favorite MongoDB-related resources?</p>
+]]></content>
+  </entry>
+  
+</feed>

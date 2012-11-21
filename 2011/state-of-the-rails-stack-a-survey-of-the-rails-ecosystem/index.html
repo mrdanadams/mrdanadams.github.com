@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <title>State of the rails stack: A survey of the Rails ecosystem - Dan Adams</title>
+  <meta name="author" content="Dan Adams">
+
+  
+  <meta name="description" content="State of the rails stack: A survey of the Rails ecosystem I recently stepped back and took a look at the Rails stack to see what&#8217;s available &hellip;">
+  
+
+  <meta name="robots" content="index,follow,noodp,noydir" />
+
+  <!-- http://t.co/dKP3o1e -->
+<!--   <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+
+  
+  <link rel="canonical" href="http://mrdanadams.com/2011/state-of-the-rails-stack-a-survey-of-the-rails-ecosystem/">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+-->
+  <link href="http://feeds.feedburner.com/MisterDanAdams" rel="alternate" title="Dan Adams" type="application/atom+xml">
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25728031-2']);
+  _gaq.push(['_setDomainName', 'mrdanadams.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body  class="  single">
+
+<div id="wrapper" class="hfeed">
+  
+  <div id="header">
+    <div id="branding">
+      <div id="blog-title">
+        <h1><a href="/" title="Dan Adams" rel="home">Dan Adams</a></h1>
+      </div>
+    </div><!--  #branding -->
+    
+    <div id="access">
+      <div class="skip-link"><a href="#content" title="Skip navigation to the content">Skip to content</a></div><!-- .skip-link -->
+        
+      <div class="menu"></div>
+    </div><!-- #access -->
+  </div><!-- #header-->
+
+  <div id="main">  
+    <div id="container">
+      <div id="content">
+        <article class="hentry" role="article">
+
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+</div>
+<!-- AddThis Button END -->
+
+  
+  <header>
+    
+      <h1 class="entry-title"><span>State of the rails stack: A survey of the Rails ecosystem</span></h1>
+    
+
+  </header>
+
+
+<div class="entry-content"><p>I recently stepped back and took a look at the Rails stack to see what&#8217;s available for someone approaching it for the first time. Especially with the proliferation of projects on github, the Rails ecosystem has really exploded. In some areas it now faces much the same problem as the Java world in having too many options. Here&#8217;s what I found from virtual machines to UI testing.</p>
+
+<!-- more -->
+
+
+<p>I&#8217;m sure I&#8217;ll leave some out so please feel free to suggest your favorites (there&#8217;s just too much to get all of it).</p>
+
+<h2>Virtual Machines</h2>
+
+<p>Check out this humorous and informative talk on <a href="http://www.engineyard.com/blog/2011/ruby-mri-jruby-and-rubinius-throwdown-brodown/">why you should use JRuby or Rubinius in production</a>. Engine Yard now supports hosting on both the alternate RVMs.</p>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Ruby_MRI">Ruby MRI</a> (or Matz&#8217; Ruby Interpreter) is the primary Ruby interpreter and the reference implementation. The default RVM and probably your best bet unless you have a specific reason for going away from it.</p>
+
+<p><a href="http://rubini.us/">Rubinius</a> is an alternate implementation that, rather then interpreting Ruby code, turns it into efficient machine code. It current supports MRI 1.8.7 but 1.9.2 support is not ready for prime time. See this post on looking under the hood about <a href="http://www.engineyard.com/blog/2010/making-ruby-fast-the-rubinius-jit/">what makes Rubinius fast</a>.</p>
+
+<p><a href="http://jruby.org/">JRuby</a> allows you to run Ruby in the JVM and access to the Java ecosystem and all that comes with it. It offers real threading and lots of garbage collection options.</p>
+
+<p><a href="http://www.rubyenterpriseedition.com/">Ruby Enterprise Edition</a> is a fork of Ruby by the same guys who did Passenger (Phusion) to improve garbage collection and memory usage using 33% less on average, better performing memory allocation, and improved debugging tools around memory usage.</p>
+
+<h2>Web Servers</h2>
+
+<p><a href="http://www.modrails.com/">Phusion Passenger</a> (mod_rails) is a free container that works with Apache or nginx to provide easier deployment, automatic error recovery, and separation of apps so they don&#8217;t crash each other.</p>
+
+<p><a href="http://wiki.nginx.org/">nginx</a> is a free HTTP server that focuses on high performance and simple configuration. It can be used as both a web server and a reverse proxy. While smaller in scope and feature set than Apache, it&#8217;s very popular and powers some big name sites.</p>
+
+<p><a href="http://www.lighttpd.net/">lighttpd</a> (aka &#8220;lighty&#8221;) is designed to be small-footprint and good at serving static content. Seems to have fallen out of favor at this point since it&#8217;s interface is FastCGI and better options are available.</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Mongrel_(web_server">Mongrel</a>) is Ruby-based, doesn&#8217;t make user of FastCGI, and is typically deployed behind nginx or similar. Has fallen out of favor. Move along. Nothing to see here. See <a href="http://mongrel2.org/">Mongrel2</a> which is language-agnostic.</p>
+
+<p><a href="http://unicorn.bogomips.org/">Unicorn</a> is designed for Rack applications serving requests on low-latency, high-bandwidth connections sitting behind a reverse proxy (such as nginx). <a href="http://rainbows.rubyforge.org/">Rainbows!</a> is a fork for longer requests and slow clients.</p>
+
+<p>See this post on <a href="https://github.com/blog/517-unicorn">github usage of Unicorn over Mongrel</a>.</p>
+
+<p><a href="http://code.macournoyer.com/thin/">Thin</a> is a Rack-based server including some of the best parts of Mongrel and designed to be small and fast. Often deployed with nginx.</p>
+
+<p><a href="http://pow.cx/">pow.cx</a> is a lightweight Ruby web server for Mac for development only boasting super-simple installation and configuration.</p>
+
+<h2>Reverse Proxy / Load Balancing</h2>
+
+<p>As above, nginx is very popular.</p>
+
+<p><a href="http://haproxy.1wt.eu/">HAProxy</a> is also quite popular and specifically designed for high availability and load balancing.</p>
+
+<p>Note these two aren&#8217;t mutually exclusive and <a href="http://alex.cloudware.it/2011/10/simple-auto-scale-with-haproxy.html">can be used together</a>.</p>
+
+<p><a href="https://www.varnish-cache.org/about">Varnish</a> is a very popular caching HTTP reverse proxy. See this post for <a href="http://www.engineyard.com/blog/2010/varnish-its-not-just-for-wood-anymore/">an intro on life with Varnish</a>.</p>
+
+<h2>Hosting</h2>
+
+<p>I looked specifically at solutions that were low cost on entry but would allow for scale. While this list is not exhaustive it should provide an idea of what&#8217;s available.</p>
+
+<p><a href="http://www.engineyard.com/products/cloud/pricing">Engine Yard</a> offers cloud and managed cloud hosting with a small app starting at $100-400 / month.</p>
+
+<p><a href="http://railsmachine.com/">Rails Machine</a> offers Rails-specific hosting providing scaling, backup, etc on the platform. No prices listed.</p>
+
+<p><a href="http://www.cloudfoundry.com/">Cloud Foundry</a> is a PaaS offered by VMware. It&#8217;s currently free while in beta.</p>
+
+<p><a href="http://aws.amazon.com/ec2/">Amazon EC2</a> is always an option.  Instances start at $.02 / hour (for micro) ($15 / month). Could be paired with something like <a href="https://www.rightscale.com/s/create-account.php?sd=Free">RightScale</a> to scale apps easily. <a href="https://github.com/wr0ngway/rubber/wiki">Rubber</a> makes deploying and managing instances easier.</p>
+
+<p><a href="http://www.rackspace.com/cloud/cloud_hosting_products/servers/">Rackspace</a> offers  both cloud and managed cloud solutions. Think of it as EC2 with support. Cloud servers start at $0.015 / hr ($10 / month) but that price will go up quick. A production site would likely be a couple hundred per month or a few thousand for a large deployment (I know this because I priced out a large deployment for a client). They also offer more traditional hosting like dedicated and private cloud.</p>
+
+<p><a href="http://www.heroku.com/">Heroku</a> offers Rails-specific hosting with lots of support for databases and 3rd party integration. Scaling is easy. Smallest configuration possible is $35 with several hundred $ per month easily possible with a site in production.</p>
+
+<p>Of course, there are cheaper shared hosted solutions like <a href="http://www.site5.com/p/ruby/">site5</a> (starting at $6 / month) and <a href="http://www.hostgator.com/shared.shtml">HostGator</a> (about the same) but that wouldn&#8217;t work for a non-typical app.</p>
+
+<p>VPS hosting (such as through <a href="http://vpsfuze.com/pricing.html">VPSFuze</a>) starts at $6 / month for a VPS with up to 1GB RAM, 40GB storage, a dedicated IP, and root access. If you can do the install and config yourself it&#8217;s the cheapest and most flexible option.</p>
+
+<h2>Configuration management and deployment</h2>
+
+<p><a href="https://github.com/capistrano/capistrano/wiki/">capistrano</a> offers awesome scripted deployment. <a href="https://github.com/wr0ngway/rubber/wiki">Rubber</a> extends this to EC2.</p>
+
+<p><a href="https://www.linux.com/learn/tutorials/325201-introduction-to-puppet-streamlined-system-configuration">Puppet</a> could be good for managing configuration.</p>
+
+<h2>Error handling, notification, and monitoring</h2>
+
+<p>While not strictly Rails related (although some services like New Relic do support Rails) this is always part of the picture.</p>
+
+<p>There is, of course, <a href="http://mmonit.com/monit/">monit</a> for keeping on eye on your processes.</p>
+
+<p><a href="http://newrelic.com/pricing">New Relic</a> lets you see inside your app and how it&#8217;s performing. There is even a free version but the real plans start at $24 / month / server ($49 month to month).</p>
+
+<p><a href="https://www.scoutapp.com/subscriptions">Scout</a> offers hosted server monitoring starting at $159 / month.</p>
+
+<p><a href="http://www.serverdensity.com/">Server Density</a> offers hosted server monitoring with lots of nifty features starting at $11 / server / month and $2 / site / month.</p>
+
+<p>If you want to track custom custom data see this post on <a href="http://codeascraft.etsy.com/2011/02/15/measure-anything-measure-everything/">how Etsy tracks everything</a> using <a href="http://graphite.wikidot.com/">graphite</a>.</p>
+
+<p><a href="http://erlywarn.com/">Erlywarn</a> is simpler server monitoring for checking if the site is up or not. Starts at 1 Euro / month / site.</p>
+
+<h2>Source control</h2>
+
+<p>Well, it&#8217;s <a href="http://git-scm.com/">git</a> of course. However, you need somewhere to put your repos other than your local machine.</p>
+
+<p><a href="https://github.com/">github</a> is an obvious choice starting at $7 / month for personal and $25 / month for business plans.</p>
+
+<p><a href="https://bitbucket.org/plans">bitbucket</a> is essentially a clone of github owned by Atlassian. Unlike github, however, it offers free unlimited private and public repositories (shared with up to 5 people) and starts at $10 / month from there.</p>
+
+<p>For a very small team (read: yourself) you could always <a href="/2011/github-free-private-git-repositories-dropbox/">create free private git repositories with Dropbox</a>.</p>
+
+<h2>Testing</h2>
+
+<p><a href="http://rspec.info/">rspec</a> is quite popular although has somewhat been displaced by <a href="http://metaskills.net/2011/03/26/using-minitest-spec-with-rails/">minitest</a> in Rails 3.1. <a href="https://github.com/thoughtbot/shoulda">Shoulda</a> offers more matchers.</p>
+
+<p>Get your BDD on with <a href="http://cukes.info/">behavior driven development using Cucumber</a>.</p>
+
+<p><a href="https://github.com/jnicklas/evergreen">Evergreen</a> looks like an interesting way to run your <a href="http://pivotal.github.com/jasmine/">Jasmine</a> JavaScript unit tests.</p>
+
+<p><a href="https://github.com/jtrupiano/timecop">timecop</a> looks neat for testing date- or time-related code.</p>
+
+<p><a href="https://github.com/jnicklas/capybara">capybara tests acceptance</a> and has a <a href="https://github.com/thoughtbot/capybara-webkit">WebKit extension</a>.</p>
+
+<p><a href="http://fabricationgem.org/">Fabrication</a> looks great for generating test data.</p>
+
+<p><a href="https://github.com/colszowka/simplecov">simplecov</a> can give you some code coverage metrics.</p>
+
+<h2>Continuous Integration</h2>
+
+<p><a href="http://travis-ci.org/">Travis</a> looks new and interesting. It&#8217;s a distributed build system and in alpha at the time of this writing.</p>
+
+<p><a href="http://integrityapp.com/">Integrity</a> may be worth checking out although it doesn&#8217;t (yet) support 1.9.2.</p>
+
+<p><a href="https://github.com/thoughtworks/cruisecontrol.rb">CruiseControl.rb</a> is by the guys at ThoughtWorks.</p>
+
+<p>Of course you could <a href="https://wiki.jenkins-ci.org/display/JENKINS/Configuring+a+Rails+build">run your Rails build in Jenkins</a>.</p>
+
+<h2>Background processing / Job management</h2>
+
+<p>There seem to be only two real contenders in this space.</p>
+
+<p><a href="https://github.com/tobi/delayed_job">delayed_job</a> which requires active_record and is great for most situations. There is a <a href="https://github.com/trevorturk/delayed_job_admin">delayed_job admin</a> but it&#8217;s fairly lame looking.</p>
+
+<p><a href="https://github.com/defunkt/resque#readme">resque</a> is the new hotness, requires redis, and is great if you have lots of jobs to run or require more than most. There is a <a href="https://github.com/ctrochalakis/resque-mongo">resque MongoDB fork</a> if you&#8217;re into that kind of thing.</p>
+
+<h2>Rails Admin Interfaces</h2>
+
+<p>Unfortunately there isn&#8217;t much here except to write your own (which many do).</p>
+
+<p><a href="https://github.com/fesplugas/typus">Typus</a> is a &#8220;control panel for Rails applications to allow trusted users to edit structured content&#8221;. See here for a <a href="http://demo.typuscmf.com/admin/dashboard">Typus demo</a>.</p>
+
+<p><a href="http://activeadmin.info/">ActiveAdmin</a> is probably your best bet for getting a really nice UI over your active record.</p>
+
+<p><a href="https://github.com/sferik/rails_admin">rails_admin</a> is a &#8220;Rails engine that provides an easy-to-use interface for managing your data&#8221;. See here for the <a href="http://rails-admin-tb.herokuapp.com/">rails_admin demo</a> (username@example.com / password) which isn&#8217;t nearly as ugly as the login page.</p>
+
+<h2>File upload and image handling</h2>
+
+<p><a href="https://github.com/markevans/dragonfly">Dragonfly</a> is as rack framework for on-the-fly image handling.</p>
+
+<p><a href="https://github.com/afeld/magickly">magickly</a> offers URL-based image on-demand image manipulation (requires Dragonfly). There is a <a href="http://magickly.jux.com/">hosted instance</a>.</p>
+
+<p><a href="https://github.com/thoughtbot/paperclip">Paperclip</a> offers easy file attachment for ActiveRecord.</p>
+
+<h2>IDEs / Editors</h2>
+
+<p>I personally like <a href="http://www.jetbrains.com/ruby/">RubyMine</a> (I just use the plugin for IntelliJ) although <a href="http://www.sublimetext.com/2">Sublime Text 2</a> is a great general-purpose editor.</p>
+
+<p>Eclipse doesn&#8217;t appear to offer much here although there is <a href="http://www.easyeclipse.org/site/distributions/ruby-rails.html">EasyEclipse</a> and <a href="http://www.aptana.com/products/radrails">Aptana RadRails</a>.</p>
+
+<p>I&#8217;ve heard good things about the <a href="http://netbeans.org/ruby/">NetBeans Rails support</a>.</p>
+
+<p>What did I miss? Have any favorites not on the list?</p>
+</div>
+
+
+
+  <div id="cta">
+    <p>I&apos;m a Boston-based software engineer and consultant. Follow me <a href="https://twitter.com/danadams">@danadams</a> or connect directly on <a href="http://www.linkedin.com/in/mrdanadams">LinkedIn</a>.</p>
+  </div>
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2011/state-of-the-rails-stack-a-survey-of-the-rails-ecosystem/';
+  var disqus_url = 'http://mrdanadams.com/2011/state-of-the-rails-stack-a-survey-of-the-rails-ecosystem/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+</article>
+
+      </div><!-- #content -->
+    </div><!-- #container -->
+
+    <aside id="aside-container">
+      <section id="follow-links" class="aside">
+        <label>Follow &amp; Connect</label>
+
+        <ul>
+          <li class="twitter"><a href="https://twitter.com/danadams" title="@danadams on Twitter" target="_blank"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank"><span>Linked In</span></a></li>
+          <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
+          <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
+          <li class="rss"><a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams Post RSS feed"><span>RSS</span></a></li>
+          <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
+      </ul>
+    </section>
+
+    <section id="about-box" class="aside">
+      <h3>About Dan</h3>
+      <span class="avatar"></span>
+
+      <p>I am a software engineer and consultant living and working in Boston at <a href="http://cantina.co" target="_blank" rel="nofollow">Cantina Consulting</a>.</p>
+      <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
+    </section>
+
+    <section id="primary" class="aside main-aside">
+      <ul class="xoxo">
+        <li class="widgetcontainer widget_featured_post_widget">
+          <p class="featured-title">
+            <a href="/2012/your-career-is-a-business/" title="What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
+          </p>
+          <a href="/2012/your-career-is-a-business/"><img src='/images/career_growth_150x150.png' /></a>
+          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
+        </li>
+
+<!--
+        <li class="widgetcontainer widget_links" id="projects">
+          <h3 class="widgettitle">Projects</h3>
+
+          <ul class='xoxo blogroll'>
+            <li><a href="http://abnqe.com" title="Browse your Netflix instant queue visually and search for titles" target="_blank">abnqe (A Better Netflix Queue Experience)</a></li>
+            <li><a href="http://www.meetup.com/emerging-business-technology" target="_blank">Emerging Business Tech Meetup</a></li>
+            <li><a href="http://logolifter.com" title="Create new images by searching for others and combining them. Great for blog post featured images." target="_blank">Logo Lifter</a></li>
+          </ul>
+        </li>
+-->
+      </ul>
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
+
+  </div><!-- #main -->
+
+  <footer id="footer">
+    <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
+    <div id="siteinfo">
+      &copy; 2011 &ndash; 2012 <a href="https://plus.google.com/106806765342241351959?rel=author">Dan Adams</a>
+    </div><!-- #siteinfo -->
+  </footer><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+</body>
+</html>

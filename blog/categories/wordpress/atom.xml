@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Wordpress | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/wordpress/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-11-08T18:04:22-05:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Logo Lifter launched for easier creation of blog post featured images]]></title>
+    <link href="http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/"/>
+    <updated>2011-12-14T12:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images</id>
+    <content type="html"><![CDATA[<p>Introducing <a href="http://logolifter.com/">http://logolifter.com</a>, a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.</p>
+
+<p><strong>UPDATE:</strong> The project is <a href="https://github.com/mrdanadams/logolifter">now on github</a>.</p>
+
+<!-- more -->
+
+
+<p><img src="/images/screenshot-668x1024.jpg"></p>
+
+<p>While the name suggests it's meant for logos, it could be used for any kind of content pulling in other images. Search for "kitten" and you'll see what I mean.</p>
+
+<p>It allows you to currently do the following:</p>
+
+<ul>
+<li>Instantly search for images of various sizes (using Google image search)</li>
+<li>Drag multiple search results into a single image</li>
+<li>Arrange the images to your liking including auto-arrangements (horizontal and vertical), resizing all images to the same size, and adding padding to the outside of the image</li>
+<li>Downloading the resulting image</li>
+</ul>
+
+
+<p>Let me know if you have any feature comments. I'd love to hear feedback from people using it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[How to host all your projects for $6 per month]]></title>
+    <link href="http://mrdanadams.com/2011/how-to-host-all-your-projects-for-6-per-month/"/>
+    <updated>2011-11-04T06:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/how-to-host-all-your-projects-for-6-per-month</id>
+    <content type="html"><![CDATA[<p>Looking for hosting of your personal projects or WordPress site(s) but don't want to pay the price for specialized services or shared servers that limit your access? Here's how to run your own server on the cheap including a CDN (Content Distribution Network), specifically for one or more WordPress blogs.</p>
+
+<!-- more -->
+
+
+<p>For developers with the know-how to set up and manage a server the options for hosting are endless. At one point, if you wanted to host a project you could take some old hardware you had lying around, throw linux on it, and you have yourself a server. Hosting is so cheap now this no longer makes sense.</p>
+
+<p>In my case I have personal projects including at least 2 blogs as well as random projects like a Rails / MongoDB app. I need a server to host it on but don't want to pay a premium, especially when traffic is low. If a project takes off it can be moved to bigger, redundant setups.</p>
+
+<h2>The basic setup</h2>
+
+<p><img src="/images/architecture.jpg"></p>
+
+<p>The overall setup for a new project looks like this:</p>
+
+<ul>
+<li>$8 for a domain name on godaddy (if exposing to the world). For strictly private stuff (like a staging site) Dyn.com provides free dynamic hostnames.</li>
+<li>$6 / month for a small VPS. You heard that right. Keep reading.</li>
+<li>$30 for several months of a CDN. Optional but highly recommended.</li>
+<li><a href="/2011/github-free-private-git-repositories-dropbox/">Source control via git and Dropbox</a> with projects backed up regularly using Dropbox</li>
+</ul>
+
+
+<p>Both the VPS and the CDN can be used for all your projects so the cost for a new project might be just the domain name.</p>
+
+<h2>Shared, specialized, and VPS hosting</h2>
+
+<p>Let's say you want to host a WordPress blog. What are your options?</p>
+
+<p><img src="/images/wordpress-com.jpg"></p>
+
+<p>You could, of course, just use <a href="http://en.wordpress.com/products/">wordpress.com</a> which is an example of a specialized hosting service optimized around WordPress and providing enhanced features. However, like most specialized hosts, you are limited in what you can do. In fact, just removing ads will cost you $30 / yr, a custom domain is at least $12 / yr, and extra storage starts at $20 / yr. Customizing the theme is $30 / yr. Not a lot but it can add up especially for multiple blogs. Not sure what the options are for installing custom plugins. Keep in mind most of the wordpress.com features are bundled in the <a href="http://wordpress.org/extend/plugins/jetpack/">Jetpack plugin</a> which can be used with any WordPress install.</p>
+
+<p><img src="/images/wpengine-logo3.jpg"></p>
+
+<p>Another option would be something like <a href="http://wpengine.com/pricing/">WP Engine</a> which provides live and staging sites and a bundled CDN but starts at $40. Probably not a fit for a couple low-traffic side projects.</p>
+
+<h2>Shared hosting</h2>
+
+<p>Another option is shared hosting like <a href="http://dreamhost.com/">DreamHost</a> which starts at $9 / month for shared and $15 / month for a tiny VPS. Services like this often provide LAMP stacks and other related tools like phpMyAdmin out of the box but lock down your access. You probably have FTP access, might have SSH access, and definitely don't have root access.</p>
+
+<p>If you want to host Java or Rails apps you'll need a separate, specialized host started around $9 / month.</p>
+
+<h2>VPS Hosting</h2>
+
+<p><img src="/images/OpenVZ-logo.jpg"></p>
+
+<p>Technologies like <a href="http://wiki.openvz.org/">OpenVZ</a> have made it possible for hosting providers to offer dirt-cheap hosting of virtual machines. You sign up, they assign you an IP address and create a new VM, and you are off and running.</p>
+
+<p>With hosting providers like <a href="http://vpsfuze.com/">VPSFuze</a> (what I use) you can get an Ubuntu server with root access, 40 GB storage, 1200GB of transfer, 512 - 1024 MB RAM, and a dedicated IP address for $6 / month. Even a larger server with 2-4GB RAM is only $22 / month. After using this service for a while now I still only run one VM, haven't had any outages, and have been really pleased with the support.</p>
+
+<p>For the price of less than a sandwich per month you can host WordPress / Java / Rails / whatever. Since I've got SSH access I can mount the filesystem locally (using <a href="http://www.panic.com/transmit/">Transmit</a>) and root access lets me do whatever I like. You can even run a VNC server if you want.</p>
+
+<h2>CDN (Content Distribution Network)</h2>
+
+<p><img src="/images/maxcdn-logo.jpg"></p>
+
+<p>A CDN allows you to offload a lot of transfer to your VPS and serve the content from the "edges" of the internet resulting in faster page load times for you visitors. On my WordPress blogs the only content returned from the VPS itself is the page HTML; everything else is served by 3rd-party services or the CDN.</p>
+
+<p>There are a number of options for CDNs. I use <a href="http://www.maxcdn.com/">MaxCDN</a>: it's $30 for 1 TB ($40 / TB after that), has a great admin panel, and works great. Over the course of a year that's $2.50 / month. Unless you have a large amount of transfer you'll have a hard time finding a CDN that offers better features and price. <a href="http://aws.amazon.com/cloudfront/">Amazon's CloudFront</a> is also an option but the price only becomes cheaper after 300 GB / month or so. Once you have a lot of transfer there is a different class of CDNs available to you but for small sites and personal projects, MaxCDN is great.</p>
+
+<p>Using the CDN in a WordPress install is fairly easy:</p>
+
+<ol>
+<li>Create a "pull zone" in the CDN. Any requests to this will pull the content from your site and cache them in the CDN and distribute them around the world. All requests for static assets (JS, CSS, etc) will go to the CDN rather than your VPS.</li>
+<li>Create a CNAME (or alias) to the pull zone. Whoever controls your domain name will allow you to do this. This maps a URL like cdn.yoursite.com to the host name your CDN will provide for the pull zone.</li>
+<li>Enable CDN support in the <a href="http://wordpress.org/extend/plugins/w3-total-cache/">W3 Total Cache plugin</a>. This will rewrite all static asset references to your CDN.</li>
+</ol>
+
+
+<h2>Measure performance and optimize</h2>
+
+<p><img src="/images/GTMetrics.jpg"></p>
+
+<p><a href="http://gtmetrix.com/">GTmetrix</a> is a great, free tool for measuring performance. It will tell you a lot about the user experience and how to improve it including page load times, Google PageSpeed results, and YSlow results. You can retest as much as you want and the results are aggregated over time so you can see performance over the long run.</p>
+
+<p>W3 Total Cache is sort of a one-stop-shop for WordPress performance. It really is excellent. See this post as a starting point for <a href="http://www.wpbeginner.com/plugins/how-to-install-and-setup-w3-total-cache-for-beginners/">configuring W3TC</a>.</p>
+
+<p>Using W3TC with minification and combination of JS and CSS, page and query caching, and serving of assets from the CDN you should be able to get &lt; 1s (at least &lt; 2s) load times on a blog with a reasonable page weight.</p>
+
+<h2>What's your setup?</h2>
+
+<p>Do you have a different setup that works well or have other services you use?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS-only comment count bubble in WordPress]]></title>
+    <link href="http://mrdanadams.com/2011/css-only-comment-count-bubble-in-wordpress/"/>
+    <updated>2011-11-03T12:30:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/css-only-comment-count-bubble-in-wordpress</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/bubble.jpg" title="CSS-only comment bubble showing the comment count" ></p>
+
+<p>One of the customizations I made to the <a href="http://themeshaper.com/thematic/">Thematic framework</a> for this theme was bubbles next to any post that had comments displaying the number of comments. And, just because I could and to keep the page weight down, I made the bubbles in CSS. The result is shown above and here's the code behind it.</p>
+
+<!-- more -->
+
+
+<h2>Adding the comment count markup</h2>
+
+<p>We'll add a filter that will add the markup we want just above the post title.</p>
+
+<p>```php
+// add the comment count to the title so we can style a  badge for it
+function childtheme_filter_posttitle($title) {</p>
+
+<pre><code>return '
+</code></pre>
+
+<p><a href="" title=" . get_permalink() . ">' . get_comments_number() . '</a></p>
+
+<p>' . $title;
+}</p>
+
+<p>add_filter('thematic_postheader_posttitle', 'childtheme_filter_posttitle', 10, 1);
+```</p>
+
+<p>Something odd I ran into: if you have Disqus comments enabled and link to the Disqus thread div by id Disqus will hijack your link and change the text to something like "2 Comments and 0 Reactions". Anyone know how to disable this without hacking the Disqus js (it wasn't important to me so I didn't bother)?</p>
+
+<h2>Adding a CSS class on whether the post has comments or not</h2>
+
+<p>In order to hide the comment bubble when there are not comments, I'll add a CSS class to the post as to whether it has comments or not. I could have simply omitted the comment count HTML itself but this is easier to change with CSS, will give me the option of restyling it later if I want to show it, and will allow me to style other things in the future based on the same class.</p>
+
+<p>```php
+// indicate if a post has comments or not
+// note: $c is an array of strings
+function childtheme_filter_post_class($c) {</p>
+
+<pre><code>$c[] = get_comments_number() &gt; 0 ? 'has-comments' : 'no-comments';
+return $c;
+</code></pre>
+
+<p>}</p>
+
+<p>add_filter('post_class', 'childtheme_filter_post_class', 10, 1);
+```</p>
+
+<h2>Creating the CSS-only comment bubble</h2>
+
+<p>See this post for <a href="http://nicolasgallagher.com/pure-css-speech-bubbles/">creating CSS comment bubbles</a> in detail. Here's the CSS (actually, Sass) I ended up with:</p>
+
+<p>```css
+/<em> okay, fine. so i just wanted to see if i could make a bubble in css... </em>/
+.comment-count {</p>
+
+<pre><code>float: right;
+margin-top: -.5em;
+margin-right: -1.5em;
+
+a {
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: .25em .75em;
+    border: 2px solid #777;
+    @include border-radius(.5em);
+    background-color: white;
+    @include single-box-shadow(black * .4, 1px, 1px, 7px, false, false);
+}
+&amp;:before { /* outer triangle */
+    content:' ';
+    position: absolute;
+    width:0; height:0;
+    margin-top: 2em; margin-left: .5em;
+    border: .35em solid;
+    border-color: #777 transparent transparent #777;
+}
+a:before { /* inner triangle. using the outer element so they are both on the left */
+    content:' ';
+    position: absolute;
+    width:0; height:0;
+    margin-top: 1.5em; margin-left: -.31em;
+    border: .25em solid;
+    border-color: white transparent transparent white;
+}
+</code></pre>
+
+<p>}
+/<em> don't show if there are no comments </em>/
+.no-comments .comment-count { display: none; }
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tips for working with the Thematic WordPress theme framework]]></title>
+    <link href="http://mrdanadams.com/2011/tips-thematic-wordpress-theme-framework/"/>
+    <updated>2011-11-03T06:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/tips-thematic-wordpress-theme-framework</id>
+    <content type="html"><![CDATA[<p>Based on my experience making a child theme on the <a href="http://themeshaper.com/thematic/" target="_blank">Thematic Wordpress theme framework</a>, here's some examples of extending the framework from adding dynamic CSS classes to entire new sections of content.</p>
+
+<!--more-->
+
+
+<h2>Enabling better post and body classes</h2>
+
+<p>Thematic has support for tagging your body tag and post wrapper div with lots of classes around the content. You can use these classes to target your styles based on tags, categories, and even post slug.</p>
+
+<p><code>php
+// Unleash the power of Thematic's dynamic classes
+define('THEMATIC_COMPATIBLE_BODY_CLASS', true);
+define('THEMATIC_COMPATIBLE_POST_CLASS', true);
+</code></p>
+
+<h2>Overriding the blog title and disabling the tagline</h2>
+
+<p>In my theme I wanted the blog title in the header to be different than the overall blog title and to hide the tagline.</p>
+
+<p>```php
+&lt;?php
+// hides the tagline
+function childtheme_override_blogdescription() {}</p>
+
+<p>function childtheme_override_blogtitle() { ?>
+  <div id="blog-title"><span><a href="<?php bloginfo('url') ?>/" title="Dan Adams" rel="home">Dan Adams</a></span></div></p>
+
+<p>&lt;?php }</p>
+
+<p>add_action('thematic_header', 'childtheme_override_blogtitle', 3);
+?>
+```</p>
+
+<h2>Adding a new section of content</h2>
+
+<p>Above the sidebar I wanted to add a new section of content without having to edit it in the admin. Also, by having it in the skin it would be in version control and I could migrate it from development to production without having to touch the database or make manual changes.</p>
+
+<p>```php
+&lt;?php
+// function that creates my new content
+function childtheme_about_box() { ?>
+  <div id="about-box" class="aside"></p>
+
+<pre><code>&lt;h3&gt;About Dan&lt;/h3&gt;
+&lt;span class="avatar"&gt;&lt;/span&gt;
+&lt;!-- ... --&gt;
+</code></pre>
+
+<p>  </div>
+&lt;?php }</p>
+
+<p>// add the action to the extension point for content above the main sidebars
+add_action('thematic_abovemainasides', 'childtheme_about_box', 20);
+```</p>
+
+<h2>Overriding the footer</h2>
+
+<p>Similar to the header, I preferred the footer content be in the theme.</p>
+
+<p><code>php
+&lt;?php
+// note: optimally the date would be dynamic
+function childtheme_override_siteinfo() { ?&gt;
+  &amp;copy; 2011 Dan Adams
+&lt;?php }
+add_action('thematic_footer', 'thematic_siteinfo', 30);
+?&gt;
+</code></p>
+
+<h2>Making image captions variable width</h2>
+
+<p>This is a case where I simply did not like the default implementation and wanted to replace it entirely. For some reason, Thematic sets a fixed width on the image styles when inserting images with captions. This means the caption won't adjust to the width of it's container as images do and you can't change it via CSS because it's an inline style.</p>
+
+<p>```php
+&lt;?php
+// don't allow setting a width on the caption as it can't be styled. what were they thinking?
+// see img_caption_shortcode()
+// note: you could also use regex to strip it out of the original content rather than copy/pasting. but which is grosser?
+function childtheme_caption_shortcode($str, $attr, $content=null) {
+  extract(shortcode_atts(array(</p>
+
+<pre><code>'id'  =&gt; '',
+'align' =&gt; 'alignnone',
+'width' =&gt; '',
+'caption' =&gt; ''
+</code></pre>
+
+<p>  ), $attr));</p>
+
+<p>  if ( 1 > (int) $width || empty($caption) )</p>
+
+<pre><code>return $content;
+</code></pre>
+
+<p>  if ( $id ) $id = 'id="' . esc_attr($id) . '" ';</p>
+
+<p>  // we omit the width style at this point
+  return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '">'
+  . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+}</p>
+
+<p>add_filter('img_caption_shortcode', 'childtheme_caption_shortcode', 10, 3);
+?>
+```</p>
+
+<h2>Customizing the post meta (above and below content)</h2>
+
+<p>The post meta is the info about author, date, tags, category, etc listed just below the post title and below the post contents. In my theme, I wanted to omit the top meta info altogether and simplify the info at the bottom.</p>
+
+<p>```php
+// disables the top metadata block entirely
+// note: these functions are detected and called automatically by thematic. no add_action() or add_filter() needed.
+function childtheme_override_postheader_postmeta() { }</p>
+
+<p>function childtheme_override_postfooter() {
+  // creates a "Posted October 30, 2011 in Category" format with links o the category(s)
+  echo '<div class="entry-utility">Posted ' . get_the_time(thematic_time_display()) . ' in ' . get_the_category_list(', ') . '</div>';
+}
+```</p>
+
+<p>Anything you've had trouble with working with Thematic? What kinds of customizations have you made?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[11 awesome WordPress theme frameworks (and how to choose one)]]></title>
+    <link href="http://mrdanadams.com/2011/choosing-wordpress-theme-frameworks/"/>
+    <updated>2011-11-02T12:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/choosing-wordpress-theme-frameworks</id>
+    <content type="html"><![CDATA[<p>In creating this blog I did a lot of research on options for theming in WordPress including the best theme frameworks. Here are those that look the best and why I finally chose to go with <a href="http://themeshaper.com/thematic/">Thematic</a>.</p>
+
+<!-- more -->
+
+
+<h2>A brief intro to WordPress theming</h2>
+
+<p>There are a few ways to do a theme for WordPress:</p>
+
+<ol>
+<li>Grab a free one from the theme gallery, buy a pre-made theme, or hire someone to make one.</li>
+<li>Write one from scratch including all the PHP files and plugin hooks needed or start with one and modify it directly.</li>
+<li>Use a theme framework and create a child theme extending only those things to make your theme unique.</li>
+</ol>
+
+
+<p>Child themes allow you to start with a base theme and override / extend it with custom PHP, CSS, JavaScript, etc where needed to customize. The frameworks are typically built with a solid foundation, lots of extension points, and accomodate plugins, SEO, and other concerns. You can make small changes or (as I did) throw out all the existing styles and go from scratch.</p>
+
+<p>Theme frameworks are also attractive over option #2 since they can be upgraded later without changing the child theme (much).</p>
+
+<p>After considering the options, I decided to go with a theme framework. I want integration with existing plugins while still being able to customize. For doing multiple projects having a framework I'm familiar with means faster work on the next theme and more predictable results.</p>
+
+<h2>Comparing theme frameworks</h2>
+
+<p>When comparing theme frameworks they tend to differ in these ways:</p>
+
+<ul>
+<li><strong>Price:</strong> The theme framework itself, child themes, and support</li>
+<li><strong>Modern support:</strong> Does it support the latest techniques and best practices?</li>
+<li><strong>Weight/flexibility:</strong> Some tend to be minimal going for clean code while some tend to have bloated markup supporting any kind of design</li>
+<li><strong>Admin features:</strong> How much can you change the theme in the admin?</li>
+<li><strong>Theme-specific plugins:</strong> Some themes pre-package support for things like related/popular posts and Twitter</li>
+<li><strong>Extensibility:</strong> Is the theme modular? Does it have extension points?</li>
+<li><strong>Popularity:</strong> Do designers and developers know this framework? Is there a community around it?</li>
+<li><strong>Maturity:</strong> Some frameworks are quite recent (which could be a good thing) but some have been battle-tested</li>
+<li><strong>Support:</strong> For both free and commercial frameworks, are they updated frequently and maintained / improved actively?</li>
+<li><strong>Target user:</strong> Is the framework targeted at individual developers? Large agencies? Non-technical users?</li>
+</ul>
+
+
+<p>Commercial theme frameworks like <a href="http://www.studiopress.com/themes/genesis">Genenis</a> are specifically targeted at agencies, developers, and designs working for clients who need a cheap, reliable way of producing lots of sites predictably. Many nice-looking child themes are provided at a low price as a starting point for custom client themes.</p>
+
+<p>For my purposes I didn't need a lot of control in the admin since I preferred to have all design aspects in the code. For those with clients, however, having robust admin control over the UI and design could be very attractive.</p>
+
+<p>What other criteria do you consider when choosing a theme framework?</p>
+
+<h2>WP Theme Framework (paid)</h2>
+
+<p><img src="/images/wtf.jpg"></p>
+
+<p><a href="http://wtf.dev7studios.com/">WP Theme Framework</a> is $6 for a single license and $300 for themes you want to sell. It's got admin options, lots of theme-specific plugins for related posts, popular posts, Twitter, and more.</p>
+
+<h2>Buffet (free)</h2>
+
+<p><img src="/images/buffett.jpg"></p>
+
+<p><a href="http://www.zy.sg/the-buffet-framework/">Buffet</a> is a minimal theme framework with support for SEO, microformats, extension points, and bundles CSS frameworks like <a href="http://www.960.gs/">960gs</a> and <a href="http://www.blueprintcss.org/">Blueprint</a>.</p>
+
+<h2>Starkers (free)</h2>
+
+<p><img src="/images/starkers.jpg"></p>
+
+<p><a href="http://starkerstheme.com/">Starkers</a> is a bare-bones, minimal framework to the point of eliminating all css classes that are presentational and not semantic. To quote the framework's site:</p>
+
+<blockquote><p>if you want something super-simple to start out with, stripped down to the bare minimum of markup, use <em>Starkers</em>.</p></blockquote>
+
+<h2>Headway (paid)</h2>
+
+<p><img src="/images/headway.jpg"></p>
+
+<p><a href="http://headwaythemes.com/">Headway</a> goes for $164 for the developer license and $87 for personal. It's claim-to-fame is a comprehensive <a href="http://headwaythemes.com/features/visual-editor/">visual editor</a>.</p>
+
+<h2>Genesis (paid)</h2>
+
+<p><img src="/images/genesis.jpg"></p>
+
+<p><a href="http://www.studiopress.com/features">Genesis framework</a> is $60 for the framework and about $25 for each child theme (a $300 bundle is available for all current and future themes). There are a number of nice child themes to start with and is used by many prominent bloggers and the popularity means you could find a designer that already knows it.</p>
+
+<h2>Thesis (paid)</h2>
+
+<p><img src="/images/thesis.jpg"></p>
+
+<p><a href="http://diythemes.com/">Thesis framework</a> is $164 for unlimited use and $87 for one-time use, offers lots of design options through the admin, and is very popular.</p>
+
+<h2>Foghorn (free)</h2>
+
+<p><img src="/images/foghorn.jpg"></p>
+
+<p><a href="http://wptheming.com/foghorn/">Foghorn</a> is a fork of the Twenty Eleven theme modified to be responsive.</p>
+
+<h3>Hybrid (free with paid support)</h3>
+
+<p><img src="/images/hybrid.jpg"></p>
+
+<p><a href="http://themehybrid.com">Hybrid</a> is popular, has a number of child themes, good support, and looks promising. Using the framework is free but joining the community and getting any kind of support is $25 / year.</p>
+
+<h2>Roots (free)</h2>
+
+<p><img src="/images/roots.jpg"></p>
+
+<p><a href="http://www.rootstheme.com/">Roots</a> is based on the HTML5 boilerplate, Blueprint CSS, 960gs, and Starkers. It's aims to de-wordpress the market and URLs so your site is as close to hand-rolled as possible. Theme options are minimal so this framework is great if you want something that appears pure. Hosted on github and documentation looks pretty good.</p>
+
+<h2>Whiteboard (free)</h2>
+
+<p><img src="/images/whiteboard.jpg"></p>
+
+<p><a href="http://whiteboardframework.com/">Whiteboard</a> is based on the <a href="http://lessframework.com/">Less CSS grid framework</a> and offers easy responsive design from the start. It features clean, flexible markup, and moderate admin features.</p>
+
+<h2>Thematic (free)</h2>
+
+<p><img src="/images/thematic.jpg"></p>
+
+<p><a href="http://themeshaper.com/thematic/">Thematic</a> is a mature, very popular theme framework with great documentation, a sample child theme that could be skinned for a great theme, a number of other child themes, SEO support, and compatible with many plugins.</p>
+
+<h2>Why I chose Thematic</h2>
+
+<p>I chose Thematic for it's price, maturity, popularity, and extensibility. I found it to be a very flexible framework with many extension points that could be used to easily create some very different themes. The admin features are pretty minimal / typical so it may not be a fit for an agency or designer with clients they wish to be self-sufficient but it's great for the developer.</p>
+
+<h2>Creating child themes for theme frameworks</h2>
+
+<p>Creating a child theme is actually quite simple. Starting with a parent theme, another theme you will be extending, create a style.css file which acts as the manifest providing basic info about the theme and the primary stylesheet.</p>
+
+<p>The <a href="http://codex.wordpress.org/Child_Themes">Child Themes guide on the Wordpress Codex</a> is an excellent start. Yoast has a <a href="http://yoast.com/wordpress-theme-anatomy/">visual anatomy of a theme</a> which is excellent as well.</p>
+
+<p>What has your experience been working with theme frameworks? What is your preferred framework?</p>
+]]></content>
+  </entry>
+  
+</feed>

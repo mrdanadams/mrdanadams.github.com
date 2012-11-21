@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Node.js | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/node-js/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2012-11-08T18:04:22-05:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Managing multiple Node.js / NPM versions and installs]]></title>
+    <link href="http://mrdanadams.com/2012/managing-multiple-node-js-npm-versions-installs/"/>
+    <updated>2012-01-04T05:00:50-05:00</updated>
+    <id>http://mrdanadams.com/2012/managing-multiple-node-js-npm-versions-installs</id>
+    <content type="html"><![CDATA[<p>If you are using <a href="http://nodejs.org/">Node.js</a>, particularly on <a href="http://www.heroku.com/">Heroku</a> which mandates a specific version, and need to work across multiple versions doing this manually can be frustrating (and insane). "No such module" problems like <a href="https://github.com/isaacs/npm/issues/1711">this</a> and <a href="https://github.com/isaacs/npm/issues/1711">this</a> have naturally led to some nice tools for managing <a href="http://npmjs.org/">NPM</a> and Node.js versions.</p>
+
+<!-- more -->
+
+
+<h2>n</h2>
+
+<p>I have found <a href="https://github.com/visionmedia/n">n</a>, like it's name, to be simple and useful and haven't yet had any issues with it.</p>
+
+<h2>Nave</h2>
+
+<p><a href="https://github.com/isaacs/nave">Nave</a> borrows from <a href="https://github.com/creationix/nvm">NVM</a> and sea.</p>
+
+<h2>NVM</h2>
+
+<p><a href="https://github.com/creationix/nvm">NVM</a>, presumably inspired by <a href="http://beginrescueend.com/">RVM</a>, has a number of dependencies, more complicated installation, and appears to have been superseded by more recent tools like n and nave.</p>
+
+<p>What is your tool of choice? Do you use one or just do it manually?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Node.js PaaS hosting services]]></title>
+    <link href="http://mrdanadams.com/2012/node-js-paas-hosting-services/"/>
+    <updated>2012-01-03T09:22:55-05:00</updated>
+    <id>http://mrdanadams.com/2012/node-js-paas-hosting-services</id>
+    <content type="html"><![CDATA[<p>Error processing input, expected syntax: {% img [class name(s)] [http[s]:/]/path/to/image [width [height]] [title text | "title text" ["alt text"]] %}</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a> (Platform as a Service) with support for specific stacks is the latest wave of cloud-based hosting services. Awesome providers such as <a href="http://www.heroku.com/">Heroku</a> show you why; simple (and often free) deployment and scaling of common stacks like <a href="http://rubyonrails.org/">Rails</a>. Here are the best known <a href="http://nodejs.org/">Node.js</a> PaaS offerings.</p>
+
+<!-- more -->
+
+
+<h2>Heroku</h2>
+
+<p><a href="http://devcenter.heroku.com/articles/node-js">Heroku now offers Node.js support</a> which, as a huge Heroku fan, I'm glad to see. See <a href="http://blog.heroku.com/archives/2010/4/28/node_js_support_experimental/">here</a> for the announcement and additional details. So far Heroku is my chosen Node.js host as I'm sure it is for many. Compared to the rest it appears to have the best support and be keeping up with the competition. For me, the pricing at Heroku and ease of use makes it a no-brainer for small projects or even just playing with Node.js.</p>
+
+<p>Heroku mandates Node.js v0.4.7 and WebSockets are not yet supported. Dependency management requires <a href="http://npmjs.org/">NPM</a> and <a href="https://github.com/ddollar/foreman">foreman</a> (with a Procfile) is used to <a href="http://blog.heroku.com/archives/2011/6/20/the_new_heroku_1_process_model_procfile/">create web and worker processes</a>. See this page for details on <a href="http://devcenter.heroku.com/articles/using-socket-io-with-node-js-on-heroku">Heroku socket.io support</a>.</p>
+
+<h2>DuoStack / dotCloud</h2>
+
+<p><a href="https://www.dotcloud.com/">dotCloud</a> (which acquired <a href="http://blog.duostack.com/">Duostack</a>) now offers <a href="http://docs.dotcloud.com/services/nodejs/">Node.js support</a>. Like Heroku, you can get started for free and must use NPM for package management. The application structure is dotCloud-specific and uses <a href="http://docs.dotcloud.com/guides/build-file/">YAML build files</a>. WebSockets are not supported though socket.io provides fall-back to other methods. Documentation doesn't say if a specific Node.js version is required or what versions are supported.</p>
+
+<h2>nodeSocket</h2>
+
+<p><a href="http://www.nodesocket.com/">nodeSocket</a> is currently in private beta. While the site doesn't offer much detail the <a href="http://blog.nodesocket.com/">nodeSocket blog</a> has a peak under the covers.</p>
+
+<p>A feature of note is getting root access to your VPS. While this sounds like a good thing it blurs the line between VPS hosting and a PaaS. Not needing to know host details is one of the reasons for a PaaS and why working with Heroku is so great. I'd love to hear the compelling reason to use nodeSocket over a standard AMI on EC2 or Nodester.</p>
+
+<h2>bejes.us / Nodester</h2>
+
+<p><a href="http://bejes.us/">bejes.us</a> is a hosted version of <a href="http://www.nodester.com/">nodester</a>, an open source (via <a href="https://github.com/nodester/nodester">github</a>) Node.js PaaS with a REST API, CLI, and git integration. If you want to run your own Heroku, this could be a good option.</p>
+
+<h2>Cloudnode</h2>
+
+<p><a href="http://cloudno.de/">Cloudnode</a>, current in private beta, appears to be very Heroku-esque although not much in known. The <a href="https://github.com/dvbportal/cloudnode-cli">Cloudnode CLI</a> offers some insight.</p>
+
+<h2>nodejitsu</h2>
+
+<p><a href="http://nodejitsu.com/">nodejitsu</a>, in private beta, also appears to be a Heroku competitor. However, many of the core projects are <a href="https://github.com/nodejitsu/">open source on github</a> and appear to be useful outside nodejitsu.</p>
+
+<h2>Update: no.de by Joyent</h2>
+
+<p><a href="https://no.de/">no.de by Joyent</a> provides "SmartMachines" similar to other services using NPM for dependency management and git for deployment. See the <a href="http://wiki.joyent.com/display/node/Getting+Started+with+a+Node.js+SmartMachine">Joyent wiki</a> and the <a href="http://wiki.joyent.com/display/node/Node.js+SmartMachine+FAQ">FAQ</a> for a quick sense of what's involved. Node.js v0.4.11 is supported by default but the <a href="http://wiki.joyent.com/display/node/Setting+the+Node.js+Version">version can be changed</a>. Based on the info on <a href="http://wiki.joyent.com/display/node/Installing+Node.js+on+a+Joyent+SmartOS+SmartMachine">getting a production deployment</a>, it's unclear what the scaling plan is as your have root access and install it yourself on a Solaris box.</p>
+
+<h2>Update: Cloud Foundry</h2>
+
+<p><a href="http://www.cloudfoundry.com/">Cloud Foundry</a>, a general purpose cloud hosting platform, <a href="http://support.cloudfoundry.com/entries/505133-deploying-a-node-js-app-with-npm-dependencies">does support Node.js</a> and <a href="http://joyeur.com/2011/11/08/joyent-is-community-lead-for-node-js-on-cloud-foundry/">Joyent is the community leader for it</a>. <a href="http://www.mihswat.com/2011/05/04/getting-started-with-cloud-foundry-using-a-node-js-and-mongodb-application/">This post</a> has a nice tutorial on getting started.</p>
+
+<p>Know of any not listed here? How do you host your Node.js apps?</p>
+
+<p>[Image sources: http://www.helicontech.com/zoo/media/icons/nodejs-100x100.png, http://a0.twimg.com/profile_images/473641368/logo-twitter.png, http://djangocon.us/site_media/media/sponsor_logos/dotcloud_png_180x140_q85.PNG, https://s3.amazonaws.com/photos.angel.co/startups/i/20387-0f44d2f264e195591716f9f82f30f5b3-thumb.png, http://a3.twimg.com/profile_images/1543095199/ndoesterrocket.png, https://secure.gravatar.com/avatar/fff4946e54f73818117b075009c985cc?s=140&d;=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png, http://nodesummit.com/wp-content/uploads/nodejitsu-small-e1324592710612.png]</p>
+
+<p>Image created with <a href="http://logolifter.com/">Logo Lifter</a>.</p>
+]]></content>
+  </entry>
+  
+</feed>
