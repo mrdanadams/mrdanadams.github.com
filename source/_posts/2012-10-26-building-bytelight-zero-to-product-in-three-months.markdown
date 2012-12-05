@@ -21,11 +21,11 @@ The product video should give you a good sense of what the technology does and w
 
 At the time we engaged, ByteLight was an early stage startup with a great start but facing some real challenges. The co-founders, Aaron Ganick and Dan Ryan, had a really strong core technology and had surrounding themselves with a top-notch team including a board of investors who really know their industry.
 
-ByteLight is an unusual startup in that it's not just a website or some new play or mobile or social media; it's really a hardware startup but needs a robust and complex software infrastructure to bring their core technology to customers. Even the most basic level of support, detecting location with a mobile device and ByteLight LED lights, requires space creation and calibration, map images and tiling, content management, customer management, and analytics.
+ByteLight is an unusual startup in that it's not just a website or some new play on mobile or social media; it's really a hardware startup but needs a robust and complex software infrastructure to bring their core technology to customers. Even the most basic level of support, detecting location with a mobile device and ByteLight LED lights, requires space creation and calibration, map images and tiling, content management, customer management, and analytics.
 
-Now put yourself in the shoes of a co-founder facing not only how to perfect your core IP but designing and building a complex software platform spanning big data, web, and mobile; putting together a team of the best people in a shot job market; and getting the right product to the market before any number of US and international competitors in the exploding space of indoor location.
+Now put yourself in the shoes of a co-founder facing not only how to perfect your core IP but designing and building a complex software platform spanning big data, web, and mobile; putting together a team of the best people in a shot job market; and getting the right product to the market before a number of US and international competitors in the exploding space of indoor location.
 
-
+##
 
 * early stage
 * competing with some big players in their space
