@@ -268,6 +268,8 @@ $header-color: white;
   @include header(h5, 18, $brightYellow, 4.741);
   @include header(h6, 16, $lightBlue, 3.555);
 
+  h2, h3, h4, h5, h6 { clear: both; }
+
   strong { font-weight: bold; }
   em { font-style: italic;}
   blockquote {
