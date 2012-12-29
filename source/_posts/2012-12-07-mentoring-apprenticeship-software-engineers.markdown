@@ -125,6 +125,6 @@ This isn't always the case; you could also have an end game of an apprentice sim
 
 A well-rounded view of growth affords everyone opportunities for growth and improvement. For more senior folks, this means they don't need apprenticeship but rather support in other ways from their peers and management. In many ways, growing senior folks is more difficult than apprenticeship since, as people grow, the challenges they need to encounter in order to keep them growing become very specific to that person.
 
-## You Mileage May Vary
+## Your Mileage May Vary
 
 The form that mentorship takes (or should take) can vary significantly by the team and individual. What has and hasn't worked for you? If you were without mentoring, is it something you could have benefited from?
