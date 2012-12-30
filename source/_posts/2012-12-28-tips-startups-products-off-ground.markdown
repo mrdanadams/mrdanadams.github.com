@@ -7,7 +7,7 @@ categories:
 published: false
 ---
 
-![Getting your startup product off the ground](/images/getting-your-startup-off-the-ground.jpg)
+![Lift off getting your startup product off the ground](/images/getting-your-startup-off-the-ground.jpg)
 
 For most of the past year, I've been embedded in [Dogpatch Labs](http://dogpatchlabs.com) working with early stage startups, first [ByteLight](http://www.bytelight.com/ "Indoor Location") and then [BlockAvenue](http://www.blockavenue.com/ "Neighborhood Reviews"), to create their core product and get them to the next level. Both faced the challenges of a pre-MVP product and small team. Here's some of what's involved, the challenges faced, and approaches to tackle them.
 
