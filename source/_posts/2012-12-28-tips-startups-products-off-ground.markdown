@@ -2,9 +2,17 @@
 layout: post
 title: "5 Tips for Getting Your Startups Product Off The Ground"
 date: 2012-12-28 21:27
+keywords: startups, product development, blockavenue, bytelight, cantina consulting, success, vision, hiring
 comments: true
 categories: 
 published: false
+tags:
+- startups
+- portfolio
+- blockavenue
+- bytelight
+- consulting
+- featured
 ---
 
 ![Lift off getting your startup product off the ground](/images/getting-your-startup-off-the-ground.jpg)

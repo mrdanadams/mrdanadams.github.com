@@ -5,6 +5,7 @@ layout: post
 slug: multiple-dropbox-accounts-same-machine-sharing
 title: Multiple Dropbox accounts on the same machine using folder sharing
 wordpress_id: 38
+keywords: multiple, dropbox, mac, share folder
 categories:
 - Tools
 tags:

@@ -5,6 +5,10 @@ layout: post
 slug: career-story-trajectory-context
 title: Career story, trajectory and context
 wordpress_id: 356
+keywords: career, story, trajector, career management, career development
+tags:
+- career
+- featured
 ---
 
 An important aspect of good [career management](/2012/your-career-is-a-business/) is understanding your career story. Where you came from, where are you now and where you are going. Knowing this is critical to maximizing your market value and communicating that value to others (such as in interviews).

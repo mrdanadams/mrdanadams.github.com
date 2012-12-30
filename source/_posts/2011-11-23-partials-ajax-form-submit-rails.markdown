@@ -5,6 +5,7 @@ layout: post
 slug: partials-ajax-form-submit-rails
 title: Updating a DIV with partials after remote AJAX form submit in Rails 3
 wordpress_id: 168
+keywords: DIV, AJAX, form submit, rails, partials, jquery, UJS, unobtrusive javascript
 categories:
 - Ruby / Rails
 tags:
@@ -12,6 +13,7 @@ tags:
 - jquery
 - rails
 - ujs
+- javascript
 ---
 
 Here's a simple way to submit a remote AJAX form in Rails 3 rendering a partial into a specific DIV on the page without marshaling content into JSON or creating the DOM manually.

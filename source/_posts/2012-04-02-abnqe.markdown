@@ -5,8 +5,12 @@ layout: post
 slug: abnqe
 title: 'abnqe: A better Netflix queue experience'
 wordpress_id: 407
+keywords: abnqe, netflix, netflix queue, netflix instant queue
 categories:
 - Projects
+tags:
+- projects
+- github
 ---
 
 {% img featured /images/queue-300x164.jpg %}

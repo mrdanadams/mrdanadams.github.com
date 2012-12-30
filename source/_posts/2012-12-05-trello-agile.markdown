@@ -3,7 +3,15 @@ layout: post
 title: "Trello for Agile Development at BlockAvenue"
 date: 2012-12-05 16:40
 comments: true
-categories:
+keywords: trello, agile, agile development, agile process, blockavenue
+tags:
+- blockavenue
+- startups
+- process
+- agile
+- trello
+- portfolio
+- featured
 ---
 
 One of the my roles [acting as interim-CTO](http://blog.blockavenue.com/corporate/meet-blockavenues-very-own-mvp-dan-adams/) at [BlockAvenue](http://www.blockavenue.com/ "Neighborhood Reviews") is to manage a [high velocity, agile development process](http://blog.blockavenue.com/corporate/blockavenue-your-neighborhood-socialized/). [Trello](https://trello.com/) is my new favorite tool when it comes to ticket management but it's not without limitations. Here's how we used Trello at BlockAvenue and some of the challenges working with it.

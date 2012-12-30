@@ -5,6 +5,7 @@ layout: post
 slug: github-free-private-git-repositories-dropbox
 title: 'Forget github limits: Free private git repositories with Dropbox'
 wordpress_id: 43
+keywords: github, free, git, repo, repository, dropbox
 categories:
 - Tools
 tags:

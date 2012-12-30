@@ -5,10 +5,14 @@ layout: post
 slug: logo-lifter-launched-for-easier-creation-of-blog-post-featured-images
 title: Logo Lifter launched for easier creation of blog post featured images
 wordpress_id: 211
+keywords: logo, logo lifter, featured image, blog image, wordpress, html5
 categories:
 - Projects
 - Tools
 - Wordpress
+tags:
+- projects
+- html5
 ---
 
 Introducing [http://logolifter.com](http://logolifter.com/), a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.

@@ -5,11 +5,13 @@ layout: post
 slug: exclude-active-admin-js-css-rails
 title: Excluding active_admin JS and CSS from your Rails app
 wordpress_id: 226
+keywords: active_admin, CSS, ruby on rails, rails, excluding, heroku
 categories:
 - Ruby / Rails
 tags:
 - active_admin
 - heroku
+- rails
 ---
 
 <a href="https://github.com/gregbell/active_admin" target="_blank">active_admin</a> is a cool gem for quickly creating an admin interface over your Active Record models. By default, it puts it's JS and CSS files into your app/assets folder which then get included in your application. Not what you want.

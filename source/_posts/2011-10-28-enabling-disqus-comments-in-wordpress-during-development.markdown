@@ -5,6 +5,7 @@ layout: post
 slug: enabling-disqus-comments-in-wordpress-during-development
 title: Enabling Disqus comments in Wordpress during development
 wordpress_id: 33
+keywords: Disqus, Wordpress, Wordpress Development, Wordpress Comments
 categories:
 - Wordpress
 tags:

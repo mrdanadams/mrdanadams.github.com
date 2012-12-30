@@ -5,11 +5,15 @@ layout: post
 slug: sunspot-websolr-solr-heroku
 title: Using Sunspot, Websolr, and Solr on Heroku
 wordpress_id: 287
+keywords: sunspot, websolr, solr, heroku, rails, ruby on rails
 categories:
 - Ruby / Rails
 tags:
 - heroku
 - solr
+- sunspot
+- websolr
+- rails
 ---
 
 Having recently deployed a Rails app using Sunspot and Solr on Heroku, here are some tips for getting started, testing, searching, and deploying.

@@ -3,7 +3,13 @@ layout: post
 title: "MongoHQ vs MongoLab: Selecting a Hosted MongoDB Provider"
 date: 2012-09-26 10:19
 comments: true
+keywords: mongohq, mongolab, mongodb, heroku, hosted, provider
 categories: 
+tags:
+- mongodb
+- mongohq
+- mongolab
+- heroku
 ---
 
 {% img feature /images/mongohq_mongolab.jpg MongoLab vs MongoHQ %}

@@ -5,6 +5,7 @@ layout: post
 slug: state-of-the-rails-stack-a-survey-of-the-rails-ecosystem
 title: 'State of the rails stack: A survey of the Rails ecosystem'
 wordpress_id: 154
+keywords: rails, ruby on rails, ruby
 categories:
 - Ruby / Rails
 tags:

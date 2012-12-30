@@ -5,12 +5,14 @@ layout: post
 slug: rails-rspec-capybara-mysql-deadlocks
 title: Rails integration tests, RSpec, Capybara, and MySQL deadlocks
 wordpress_id: 249
+keywords: Rails, ruby on rails, rspec, capybara, mysql, deadlock
 categories:
 - Ruby / Rails
 tags:
-- Capybara
-- MySQL
-- RSpec
+- capybara
+- mysql
+- rspec
+- rails
 ---
 
 In the midst of writing integration tests with [Capybara](https://github.com/jnicklas/capybara) and [RSpec](https://www.relishapp.com/rspec), my tests started freezing and eventually giving me the error `ActiveRecord::StatementInvalid (Mysql::Error: Lock wait timeout exceeded; try restarting transaction`. Turns out this is a problem with RSpecs database cleaning strategy and manually seeding the database during a test run.

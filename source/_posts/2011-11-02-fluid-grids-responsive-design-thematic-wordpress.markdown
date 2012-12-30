@@ -5,6 +5,7 @@ layout: post
 slug: fluid-grids-responsive-design-thematic-wordpress
 title: Fluid grids and responsive design with the Thematic WordPress theme framework
 wordpress_id: 82
+keywords: Fluid grids, Responsive Design, Thematic, Wordpress, WordPress theme framework, CSS
 categories:
 - CSS
 - Wordpress

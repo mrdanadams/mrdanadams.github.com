@@ -54,6 +54,8 @@ default_asides: []
 # post_asides:
 # page_asides:
 
+# lsi: true
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #

@@ -5,6 +5,7 @@ layout: post
 slug: sphinx-solr-heroku-search
 title: Sphinx versus Solr and other Heroku search solutions
 wordpress_id: 280
+keywords: sphinx, solr, search, heroku
 categories:
 - Ruby / Rails
 tags:

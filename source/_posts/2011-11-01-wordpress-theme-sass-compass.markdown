@@ -5,6 +5,7 @@ layout: post
 slug: wordpress-theme-sass-compass
 title: Upgrade your WordPress theme CSS with Sass and Compass
 wordpress_id: 39
+keywords: Wordpress, Wordpress Theme, CSS, SASS, SCSS, Compass
 categories:
 - CSS
 - Wordpress

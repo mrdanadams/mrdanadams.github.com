@@ -5,6 +5,7 @@ layout: post
 slug: starting-mongodb-mongoid-rails
 title: Getting started with MongoDB and Mongoid on Rails
 wordpress_id: 175
+keywords: MongoDB, Mongoid, Rails, Getting started, MapReduce, NoSQL
 categories:
 - NoSQL
 - Ruby / Rails

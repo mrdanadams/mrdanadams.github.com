@@ -5,8 +5,13 @@ layout: post
 slug: managing-multiple-node-js-npm-versions-installs
 title: Managing multiple Node.js / NPM versions and installs
 wordpress_id: 244
+keywords: node.js, node, npm, versions, install, heroku
 categories:
 - Node.js
+tags:
+- nodejs
+- npm
+- heroku
 ---
 
 If you are using [Node.js](http://nodejs.org/), particularly on [Heroku](http://www.heroku.com/) which mandates a specific version, and need to work across multiple versions doing this manually can be frustrating (and insane). "No such module" problems like [this](https://github.com/isaacs/npm/issues/1711) and [this](https://github.com/isaacs/npm/issues/1711) have naturally led to some nice tools for managing [NPM](http://npmjs.org/) and Node.js versions.

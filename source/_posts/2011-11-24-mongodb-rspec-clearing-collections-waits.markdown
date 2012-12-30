@@ -5,9 +5,14 @@ layout: post
 slug: mongodb-rspec-clearing-collections-waits
 title: Testing MongoDB with Mongoid, RSpec, and Rails
 wordpress_id: 177
+keywords: MongoDB, Mongoid, rspec, rails, nosql, testing, collecting waits, clearing
 categories:
 - NoSQL
 - Ruby / Rails
+tags:
+- rails
+- rspec
+- mongodb
 ---
 
 Whether using unit tests or rspec, you may find some support missing for testing your MongoDB-based application such as clearing the collections before test and waiting for updates to finish before proceeding. With a little Ruby both are easily supported.

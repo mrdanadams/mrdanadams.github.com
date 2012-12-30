@@ -5,6 +5,7 @@ layout: post
 slug: undefined-method-top-while-using-compass-sprites
 title: '"Undefined method ''top''" while using Compass sprites'
 wordpress_id: 21
+keywords: Compass, Spriting, Sprites, SASS, SCSS, Undefined method top, Wordpress, CSS
 categories:
 - CSS
 - Wordpress

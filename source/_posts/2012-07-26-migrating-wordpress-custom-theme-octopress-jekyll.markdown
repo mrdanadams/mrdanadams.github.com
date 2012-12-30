@@ -3,7 +3,12 @@ layout: post
 title: "Migrating a WordPress custom theme to Octopress / Jekyll"
 date: 2012-07-26 16:51
 comments: true
+keywords: wordpress, custom theme, wordpress theme, octopress theme, jekyll, jekyll theme
 categories: 
+tags:
+- wordpress
+- octopress
+- jekyll
 ---
 
 I decided to move from a VPS-hosted Wordpress with a custom theme to Octopress. Here's how I did it, why, some things to watch out for, and a comparison of the experience.

@@ -6,12 +6,17 @@ slug: boosting-facebook-friends-omniauth-sunspot-solr
 title: Boosting search results for Facebook friends with fb_graph, omniauth, Sunspot
   and Solr
 wordpress_id: 292
+keywords: boosting, facebook, sunspot, solr, fb_graph, omniauth, rails, ruby on rails, heroku
 categories:
 - Ruby / Rails
 tags:
 - devise
 - heroku
 - solr
+- rails
+- facebook
+- sunspot
+- omniauth
 ---
 
 {% img featured /images/solr_facebook.png %}

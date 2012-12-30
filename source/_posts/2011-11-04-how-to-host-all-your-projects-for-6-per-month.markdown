@@ -5,6 +5,7 @@ layout: post
 slug: how-to-host-all-your-projects-for-6-per-month
 title: How to host all your projects for $6 per month
 wordpress_id: 141
+keywords: cheap hosting, VPS hosting, cheap vps, cdn, rails, wordpress, cheap wordpress
 categories:
 - Tools
 - Wordpress

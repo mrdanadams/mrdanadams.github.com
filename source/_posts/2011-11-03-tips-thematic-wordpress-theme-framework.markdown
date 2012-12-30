@@ -5,6 +5,7 @@ layout: post
 slug: tips-thematic-wordpress-theme-framework
 title: Tips for working with the Thematic WordPress theme framework
 wordpress_id: 130
+keywords: Thematic, WordPress, Wordpress theme framework, Wordpress theme
 categories:
 - Wordpress
 tags:

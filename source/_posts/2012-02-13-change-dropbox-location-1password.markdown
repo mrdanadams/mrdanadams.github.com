@@ -5,8 +5,14 @@ layout: post
 slug: change-dropbox-location-1password
 title: Changing Dropbox location for 1Password storage
 wordpress_id: 340
+keywords: dropbox, dropbox folder, dropbox location, 1password
 categories:
 - Tools
+tags:
+- dropbox
+- 1password
+- mac
+- tools
 ---
 
 {% img featured /images/dropbox_1password.png %}

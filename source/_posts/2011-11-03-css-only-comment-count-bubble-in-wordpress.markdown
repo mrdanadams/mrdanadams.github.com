@@ -5,6 +5,7 @@ layout: post
 slug: css-only-comment-count-bubble-in-wordpress
 title: CSS-only comment count bubble in WordPress
 wordpress_id: 131
+keywords: CSS, Comment, CSS Bubble, Wordpress, Thematic
 categories:
 - CSS
 - Wordpress

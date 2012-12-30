@@ -5,13 +5,16 @@ layout: post
 slug: node-js-paas-hosting-services
 title: Node.js PaaS hosting services
 wordpress_id: 232
+keywords: Node.js, node, pass, platform as a service
 categories:
 - Node.js
 tags:
 - heroku
+- nodejs
+- paas
 ---
 
-{% img featured nodejs-logos.png %}
+{% img featured /images/nodejs-logos.png "Node.JS Heroku nodejitsu nodesocket dotcloud nodester cloudnode joyent no.de" %}
 
 [PaaS](http://en.wikipedia.org/wiki/Platform_as_a_service) (Platform as a Service) with support for specific stacks is the latest wave of cloud-based hosting services. Awesome providers such as [Heroku](http://www.heroku.com/) show you why; simple (and often free) deployment and scaling of common stacks like [Rails](http://rubyonrails.org/). Here are the best known [Node.js](http://nodejs.org/) PaaS offerings.
 

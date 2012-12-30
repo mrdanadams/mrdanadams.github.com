@@ -2,9 +2,14 @@
 layout: post
 title: "Building ByteLight: Zero to Product in Three Months"
 date: 2012-10-26 18:41
+keywords: bytelight, startups, dogpatch, dogpatch labs, cambridge, cantina consulting, dave fox
 comments: true
 categories: 
 published: false
+tags:
+- portfolio
+- startups
+- featured
 ---
 
 [ByteLight](http://www.bytelight.com) is a [Dogpatch Labs](http://dogpatchlabs.com) startup providing indoor positioning. ByteLight uses LED lighting based technology leveraging the existing lighting infrastructure and mobile devices to deliver unprecedented indoor location accuracy and responsiveness. [I](http://cantina.co/author/dadams/) and [Dave Fox](http://cantina.co/author/dave/) from [Cantina Consulting](http://cantina.co/) worked with the ByteLight team to build the product platform from the ground up including a Rails-based admin application design for iPad use, REST API, iOS mobile api, real-time location analytics platform, real-time dashboard, and a handful of hybrid HTML5 and native iPhone apps. Beyond development, we also provided strategic consulting around building around the team including establishing a hiring process.

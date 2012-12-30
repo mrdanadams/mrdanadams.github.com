@@ -49,13 +49,15 @@
 
     <section id="primary" class="aside main-aside">
       <ul class="xoxo">
+        {% for post in site.related_posts limit:3 %}
         <li class="widgetcontainer widget_featured_post_widget">
           <p class="featured-title">
-            <a href="/2012/your-career-is-a-business/" title="What every software engineer should know: your career is a business"><span>What every software engineer should know: your career is a business</span></a>
+            <a href="{{ post.url }}" title="{{post.title}}"><span>{{ post.title }}</span></a>
           </p>
-          <a href="/2012/your-career-is-a-business/">{% thumbnail /images/career_growth.png 150x150 %}</a>
-          <p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment.</p>
+          <p>{{ post.content | excerpt | strip_liquid | truncatewords:80 }}</p>
+          <a href="{{ post.url }}" title="{{post.title}}" class="more"><span>read more &gt;</span></a>
         </li>
+        {% endfor %}
 
 <!--
         <li class="widgetcontainer widget_links" id="projects">

@@ -2,11 +2,13 @@
 layout: post
 title: "Creating a custom OpenLayers build by profiling usage"
 date: 2012-08-18 12:45
+keywords: openlayers, openlayers profile, mapping, google maps, open street maps
 comments: true
 categories: 
 tags:
 - javascript
-- rails
+- openlayers
+- projects
 ---
 
 [OpenLayers](http://openlayers.org/) is a great library for integrating maps especially when creating custom mapping interfaces. However, with great functionality can come great size. Weighing in at nearly 1MB for the full library, you should pair it down to only the modules used.

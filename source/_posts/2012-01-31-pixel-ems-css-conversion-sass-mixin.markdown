@@ -5,11 +5,13 @@ layout: post
 slug: pixel-ems-css-conversion-sass-mixin
 title: Better pixel to EMs CSS conversion with a Sass mixin
 wordpress_id: 271
+keywords: px, ems, css, convert, conversion, sass, SCSS
 categories:
 - CSS
 tags:
 - sass
 - scss
+- css
 ---
 
 {% img featured /images/sass.png %}

@@ -5,10 +5,14 @@ layout: post
 slug: beware-using-active_admin-and-sunspot-rails-gems-together
 title: Beware using active_admin and Sunspot Rails gems together
 wordpress_id: 284
+keywords: active_admin, sunspot, rails, ruby on rails, sunspot gem, solr
 categories:
 - Ruby / Rails
 tags:
 - solr
+- active_admin
+- sunspot
+- rails
 ---
 
 If you are using [Active Admin](http://activeadmin.info/) and the [Sunspot](http://sunspot.github.com/) gem for Rails, beware: they conflict on the search method leading to some very confusing results.

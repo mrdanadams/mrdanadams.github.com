@@ -4,7 +4,11 @@ date: 2012-03-21 17:59:47
 layout: post
 slug: your-career-is-a-business
 title: 'What every software engineer should know: your career is a business'
+keywords: career management, software engineer, career development, career growth
 wordpress_id: 354
+tags:
+- career
+- featured
 ---
 
 Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment. Here are some tips to set you in the right direction managing your career effectively.

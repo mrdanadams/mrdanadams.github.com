@@ -3,7 +3,13 @@ layout: post
 title: "Mentoring &amp; Apprenticeship for Software Engineers"
 date: 2012-12-07 18:26
 comments: true
+keywords: mentoring, apprentice, apprenticeship, software engineer, career development, career growth
 categories: 
+tags:
+- mentoring
+- career
+- consulting
+- featured
 ---
 
 <img src="/images/mentoring.jpg" alt="blacksmith glassblower software engineer mentoring apprentice" class="aligncenter" />

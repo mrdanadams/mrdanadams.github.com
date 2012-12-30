@@ -5,11 +5,14 @@ layout: post
 slug: heroku-postgres-shared-dedicated-amazon-rds
 title: 'Heroku Postgres: Shared, Dedicated or use Amazon RDS?'
 wordpress_id: 389
+keywords: heroku, postgress, shared, dedicated, amazon rds, rds, ruby, ruby on rails, rails, aws
 categories:
 - Ruby / Rails
 tags:
 - heroku
 - postgres
+- aws
+- rails
 ---
 
 {% img featured right /images/heroku_rds_postgres.png %}

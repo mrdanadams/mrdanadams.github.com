@@ -6,8 +6,14 @@ slug: emerging-business-tech-meetup-native-html5-mobile
 title: Starting Emerging Business Tech meetup with first event on native / HTML5-based
   mobile apps
 wordpress_id: 325
+keywords: emerging business technology, emerging tech, meetup, html5, mobile
 categories:
 - Events
+tags:
+- events
+- meetup
+- html5
+- mobile
 ---
 
 {% img featured /images/logo.png %}

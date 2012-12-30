@@ -5,6 +5,7 @@ layout: post
 slug: choosing-wordpress-theme-frameworks
 title: 11 awesome WordPress theme frameworks (and how to choose one)
 wordpress_id: 83
+keywords: WordPress, WordPress Theme framework, theme framework, thematic
 categories:
 - Wordpress
 tags:

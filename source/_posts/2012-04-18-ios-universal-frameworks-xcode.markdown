@@ -5,8 +5,13 @@ layout: post
 slug: ios-universal-frameworks-xcode
 title: Round-up of iOS universal frameworks with Xcode
 wordpress_id: 414
+keywords: ios, iphone, mobile, universal framework, xcode, ios framework
 categories:
 - iOS
+tags:
+- ios
+- mobile
+- xcode
 ---
 
 {% img featured /images/ios_xcode.jpg iOS universal frameworks with Xcode %}

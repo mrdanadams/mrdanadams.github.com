@@ -5,6 +5,7 @@ layout: post
 slug: wordpress-mac-lamp-mamp-virtualbox-ubuntu
 title: Wordpress development on Mac with LAMP / MAMP, VirtualBox, and Ubuntu
 wordpress_id: 40
+keywords: Wordpress, Mac, LAMP, MAMP, VirtualBox, Ubuntu, Virtual Hosts
 categories:
 - Tools
 - Wordpress

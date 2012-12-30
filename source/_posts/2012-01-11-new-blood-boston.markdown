@@ -5,8 +5,11 @@ layout: post
 slug: new-blood-boston
 title: 'New Blood Boston: There''s blood in the water, startups are circling'
 wordpress_id: 257
+keywords: new blood boston, bocoup, hopper, kinvey
 categories:
 - Events
+tags:
+- events
 ---
 
 {% img featured /images/newbloodboston.png %}

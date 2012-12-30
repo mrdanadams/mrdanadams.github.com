@@ -5,6 +5,7 @@ layout: post
 slug: mongodb-eval-ruby-driver
 title: db.eval() and server-side updates on MongoDB with the Ruby driver
 wordpress_id: 176
+keywords: mongodb, eval, ruby, mongodb driver, rails
 categories:
 - NoSQL
 - Ruby / Rails

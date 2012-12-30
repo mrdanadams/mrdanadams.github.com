@@ -5,6 +5,11 @@ date: 2012-10-12 12:30
 comments: true
 categories: 
 keywords: CoffeeScript, Backbone JS, Rails, Ruby on Rails, Views
+tags:
+- javascript
+- coffescript
+- backbone
+- rails
 ---
 
 [Multiline string support in CoffeeScript](http://coffeescript.org/#strings) offers a great way to embed your [Backbone templates](http://backbonejs.org/#View-render). In this approach, you can easily edit your templates while still taking advantage of JS minification, combination, and client-side caching.
