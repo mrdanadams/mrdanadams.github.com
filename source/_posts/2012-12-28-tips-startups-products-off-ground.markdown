@@ -5,7 +5,6 @@ date: 2012-12-28 21:27
 keywords: startups, product development, blockavenue, bytelight, cantina consulting, success, vision, hiring
 comments: true
 categories: 
-published: false
 tags:
 - startups
 - portfolio
@@ -41,13 +40,15 @@ Some examples:
 
 ## #2 Continuously Re-Define Your Product
 
-While keeping your eye on what defines success, re-evaluate your production design. Evolve. Tweak. Change. Get as much feedback and input from press, investors, peers, and users as possible. Then evaluate and digest it. Let it challenge your vision but don't go chasing every idea or feature thrown at you. Resist all impulse to get lost in feature design. Stay focused on who your users are, what they want to do, and what you want them to do.
+While keeping your eye on what defines success, re-evaluate your product design. Evolve. Tweak. Change. Nothing is sacred. Get as much feedback and input from press, investors, peers, and users as possible. Then evaluate and digest it. Let it challenge your vision but don't go chasing every idea or feature thrown at you. Resist all impulse to get lost in feature design. Stay focused on who your users are, what they want to do, and what you want them to do.
 
 ## #3 Start Hiring. Now.
 
 When hiring for a small team you want to hire heavy hitters who can help you drive towards the goal line. Unfortunately, so does every other company. Expect it to take at least three months to hire someone (especially the right someone). For engineers, designers, and front-end devs the market is shot. It's been that way for a while and it's only going to get worse.
 
-Establish a hiring pipe (personal networks, word of mouth, meetups, even recruiters) and keep it full. Someone who's not available (or interested) now might be a few months down the road. Don't wait for positions to really open up; starting filling the pipe as if the position were open now (although I'm not advocating your lead people on).
+Establish a hiring pipe (personal networks, word of mouth, meetups, even recruiters) and keep it full. Someone who's not available (or interested) now might be a few months down the road. Don't wait for positions to really open up; starting filling the pipe as if the position were open now (though I'm not advocating leading people on).
+
+Even for a small team, [grow them through mentoring](/2012/mentoring-apprenticeship-software-engineers). You want them [stepping up to new challenges](/2012/career-story-trajectory-context/) on a regular basis and [taking ownership](/2012/its-your-company-act-like-an-owner/).
 
 If time is against you, consider hiring a consultant (shameless plug). It's by no means a silver bullet but the right consultant can add acceleration and experience where it's sorely needed.
 
