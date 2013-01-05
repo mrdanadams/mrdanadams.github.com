@@ -4,7 +4,8 @@ module CustomFilters
     # Liquid::Template.parse(source).render(@context)
     source.
       gsub(/\[([^\]]+)\]\([^\)]+\)/, '\1'). # links
-      gsub(/\!?\[([^\]]+)\]\([^\)]+\)/, '') # images
+      gsub(/\!?\[([^\]]+)\]\([^\)]+\)/, ''). # images
+      gsub(/{%[^}]+}/, '') # liquid tags
   end
 end
 
