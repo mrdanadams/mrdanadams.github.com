@@ -233,7 +233,12 @@ $header-color: white;
   }
 }
 
-.single .entry-title span { font-size: pem(40.5); }
+.single {
+  .entry-title { margin-bottom: 1.25em; }
+  .entry-title span { font-size: pem(40.5); }
+  #about-box, #follow-links { display: none; }
+}
+
 
 /* appears in category listings and such above the results */
 .page-title {
@@ -468,7 +473,7 @@ $image_margin: 1em;
 #cta {
   background: #1b475c; 
   border-radius: pem(3.555);
-  margin: pem(40.5) 0; padding: pem(12);
+  margin: 0 0 pem(24) 0; padding: pem(12);
   @include clearfix;
 
   p { color: #c9e3f5; font-size: pem(24); line-height: 1.25em; margin: 0; padding: 0; }
