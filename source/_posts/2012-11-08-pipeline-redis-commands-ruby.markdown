@@ -11,6 +11,8 @@ tags:
 - rails
 ---
 
+__NOTE:__ This is now on github at [https://github.com/mrdanadams/redis_pipeliner](https://github.com/mrdanadams/redis_pipeliner).
+
 [REDIS](http://redis.io) is fast. Really fast. And awesome. But that doesn't mean you can get lazy with how you use it. [Pipelining REDIS commands](http://redis.io/topics/pipelining) allows you to execute multiple commands in REDIS and return the results at once. I've seen this provide a 5x-10x speedup. He's how to do it with the Ruby driver.
 
 <!-- more -->
