@@ -23,16 +23,16 @@
       {{ content | expand_urls: root_url }}
     </div><!-- #container -->
 
-    <aside id="aside-container">
+    <aside id="aside-container" data-ga-event="mouseover:sidebar-hover">
       <section id="follow-links" class="aside">
         <label>Follow &amp; Connect</label>
 
         <ul>
-          <li class="twitter"><a href="https://twitter.com/danadams" title="@danadams on Twitter" target="_blank"><span>@danadams</span></a></li>
-          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank"><span>Linked In</span></a></li>
+          <li class="twitter"><a href="https://twitter.com/danadams" title="@danadams on Twitter" target="_blank" data-ga-event="connect-twitter"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank" data-ga-event="connect-linkedin"><span>Linked In</span></a></li>
           <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
           <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
-          <li class="rss"><a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams Post RSS feed"><span>RSS</span></a></li>
+          <li class="rss"><a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams Post RSS feed" data-ga-event="connect-rss"><span>RSS</span></a></li>
           <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
       </ul>
     </section>
@@ -48,12 +48,12 @@
     <section id="primary" class="aside main-aside">
       <ul class="xoxo">
         {% for post in site.related_posts limit:3 %}
-        <li class="widgetcontainer widget_featured_post_widget">
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
           <p class="featured-title">
-            <a href="{{ post.url }}" title="{{post.title}}"><span>{{ post.title }}</span></a>
+            <a href="{{ post.url }}" title="{{post.title}}" data-ga-event="related"><span>{{ post.title }}</span></a>
           </p>
           <p>{{ post.content | excerpt | strip_liquid | truncatewords:80 }}</p>
-          <a href="{{ post.url }}" title="{{post.title}}" class="more"><span>read more &gt;</span></a>
+          <a href="{{ post.url }}" title="{{post.title}}" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
         </li>
         {% endfor %}
 
