@@ -20,7 +20,7 @@ I view the apprenticeship mentoring model for software engineers (as with a blac
 
 <!-- more -->
 
-For what it's worth, I have a good bit of experience with this: I was head of engineering during company growth from 25 to 50 (with a corresponding growth in revenues and projects). This meant going from an engineering team of 6 to an internal team of 15-20 and an off-shore team of about 10. It also required increasing the number of technical project leads from 1 (me) to 5 or 6 through direct mentoring. Those tech leads then themselves became mentors to the new hires as we grew. In my consulting work, I work with early stage startups, such as [ByteLight](http://www.bytelight.com/ "Indoor Location") and [BlockAvenue](http://www.blockavenue.com/ "Neighborhood Reviews"), to design and execute hiring as well as plan and stabilize development teams for long-term product development.
+For what it's worth, I have a good bit of experience with this: I was head of engineering during company growth from 25 to 50 (with a corresponding growth in revenues and projects). This meant going from an engineering team of 6 to an internal team of 15-20 and an off-shore team of about 10. It also required increasing the number of technical project leads from 1 (me) to 5 or 6 through direct mentoring. Those tech leads then themselves became mentors to the new hires as we grew. In my consulting work, I worked with early stage startups, such as [ByteLight](http://www.bytelight.com/ "Indoor Location"), to design and execute hiring as well as plan and stabilize development teams for long-term product development.
 
 ## Why Apprenticeship Makes Sense
 
