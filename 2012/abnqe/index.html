@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <title>abnqe: A better Netflix queue experience - Dan Adams</title>
+  <meta name="author" content="Dan Adams">
+
+  
+  <meta name="description" content="I&apos;m Co-Founder &amp; CTO of BlockAvenue. Follow me, connect with me, or subscribe. abnqe: A better Netflix queue experience UPDATE: abnqe is &hellip;">
+  <meta name="keywords" content="abnqe, netflix, netflix queue, netflix instant queue">
+
+  <meta name="robots" content="index,follow,noodp,noydir" />
+
+  <!-- http://t.co/dKP3o1e -->
+<!--   <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+
+  
+  <link rel="canonical" href="http://mrdanadams.com/2012/abnqe/">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+-->
+  <link href="http://feeds.feedburner.com/MisterDanAdams" rel="alternate" title="Dan Adams" type="application/atom+xml">
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25728031-2']);
+  _gaq.push(['_setDomainName', 'mrdanadams.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script src="/js/galytics.min.js" async></script>
+
+</head>
+
+<body  class="  single">
+
+<div id="wrapper" class="hfeed">
+  
+  <div id="header">
+    <div id="branding">
+      <div id="blog-title">
+        <a href="/" title="Dan Adams" rel="home">Dan Adams</a>
+      </div>
+    </div><!--  #branding -->
+    
+    <div id="access">
+      <div class="skip-link"><a href="#content" title="Skip navigation to the content">Skip to content</a></div><!-- .skip-link -->
+        
+      <div class="menu"></div>
+    </div><!-- #access -->
+  </div><!-- #header-->
+
+  <div id="main">  
+    <div id="container">
+      <div id="cta" data-ga-event="mouseover:cta-hover">
+  <p>I&apos;m Co-Founder &amp; CTO of <a href="http://blockavenue.com" title="Local social">BlockAvenue</a>. <a href="https://twitter.com/danadams" title="Dan Adams" class="twitter" data-ga-event="connect-twitter-cta">Follow me</a>, <a href="http://www.linkedin.com/in/mrdanadams" title="Dan Adams" class="linkedin" data-ga-event="connect-linkedin-cta">connect with me</a>, or <a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams" class="rss" data-ga-event="connect-rss-cta"><span>subscribe</span></a>.</p>
+</div>
+
+<div id="content"><article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title"><span>abnqe: A better Netflix queue experience</span></h1>
+    
+
+  </header>
+  
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_google_plusone_share"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+<!-- <a class="addthis_button_twitter_follow_native" tw:screen_name="danadams" tf:show-count="false"></a> -->
+</div>
+<!-- AddThis Button END -->
+
+
+<div class="entry-content"><p><img class="featured" src="/images/queue-300x164.jpg"></p>
+
+<p><strong>UPDATE:</strong> abnqe is <a href="https://github.com/mrdanadams/abnqe">now on github</a>.</p>
+
+<p>I&#8217;m a long-time Netflix customer. As someone who uses the website to watch movies and shows connected to a <a href="http://en.wikipedia.org/wiki/Home_theater_PC">HTPC</a> it&#8217;s become very clear that the website user experience is not a priority. Specifically, the instant watch queue management and ability to finding something to watch is just horrible. <a href="http://abnqe.com/">abnqe</a> (<a href="http://abnqe.com/">A Better Netflix Queue Experience</a>) is a small project to fix this.</p>
+
+<!-- more -->
+
+
+<h2>The missing experience</h2>
+
+<p>The queue on Netflix, as used by instant queue customers, is an interesting example of an interface providing the basic functionality required in a way that is nearly useless to users. Well, that may be unfair. If you want to manage the order of physical DVDs that will be shipped to you in a specific order, it&#8217;s okay. However, for instant watching and finding something to watch from what is essentially my library of titles, it&#8217;s awful. The order of your shows simply doesn&#8217;t matter with instant as it did with shipping physical disks.</p>
+
+<p>Consider this: I&#8217;m plop down on the couch after a long day, craft beer in hand and to watch something. Not sure what. But something. Fire up the instant queue. What do I get? I text list of all my items in no meaningful order without the ability to filter, sort or otherwise grok the 200+ items present. Ugh.</p>
+
+<p>abnqe, as first released, is the bare minimum set of features I wanted: a nice UI for visually seeing my queue with the ability to instantly search titles. I&#8217;m already so much happier.</p>
+
+<h2>Future direction</h2>
+
+<p>I&#8217;ve got a long list of things I&#8217;d like to do to this thing. We&#8217;ll see what gets done. Here are some of the things I have in mind:</p>
+
+<ul>
+<li>Filtering by type (TV / movies)</li>
+<li>Basic queue management (removing, adding)</li>
+<li>Get more detailed movie info</li>
+<li>Adding movies to lists / tags (dude movies, wife movies, kids shows, documentaries, foreign flicks).</li>
+<li>Filter by genre, rating, recently watched</li>
+<li>Discovering new titles (without suggesting titles I&#8217;ve already seen; something that annoys me endlessly)</li>
+<li>Rotten tomatoes ratings</li>
+<li>See what&#8217;s trending with other users, added recently and expiring</li>
+<li>Social sharing and recommendations from friends</li>
+</ul>
+
+
+<h2>Under the hood</h2>
+
+<p>abnqe is a Rails 3 app hosted on Heroku using OAuth and the Netflix REST API to grab account and movie info. The first version was basically a saturday project.</p>
+
+<h2>Who is this for?</h2>
+
+<p>I made this for me (and my wife and kid). It&#8217;s free to use. Use it if you want. Or don&#8217;t. But if you do, drop me a comment. How are you using it? Have any problems? Any suggestions for improving the experience?</p>
+</div>
+
+
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2012/abnqe/';
+  var disqus_url = 'http://mrdanadams.com/2012/abnqe/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+</article></div>
+
+    </div><!-- #container -->
+
+    <aside id="aside-container" data-ga-event="mouseover:sidebar-hover">
+      <section id="follow-links" class="aside">
+        <label>Follow &amp; Connect</label>
+
+        <ul>
+          <li class="twitter"><a href="https://twitter.com/danadams" title="@danadams on Twitter" target="_blank" data-ga-event="connect-twitter"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank" data-ga-event="connect-linkedin"><span>Linked In</span></a></li>
+          <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
+          <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
+          <li class="rss"><a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams Post RSS feed" data-ga-event="connect-rss"><span>RSS</span></a></li>
+          <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
+      </ul>
+    </section>
+
+    <section id="about-box" class="aside">
+      <h3>About Dan</h3>
+      <span class="avatar"></span>
+
+      <p>I&apos;m Co-Founder &amp; CTO of <a href="http://blockavenue.com" target="_blank" rel="nofollow">BlockAvenue</a>, a startup in Boston.</p>
+      <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
+    </section>
+
+    <section id="primary" class="aside main-aside">
+      <ul class="xoxo">
+        
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
+          <p class="featured-title">
+            <a href="/2011/github-free-private-git-repositories-dropbox/" title="Forget github limits: Free private git repositories with Dropbox" data-ga-event="related"><span>Forget github limits: Free private git repositories with Dropbox</span></a>
+          </p>
+          <p><p>Need private git repositories for your personal projects but don&#8217;t want to pony up the lunch money for a github personal account? git combined with Dropbox creates personal repos that can be synced to multiple machines, host any number of repositories, give you the assurance of cloud backup, and with a 2 GB limit for a personal account provides ample storage (I currently only use 10% of my quota).</p>
+
+</p>
+          <a href="/2011/github-free-private-git-repositories-dropbox/" title="Forget github limits: Free private git repositories with Dropbox" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
+        </li>
+        
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
+          <p class="featured-title">
+            <a href="/2012/custom-openlayers-build/" title="Creating a custom OpenLayers build by profiling usage" data-ga-event="related"><span>Creating a custom OpenLayers build by profiling usage</span></a>
+          </p>
+          <p>OpenLayers is a great library for integrating maps especially when creating custom mapping interfaces. However, with great functionality can come great size. Weighing in at nearly 1MB for the full library, you should pair it down to only the modules used.
+
+openlayers-instrumenter creates a custom OpenLayers build profile by instrumenting the JavaScript dynamically and tracking what's used.
+
+</p>
+          <a href="/2012/custom-openlayers-build/" title="Creating a custom OpenLayers build by profiling usage" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
+        </li>
+        
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
+          <p class="featured-title">
+            <a href="/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/" title="Logo Lifter launched for easier creation of blog post featured images" data-ga-event="related"><span>Logo Lifter launched for easier creation of blog post featured images</span></a>
+          </p>
+          <p><p>Introducing <a href="http://logolifter.com/">http://logolifter.com</a>, a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.</p>
+
+<p><strong>UPDATE:</strong> The project is <a href="https://github.com/mrdanadams/logolifter">now on github</a>.</p>
+
+</p>
+          <a href="/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/" title="Logo Lifter launched for easier creation of blog post featured images" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
+        </li>
+        
+
+<!--
+        <li class="widgetcontainer widget_links" id="projects">
+          <h3 class="widgettitle">Projects</h3>
+
+          <ul class='xoxo blogroll'>
+            <li><a href="http://abnqe.com" title="Browse your Netflix instant queue visually and search for titles" target="_blank">abnqe (A Better Netflix Queue Experience)</a></li>
+            <li><a href="http://www.meetup.com/emerging-business-technology" target="_blank">Emerging Business Tech Meetup</a></li>
+            <li><a href="http://logolifter.com" title="Create new images by searching for others and combining them. Great for blog post featured images." target="_blank">Logo Lifter</a></li>
+          </ul>
+        </li>
+-->
+      </ul>
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
+
+  </div><!-- #main -->
+
+  <footer id="footer">
+    <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
+    <div id="siteinfo">
+      &copy; 2011 &ndash; 2012 <a href="https://plus.google.com/106806765342241351959?rel=author">Dan Adams</a>
+    </div><!-- #siteinfo -->
+  </footer><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+</body>
+</html>

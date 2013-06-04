@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Ruby / Rails | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/ruby-rails/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2013-06-03T22:14:42-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Heroku Postgres: Shared, Dedicated or use Amazon RDS?]]></title>
+    <link href="http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds/"/>
+    <updated>2012-03-28T12:20:44-04:00</updated>
+    <id>http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds</id>
+    <content type="html"><![CDATA[<p><img class="featured right" src="/images/heroku_rds_postgres.png"></p>
+
+<p>Heroku shared databases can't be beat for convenience or cost during development (assuming you are on Heroku already). What about when the app goes live? Here are some thoughts on whether the app should stay on a <a href="https://postgres.heroku.com/">Heroku shared Postgres database</a>, switch to a dedicated database or use something else entirely such as <a href="http://aws.amazon.com/rds/">Amazon RDS</a>.</p>
+
+<!-- more -->
+
+
+<h2>Basic Considerations</h2>
+
+<p>We have a startup Rails app hosted on Heroku getting ready to push for an early alpha release. For such an app, what are the questions you should be asking?</p>
+
+<ul>
+<li>How will you handle traffic spikes?</li>
+<li>What determines growth in the size of the database?</li>
+<li>Is the data read only/read mostly or does it contain quick growth data like page views and social activity?</li>
+<li>How closely do costs need to be controlled?</li>
+<li>How much traffic and data do you need to support?</li>
+<li>How much maintenance will the solution cost and what staff is needed to support it?</li>
+</ul>
+
+
+<p>For this app, the following were important to consider:</p>
+
+<ul>
+<li>Since Heroku runs on EC2 they recommend (not surprisingly) that you grab a database plan where your entire DB can be in RAM. Dedicated plans range from 1.7 GB to 68 GB. Both our databases, being loaded with just testing data for alpha testing, were under 1 MB. That's not very helpful for evaluating the size we needed.</li>
+<li>We don't store anything growth- or data-heavy in our DB: we don't log analytics and all binary data is stored on S3. The data is going to grow with the number user accounts and related records. This is all very small, slow-growth data and even with a large number of new objects shouldn't blow out the database size. All the search indexes are stored in <a href="http://websolr.com">WebSolr</a> which will help keep the DB size down.</li>
+<li>While it's safer to go to a dedicated plan now, it's starts at $200 in the door and we don't appear to be anywhere near needing the storage or performance provided.</li>
+</ul>
+
+
+<h2>Heroku Database Migration Options</h2>
+
+<p>There are a few options for migrating databases if and when you want to go from shared to dedicated. Note that you should have a <a href="http://onehub.com/blog/posts/rails-maintenance-pages-done-right/">maintenance page</a> while migrating your database, especially if using a manual migration method. During migration your database won't accept any modifications (or if it does they will be lost).</p>
+
+<h3>Backup &amp; Restore</h3>
+
+<p>This is the only option on Heroku for migrating from a shared to dedicated database. See <a href="https://devcenter.heroku.com/articles/pgbackups">PG Backups</a>.</p>
+
+<ul>
+<li>Works across all plans</li>
+<li>Can be slower than other migration methods (especially with large databases) since you need to export and re-import the entire database and transfer it across the network doing so. However, it's a pretty simple process and appears to be easy and fairly low risk.</li>
+</ul>
+
+
+<h3>Fast Changeover</h3>
+
+<p>In <a href="https://devcenter.heroku.com/articles/fast-database-changeovers">fast database changeover</a>, you use followers (read-only slaves) or forking (snapshots) and then point the app at the new database. This isn't an option for migrating from a shared to dedicated database or moving to or from the Heroku platform in general. However, it's a good tool to know about.</p>
+
+<ul>
+<li>Works for large databases better than a manual migration</li>
+<li>Minimizes app downtime</li>
+<li>Migrating shouldn't require changes to the <a href="http://websolr.com/">WebSolr</a> index as the IDs should be the same</li>
+</ul>
+
+
+<h2>Use Something Else (like Amazon RDS)</h2>
+
+<p>Rather than staying on <a href="https://postgres.heroku.com/">Heroku Postgres</a>, you could switch to something external such as Amazon RDS (which is clearly MySQL and not Postgres if that's an issue for you).</p>
+
+<ul>
+<li>A switch from Postgres to MySQL might be an issue if you have lots of migrations and some use something database-specific</li>
+<li>Heroku offers Postgres as a service (outside hosting apps)</li>
+<li>Includes a nice admin panel and lots of scaling / migration features and support for scaling horizontally (if it should ever come to that)</li>
+<li>We could host a Postgres install on EC2 but we now have to roll all that scalability stuff ourselves (which we could do). We'd probably consider using RDS rather than any self-run db cluster.</li>
+<li>For us it's mostly a matter of price and if the service Heroku provides is worth not doing it ourselves. Given that we don't have a dedicated IT team for this project the time spent maintaining the cluster is an important factor.</li>
+</ul>
+
+
+<p>At the point of putting out an alpha we didn't even need the 15 MB database which is $15 / month. Again, the DB should grow in proportion to the number of actually accounts, etc none of which should grow quickly (unless we are actually getting a ton of usage). If we started tracking analytics of any kind this would change.</p>
+
+<h2>Getting Heroku Database Size</h2>
+
+<p>You can use <code>heroku pg:info --remote=production</code> to get the database size. For shared databases the output is not very interesting:</p>
+
+<p><code>sh
+$ heroku pg:info --remote=production
+=== SHARED_DATABASE (DATABASE_URL)
+Data Size 648k
+$ heroku pg:info --remote=staging
+=== SHARED_DATABASE (DATABASE_URL)
+Data Size 688k
+</code></p>
+
+<h2>Where We Left It: EC2 for Cost Reduction</h2>
+
+<p>If this app really takes off (like huge) we will likely move to EC2 / RDS to reduce cost. Again, this depends on the numbers (particularly how many staff we need to support an AWS deployment). <a href="http://www.quora.com/How-easy-is-it-to-get-off-Heroku-once-you-grow-out-of-it">This discussion</a> has a good example of an experience comparing Heroku and RDS in the long-term:</p>
+
+<blockquote><p>The only way to achieve any concurrency in Heroku is to turn up dynos and workers. These are 5c/hour each ~ $36/month. The first dyno (but not the worker) is free. Therefore, if you want a concurrency of 4 dynos and 1 worker, you are looking at $144/month. We have found that we can easily achieve 4 times this concurrency on one small EC2 instance. You would want load balancing and failover, so assuming that you are going to use 2 reserved small EC2 on the east coast (Heroku is on the east coast too), that comes to 2 X ($227.50 per year + 3c/hour) ~ $81/month. This can be equivalent of approximately $576/month on Heroku.</p>
+
+<p>Continuing with the $144/month figure for Heroku, shared database in Heroku is free, but the smallest dedicated instance is $200! Compare this with RDS, where an equivalent reserved multi-availability zone instance costs $455 yearly + 9.2c/hour ~ $104/month.</p>
+
+<p>In other words, at a concurrency of 4 dynos and 1 worker with a free shared database, Heroku costs $144 a month, while Amazon with a potential of atleast 4 times that concurrency with failover for the database and the server costs a total of $81 + $104 = $185/month. At the full capacity of the EC2 machines with a dedicated database instance, Heroku will cost approximately $776/month while Amazon will continue to run at under $200.</p>
+
+<p>...</p>
+
+<p>The operational cost of maintaining the databases on Amazon is near zero, except for the initial setup, which can be super easy too if you have used it in the past. Web server operations can be a little more ongoing work, compared to zero for Heroku. However, once you have load balancing set up, and like in our case, capistrano + git based push system, you can be off and running at almost nil system administration time.</p></blockquote>
+
+<p>What considerations and decisions have you made regarding where your database lives?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Beware using active_admin and Sunspot Rails gems together]]></title>
+    <link href="http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together/"/>
+    <updated>2012-02-02T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together</id>
+    <content type="html"><![CDATA[<p>If you are using <a href="http://activeadmin.info/">Active Admin</a> and the <a href="http://sunspot.github.com/">Sunspot</a> gem for Rails, beware: they conflict on the search method leading to some very confusing results.</p>
+
+<!-- more -->
+
+
+<p>Active Admin has a dependency on <a href="https://github.com/ernie/meta_search">meta_search</a> which provides a <code>.search()</code> method on Active Record classes. Sunspot attempts to provide the same method, aliased from <code>solr_search</code>, but only if the method does not already exist.</p>
+
+<p>In short, searching can be done using <code>solr_search()</code> rather than <code>search()</code>:</p>
+
+<p>```ruby
+@search = Profile.solr_search do</p>
+
+<pre><code>keywords params[:q]
+paginate page: params[:page], per_page: page_size
+</code></pre>
+
+<p>end</p>
+
+<p>@results = @search.results
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Sunspot, Websolr, and Solr on Heroku]]></title>
+    <link href="http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/"/>
+    <updated>2012-02-01T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/sunspot-websolr-solr-heroku</id>
+    <content type="html"><![CDATA[<p>Having recently deployed a Rails app using Sunspot and Solr on Heroku, here are some tips for getting started, testing, searching, and deploying.</p>
+
+<!--more-->
+
+
+<h2>Getting the right gem</h2>
+
+<p>As noted in <a href="http://blog.derekperez.com/post/552826277/the-proper-websolr-gem-for-heroku" target="_blank">this post</a>, getting the right gem for Websolr is important (yet confusing): the Heroku documentation is not consistent on which gem to use. In short, use the <a href="https://github.com/onemorecloud/websolr-sunspot_rails" target="_blank">websolr-sunspot_rails</a> gem which tracks the version of <a href="http://sunspot.github.com/" target="_blank">Sunspot</a> needed by <a href="http://www.websolr.com/" target="_blank">Websolr</a>.</p>
+
+<p>The following gems are used:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=Gemfile'></script>
+<noscript><pre><code>gem 'sunspot_rails'
+gem 'kaminari'
+gem 'sunspot_with_kaminari'</code></pre></noscript></div>
+</p>
+
+<p>UPDATE (per Nick Zadrozny):</p>
+
+<blockquote><p>the docs at https://devcenter.heroku.com/articles/websolr are correct: You want to use Sunspot directly, not websolr-sunspot_rails. The only thing the devcenter document gets wrong right now is the version. The current version of Sunspot is 1.3.0. I'll add that to my todo list ;)</p>
+
+<p>The websolr-sunspot_rails gem was only needed for earlier versions of Sunspot in order to support the WEBSOLR_URL variable, which is supported natively in Sunspot as of its 1.2.0.</p>
+
+<p>So all you need is <code>gem 'sunspot_rails'</code> in your Gemfile and you're all set!</p></blockquote>
+
+<h2>Configuration</h2>
+
+<p><em>config/sunspot.yml</em> provides a base config file for development and production only. <code>ENV['SOLR_URL']</code> and <code>ENV['WEBSOLR_URL']</code> override any values in this file.</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=solr.yml'></script>
+<noscript><pre><code># Note: ENV['SOLR_URL'] and ENV['WEBSOLR_URL'] override any values here
+# The defaults are same as what's below  so you only need to override as desired.
+# Removed production since that should never be used in heroku.
+# See Sunspot::Rails::Configuration.solr_url
+
+development:
+  solr:
+    hostname: localhost
+    port: 8982
+    log_level: INFO
+
+test:
+  solr:
+    hostname: localhost
+    port: 8981
+    log_level: WARNING
+</code></pre></noscript></div>
+</p>
+
+<h2>Starting Solr (locally)</h2>
+
+<p>Solr can be started (and stopped) locally with:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=run.sh'></script>
+<noscript><pre><code>bundle exec rake sunspot:solr:start
+bundle exec rake sunspot:solr:stop
+</code></pre></noscript></div>
+</p>
+
+<h2>Testing</h2>
+
+<p>If using rspec the following can get you started:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=rspec_solr.rb'></script>
+<noscript><pre><code>RSpec.configure do |c|
+  c.before :suite do
+    module Sunspot
+      def self.stub_session
+        @sub_session ||= Sunspot::Rails::StubSessionProxy.new self.session
+      end
+    end
+
+  end
+
+  c.before :each do
+    Sunspot.session = Sunspot.stub_session
+    Sunspot.session = Sunspot.session.original_session if example.metadata[:solr]
+
+    Sunspot.remove_all!
+  end
+end
+</code></pre></noscript></div>
+</p>
+
+<p>Your search spec may look like this:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=search_spec.rb'></script>
+<noscript><pre><code>describe 'Search' do
+  def commit
+    Sunspot.commit
+  end
+
+  def search(q)
+    visit &quot;/search?q=#{q}&quot;
+  end
+
+  it 'does something interesting', :solr do
+    Something.create!
+    commit
+    search 'foobar'
+end
+</code></pre></noscript></div>
+</p>
+
+<p>The following allows Cucumber features not to explode:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=cucumber_config.rb'></script>
+<noscript><pre><code># Solr faking.
+# see http://opensoul.org/blog/archives/2010/04/07/cucumber-and-sunspot/
+# Note: we need to do more than this if we start doing search tests in cucumber
+$original_sunspot_session = Sunspot.session
+
+Before(&quot;~@search&quot;) do
+  Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
+end
+</code></pre></noscript></div>
+</p>
+
+<h2>Searching and paginating</h2>
+
+<p>Perform the search in the controller:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=search_controller.rb'></script>
+<noscript><pre><code>class SearchController &lt; ApplicationController
+	def search
+		page_size = 10
+
+		@search = Profile.solr_search do
+			keywords params[:q] do
+				boost_fields name: 10.0, user: 4.0
+			end
+
+			with :include_search, true
+			paginate page: params[:page], per_page: page_size
+		end
+
+		@results = @search.results
+
+		@total = @search.total
+		@paging = @total &gt; page_size
+		@start = (@search.current_page - 1) * page_size + 1
+		@end = [@start + page_size - 1, @total].min
+
+		render (if @results.empty? then :no_results else :results end)
+	end
+
+end
+</code></pre></noscript></div>
+</p>
+
+<p>In the template show results and paging:</p>
+
+<p><div><script src='https://gist.github.com/2230763.js?file=results.html.erb'></script>
+<noscript><pre><code>&lt;h3 class=&quot;summary&quot;&gt;&lt;%= t('.your-search-header'), start: @start, end: @end, total: pluralize(@total, 'result') %&gt;&lt;/h3&gt;
+
+&lt;% @results.each do |p| %&gt;
+&lt;div class=&quot;result&quot;&gt;&lt;!-- ... --&gt;&lt;/div&gt;
+&lt;% end %&gt;
+
+&lt;%= paginate @search, window: 1 %&gt;
+</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sphinx versus Solr and other Heroku search solutions]]></title>
+    <link href="http://mrdanadams.com/2012/sphinx-solr-heroku-search/"/>
+    <updated>2012-02-01T05:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/sphinx-solr-heroku-search</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/heroku_search.png"></p>
+
+<p>A recent Heroku-hosted Rails application required fulltext search of the content including field boosting. The best options quickly narrowed down to <a href="http://lucene.apache.org/solr/">Solr</a> and <a href="http://sphinxsearch.com/">Sphinx</a>. I'll detail some of the reasons Solr won and the differences between the two.</p>
+
+<!-- more -->
+
+
+<h2>Available search solutions</h2>
+
+<h3>Solr</h3>
+
+<p><a href="http://lucene.apache.org/solr/">Solr</a> is quickly becoming the de-facto search solution, even outside the Java / JVM spaces. It's fast, scales, is rock solid, and has a great feature set including advanced features like stemming, nearness, fuzzy queries, search suggestion, and spatial search.</p>
+
+<p>Integration with Heroku is provided by <a href="http://addons.heroku.com/websolr">Websolr</a>, one of the first Heroku add-ons. <a href="http://sunspot.github.com/">Sunspot</a> is a great gem and highly recommended.</p>
+
+<h3>Sphinx</h3>
+
+<p><a href="http://sphinxsearch.com/">Sphinx</a>, provided via the <a href="http://addons.heroku.com/flying_sphinx">Flying Sphinx add-on</a>, is also quite popular due to it's ability to quickly index and search nearly any SQL database, great search features, and blindingly-fast indexing speeds. As we shall see, it comes with important limitations due to it's design.</p>
+
+<h3>IndexTank</h3>
+
+<p><a href="http://indextank.com/documentation/heroku-addon">IndexTank</a> used to be a great option for Heroku search until it got bought by LinkedIn. It's now <a href="https://github.com/linkedin/indextank-engine">open source on github</a> but no service currently provides a hosted solution (yet).</p>
+
+<h3>Database search</h3>
+
+<p>Barely worth mentioning, some would say, database search is an option if you need cheap search with minimal features. Projects like <a href="http://code.google.com/p/acts-as-tsearch/">acts-as-tsearch</a> provide integration but don't appear to be well-supported.</p>
+
+<h3>Host your own</h3>
+
+<p>You don't <strong>have</strong> to host your search on Heroku or use one of their add-ons. For instance, run your own <a href="http://www.elasticsearch.org/">Elastic Search</a> cluster on EC2 and use it from Heroku as you would any other service. A great option if Heroku doesn't yet support what you need or provide what you want.</p>
+
+<h2>Solr versus Sphnix</h2>
+
+<p>Wanting to go with something that fit our requirements yet was easy to use, we chose to go with Websolr add-on for Heroku (at least for now). Consider your own requirements but here are my reasons for Solr over Sphinx.</p>
+
+<p>A critical factor is the design of each solution. Solr is a collection of documents in which each document may be updated (replaced) and, upon commit, a new searcher is created for the updated index. It also supports fast reloads of the index not requiring a reload of the entire index. This provides better support for indexes not read-only or read-mostly. Furthermore, Solr is schema-less, supports dynamic fields, and knows nothing about your SQL data model.</p>
+
+<p>Sphinx, conversely, is designed to quickly index and search a SQL database. While this provides significantly faster indexing than Solr (since it can connect directly to your database) it limits you to searching the fields in your data model. Sphinx is also optimized for read-mostly or read-only data meaning less frequent, and more complex, indexing.</p>
+
+<p>Sphinx is new to Heroku to the extent they don't (yet) officially support running it against Heroku dedicated databases. It's primarily designed to work with Amazon RDS.</p>
+
+<p>Sphinx doesn't support partial updates to an index: it's all or nothing. You can use a "delta index", containing just the changed documents, and search that and the main index. A cron job merges them every night to keep the delta index from becoming too large. There is more delay on when you see documents in the index, since there is no immediate indexing, and it's more moving parts.</p>
+
+<p>It's not clear that delta indexes will really work at all across multiple Heroku dynos given how the processes are set up and how it's distributed.</p>
+
+<p>See <a href="http://stackoverflow.com/questions/1284083/choosing-a-stand-alone-full-text-search-server-sphinx-or-solr">this question</a> for additional info on the differences between them.</p>
+
+<p>Which search solution have you used or considered?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Boosting search results for Facebook friends with fb_graph, omniauth, Sunspot and Solr]]></title>
+    <link href="http://mrdanadams.com/2012/boosting-facebook-friends-omniauth-sunspot-solr/"/>
+    <updated>2012-01-31T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/boosting-facebook-friends-omniauth-sunspot-solr</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/solr_facebook.png"></p>
+
+<p>Boosting in <a href="/2012/sunspot-websolr-solr-heroku/">Solr</a> allows customizing search relevance to offer users the best experience. Here's the short and sweet on boosting at search time using the <a href="http://sunspot.github.com/">Sunspot</a> gem so documents associated with other users who are your Facebook friends show up first.</p>
+
+<!-- more -->
+
+
+<h2>Grab the user's Facebook friends</h2>
+
+<p>This application allows users to register with their Facebook account using <a href="https://github.com/plataformatec/devise">devise</a> and <a href="https://github.com/intridea/omniauth">omniauth</a>. On login, we'll use <a href="https://github.com/nov/fb_graph">fb_graph</a> to get the user's Facebook friend ids and store them with the account. We'll also store their API key so we can refresh this info later to ensure the list is up to date. See this page for info on <a href="https://github.com/plataformatec/devise/wiki/OmniAuth%3a-Overview">getting started with omniauth and facebook</a>.</p>
+
+<p><div><script src='https://gist.github.com/2230436.js?file=user.rb'></script>
+<noscript><pre><code># Returns a user associated with a facebook account.
+def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
+  data = access_token.extra.raw_info
+  if user = User.where(:email =&gt; data.email).first
+    user
+  else # Create a user with a stub password.
+    user = User.new email: data.email, first_name: data.first_name, last_name: data.last_name, password: Devise.friendly_token[0,20]
+
+    facebook_id = data.id
+    token = access_token.credentials.token
+
+    user.facebook_info = { 'id' =&gt; facebook_id, 'token' =&gt; token }
+
+    # in the future we could save the user and get the friends in a background worker if it's too slow
+    fb_user = FbGraph::User.fetch facebook_id, access_token: token
+    user.facebook_friends = fb_user.friends.map &amp;:identifier
+
+    user.save!
+    user.confirm!
+    user
+  end
+end
+</code></pre></noscript></div>
+</p>
+
+<h2>Indexing Facebook ids for search</h2>
+
+<p>In our Active Record model we index the Facebook id of the user associated with the document to a "facebook_id" field:</p>
+
+<p><div><script src='https://gist.github.com/2230436.js?file=model.rb'></script>
+<noscript><pre><code>searchable do
+  # some normal fields to search
+  text :name, :description
+
+  # index the ids as an array of strings (not text) as we want exact match, no stemming, etc
+  string :facebook_id do
+    user.facebook_id
+  end
+end
+</code></pre></noscript></div>
+</p>
+
+<h2>Searching and boosting by Facebook id</h2>
+
+<p>When searching we'll use <a href="https://github.com/sunspot/sunspot">adjust_solr_params</a> and a <a href="http://wiki.apache.org/solr/DisMaxQParserPlugin">boost query with the dismax query parser</a> to boost any documents matching the friend ids of the current user.</p>
+
+<p>Note the use of solr_search() versus search() due to <a href="/2012/beware-using-active_admin-and-sunspot-rails-gems-together/">a conflict with active_admin</a>.</p>
+
+<p><div><script src='https://gist.github.com/2230436.js?file=controller.rb'></script>
+<noscript><pre><code>ids = current_user.facebook_friends if current_user
+@search = Profile.solr_search do
+  keywords params[:q] do
+    boost_fields name: 10.0, user: 4.0
+  end
+
+  unless ids.blank?
+    adjust_solr_params do |params|
+      # See &quot;bq (boost query)&quot; in http://wiki.apache.org/solr/DisMaxQParserPlugin
+      params[:bq] = &quot;facebook_id_s:(#{ids.join(' OR ')})^10&quot;
+    end
+  end
+
+  paginate page: params[:page], per_page: page_size
+end
+
+@results = @search.results
+</code></pre></noscript></div>
+</p>
+]]></content>
+  </entry>
+  
+</feed>

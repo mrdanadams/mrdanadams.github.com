@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="utf-8">
+  <title>Trello for Agile Development at BlockAvenue - Dan Adams</title>
+  <meta name="author" content="Dan Adams">
+
+  
+  <meta name="description" content="I&apos;m Co-Founder &amp; CTO of BlockAvenue. Follow me, connect with me, or subscribe. Trello for Agile Development at BlockAvenue One of the my &hellip;">
+  <meta name="keywords" content="trello, agile, agile development, agile process, blockavenue">
+
+  <meta name="robots" content="index,follow,noodp,noydir" />
+
+  <!-- http://t.co/dKP3o1e -->
+<!--   <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"></meta>
+
+  
+  <link rel="canonical" href="http://mrdanadams.com/2012/trello-agile/">
+  <link href="/favicon.ico" rel="icon">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <!--
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+-->
+  <link href="http://feeds.feedburner.com/MisterDanAdams" rel="alternate" title="Dan Adams" type="application/atom+xml">
+
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25728031-2']);
+  _gaq.push(['_setDomainName', 'mrdanadams.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script src="/js/galytics.min.js" async></script>
+
+</head>
+
+<body  class="  single">
+
+<div id="wrapper" class="hfeed">
+  
+  <div id="header">
+    <div id="branding">
+      <div id="blog-title">
+        <a href="/" title="Dan Adams" rel="home">Dan Adams</a>
+      </div>
+    </div><!--  #branding -->
+    
+    <div id="access">
+      <div class="skip-link"><a href="#content" title="Skip navigation to the content">Skip to content</a></div><!-- .skip-link -->
+        
+      <div class="menu"></div>
+    </div><!-- #access -->
+  </div><!-- #header-->
+
+  <div id="main">  
+    <div id="container">
+      <div id="cta" data-ga-event="mouseover:cta-hover">
+  <p>I&apos;m Co-Founder &amp; CTO of <a href="http://blockavenue.com" title="Local social">BlockAvenue</a>. <a href="https://twitter.com/danadams" title="Dan Adams" class="twitter" data-ga-event="connect-twitter-cta">Follow me</a>, <a href="http://www.linkedin.com/in/mrdanadams" title="Dan Adams" class="linkedin" data-ga-event="connect-linkedin-cta">connect with me</a>, or <a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams" class="rss" data-ga-event="connect-rss-cta"><span>subscribe</span></a>.</p>
+</div>
+
+<div id="content"><article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title"><span>Trello for Agile Development at BlockAvenue</span></h1>
+    
+
+  </header>
+  
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_google_plusone_share"></a>
+<a class="addthis_button_hackernews"></a>
+<a class="addthis_button_reddit"></a>
+<a class="addthis_button_compact"></a>
+<!-- <a class="addthis_button_twitter_follow_native" tw:screen_name="danadams" tf:show-count="false"></a> -->
+</div>
+<!-- AddThis Button END -->
+
+
+<div class="entry-content"><p>One of the my roles as CTO at <a href="http://www.blockavenue.com/" title="Neighborhood Reviews">BlockAvenue</a> is to manage a <a href="http://blog.blockavenue.com/corporate/blockavenue-your-neighborhood-socialized/">high velocity, agile development process</a>. <a href="https://trello.com/">Trello</a> is my new favorite tool when it comes to ticket management but it&#8217;s not without limitations. Here&#8217;s how we use Trello at BlockAvenue and some of the challenges working with it.</p>
+
+<!-- more -->
+
+
+<h2>The Basics</h2>
+
+<p>Cards are arranged into buckets (Trello lists) each bucket representing how far in the future it&#8217;s cards will get done. The further out the bucket, the larger and less well-groomed it may be.</p>
+
+<p>Lists are arranged left-to-right so that the most frequently used lists are on the first screen for most displays, the less used lists being to the right on the second screen. They also follow a logical progression of <em>queued -> doing -> done</em>.</p>
+
+<p><a href="/images/trello/board.png"><img src='/images/trello/board_600x400.png' /></a></p>
+
+<ul>
+<li><strong>Dec 2012:</strong> All of the priority cards for this month based on business priorities and other factors. This will map to multiple staging or production releases (even multiple releases each week) but all of the development in this month will be pulled from this bucket. Cards in this list are sorted roughly in order of priority. Most are assigned owners.</li>
+<li><strong>Jan 2013:</strong> Similar to the Dec list, this is for the following month but less well defined.</li>
+<li><strong>General Backlog:</strong> This list represents a larger backlog to be pulled from into the monthly lists. It contains all things that should get done at some point but didn&#8217;t make the cut. It can be thought of as the mid-term roadmap.</li>
+<li><strong>Future:</strong> A holding area for future ideas. When you have an idea, don&#8217;t be afraid to make a card for it. File it away so it doesn&#8217;t get lost. This is list is groomed the least often.</li>
+</ul>
+
+
+<p>In addition to the time frame-based lists, there are a few special ones:</p>
+
+<ul>
+<li><strong>Inbox:</strong> All new cards go here. Cards are held until they can get triaged and moved somewhere else. This keeps the dev team sane and ensures the non-devs know their cards aren&#8217;t getting lost. It should be empty most of the time.</li>
+<li><strong>On Deck:</strong> Cards pulled from the current monthly milestone that are next up for development. You can think of this roughly as a weekly iteration list. This list should be fairly short and reviewed by the team every couple days (or even daily).</li>
+<li><strong>Doing:</strong> Cards pulled from On Deck that are being worked on.</li>
+<li><strong>Done:</strong> Completed cards. Note that we don&#8217;t have lists indicating the status of a done card (in testing, deployed, etc). This is only because we haven&#8217;t needed it but for some teams managing the work flow around Done cards is probably a good idea. For instance, you may need explicit design QA on a feature and there could be a list for those cards.</li>
+</ul>
+
+
+<p>The Done list gets some special treatment: whenever a production release is made we rename the &#8220;Done&#8221; to something like &#8220;Dec 3, 2012 Release&#8221;, archive it, and create a new &#8220;Done&#8221; list. This captures for posterity what was released and allows anyone to know what&#8217;s done so far in the current release just by looking at the Done list. You may also want to tag the card with the git release tag.</p>
+
+<h2>Anatomy of a Good Card</h2>
+
+<p>Well-formed cards encourage getting the work done smoothly and accurately. While you may not need all of the following on each card, I find myself using using all of these to some degree overall.</p>
+
+<h3>Card Title, Tags, and Labels</h3>
+
+<p><img src="/images/trello/card-top.png" alt="A good Trello card title" /></p>
+
+<ul>
+<li>Keep the title succinct. Put the long stuff in the card description. A long title will severly reduce how many cards you can see at once in your lists.</li>
+<li>Tags for things like which users it affects, browser, platform, if it&#8217;s an epic or story, etc</li>
+<li>Use labels to visually indicate traits of the card and allow card filtering</li>
+<li>Work estimate. A good convention is &#8220;(5) Do something&#8221; especially when it&#8217;s supported by <a href="https://chrome.google.com/webstore/detail/trello-scrum/jdbcdblgjdpmfninkoogcfpnkjmndgje">Trello Scrum</a>.</li>
+</ul>
+
+
+<p><img src="/images/trello/story-title.png" alt="Trello card with estimate" /></p>
+
+<h3>Card Description</h3>
+
+<ul>
+<li>Be sure to write one unless the title, tags, and labels provide everything needed to get it done</li>
+<li>Take full advantage of markdown. Include code snippets, samples of log files, bulleted lists, headers, etc.</li>
+<li>Write a full spec for complex cards. Provide implementation hints / details.</li>
+<li>Include reasons <em>why</em> the card is being done based on team discussion. This info tends to get lost and can be really valuable later.</li>
+</ul>
+
+
+<h3>Screenshots &amp; Attachments</h3>
+
+<p><img src="/images/trello/attachments.png" alt="Trello attachments" /></p>
+
+<p>Don&#8217;t try to describe a bug with words if it&#8217;s visual. Just don&#8217;t. Take a screenshot (or multiple screenshots) with something like <a href="http://evernote.com/skitch/">Skitch</a> and attach it. Especially during design QA, designers can get across exactly what they&#8217;re are talking about.</p>
+
+<p><img src="/images/trello/card.png" alt="Trello card with image" class="alignright" /> For new features, attach images of the designs for reference even if the PSDs live in Dropbox. A side effect is the visual appeal it can add to your lists.</p>
+
+<h3>Checklist(s)</h3>
+
+<p><img src="/images/trello/checklists.png" alt="Trello card checklists" /></p>
+
+<p>Use checklists to guide work and track detail progress.</p>
+
+<h2>Trello and git</h2>
+
+<p>We have two primary git branches: <em>master</em> (which always represents what&#8217;s on production) and <em>development</em> which is the current release under development and is frequently pushed to staging. Trivial and small cards can be done right on development but larger cards (or those involving multiple commits) get moved to their own feature branch. While not displayed prominently, Trello cards actually do have unique, auto-incrementing numbers:</p>
+
+<p><img src="/images/trello/trello_card_number.png" alt="Trello card numbers" /></p>
+
+<p>All feature branches map back to a Trello card based on the card number (ex: <em>322_my_awesome_new_feature</em>). You could also include the initials of the person that created the branch in a larger team.</p>
+
+<h2>Labels, Tags, and Finding Your Cards</h2>
+
+<p><img src="/images/trello/trello_labels.png" alt="BlockAvenue Trello labels" class="alignright" /></p>
+
+<p>Trello lets you easily filter by person or label. You only get six labels so use them wisely; it&#8217;s a pain to go back and change later. Here&#8217;s the labels we used:</p>
+
+<ul>
+<li><strong>Data</strong>, <strong>App</strong>, <strong>API</strong>, <strong>Admin</strong>: Major system components</li>
+<li><strong>Bug</strong>: Something that&#8217;s broken.</li>
+<li><strong>Needs Review</strong>: Needs clarification or discussion and isn&#8217;t ready to be worked on. When cards are pulled into <em>On Deck</em> none should have this label.</li>
+</ul>
+
+
+<p>Keep in mind that one of the best thing about labels is that they are color coded making it good for visually distinguishing cards when the lists are unfiltered.</p>
+
+<p>You will inevitably come up with ways you want to filter your cards that don&#8217;t fit owners, due dates, or labels. While Trello doesn&#8217;t have direct support for tags it does have a nice text search. It only searches the title and ignores any non-alphanumeric characters. With <em>#sometag</em> on the end of a card title you can see that a card is tagged and, as long as you pick a tag name that isn&#8217;t common to your card titles, you can filter by it.</p>
+
+<p><img src="/images/trello/tags.png" alt="Trello tags" /></p>
+
+<p>Suggestions for tags:</p>
+
+<ul>
+<li><strong>Browser-specific:</strong> #ie9, #ff, #safari</li>
+<li><strong>User group:</strong> #dweller, #mover, #press</li>
+<li><strong>Card types:</strong> #epic, #story</li>
+</ul>
+
+
+<h2>Checklists Rock</h2>
+
+<p>Lists are awesome. Sometimes it seems my whole life is managed by making lists of things. Trello is no different. Tips on using checklists:</p>
+
+<ul>
+<li>When grooming the backlog, create the checklist for a card to get a sense of what&#8217;s involved.</li>
+<li>Use multiple checklists with custom titles to separate between components of a card (frontend, backend) or between roles (dev, design).</li>
+<li>You can&#8217;t (yet) drag TODOs betweens checklists. Bummer.</li>
+</ul>
+
+
+<h2>Dealing with Long Lists</h2>
+
+<p>Lists can get long, especially if you attach images or use long card titles. Unfortunately, there isn&#8217;t a &#8216;send to top&#8217; for cards but if you drop a card on a list quickly it will shoot to the bottom of the list. Try to keep your titles succinct or even reducing the browser font size as small as you can stand it. It&#8217;s a hack, but it works.</p>
+
+<h2>Card Estimates</h2>
+
+<p>This is, perhaps, the single biggest thing I miss in Trello; the ability to put a work estimate on a card and see estimate totals for each list. Even with a small backlog, tracking estimates can add much needed control to the process. <a href="http://bluelinegamestudios.com/trello/">this tool</a> allows you to track estimates and graph them but it&#8217;s not a great solution: the estimates should be managed in Trello.</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/trello-scrum/jdbcdblgjdpmfninkoogcfpnkjmndgje">Trello Scrum</a> looks promising although I don&#8217;t believe it does any kind of burn visualization.</p>
+
+<p><img src="https://lh4.googleusercontent.com/U9TS8KIksA5LyG0u2AGSmB6HNBQuRS1Xx2Zsf5j74AW2FHCT4WKhnXG372FGqi0O7NE7qrgIew=s640-h400-e365" alt="Trello Scrum" /></p>
+
+<h2>Shortcuts</h2>
+
+<p>If you aren&#8217;t using <a href="https://trello.com/shortcuts">Trello shortcuts</a>, you should be. They will save you a massive amount of time when grooming the backlog.</p>
+
+<h2>Team Friction</h2>
+
+<p>We struggled with effectively using Trello to make the business stakeholders self-sufficient in answering the following:</p>
+
+<ul>
+<li>How much is left and when will it get done?</li>
+<li>Given our current team, how much can we get done in the next N weeks?</li>
+</ul>
+
+
+<p>The following goes a long way to solving this:</p>
+
+<ul>
+<li>Good team communication and regular review of the lists</li>
+<li>Good card and list hygiene: well-formed cards and groomed lists</li>
+<li>Date or goal-oriented lists</li>
+<li>Card estimates and tracking team velocity</li>
+</ul>
+
+
+<h2>For Hackers: Card JSON and Trello API</h2>
+
+<p>Trello&#8217;s beauty is in it&#8217;s simplicity. When it doesn&#8217;t allow you to do something you always have the option of using the <a href="https://trello.com/docs/api/index.html">Trello API</a>. Tucked away under the card details is a link to the card JSON:</p>
+
+<p><img src="/images/trello/card-json.png" alt="Trello card JSON" /></p>
+
+<h2>When I Wouldn&#8217;t Use Trello</h2>
+
+<p>Trello is simple and necessarily limited. In a more complex project I could see easily outgrowing it. <a href="http://www.atlassian.com/software/jira/overview/">OnDemand JIRA</a> with <a href="http://www.atlassian.com/software/greenhopper/overview">GreenHopper</a> is a great alternative. Unlike Trello, it&#8217;s not free but it&#8217;s the Swiss Army knife of ticket tracking as far as I&#8217;m concerned. Between Trello and JIRA I have a hard time recommending anything else (having used most of the others).</p>
+
+<p>An example where Trello might not fit is a software platform that needed to track things across versions of the software. A REST API with multiple versions could need maintenance fixes and releases against old versions. In JIRA, this is relatively trivial with version tracking. That&#8217;s not to say you <em>couldn&#8217;t</em> do it with Trello but it could get messy very quickly.</p>
+</div>
+
+
+
+  <div id="disqusThread"></div>
+
+  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+  <script async type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=danadams"></script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'mrdanadamstech';
+  var disqus_container_id = 'disqusThread';
+  // var disqus_developer = 1;
+  var disqus_identifier = 'http://mrdanadams.com/2012/trello-agile/';
+  var disqus_url = 'http://mrdanadams.com/2012/trello-agile/';
+  var disqus_script = 'embed.js';
+  (function () {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  }());
+</script>
+
+
+
+</article></div>
+
+    </div><!-- #container -->
+
+    <aside id="aside-container" data-ga-event="mouseover:sidebar-hover">
+      <section id="follow-links" class="aside">
+        <label>Follow &amp; Connect</label>
+
+        <ul>
+          <li class="twitter"><a href="https://twitter.com/danadams" title="@danadams on Twitter" target="_blank" data-ga-event="connect-twitter"><span>@danadams</span></a></li>
+          <li class="linkedin"><a href="http://www.linkedin.com/in/mrdanadams" title="Dan adams Linked In Profile" target="_blank" data-ga-event="connect-linkedin"><span>Linked In</span></a></li>
+          <!-- li class="facebook"><a href="http://www.facebook.com/mrdanadams" title="Dan Adams Facebook Profile" target="_blank"><span>Facebook</span></a></li -->
+          <!-- li class="github"><a href="https://github.com/mrdanadams" title="Dan Adoms on github" target="_blank"><span>github</span></a></li -->
+          <li class="rss"><a href="http://feeds.feedburner.com/MisterDanAdams" title="Dan Adams Post RSS feed" data-ga-event="connect-rss"><span>RSS</span></a></li>
+          <!-- li class="cantina"><a href="http://cantina.co/author/dadams" title="Where I work: Cantina Consulting" target="_blank"><span>Cantina Consulting</span></a></li -->
+      </ul>
+    </section>
+
+    <section id="about-box" class="aside">
+      <h3>About Dan</h3>
+      <span class="avatar"></span>
+
+      <p>I&apos;m Co-Founder &amp; CTO of <a href="http://blockavenue.com" target="_blank" rel="nofollow">BlockAvenue</a>, a startup in Boston.</p>
+      <!-- p>My focus is emerging technology including Grails, Ruby/Rails, NoSQL, JVM languages, Mobile/Tablet, CSS, and JavaScript.</p -->
+    </section>
+
+    <section id="primary" class="aside main-aside">
+      <ul class="xoxo">
+        
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
+          <p class="featured-title">
+            <a href="/2012/tips-startups-products-off-ground/" title="5 Tips for Getting Your Startups Product Off The Ground" data-ga-event="related"><span>5 Tips for Getting Your Startups Product Off The Ground</span></a>
+          </p>
+          <p>!Lift off getting your startup product off the ground
+
+For most of 2012, I was embedded in Dogpatch Labs working with early stage startups, such as ByteLight, to create the core product and get them to the next level. All faced the challenges of a pre-MVP product and small team. Here's some of what's involved, the challenges faced, and approaches to tackle them.
+
+</p>
+          <a href="/2012/tips-startups-products-off-ground/" title="5 Tips for Getting Your Startups Product Off The Ground" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
+        </li>
+        
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
+          <p class="featured-title">
+            <a href="/2012/why-your-startup-shouldnt-hire-consultants/" title="Why Your Startup Shouldn't Hire Consultants" data-ga-event="related"><span>Why Your Startup Shouldn't Hire Consultants</span></a>
+          </p>
+          <p>!Don't worry I'm a consultant
+
+Hired guns. Code mercenaries. Consultants.
+
+Whether you are early stage or have an established product, bringing a consultant onto your startup can be a dicey prospect. Here are reasons not to and some things you may not have thought of.
+
+</p>
+          <a href="/2012/why-your-startup-shouldnt-hire-consultants/" title="Why Your Startup Shouldn't Hire Consultants" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
+        </li>
+        
+        <li class="widgetcontainer widget_featured_post_widget" data-ga-event="mouseover:related-hover">
+          <p class="featured-title">
+            <a href="/2013/how-to-work-with-consultants-successfully/" title="How to Work with Consultants Successfully" data-ga-event="related"><span>How to Work with Consultants Successfully</span></a>
+          </p>
+          <p><a href="http://www.toothpastefordinner.com/index.php?date=100210" target="blank" rel="nofollow" title="Toothpaste for Dinner" class="aligncenter"></a>
+
+A bit of advice on how to work successfully with a consultant (or consulting firm).
+
+</p>
+          <a href="/2013/how-to-work-with-consultants-successfully/" title="How to Work with Consultants Successfully" class="more" data-ga-event="related-more"><span>read more &gt;</span></a>
+        </li>
+        
+
+<!--
+        <li class="widgetcontainer widget_links" id="projects">
+          <h3 class="widgettitle">Projects</h3>
+
+          <ul class='xoxo blogroll'>
+            <li><a href="http://abnqe.com" title="Browse your Netflix instant queue visually and search for titles" target="_blank">abnqe (A Better Netflix Queue Experience)</a></li>
+            <li><a href="http://www.meetup.com/emerging-business-technology" target="_blank">Emerging Business Tech Meetup</a></li>
+            <li><a href="http://logolifter.com" title="Create new images by searching for others and combining them. Great for blog post featured images." target="_blank">Logo Lifter</a></li>
+          </ul>
+        </li>
+-->
+      </ul>
+    </section><!-- #primary .aside -->
+  </aside><!-- #aside-container -->
+
+  </div><!-- #main -->
+
+  <footer id="footer">
+    <div id="poweredBy">powered by <a href="http://octopress.org" rel="nofollow" target="_blank">octopress</a> and <a href="http://github.com" rel="nofollow" target="_blank">github</a></div>
+    <div id="siteinfo">
+      &copy; 2011 &ndash; 2012 <a href="https://plus.google.com/106806765342241351959?rel=author">Dan Adams</a>
+    </div><!-- #siteinfo -->
+  </footer><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+
+</body>
+</html>

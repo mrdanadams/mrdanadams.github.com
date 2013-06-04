@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: CSS | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2013-06-03T22:14:42-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Better pixel to EMs CSS conversion with a Sass mixin]]></title>
+    <link href="http://mrdanadams.com/2012/pixel-ems-css-conversion-sass-mixin/"/>
+    <updated>2012-01-31T09:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/pixel-ems-css-conversion-sass-mixin</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/sass.png"></p>
+
+<p>While working on a project (to be announced) creating <a href="/2011/fluid-grids-responsive-design-thematic-wordpress/">responsive design</a> templates from PSDs, I wanted to structure the positions and sizings in a way that allowed the greatest flexibility and sanity. Enter <a href="http://www.alistapart.com/articles/howtosizetextincss">EMs</a>. A great technique but requires conversion of pixels to EMs based on the current font size leaving you with cryptic "0.875em" and "1.125em" expressions throughout your CSS. Not the most maintainable code. A <a href="http://sass-lang.com/">Sass mixin</a> allows expressing measurements in pixels in code while using EMs in the final output.</p>
+
+<p><strong>UPDATE:</strong> I've published the code I use in a bunch of projects as a gist: <a href="https://gist.github.com/2237465">PX to EMs conversion</a></p>
+
+<!-- more -->
+
+
+<h2>Motivation and Usage</h2>
+
+<p>Say you have a base font size of 16 pixels and want something 25 pixels. You could express it this way:</p>
+
+<p><code>css
+width: 1.5625em /* 25 / 16 */
+</code></p>
+
+<p>Perhaps a better version would be the following:</p>
+
+<p><code>scss
+@include scale(width: 25);
+</code></p>
+
+<p>Which would result in the same output.</p>
+
+<p>In fact, we can create a version allowing us to express any CSS expression where we use pixels to do the conversion:</p>
+
+<p>```scss
+/<em> the simplest version </em>/
+@include scale(line-height, 30)</p>
+
+<p>/<em> overrides the default 16px with a different base font size </em>/
+@include scale(line-height, 30, 25)</p>
+
+<p>/<em> short-hand specifying 2 properties with the same value </em>/
+@include scale(width height, 125);</p>
+
+<p>/<em> a property taking multiple values. output: padding: 0em 1.5625em; </em>/
+@include scale(padding, 0 25, 16);</p>
+
+<p>/<em> A property allowing non-size values (passed through unchanged) accepting multiple properties
+output: text-shadow: #0d6e28 0.0625em 0.0625em, #777 0em 0em 0.125em;
+</em>/
+@include scale(text-shadow, (#0d6e28 1 1) (#777 0 0 2), 16);
+```</p>
+
+<h2>scale Sass mixin (and function)</h2>
+
+<p>The following is the mixin and function I ended up with allowing each of the given usages:</p>
+
+<p><div><script src='https://gist.github.com/2237465.js?file='></script>
+<noscript><pre><code></code></pre></noscript></div>
+</p>
+
+<p>Moving this out into a custom extension in Ruby would have made the code cleaner but would have added an external dependency. Having the mixin in the same .scss makes it easier to work with (for now).</p>
+
+<p>The largest improvement I would make to this is it's dependence on the base font size. Ideally, whenever you call <code>scale()</code> it could inspect the current font size in the stylesheet and automatically pick the best one rather than assuming 16px or having to specify it.</p>
+
+<h2>A new unit</h2>
+
+<p>Another approach could be to introduce a new Sass unit: pem (px + em = pem). This would allow extending Sass to automatically interpret a measurement in this unit and translate to EMs in the final output based on the current font size:</p>
+
+<p>```css</p>
+
+<h1>foo { font-size: 18pem; width: 50pem; }</h1>
+
+<p>```</p>
+
+<p>Assuming a base font size of 16 this would result in:</p>
+
+<p>```css</p>
+
+<h1>foo { font-size: 1.125em; 2.778em; }</h1>
+
+<p>```</p>
+
+<p>What approaches have you taken to deal with the pixel / EM relationship?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CSS-only comment count bubble in WordPress]]></title>
+    <link href="http://mrdanadams.com/2011/css-only-comment-count-bubble-in-wordpress/"/>
+    <updated>2011-11-03T12:30:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/css-only-comment-count-bubble-in-wordpress</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/bubble.jpg" title="CSS-only comment bubble showing the comment count" ></p>
+
+<p>One of the customizations I made to the <a href="http://themeshaper.com/thematic/">Thematic framework</a> for this theme was bubbles next to any post that had comments displaying the number of comments. And, just because I could and to keep the page weight down, I made the bubbles in CSS. The result is shown above and here's the code behind it.</p>
+
+<!-- more -->
+
+
+<h2>Adding the comment count markup</h2>
+
+<p>We'll add a filter that will add the markup we want just above the post title.</p>
+
+<p>```php
+// add the comment count to the title so we can style a  badge for it
+function childtheme_filter_posttitle($title) {</p>
+
+<pre><code>return '
+</code></pre>
+
+<p><a href="" title=" . get_permalink() . ">' . get_comments_number() . '</a></p>
+
+<p>' . $title;
+}</p>
+
+<p>add_filter('thematic_postheader_posttitle', 'childtheme_filter_posttitle', 10, 1);
+```</p>
+
+<p>Something odd I ran into: if you have Disqus comments enabled and link to the Disqus thread div by id Disqus will hijack your link and change the text to something like "2 Comments and 0 Reactions". Anyone know how to disable this without hacking the Disqus js (it wasn't important to me so I didn't bother)?</p>
+
+<h2>Adding a CSS class on whether the post has comments or not</h2>
+
+<p>In order to hide the comment bubble when there are not comments, I'll add a CSS class to the post as to whether it has comments or not. I could have simply omitted the comment count HTML itself but this is easier to change with CSS, will give me the option of restyling it later if I want to show it, and will allow me to style other things in the future based on the same class.</p>
+
+<p>```php
+// indicate if a post has comments or not
+// note: $c is an array of strings
+function childtheme_filter_post_class($c) {</p>
+
+<pre><code>$c[] = get_comments_number() &gt; 0 ? 'has-comments' : 'no-comments';
+return $c;
+</code></pre>
+
+<p>}</p>
+
+<p>add_filter('post_class', 'childtheme_filter_post_class', 10, 1);
+```</p>
+
+<h2>Creating the CSS-only comment bubble</h2>
+
+<p>See this post for <a href="http://nicolasgallagher.com/pure-css-speech-bubbles/">creating CSS comment bubbles</a> in detail. Here's the CSS (actually, Sass) I ended up with:</p>
+
+<p>```css
+/<em> okay, fine. so i just wanted to see if i could make a bubble in css... </em>/
+.comment-count {</p>
+
+<pre><code>float: right;
+margin-top: -.5em;
+margin-right: -1.5em;
+
+a {
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: .25em .75em;
+    border: 2px solid #777;
+    @include border-radius(.5em);
+    background-color: white;
+    @include single-box-shadow(black * .4, 1px, 1px, 7px, false, false);
+}
+&amp;:before { /* outer triangle */
+    content:' ';
+    position: absolute;
+    width:0; height:0;
+    margin-top: 2em; margin-left: .5em;
+    border: .35em solid;
+    border-color: #777 transparent transparent #777;
+}
+a:before { /* inner triangle. using the outer element so they are both on the left */
+    content:' ';
+    position: absolute;
+    width:0; height:0;
+    margin-top: 1.5em; margin-left: -.31em;
+    border: .25em solid;
+    border-color: white transparent transparent white;
+}
+</code></pre>
+
+<p>}
+/<em> don't show if there are no comments </em>/
+.no-comments .comment-count { display: none; }
+```</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fluid grids and responsive design with the Thematic WordPress theme framework]]></title>
+    <link href="http://mrdanadams.com/2011/fluid-grids-responsive-design-thematic-wordpress/"/>
+    <updated>2011-11-02T06:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/fluid-grids-responsive-design-thematic-wordpress</id>
+    <content type="html"><![CDATA[<p><a href="http://cantina.co/2011/10/31/responsive-design-resources/">Fluid grids and responsive design</a> are great techniques for improving user experience at differing screen sizes and devices. With a little CSS magic and an extension, Thematic can easily support this over the fixed-width layouts it ships with.</p>
+
+<p>One of my goals when creating the theme for this blog was to not only end up with a nice theme but also learn something new and exhibit some best practices. After looking over many paid and free wordpress theme frameworks (as well as creating themes from scratch) I finally decided on using <a href="http://themeshaper.com/thematic/">Thematic</a> (and I'm glad I did). Not leaving good enough alone, I threw in some Sass (including the Compass framework) and responsive design for a nicer user experience and wider device support.</p>
+
+<!-- more -->
+
+
+<h2>Fluid grids? Responsive design?</h2>
+
+<p>Fluid grids is a HTML and CSS technique for creating designs that respond to the users screen size and other parameters. As the screen size changes the design layout, font sizes, etc can adjust
+to give the user a better experience. This A List Apart article provides <a href="http://www.alistapart.com/articles/fluidgrids/">a great intro to fluid grids</a>.</p>
+
+<p><a href="http://www.alistapart.com/articles/responsive-web-design/">Responsive design</a> goes further using mechanisms such as <a href="http://trentrichardson.com/2011/03/11/effective-example-of-css-media-queries/">CSS media queries</a> to specifically support different devices and screens sizes to the point of effectively offering multiple interfaces over the same HTML with the same stylesheets.</p>
+
+<h2>Supporting a fluid layout with Thematic</h2>
+
+<p>This theme uses as 2-column layout similar to the default shipped with Thematic: the main content on the left and the sidebar on the right with a header on top.</p>
+
+<p><img src="/images/site_columns.jpg"></p>
+
+<p>The effect we are going for is to have the design max out at a certain width but adjust when the window is narrow. In a fixed-width layout the content would simply be cut off.</p>
+
+<p>The trick is essentially to set the page div to adjust to the width available but max out at the fixed width. As for the columns, their width is based on a percentage of the parent width. In fact, everything in the page is expressed in either percent or "em"s allowing us to control the size and proportion of everything at once. If expressed in pixels we could not dynamically change the layout or font sizes.</p>
+
+<h2>Adding a container DIV for the sidebars</h2>
+
+<p>I was surprised to find that the 2 column layout didn't have 2 outer column divs: there was one div for the entry content and multiple for the sidebars with no div around all the sidebars. While not strictly necessary to create the look we want, the CSS was simpler to have the sidebars organized into a single div (and made more sense semantically). With Thematic this requires a small extension in functions.php.</p>
+
+<p>Looking in sidebar-extensions.php in the Thematic sources you'll find this:</p>
+
+<p>```php
+// Located in sidebar.php
+// Just before the main asides (commonly used as sidebars)
+function thematic_abovemainasides() {</p>
+
+<pre><code>do_action('thematic_abovemainasides');
+</code></pre>
+
+<p>} // end thematic_abovemainasides</p>
+
+<p>// Located in sidebar.php
+// after the main asides (commonly used as sidebars)
+function thematic_belowmainasides() {</p>
+
+<pre><code>do_action('thematic_belowmainasides');
+</code></pre>
+
+<p>} // end thematic_belowmainasides
+```</p>
+
+<p>Looking in sidebar.php, you'll see these are extension points called before and after all the sidebars are rendered making it a perfect point to inject our new tag. We'll add <code>add_actions()</code> calls corresponding to the <code>do_action()</code> calls above in our functions.php in the child theme.</p>
+
+<p>```php
+&lt;?php
+// create functions to make the opening and closing tag of our container div
+function childtheme_abovemainasides() { ?>
+  <div id="aside-container">
+&lt;?php }</p>
+
+<p>function childtheme_belowmainasides() { ?>
+  </div><!-- #aside-container -->
+&lt;?php }</p>
+
+<p>// add the action into the extension points
+add_action('thematic_abovemainasides', 'childtheme_abovemainasides', 10);
+add_action('thematic_belowmainasides', 'childtheme_belowmainasides');
+?>
+```</p>
+
+<h2>Fluid grid CSS</h2>
+
+<p>We can now style the outer page div and the two inner content wrapping divs to respond to the page width.</p>
+
+<p>```css
+/<em> sets the max width and centers the contents </em>/</p>
+
+<h1>wrapper { max-width: 960px; margin: 0px auto; }</h1>
+
+<p>/<em> our 2 column containers expressed as % of the container width </em>/</p>
+
+<h1>container { float: left; width: 72.5%; margin-right: 2%; }</h1>
+
+<h1>aside-container { float: left; width: 24.25%; }</h1>
+
+<p>```</p>
+
+<h2>Responsive design CSS</h2>
+
+<p>Now let's get it looking good at other screen resolutions. When the screen width is under a certain size we'll lay out the columns differently so it becomes a one-column layout with the sidebar coming after the main content.</p>
+
+<p>If we resize the window to make it narrow you can see it changes to a single column (with the header also changing to fit a smaller width):</p>
+
+<p><img src="/images/single_column.jpg"></p>
+
+<p>and the sidebar contents are now after the main content above the footer:</p>
+
+<p><img src="/images/single_column_footer.jpg"></p>
+
+<p>The CSS for this is remarkably simple.</p>
+
+<p>```css
+@media screen and (max-width: 650px) {</p>
+
+<pre><code>#container, #aside-container, #blog-title, #access { display: block; float: none; width: auto; margin: 0 3% 3% 3%; }
+body { font-size: 14px; line-height: 16px; }
+</code></pre>
+
+<p>}
+```</p>
+
+<p>We've changed all the container divs to take up the whole width of the available space except for a 3% margin. The base font size has also changed.</p>
+
+<p>Are fluid grids and responsive design techniques you have tried or are familiar with? Did you have trouble adapting them?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Upgrade your WordPress theme CSS with Sass and Compass]]></title>
+    <link href="http://mrdanadams.com/2011/wordpress-theme-sass-compass/"/>
+    <updated>2011-11-01T12:00:00-04:00</updated>
+    <id>http://mrdanadams.com/2011/wordpress-theme-sass-compass</id>
+    <content type="html"><![CDATA[<p><a href="http://sass-lang.com/">Sass</a> (particularly SCSS) could very well be the new CSS providing a better language for developers and designers to write better CSS faster than ever. <a href="http://compass-style.org/">Compass</a> is a Sass framework offering many utilities for creating modern sites and cross-browser support. Although heavily tied to the Ruby world, both of these tools can easily be used in the context of a Wordpress theme to make your life (and the life of your users) better.</p>
+
+<!-- more -->
+
+
+<p>If you are looking for a slimmer alternative, <a href="https://github.com/thoughtbot/bourbon#readme">bourbon</a> also provides many nice utilities. Have you used bourbon or alternatives? What did you think?</p>
+
+<h2>What about compass-wordpress?</h2>
+
+<p>While there is a <a href="https://github.com/pengwynn/compass-wordpress">compass-wordpress</a> plugin I gave it a shot and it simply didn't work. Since using compass directly isn't all that difficult I used compass directly as getting compass-wordpress up and running didn't seem worth the effort. Also the latest changes on github are from 2009 so I doubt it's still maintained.</p>
+
+<h2>Install Compass</h2>
+
+<p>As shown on the <a href="http://compass-style.org/install/">compass installation docs</a>, installing Sass and Compass is pretty easy:</p>
+
+<p><code>sh
+$ gem update --system
+$ gem install sass
+$ gem install rb-fsevent
+$ gem install compass
+</code></p>
+
+<p>(I installed rb-fsevent as it provides some platform-specific optimizations and Compass kept hinting I should.)</p>
+
+<h2>Compass setup and configuration</h2>
+
+<p>Assuming you have an existing wordpress theme and want to use compass with it, you need only create a few files and folders. As posted previously on using <a href="/2011/undefined-method-top-while-using-compass-sprites/">compass sprites with wordpress</a>, there are some non-obvious details.</p>
+
+<p>Here's the basic file and folder setup.</p>
+
+<p><img src="/images/folder_setup.jpg"></p>
+
+<ul>
+<li><strong>images/</strong> is where you can put <em>non-sprite</em> images</li>
+<li><strong>images/sprites</strong> contains images to be combined into a sprite (such as icons)</li>
+<li><strong>sass/</strong> contains any Sass files to be compiled to CSS. You likely only have one file but could also have IE- and print-specific stylesheets.</li>
+<li><strong>sass/style.scss</strong> is your primary Sass to be compiled to your themes primary CSS file (which must be in the theme root)</li>
+<li><strong>config.rb</strong> contains your compass configuration (see below)</li>
+</ul>
+
+
+<p>Use the following for a basic config.rb:</p>
+
+<p>```ruby
+http_path = "/"
+css_dir = "."
+sass_dir = "sass"
+images_dir = "images"
+javascripts_dir = "scripts"</p>
+
+<h1>You can select your preferred output style here (can be overridden via the command line):</h1>
+
+<h1>output_style = :expanded or :nested or :compact or :compressed</h1>
+
+<h1>To enable relative paths to assets via compass helper functions.</h1>
+
+<h1>note: this is important in wordpress themes for sprites</h1>
+
+<p>relative_assets = true
+```</p>
+
+<p>To start, create the files and folders but move your existing style.css to sass/style.scss. This is probably a good start:</p>
+
+<p><code>css
+@import "compass";
+@import "compass/reset"; /* actually creates styles so put after all your imports*/
+</code></p>
+
+<h2>Watch for and make changes</h2>
+
+<p>Now that your project is set up, open a terminal and have compass watch for changes:</p>
+
+<p><code>sh
+$ cd yourproject
+$ compass watch
+</code></p>
+
+<p>This will watch for changes to your style.scss and create a new style.css. Did you have any problems setting this up or use it differently?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA["Undefined method 'top'" while using Compass sprites]]></title>
+    <link href="http://mrdanadams.com/2011/undefined-method-top-while-using-compass-sprites/"/>
+    <updated>2011-10-27T21:58:23-04:00</updated>
+    <id>http://mrdanadams.com/2011/undefined-method-top-while-using-compass-sprites</id>
+    <content type="html"><![CDATA[<p>I ran into the error <code>undefined method 'top' for nil:NilClass</code> while attempting to use the sprites feature of <a href="http://compass-style.org/">Compass</a> in Wordpress. After a bit of digging through the Compass sources I found the solution.</p>
+
+<!-- more -->
+
+
+<p>The error you get is this:</p>
+
+<p><code>
+NoMethodError on line ["17"] of /Users/dadams/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/lib/compass/sass_extensions/sprites/sprite_methods.rb: undefined method `top' for nil:NilClass
+Run with --trace to see the full backtrace
+</code></p>
+
+<p>If your settings are aren't correct Compass will attempt to loop through a bunch of images (which it can't find) and one of them is null thus the error. You are also likely to see this error:</p>
+
+<p><code>
+NoMethodError on line ["68"] of /Users/dadams/.rbenv/versions/1.9.2-p290/lib/ruby/gems/1.9.1/gems/compass-0.11.5/lib/compass/sprite_importer.rb: undefined method `Error' for Compass:Module
+</code></p>
+
+<p>I found the following to be true and important while configuring your project:</p>
+
+<ul>
+<li>All icons are relative to your images path and can't be outside of it.</li>
+<li>You can't sprite the images directly under images/. They must be a in subfolder such as images/icons.</li>
+<li>You can't have your scss file(s) in the root directory (which I did for simplicity since I only had one file). Make a "sass" directory and put it in there.</li>
+<li>Make sure you are using relative assets in your config file, especially for Wordpress. Otherwise it creates an absolute path to the images which is a pain if it's in a theme.</li>
+</ul>
+
+
+<p>Here's the final config I ended up with:</p>
+
+<p><code>ruby
+http_path = "/"
+css_dir = "."
+sass_dir = "sass"
+images_dir = "images"
+javascripts_dir = "scripts"
+relative_assets = true
+</code></p>
+
+<p>See <a href="http://groups.google.com/group/compass-users/browse_thread/thread/8e655d6706ca6d2d">this thread</a> for more info.</p>
+]]></content>
+  </entry>
+  
+</feed>

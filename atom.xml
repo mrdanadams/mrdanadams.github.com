@@ -1,0 +1,1873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Dan Adams]]></title>
+  <link href="http://mrdanadams.com/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2013-06-03T22:14:42-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How to Work with Consultants Successfully]]></title>
+    <link href="http://mrdanadams.com/2013/how-to-work-with-consultants-successfully/"/>
+    <updated>2013-01-01T12:56:00-05:00</updated>
+    <id>http://mrdanadams.com/2013/how-to-work-with-consultants-successfully</id>
+    <content type="html"><![CDATA[<p><a href="http://www.toothpastefordinner.com/index.php?date=100210" target="blank" rel="nofollow" title="Toothpaste for Dinner" class="aligncenter"><img src='http://mrdanadams.com/images/consulting-consultant_400x400.gif' /></a></p>
+
+<p>A bit of advice on how to work successfully with a consultant (or consulting firm).</p>
+
+<!-- more -->
+
+
+<h2>Get an inside look at their portfolio</h2>
+
+<p>Consultancies usually put up a public portfolio. This is the work they want you to see or the work they are allowed to show publicly. You want to see what they&#8217;ve done in the last year. This will give you best sense of their capabilities and the direction of the firm. They can often show recent work in private, if asked, that they can&#8217;t promote publicly.</p>
+
+<h2>Talk to the people who do the work</h2>
+
+<p>While I&#8217;m not a huge fan of actually interviewing every consultant as you would a full time hire (you really shouldn&#8217;t have to), talk to people at the firm that actually do the work (i.e. not the sales guy). Have a chat about your project and what it seems like to them. They should not only understand it quickly but be excited about it and have new ideas and suggestions.</p>
+
+<p>Some firms will sell you their A team and give you the B (or C) squad. It&#8217;s not that common but it happens. These guys are jerks.</p>
+
+<h2>Keep the owner in the loop</h2>
+
+<p>You have every right as a client to give feedback to the person who cares the most: the owner. If you have a problem or feel like the project team isn&#8217;t pulling through get on the phone and make your concerns known in no uncertain terms.</p>
+
+<p>This may sound harsh but it&#8217;s the best thing for both you and the firm. They can&#8217;t fix problems they don&#8217;t know exist. It&#8217;s easier to make it work with a firm you&#8217;ve already selected than finding another one.</p>
+
+<h2>Go local. Get them in-house.</h2>
+
+<p>The more closely you collaborate and the more often you talk the lower your risk. You&#8217;ll more quickly find issues and get things running smoothly. If possible, get a shop in town and have them live with you. They&#8217;ll spend less time with communications overhead (and more time on real work) and you can get updates from them directly instead of reading some sort of status report.</p>
+
+<h2>Have an out. Be protected.</h2>
+
+<p>Don&#8217;t leave yourself with all the risk <a href="http://mrdanadams.com/2012/why-your-startup-shouldnt-hire-consultants">hiring a consultant</a>. One of the benefits not available with full-time hires is that consultants come with contracts or Statements of Work. This means either resource for hire or fixed bid (see below). Even in the case of team augmentation, encode something in the contract promising at least a minimum set of deliverables.</p>
+
+<p>Don&#8217;t pay (everything) up front. Tie payment to deliverables or spread out over the schedule.</p>
+
+<h2>My experience hiring consultants</h2>
+
+<p>I&#8217;m a consultant. I&#8217;d like to think I&#8217;m one of the good ones. But I&#8217;ve also played this game from the other side.</p>
+
+<p>I was the Head of Engineering in a product company creating a new product (essentially a startup from the inside). In order to serve both our old client / agency work and our new product development (while having no up-front capital investment) we had to get creative with engineering resources.</p>
+
+<p>We worked with outside firms in Argentina, Connecticut, New York City, India, Vietnam, and elsewhere.</p>
+
+<p>We worked with independent contractors / consultants in just as many places.</p>
+
+<p>Eventually, we even set up an off-shore development team in Omsk, Russia.</p>
+
+<p>In the first two cases (using contractors / consultancies) my success rate was maybe 25%. That&#8217;s rough. But once we found a person or shop that worked we set up a long-term relationship with them. In fact, one of the best contractors I ever worked with was just &#8220;some dude&#8221; out in Ohio with three kids getting his PhD. I never even met him.</p>
+
+<p>These relationships were a valuable asset and complimented our sizable internal team. It allowed our business to react to resource needs without reducing internal staff.</p>
+
+<h2>Appendix: Consulting Pricing Models</h2>
+
+<p>(Is putting an appendix on a blog post a sign it&#8217;s too long? Oh, well.)</p>
+
+<p>If you are unclear with how pricing works with a consultant, here&#8217;s the gist. Each model has it&#8217;s own risk and benefits and one is not clearly better than another.</p>
+
+<h3>Fixed Bid</h3>
+
+<p>You tell them what you want, they ask some questions, make some assumptions, and give you a document telling you what they will do and how much it costs. If you change your mind during the project, you get a change order (changing the contract and probably asking for more money). By signing the contract, you are in for the whole amount (assuming they deliver).</p>
+
+<p>As a client, you get a promise of what they&#8217;ll deliver. In many ways the consultant holds the most risk here because if the project goes over budget (and they don&#8217;t manage the changes in cost) they are left eating the overage. Since they are holding the cost risk any fixed bid contract will include some degree of risk buffer.</p>
+
+<p>These contracts are appropriate for projects that are fairly well defined and well bounded.</p>
+
+<h3>Staff Augmentation</h3>
+
+<p>You pay a certain rate by the person for as long as you have them. There is no document saying what they will deliver. There is no risk of going over budget for the consultant but the client has no guarantee what will be delivered. However, the client can change their mind every day if they wish. Also, the clients financial obligation is less than a fixed bid contract since the staff augmentation can more or less be stopped at any time.</p>
+
+<p>This model is appropriate when the problem being solved isn&#8217;t well defined such as <a href="http://mrdanadams.com/2012/tips-startups-products-off-ground">working with early stage startups</a>.</p>
+
+<h3>Hybrid</h3>
+
+<p>While more of a contract detail, these two models can be combined such that the client gets a bit more guarantee of what will be delivered while at the same time not having to deal with change orders every week.</p>
+
+<p>Identify a few high-level, critical deliverables and encode those in the contract. You can still change direction during the project although, if it&#8217;s a big enough change, you might have to do a change order.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Your Startup Shouldn't Hire Consultants]]></title>
+    <link href="http://mrdanadams.com/2012/why-your-startup-shouldnt-hire-consultants/"/>
+    <updated>2012-12-30T11:13:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/why-your-startup-shouldnt-hire-consultants</id>
+    <content type="html"><![CDATA[<p><img src="http://mrdanadams.com/images/dont-worry-consultant.jpg" alt="Don't worry I'm a consultant" /></p>
+
+<p>Hired guns. Code mercenaries. Consultants.</p>
+
+<p>Whether you are early stage or have an established product, bringing a consultant onto your startup can be a dicey prospect. Here are reasons not to and some things you may not have thought of.</p>
+
+<!-- more -->
+
+
+<p>While there is truth to all of these, there&#8217;s more to be considered. Reality is, many startups are <a href="http://mrdanadams.com/2013/how-to-work-with-consultants-successfully/">successfully using consultancies</a> (although they may not advertise it). In a world where good people are hard to hire, time to market is tight, and product quality is critical, hiring a consultant is not always the right thing to do. However, it&#8217;s also not always not either (if you&#8217;ll pardon the double negative).</p>
+
+<h2>Reason 1: They&#8217;re Expensive</h2>
+
+<p>If you need to hire a design / engineering consultant (in Boston, at least) you are likely looking at $100 - $250 per hour depending on the shop and what you need. That&#8217;s $4,000 - $10,000 per week per full time person. Assuming you had a full time hire that had a total cost of $150k per year (after taxes, benefits, overhead, etc) that&#8217;s around $72 / hour.</p>
+
+<p>Ouch.</p>
+
+<p>Of course, this assumes we are comparing cost for the same value which probably isn&#8217;t true. Not only might you be getting something better or different than you have internally but you don&#8217;t have the same costs associated. A consultant pays their own taxes, vacations, benefits, etc.</p>
+
+<p>You usually don&#8217;t hire a consultant for a whole year. You bring them on for something specialized or because they offer something you don&#8217;t have in your internal team or can&#8217;t hire. They&#8217;ve got experience and skills that can prove to be invaluable:</p>
+
+<ul>
+<li><em>Strategic insight</em>. A general knowledge of the industry, best practices, and the ability to pinpoint the best technical or product direction.</li>
+<li><em>They&#8217;re battle tested</em>. They&#8217;ve been through the full project life cycle across different team sizes, contexts, and technologies. This adds crucial perspective that only comes by experience. Especially knowledge that only comes from previous failures.</li>
+<li><em>They&#8217;re good. Maybe really good.</em> That&#8217;s why they are &#8220;expensive&#8221; (usually). They&#8217;ve got the skills you need and can get things done quickly.</li>
+<li><em>Consultants come with friends.</em> Hiring a consultant from a consultancy means you&#8217;ve got a pool of similar resources you can draw from quickly without going through the hiring process for each one. Even for independent consultants, they often have a wider network to draw from when you need someone based on personal recommendation.</li>
+<li>Consultants are easier to let go.</li>
+</ul>
+
+
+<p>You may bring on a consultant simply to augment your team and add momentum. Add a consultant or two where it makes sense, crank for a while, and then scale down to a slower pace after the push.</p>
+
+<p>In a perfect world, when you needed to grow your team you&#8217;d be able to hire passionate, invested people with the skills you need when you need them. That&#8217;s a fantasy. The reality is that hiring (both salary and consultant) is hard; it takes a lot of your time and involves significant risk.</p>
+
+<h2>Reason 2: They Walk Away with Knowledge</h2>
+
+<p>History matters in a startup. The reasons why things are what they are (both good and bad) are important. A consultant may come in, do some great work, and then walk out with all the good bits in their head. This is a legitimate risk for anyone hiring a consultant.</p>
+
+<p>It&#8217;s not, however, a show stopper:</p>
+
+<ul>
+<li>Integrate them in the team so there is knowledge sharing during the work. Make sure other people at least know, and ideally have worked on, their stuff. Do code reviews. Seriously, just do them.</li>
+<li>Have them put together documentation during the course of the work (not at the last minute) and use it themselves.</li>
+<li>Embed them in team discussions so they know why the team did what they did and vice-versa. The random, informal conversations are often the most valuable.</li>
+</ul>
+
+
+<p>If this is a concern, don&#8217;t give a consultant the most important piece of your product and then have nobody else know about it. Add some redundancy or minimize risk by putting them on something else.</p>
+
+<h2>Reason 3: They&#8217;re Not Invested</h2>
+
+<p>Your core team is passionate and invested, you hope. (Let&#8217;s assume they are.) A consultant is usually seen (rightly) as an outsider who comes in, does something, and walks away with no strings attached. The assumption is that they won&#8217;t deliver the same quality or be as proactive at addressing problems as your core team.</p>
+
+<p>Again, a legitimate concern.</p>
+
+<p>Get a consultant with a good reputation, a good body of work, and seems like someone you can trust. Protect yourself by getting them as closely integrated with you and your team as possible; tight collaboration will quickly shed light on lurking concerns.</p>
+
+<p>It&#8217;s incorrect to assume that consultants don&#8217;t have stake in your project. Consultants live and die by their portfolio and having happy clients is critical. Finding new clients is expensive and difficult. Happy clients come back for more work. Especially when working with startups, it&#8217;s foolish for me not to do everything I can to help them succeed.</p>
+
+<h2>Allow Me to Illustrate</h2>
+
+<p>Here are a few scenarios where bringing in a consultant may make a lot of sense.</p>
+
+<h3>Get Your Product Off the Ground</h3>
+
+<p>As a founder in an early stage startup, you face many challenges in <a href="http://mrdanadams.com/2012/tips-startups-products-off-ground">getting your product off the ground</a>. Furthermore, many founders have never designed a product, built a software platform from the ground up, hired a creative team, scaled anything, worked with big data, and might be working with emerging technologies such as mobile.</p>
+
+<p>That&#8217;s a big, steaming pile of risk. Building the wrong thing, building it poorly, or taking too long can be a killer.</p>
+
+<p>Bring in a (very) small team of experienced consultants who can not only build the technology but help you understand the product, the technical landscape, and build the right product. Furthermore, while working with the consultant you can be working on hiring that long-term team. The product gets built in the time needed and you get some breathing room to put your team in place.</p>
+
+<h3>Add Momentum or Features to an Existing Product</h3>
+
+<p>You&#8217;ve got your core team established and product off the ground. You have a well defined roadmap. Problem is, you simply don&#8217;t have the man power to get it all done in the time needed.</p>
+
+<p>Bring in a handful of consultants, integrated them tightly into your team, and hit the ground running.</p>
+
+<h3>Bring in Some Expertise</h3>
+
+<p>This is the likely the most common case for a consultant; you need a special skill you don&#8217;t have in-house and doesn&#8217;t make sense to develop. Find a consultant that can do it but can also do a lot more; integrate them as much as possible and get as much out of them as you can. For instance, if you bring in a firm to do some mobile work get them to add value in other places such as touching the REST APIs, helping you create a mobile roadmap for after they are gone, or giving advice on to what degree your web apps need to be responsive.</p>
+
+<h2>Consultant != Contractor</h2>
+
+<p>I&#8217;m making an assumption here in the difference between a consultant and a contractor (this is my definition). Consultants (disclaimer: like me) are often brought on for their thoughts and experience in addition to getting the work done. Consultants may even challenge their clients with new ideas and approaches.</p>
+
+<p>Contractors are brought on to perform a task, build a feature, do something specific.</p>
+
+<h2>Success or Horror?</h2>
+
+<p>Have you considered using a consultant at your startup? If you&#8217;ve used one, how was your experience?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[5 Tips for Getting Your Startups Product Off The Ground]]></title>
+    <link href="http://mrdanadams.com/2012/tips-startups-products-off-ground/"/>
+    <updated>2012-12-28T21:27:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/tips-startups-products-off-ground</id>
+    <content type="html"><![CDATA[<p><img src="http://mrdanadams.com/images/getting-your-startup-off-the-ground.jpg" alt="Lift off getting your startup product off the ground" /></p>
+
+<p>For most of 2012, I was embedded in <a href="http://dogpatchlabs.com">Dogpatch Labs</a> working with early stage startups, such as <a href="http://www.bytelight.com/" title="Indoor Location">ByteLight</a>, to create the core product and get them to the next level. All faced the challenges of a pre-MVP product and small team. Here&#8217;s some of what&#8217;s involved, the challenges faced, and approaches to tackle them.</p>
+
+<!-- more -->
+
+
+<h2>#1 Establish Vision, Create Focus</h2>
+
+<blockquote><p>What defines success?</p></blockquote>
+
+<p>The answer to that question will change. Possibly often. You should ask it regularly and make sure your whole team understands the answer and the reasoning behind it. The answer will likely change based on how far out you look: what defines success for the next month will be different than 3 months or 12.</p>
+
+<p>You may struggle to identify a single definition of success but it&#8217;s important that you do so (or attempt to as best as possible). Back up the goal with ways to measure it. Benchmark team progress regularly against it.</p>
+
+<p>Give your team a clear sense of why you are there, how you are going to take over the world, and that they are expected to be a big part of that.</p>
+
+<p>Some examples:</p>
+
+<ul>
+<li>Being customer ready (if you sell a customer you can actually support them)</li>
+<li>A product that demonstrates your direction strongly enough to incite new interest from press and investors</li>
+<li>Getting enough app usage to demonstrate that, yes, the market really is there</li>
+<li>Getting the &#8220;hockey stick&#8221;: non-linear growth in app usage, downloads, conversions, sales, or whatever else is the most important success metric for your app.</li>
+<li>Generating enough revenue to get you bootstrapped</li>
+</ul>
+
+
+<h2>#2 Continuously Re-Define Your Product</h2>
+
+<p>While keeping your eye on what defines success, re-evaluate your product design. Evolve. Tweak. Change. Nothing is sacred. Get as much feedback and input from press, investors, peers, and users as possible. Then evaluate and digest it. Let it challenge your vision but don&#8217;t go chasing every idea or feature thrown at you. Resist all impulse to get lost in feature design. Stay focused on who your users are, what they want to do, and what you want them to do.</p>
+
+<h2>#3 Start Hiring. Now.</h2>
+
+<p>When hiring for a small team you want to hire heavy hitters who can help you drive towards the goal line. Unfortunately, so does every other company. Expect it to take at least three months to hire someone (especially the right someone). For engineers, designers, and front-end devs the market is shot. It&#8217;s been that way for a while and it&#8217;s only going to get worse.</p>
+
+<p>Establish a hiring pipe (personal networks, word of mouth, meetups, even recruiters) and keep it full. Someone who&#8217;s not available (or interested) now might be a few months down the road. Don&#8217;t wait for positions to really open up; starting filling the pipe as if the position were open now (though I&#8217;m not advocating leading people on).</p>
+
+<p>Even for a small team, <a href="http://mrdanadams.com/2012/mentoring-apprenticeship-software-engineers">grow them through mentoring</a>. You want them <a href="http://mrdanadams.com/2012/career-story-trajectory-context/">stepping up to new challenges</a> on a regular basis and <a href="http://mrdanadams.com/2012/its-your-company-act-like-an-owner/">taking ownership</a>.</p>
+
+<p>If time is against you, consider hiring a consultant (shameless plug). It&#8217;s by no means a silver bullet but the right consultant can add acceleration and experience where it&#8217;s sorely needed.</p>
+
+<h2>#4 Understand Your Team</h2>
+
+<p>My first priority with a new project is to get my bearings. To a frustrating extent, nearly everything that comes out of my mouth early on will be a question. I want to know the state of things and how they got that way. This extends far beyond technology.</p>
+
+<ul>
+<li>Who are the founders? Who are the key influencers (founders or not)? What is the dynamic between them and the rest of the team? Who makes the decisions? Who really leads?</li>
+<li>What technology is in place now? Why was it selected? What issues have they had with it so far?</li>
+<li>What are the skills of the current team both technically and non-technically? Do they have good communication skills? Do they understand application architecture? Have they ever scaled anything or worked with large data sets? How do they handle conflict and stress?</li>
+</ul>
+
+
+<p>Keep asking &#8220;why&#8221; until you really understand your context. If needed, take someone out to lunch or ask small questions in the break room. Tease out perspectives you can&#8217;t get in a group setting. Paradoxically, humans are what make software difficult and understanding the team is critical.</p>
+
+<p>While this is especially true for an outsider it&#8217;s often true for the core team as well. The better a team understands itself the more it will function as a cohesive unit. A founder who understands his team can utilize their strengths while both protecting against and working on their weaknesses.</p>
+
+<h2>#5 Focus on Quality</h2>
+
+<p>Quality is the visible, tangible thing that gives your users, the press, and investors a perception of value. Make people want to use it and share it. Quality also shows that you&#8217;re serious and should be taken seriously.</p>
+
+<p>Make it work. Make it beautiful. Make it fast.</p>
+
+<p>Which factors have been important getting your product off the ground?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mentoring &amp; Apprenticeship for Software Engineers]]></title>
+    <link href="http://mrdanadams.com/2012/mentoring-apprenticeship-software-engineers/"/>
+    <updated>2012-12-07T18:26:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/mentoring-apprenticeship-software-engineers</id>
+    <content type="html"><![CDATA[<p><img src="http://mrdanadams.com/images/mentoring.jpg" alt="blacksmith glassblower software engineer mentoring apprentice" class="aligncenter" /></p>
+
+<p>What we software engineers (and designers) do is very creative and, in general, best learned through experience. Computer science and color theory can be groked from a book but client communication, handling conflict, and other less tangible disciplines are gained in the trenches. Learning on your own is slow and error-prone; you can miss out on stuff or learn something wrong based on the project work you get or who you happen to work with.</p>
+
+<p>I view the apprenticeship mentoring model for software engineers (as with a blacksmith, glass blower, ceramics or any of the high-skill, difficult to master traditional crafts) to be the best way of accelerating growth, increasing retention, and creating the kind team your organization really needs. What follows is my approach to such an apprenticeship model that works in both client services and product teams.</p>
+
+<!-- more -->
+
+
+<p>For what it&#8217;s worth, I have a good bit of experience with this: I was head of engineering during company growth from 25 to 50 (with a corresponding growth in revenues and projects). This meant going from an engineering team of 6 to an internal team of 15-20 and an off-shore team of about 10. It also required increasing the number of technical project leads from 1 (me) to 5 or 6 through direct mentoring. Those tech leads then themselves became mentors to the new hires as we grew. In my consulting work, I worked with early stage startups, such as <a href="http://www.bytelight.com/" title="Indoor Location">ByteLight</a>, to design and execute hiring as well as plan and stabilize development teams for long-term product development.</p>
+
+<h2>Why Apprenticeship Makes Sense</h2>
+
+<p>Apprenticeship takes effort and dedication and does not come naturally to most individuals or organizations. It requires time and effort that may need to be justified:</p>
+
+<ul>
+<li>It accelerates learning on the part of the apprentice in technical and non-technical skills including everything from code quality and language nuances to object design to client communication.</li>
+<li>It enables molding junior folks into what you need them to be. With a strong mentor model, you can widen your hiring field since you can bring on candidates that can <a href="http://mrdanadams.com/2012/career-story-trajectory-context" title="software engineer career growth">grow more quickly</a> into something really useful to the business. Associates without mentoring can become a big hiring and project risk and kind of a &#8220;boat anchor&#8221; that weighs more senior folks down instead of providing valuable support and fresh thinking.</li>
+<li>It challenges the mentor to grow as well. Mentoring grows technical, communication, and management skills beyond the limits of normal project work and open up opportunities for getting your people to <a href="http://mrdanadams.com/2012/its-your-company-act-like-an-owner">act like owners</a>.</li>
+<li>It encourages dialog and thought around <a href="http://mrdanadams.com/2012/your-career-is-a-business/" title="Software Engineers: You Career is a Business">actively managing their careers</a>. This is good for both the team and management; when growth happens from the bottom up it&#8217;s healthier and reduces the overhead load on management.</li>
+</ul>
+
+
+<h2>Success Factors</h2>
+
+<p>There are a few factors that heavily influence the success of mentoring.</p>
+
+<h3>Clearly Defined Roles &amp; Goals</h3>
+
+<p>The mentor and the apprentice should both understand each others roles. It should be something verbally stated to remove any awkwardness or barriers. The mentor is responsible for providing not only support (general advice, answering questions, etc.) but also constructive criticism and recognition for good work. Both of these last two are critical to balance each other out and create a good relationship between mentor and apprentice. The apprentice is responsible to raise their hand when they need help and be pro-active about it. They should be actively looking for areas where they feel weak and pull in the mentor.</p>
+
+<p>Mentoring needs to be clearly defined between the mentor and apprentice. The more ambiguity and awkwardness there is, the more that becomes a barrier to successful mentoring.</p>
+
+<p>Mentoring should be seen as a largely voluntary responsibility. They need to be self-motivated and see themselves in the role.</p>
+
+<h3>Proximity</h3>
+
+<p>Proximity, or lack thereof, is a deal breaker. I prefer that mentor and apprentice be &#8220;attached at the hip&#8221;. It&#8217;s important that they feel very comfortable with each other and have a meaningful context that provides fodder for mentoring. They should talk often, even informally, so that there is a consistent dialog. Ideally the apprentice should sit near the mentor so that when a teaching moment arises the barrier to making that happen is as low as possible. Having to go find the mentor and interrupt them could be a high barrier, especially for junior folks.</p>
+
+<p>They need to have something they both know so they can talk about it. Having to context switch from project work to a side project could be a significant barrier. Project work usually provides the best &#8220;fodder&#8221; for mentoring. People are already thinking about it and engaged. It naturally provides many &#8220;teaching moments&#8221; in a way that manufactured mentoring throughout side projects does not.</p>
+
+<p>In either case, if you don&#8217;t make time to be working on things in pairs, the mentoring won&#8217;t really happen. Mentorship is prohibitively disruptive when it&#8217;s a constant interruption to &#8220;real&#8221; work and involves at least two mental context switches. It requires some dedication to a schedule to make it happen effectively.</p>
+
+<p>This kind of thing can work without being spatially proximate. Pair programming through screenshares and audio chat can be an effective method of working through problems and passing along knowledge. You sometimes lose the non-verbal communications, i.e., being able to read the apprentice&#8217;s general level of frustration, but for many folks it can work. With remote team members working from home, knowing how to be effective as a mentor remotely can be challenging but critical. There are a lot of tools at your disposal to make this work; use every one of them.</p>
+
+<p>Whether remote or not, make time for low-intensity touch points. Go grab a coffee or go out to lunch. This helps highlight issues you might be having that otherwise don&#8217;t get communicated.</p>
+
+<h3>Support for Mentors</h3>
+
+<p>Mentoring is not a natural thing for most tech leads. It&#8217;s a skill that needs to be developed. They should have someone that can provide support. This could be someone with some experience in it or even other mentors.</p>
+
+<p>Acknowledgment that the mentoring investment is worth it needs to start at the top. Management support in the form of explicit goals, advice, time, and resources is critical.</p>
+
+<h3>Every Apprentice is Different</h3>
+
+<p>Apprentice experience level, skill level, interests, and personality and some of the factors requiring that each mentoring situation be customized to the mentor and apprentice in order to be most affective. For instance, with one apprentice they might be really strong code wise and need to focus on client skills and another might be totally different. It&#8217;s a balance of what that person needs and what the project context provides opportunity for.</p>
+
+<h2>Doing It</h2>
+
+<h3>The Kickoff</h3>
+
+<p>Any apprenticeship should start with a structured meeting between the mentor, the apprentice, and whoever is heading up the apprenticeship program. The meeting should cover:</p>
+
+<ul>
+<li>What mentoring is and why you are doing it (answer: because it makes you better, will make you more successful in your career, will help you enjoy and be more successful in your projects, and helps the business as it grows)</li>
+<li>Where they are now in their skills and where they want to go</li>
+<li>What everyone wants to get out of it</li>
+<li>How it&#8217;s going to work: project set up, logistics, communication, going out to lunch together, etc</li>
+</ul>
+
+
+<p>Mentors must know that the hour / day / week they would spend to do the best job of training / pairing with an apprentice is working towards some series of agreed upon goals. Knowing those goals would allow them to make the judgment call whether teaching or doing are the correct goals at any given point.</p>
+
+<h3>On the Same Project</h3>
+
+<p>In this model, mentor and apprentice are on the same project. This is usually a situation where the mentor is the project tech lead and delegates work. They sit near each other so the apprentice can ask questions and get help easily. The mentor frequently checks quality of work and provides feedback (for instance, code review a feature branch before merge).</p>
+
+<p>The mentor should look for opportunities to push the apprentice outside their comfort zone using project work. Give them responsibility on something that is just outside their current abilities and has real consequences. This could be technical such as building a large feature, researching a technology, designing an object model or non-technical such as leading a client meeting, writing a spec, estimating something, or leading some aspect of the project process.</p>
+
+<h4>Challenges</h4>
+
+<p>This requires projects that can support both the mentor and the apprentice in terms of project budget and having work that can be affectively delegated.</p>
+
+<p>One of the biggest challenges is in the staffing plan for projects. Not all projects will be a fit for their respective skill sets. Many teams don&#8217;t have a lot of flexibility in mixing and matching project teams for an ideal makeup and staff largely based on current availability. This could be a source of friction to the process and one you&#8217;ll need to be diligent about.</p>
+
+<p>It also can change how you sell projects as you need to plan for mentorship hours and some inefficiencies, especially in the work done by the apprentice: all growth requires some degree of failure. Re-examine your task estimates for things that may be delegated to the apprentice.</p>
+
+<p>Be careful to strike a balance between the cost of ramping up apprentice resources and the cost of delivering project features. Budgets may creep to account for &#8220;apprentice time&#8221; to a point where it effects project budget significantly if left unchecked. Crunch-time pressures also present a challenge to on-project apprenticeship.</p>
+
+<p>One model is to attach the mentor / apprentice and then look for projects for the pair. The opposite approach is also possible in order to lower the resource challenges and budget waste; to find a project fit for the apprentice and then start mentorship with the tech lead on that project. I&#8217;m making a big assumption here that apprentices are not put on projects by themselves; having them on a project by themselves can be really risky.</p>
+
+<h3>On Different Projects</h3>
+
+<p>In this model, mentor and apprentice are on different projects but maintain a relationship across projects. They need something they can use as mentor-fodder:</p>
+
+<ul>
+<li>The project the apprentice is on. This requires the mentor to stay up on it enough to look for opportunities to mentor with it.</li>
+<li>A side project the apprentice is passionate about. The mentor would also have to agree that the side project provided the right opportunity for growth (it&#8217;s likely something that encourages technical growth).</li>
+</ul>
+
+
+<p>Using a real project helps the apprentice be more passionate / engaged / successful in their project (which is more valuable to the business than a side project). It also provides scenarios and challenges to the apprentice that a side project doesn&#8217;t such as client communication and project process. Working on a side project requires time and energy both of which are usually limited during project work.</p>
+
+<p>These two models could be mixed in order to provide more resourcing options. For instance, you could start in the first model and then, as resource allocation demands, change to the second model to keep up the relationship between mentor / apprentice.</p>
+
+<p>Bootcamp style projects, a non-billable project geared towards getting new recruits ramped up on our practices, can work in the right context but require a fair bit of management, mentorship, and coordination outside of billable work. The &#8220;shadow&#8221; apprenticeship model on real billable work may be more practical for most organizations.</p>
+
+<h3>Resource Allocation &amp; Project Pressures</h3>
+
+<p>Each project has it&#8217;s particulars and, just as you consider the situation for who would be the best fit as a team, consider whether it&#8217;s a fit for mentoring; the risk level and what you could get out of it. It could be very tough to mentor on a &#8220;heads down&#8221; project but there may be teaching opportunities there as well. In fact, a heads down project may be just the kind of catalyst for growth in a more senior person where it wouldn&#8217;t be a fit for apprenticeship of younger staff. The decision to go heads down and crank (and how to do and handle that) is, in itself, something a junior person could learn. Learning to manage project pace and intensity is a valuable skill.</p>
+
+<p>Mentorship is a distraction. It is a context switch and that&#8217;s okay. Teaching and doing are very different goals and, at any given moment, one goal or the other should be the highest priority. If it&#8217;s crunch time, and delivering the product is the highest priority, you might put teaching on the back burner and focus on doing good work quickly. But at other times you would prioritize training and acknowledge the slower production time in favor of allowing the apprentice to work at his own pace.</p>
+
+<p>The ratio of mentoring to project time could be estimated (and should be capped) but likely won&#8217;t be consistent. Mentoring with the context of a project (such as code reviews) can be a really effective method of upping quality, lowering risk, and lowing cost so it doesn&#8217;t always need to be seen as waste or overhead. For instance, code reviews are an excellent way of teaching while catching bugs before they make it into production code.</p>
+
+<p>Mentoring is much less of a distraction if it&#8217;s in the context of normal project work. If two people are jogging together, it&#8217;s much more natural for one person to teach the other person better jogging form while they keep running. It would be highly disruptive if you were jogging and suddenly one of you said &#8220;now stop so I can show you how to do good pushups&#8221;.</p>
+
+<p>Expect mentoring to need case-by-case consideration with resourcing to ensure that it&#8217;s done affectively without significantly negatively effecting project budget, quality, or overall success. Mentoring (and having junior folks in general) does take investment on the part of the company but that investment should be as known and controlled as possible.</p>
+
+<h2>The End Game: Make the Mentor Redundant</h2>
+
+<p>A mentor should, in most cases, be growing the apprentice in whatever way is necessary that the apprentice could eventually do their job. In many cases, this actually happens: the mentor starts as the project lead and by the end of the project the apprentice has taken the reins. A good example of this is a new project that has a heavy, green field development phase followed by a slower maintenance phase. The first provides an opportunity for the apprentice to lead the process, the product, and the technical machinery and possibly take the lead for the maintenance phase. This will be a challenge for them but is much simpler than green field development.</p>
+
+<p>This isn&#8217;t always the case; you could also have an end game of an apprentice simply getting better at something specific. But, in general, you should be growing them to be well-rounded contributors. This typically is better for them and for the business.</p>
+
+<h2>Growth is Not Just for Apprentices</h2>
+
+<p>A well-rounded view of growth affords everyone opportunities for growth and improvement. For more senior folks, this means they don&#8217;t need apprenticeship but rather support in other ways from their peers and management. In many ways, growing senior folks is more difficult than apprenticeship since, as people grow, the challenges they need to encounter in order to keep them growing become very specific to that person.</p>
+
+<h2>Your Mileage May Vary</h2>
+
+<p>The form that mentorship takes (or should take) can vary significantly by the team and individual. What has and hasn&#8217;t worked for you? If you were without mentoring, is it something you could have benefited from?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Trello for Agile Development at BlockAvenue]]></title>
+    <link href="http://mrdanadams.com/2012/trello-agile/"/>
+    <updated>2012-12-05T16:40:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/trello-agile</id>
+    <content type="html"><![CDATA[<p>One of the my roles as CTO at <a href="http://www.blockavenue.com/" title="Neighborhood Reviews">BlockAvenue</a> is to manage a <a href="http://blog.blockavenue.com/corporate/blockavenue-your-neighborhood-socialized/">high velocity, agile development process</a>. <a href="https://trello.com/">Trello</a> is my new favorite tool when it comes to ticket management but it&#8217;s not without limitations. Here&#8217;s how we use Trello at BlockAvenue and some of the challenges working with it.</p>
+
+<!-- more -->
+
+
+<h2>The Basics</h2>
+
+<p>Cards are arranged into buckets (Trello lists) each bucket representing how far in the future it&#8217;s cards will get done. The further out the bucket, the larger and less well-groomed it may be.</p>
+
+<p>Lists are arranged left-to-right so that the most frequently used lists are on the first screen for most displays, the less used lists being to the right on the second screen. They also follow a logical progression of <em>queued -> doing -> done</em>.</p>
+
+<p><a href="http://mrdanadams.com/images/trello/board.png"><img src='http://mrdanadams.com/images/trello/board_600x400.png' /></a></p>
+
+<ul>
+<li><strong>Dec 2012:</strong> All of the priority cards for this month based on business priorities and other factors. This will map to multiple staging or production releases (even multiple releases each week) but all of the development in this month will be pulled from this bucket. Cards in this list are sorted roughly in order of priority. Most are assigned owners.</li>
+<li><strong>Jan 2013:</strong> Similar to the Dec list, this is for the following month but less well defined.</li>
+<li><strong>General Backlog:</strong> This list represents a larger backlog to be pulled from into the monthly lists. It contains all things that should get done at some point but didn&#8217;t make the cut. It can be thought of as the mid-term roadmap.</li>
+<li><strong>Future:</strong> A holding area for future ideas. When you have an idea, don&#8217;t be afraid to make a card for it. File it away so it doesn&#8217;t get lost. This is list is groomed the least often.</li>
+</ul>
+
+
+<p>In addition to the time frame-based lists, there are a few special ones:</p>
+
+<ul>
+<li><strong>Inbox:</strong> All new cards go here. Cards are held until they can get triaged and moved somewhere else. This keeps the dev team sane and ensures the non-devs know their cards aren&#8217;t getting lost. It should be empty most of the time.</li>
+<li><strong>On Deck:</strong> Cards pulled from the current monthly milestone that are next up for development. You can think of this roughly as a weekly iteration list. This list should be fairly short and reviewed by the team every couple days (or even daily).</li>
+<li><strong>Doing:</strong> Cards pulled from On Deck that are being worked on.</li>
+<li><strong>Done:</strong> Completed cards. Note that we don&#8217;t have lists indicating the status of a done card (in testing, deployed, etc). This is only because we haven&#8217;t needed it but for some teams managing the work flow around Done cards is probably a good idea. For instance, you may need explicit design QA on a feature and there could be a list for those cards.</li>
+</ul>
+
+
+<p>The Done list gets some special treatment: whenever a production release is made we rename the &#8220;Done&#8221; to something like &#8220;Dec 3, 2012 Release&#8221;, archive it, and create a new &#8220;Done&#8221; list. This captures for posterity what was released and allows anyone to know what&#8217;s done so far in the current release just by looking at the Done list. You may also want to tag the card with the git release tag.</p>
+
+<h2>Anatomy of a Good Card</h2>
+
+<p>Well-formed cards encourage getting the work done smoothly and accurately. While you may not need all of the following on each card, I find myself using using all of these to some degree overall.</p>
+
+<h3>Card Title, Tags, and Labels</h3>
+
+<p><img src="http://mrdanadams.com/images/trello/card-top.png" alt="A good Trello card title" /></p>
+
+<ul>
+<li>Keep the title succinct. Put the long stuff in the card description. A long title will severly reduce how many cards you can see at once in your lists.</li>
+<li>Tags for things like which users it affects, browser, platform, if it&#8217;s an epic or story, etc</li>
+<li>Use labels to visually indicate traits of the card and allow card filtering</li>
+<li>Work estimate. A good convention is &#8220;(5) Do something&#8221; especially when it&#8217;s supported by <a href="https://chrome.google.com/webstore/detail/trello-scrum/jdbcdblgjdpmfninkoogcfpnkjmndgje">Trello Scrum</a>.</li>
+</ul>
+
+
+<p><img src="http://mrdanadams.com/images/trello/story-title.png" alt="Trello card with estimate" /></p>
+
+<h3>Card Description</h3>
+
+<ul>
+<li>Be sure to write one unless the title, tags, and labels provide everything needed to get it done</li>
+<li>Take full advantage of markdown. Include code snippets, samples of log files, bulleted lists, headers, etc.</li>
+<li>Write a full spec for complex cards. Provide implementation hints / details.</li>
+<li>Include reasons <em>why</em> the card is being done based on team discussion. This info tends to get lost and can be really valuable later.</li>
+</ul>
+
+
+<h3>Screenshots &amp; Attachments</h3>
+
+<p><img src="http://mrdanadams.com/images/trello/attachments.png" alt="Trello attachments" /></p>
+
+<p>Don&#8217;t try to describe a bug with words if it&#8217;s visual. Just don&#8217;t. Take a screenshot (or multiple screenshots) with something like <a href="http://evernote.com/skitch/">Skitch</a> and attach it. Especially during design QA, designers can get across exactly what they&#8217;re are talking about.</p>
+
+<p><img src="http://mrdanadams.com/images/trello/card.png" alt="Trello card with image" class="alignright" /> For new features, attach images of the designs for reference even if the PSDs live in Dropbox. A side effect is the visual appeal it can add to your lists.</p>
+
+<h3>Checklist(s)</h3>
+
+<p><img src="http://mrdanadams.com/images/trello/checklists.png" alt="Trello card checklists" /></p>
+
+<p>Use checklists to guide work and track detail progress.</p>
+
+<h2>Trello and git</h2>
+
+<p>We have two primary git branches: <em>master</em> (which always represents what&#8217;s on production) and <em>development</em> which is the current release under development and is frequently pushed to staging. Trivial and small cards can be done right on development but larger cards (or those involving multiple commits) get moved to their own feature branch. While not displayed prominently, Trello cards actually do have unique, auto-incrementing numbers:</p>
+
+<p><img src="http://mrdanadams.com/images/trello/trello_card_number.png" alt="Trello card numbers" /></p>
+
+<p>All feature branches map back to a Trello card based on the card number (ex: <em>322_my_awesome_new_feature</em>). You could also include the initials of the person that created the branch in a larger team.</p>
+
+<h2>Labels, Tags, and Finding Your Cards</h2>
+
+<p><img src="http://mrdanadams.com/images/trello/trello_labels.png" alt="BlockAvenue Trello labels" class="alignright" /></p>
+
+<p>Trello lets you easily filter by person or label. You only get six labels so use them wisely; it&#8217;s a pain to go back and change later. Here&#8217;s the labels we used:</p>
+
+<ul>
+<li><strong>Data</strong>, <strong>App</strong>, <strong>API</strong>, <strong>Admin</strong>: Major system components</li>
+<li><strong>Bug</strong>: Something that&#8217;s broken.</li>
+<li><strong>Needs Review</strong>: Needs clarification or discussion and isn&#8217;t ready to be worked on. When cards are pulled into <em>On Deck</em> none should have this label.</li>
+</ul>
+
+
+<p>Keep in mind that one of the best thing about labels is that they are color coded making it good for visually distinguishing cards when the lists are unfiltered.</p>
+
+<p>You will inevitably come up with ways you want to filter your cards that don&#8217;t fit owners, due dates, or labels. While Trello doesn&#8217;t have direct support for tags it does have a nice text search. It only searches the title and ignores any non-alphanumeric characters. With <em>#sometag</em> on the end of a card title you can see that a card is tagged and, as long as you pick a tag name that isn&#8217;t common to your card titles, you can filter by it.</p>
+
+<p><img src="http://mrdanadams.com/images/trello/tags.png" alt="Trello tags" /></p>
+
+<p>Suggestions for tags:</p>
+
+<ul>
+<li><strong>Browser-specific:</strong> #ie9, #ff, #safari</li>
+<li><strong>User group:</strong> #dweller, #mover, #press</li>
+<li><strong>Card types:</strong> #epic, #story</li>
+</ul>
+
+
+<h2>Checklists Rock</h2>
+
+<p>Lists are awesome. Sometimes it seems my whole life is managed by making lists of things. Trello is no different. Tips on using checklists:</p>
+
+<ul>
+<li>When grooming the backlog, create the checklist for a card to get a sense of what&#8217;s involved.</li>
+<li>Use multiple checklists with custom titles to separate between components of a card (frontend, backend) or between roles (dev, design).</li>
+<li>You can&#8217;t (yet) drag TODOs betweens checklists. Bummer.</li>
+</ul>
+
+
+<h2>Dealing with Long Lists</h2>
+
+<p>Lists can get long, especially if you attach images or use long card titles. Unfortunately, there isn&#8217;t a &#8216;send to top&#8217; for cards but if you drop a card on a list quickly it will shoot to the bottom of the list. Try to keep your titles succinct or even reducing the browser font size as small as you can stand it. It&#8217;s a hack, but it works.</p>
+
+<h2>Card Estimates</h2>
+
+<p>This is, perhaps, the single biggest thing I miss in Trello; the ability to put a work estimate on a card and see estimate totals for each list. Even with a small backlog, tracking estimates can add much needed control to the process. <a href="http://bluelinegamestudios.com/trello/">this tool</a> allows you to track estimates and graph them but it&#8217;s not a great solution: the estimates should be managed in Trello.</p>
+
+<p><a href="https://chrome.google.com/webstore/detail/trello-scrum/jdbcdblgjdpmfninkoogcfpnkjmndgje">Trello Scrum</a> looks promising although I don&#8217;t believe it does any kind of burn visualization.</p>
+
+<p><img src="https://lh4.googleusercontent.com/U9TS8KIksA5LyG0u2AGSmB6HNBQuRS1Xx2Zsf5j74AW2FHCT4WKhnXG372FGqi0O7NE7qrgIew=s640-h400-e365" alt="Trello Scrum" /></p>
+
+<h2>Shortcuts</h2>
+
+<p>If you aren&#8217;t using <a href="https://trello.com/shortcuts">Trello shortcuts</a>, you should be. They will save you a massive amount of time when grooming the backlog.</p>
+
+<h2>Team Friction</h2>
+
+<p>We struggled with effectively using Trello to make the business stakeholders self-sufficient in answering the following:</p>
+
+<ul>
+<li>How much is left and when will it get done?</li>
+<li>Given our current team, how much can we get done in the next N weeks?</li>
+</ul>
+
+
+<p>The following goes a long way to solving this:</p>
+
+<ul>
+<li>Good team communication and regular review of the lists</li>
+<li>Good card and list hygiene: well-formed cards and groomed lists</li>
+<li>Date or goal-oriented lists</li>
+<li>Card estimates and tracking team velocity</li>
+</ul>
+
+
+<h2>For Hackers: Card JSON and Trello API</h2>
+
+<p>Trello&#8217;s beauty is in it&#8217;s simplicity. When it doesn&#8217;t allow you to do something you always have the option of using the <a href="https://trello.com/docs/api/index.html">Trello API</a>. Tucked away under the card details is a link to the card JSON:</p>
+
+<p><img src="http://mrdanadams.com/images/trello/card-json.png" alt="Trello card JSON" /></p>
+
+<h2>When I Wouldn&#8217;t Use Trello</h2>
+
+<p>Trello is simple and necessarily limited. In a more complex project I could see easily outgrowing it. <a href="http://www.atlassian.com/software/jira/overview/">OnDemand JIRA</a> with <a href="http://www.atlassian.com/software/greenhopper/overview">GreenHopper</a> is a great alternative. Unlike Trello, it&#8217;s not free but it&#8217;s the Swiss Army knife of ticket tracking as far as I&#8217;m concerned. Between Trello and JIRA I have a hard time recommending anything else (having used most of the others).</p>
+
+<p>An example where Trello might not fit is a software platform that needed to track things across versions of the software. A REST API with multiple versions could need maintenance fixes and releases against old versions. In JIRA, this is relatively trivial with version tracking. That&#8217;s not to say you <em>couldn&#8217;t</em> do it with Trello but it could get messy very quickly.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[5-10x Speed Ups by Pipeling Multiple REDIS Commands in Ruby]]></title>
+    <link href="http://mrdanadams.com/2012/pipeline-redis-commands-ruby/"/>
+    <updated>2012-11-08T14:36:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/pipeline-redis-commands-ruby</id>
+    <content type="html"><![CDATA[<p><strong>NOTE:</strong> This is now on github at <a href="https://github.com/mrdanadams/redis_pipeliner">https://github.com/mrdanadams/redis_pipeliner</a>.</p>
+
+<p><a href="http://redis.io">REDIS</a> is fast. Really fast. And awesome. But that doesn&#8217;t mean you can get lazy with how you use it. <a href="http://redis.io/topics/pipelining">Pipelining REDIS commands</a> allows you to execute multiple commands in REDIS and return the results at once. I&#8217;ve seen this provide a 5x-10x speedup. He&#8217;s how to do it with the Ruby driver.</p>
+
+<!-- more -->
+
+
+<h2>Why You Should Pipeline</h2>
+
+<p>(If your code isn&#8217;t performance sensitive the following is probably unnecessary.) When working with REDIS, look out for code blocks that look like this:</p>
+
+<ol>
+<li>ask REDIS for something</li>
+<li>do something with it</li>
+<li>repeat</li>
+</ol>
+
+
+<p>Depending on the number of calls you make, you could be paying a lot in over-the-wire and connection overhead (even within the same data center). A better model is to do something like this:</p>
+
+<ol>
+<li>collect all your commands</li>
+<li>send them to REDIS</li>
+<li>unpack the result and do something with it</li>
+</ol>
+
+
+<p>Even with REDIS being very, very fast and the server being close to the client, this can lead to significant improvements in speed. I&#8217;ve seen a handful of commands (&lt; 10) pipelined to drop a 250ms page render to 50ms.</p>
+
+<h2>Get Your Pipe On</h2>
+
+<p>Here&#8217;s the general structure of using the Ruby driver to pipeline multiple REDIS commands. When you execute a command, rather than getting the result you get a <a href="https://github.com/redis/redis-rb#futures">Future</a> object which you can ask for the result when it&#8217;s available.</p>
+
+<p>Using Future comes with a few challenges:</p>
+
+<ul>
+<li>If you are executing the command based on some context (such as a related object) you need that context when you get the result</li>
+<li>Future doesn&#8217;t provide a nice way of waiting for the value to be realized or even checking if it has been</li>
+</ul>
+
+
+<p>In this example, we&#8217;ll iterate through a number of objects each one needing a REDIS hash.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># we&#39;ll collect a number of Futures with their related context</span>
+</span><span class='line'><span class="c1"># Let&#39;s pretend have a number of objects and need to get their associated data</span>
+</span><span class='line'><span class="n">cmds</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="n">objects</span> <span class="o">=</span> <span class="o">[]</span> <span class="c1"># we&#39;ll pretend this isn&#39;t empty</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Create the pipelined commands. Any REDIS commands executing in this block will return Futures rather than values</span>
+</span><span class='line'><span class="n">redis</span><span class="o">.</span><span class="n">pipelined</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">objects</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">object</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">cmds</span> <span class="o">&lt;&lt;</span> <span class="p">{</span> <span class="ss">future</span><span class="p">:</span> <span class="n">redis</span><span class="o">.</span><span class="n">hgetall</span><span class="p">(</span><span class="n">object</span><span class="o">.</span><span class="n">key</span><span class="p">),</span> <span class="ss">object</span><span class="p">:</span> <span class="n">object</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Now that we have our commands executing we need to wait for the values to come back</span>
+</span><span class='line'><span class="n">cmds</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># wait for each one to come back before proceeding. this is not ideal but simple and seems to work fine.</span>
+</span><span class='line'>  <span class="k">while</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="ss">Redis</span><span class="p">:</span><span class="ss">:FutureNotReady</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">value</span> <span class="o">=</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span>
+</span><span class='line'>  <span class="n">object</span> <span class="o">=</span> <span class="n">c</span><span class="o">[</span><span class="ss">:object</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># do something with the REDIS return value and our context</span>
+</span><span class='line'>  <span class="n">object</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">value</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Improvements</h2>
+
+<p>You can see that the model here is pretty disjointed and makes for less-maintainable code. The problem is having to break your code up causing you to lose context. Something like this might make more sense (<strong>warning</strong> untested ruby pseudocode ahead):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Pipeliner</span><span class="o">.</span><span class="n">pipeline</span> <span class="n">redis</span> <span class="k">do</span> <span class="o">|</span><span class="n">pipe</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">objects</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">object</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">pipe</span><span class="o">.</span><span class="n">enqueue</span> <span class="n">redis</span><span class="o">.</span><span class="n">hgetall</span><span class="p">(</span><span class="n">object</span><span class="o">.</span><span class="n">key</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">result</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">object</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">result</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>Pipeline</code> could look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Pipeliner</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">redis</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@redis</span> <span class="o">=</span> <span class="n">redis</span>
+</span><span class='line'>    <span class="vi">@cmds</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@cmds</span> <span class="o">&lt;&lt;</span> <span class="p">{</span> <span class="ss">future</span><span class="p">:</span> <span class="n">future</span><span class="p">,</span> <span class="ss">callback</span><span class="p">:</span> <span class="nb">proc</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">wait</span>
+</span><span class='line'>    <span class="vi">@cmds</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+</span><span class='line'>      <span class="k">while</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span><span class="o">.</span><span class="n">is_a?</span><span class="p">(</span><span class="ss">Redis</span><span class="p">:</span><span class="ss">:FutureNotReady</span><span class="p">)</span>
+</span><span class='line'>        <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> <span class="o">/</span> <span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">c</span><span class="o">[</span><span class="ss">:callback</span><span class="o">].</span><span class="n">call</span> <span class="n">c</span><span class="o">[</span><span class="ss">:future</span><span class="o">].</span><span class="n">value</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">pipeline</span><span class="p">(</span><span class="n">redis</span><span class="p">,</span> <span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># Executes callbacks with each result. This blocks.</span>
+</span><span class='line'>    <span class="n">pipeliner</span> <span class="o">=</span> <span class="no">Pipeliner</span><span class="o">.</span><span class="n">new</span> <span class="n">redis</span>
+</span><span class='line'>    <span class="n">redis</span><span class="o">.</span><span class="n">pipelined</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">proc</span><span class="o">.</span><span class="n">call</span> <span class="n">pipeliner</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">pipeliner</span><span class="o">.</span><span class="n">wait</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Embedding Backbone Templates in Rails with CoffeeScript]]></title>
+    <link href="http://mrdanadams.com/2012/backbone-templates-rails-coffeescript/"/>
+    <updated>2012-10-12T12:30:00-04:00</updated>
+    <id>http://mrdanadams.com/2012/backbone-templates-rails-coffeescript</id>
+    <content type="html"><![CDATA[<p><a href="http://coffeescript.org/#strings">Multiline string support in CoffeeScript</a> offers a great way to embed your <a href="http://backbonejs.org/#View-render">Backbone templates</a>. In this approach, you can easily edit your templates while still taking advantage of JS minification, combination, and client-side caching.</p>
+
+<!-- more -->
+
+
+<h2>Registering and caching templates</h2>
+
+<p>We&#8217;ll create a top-level object in our namespace to hold our templates which are cached for efficient use across many view instances.</p>
+
+<div><script src='https://gist.github.com/3880219.js?file=templates.coffee'></script>
+<noscript><pre><code># Our top-level namespace (which I'll just call NS for sample purposes)
+NS = @NS
+NS.Templates =
+  templates: {} # empty object to cache compiled templates
+
+  # gets a compiled template rendering by ID
+  get: (id) -&gt; @templates[id]
+
+  # caches a new template
+  register: (id, source) -&gt; @templates[id] = _.template(source)
+
+# Register a template embedding the sources in a multi-line string
+NS.Templates.register &quot;ourAwesomeTemplate&quot;, &quot;&quot;&quot;
+&lt;div class=&quot;inner&quot;&gt;
+  &lt;h3&gt;&lt;%= name %&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&quot;&quot;&quot;
+
+NS.Templates.register &quot;anotherAwesomeTemplate&quot;, &quot;&quot;&quot;
+&lt;span&gt;&lt;%= foo %&gt;&lt;/span&gt;
+&quot;&quot;&quot;
+</code></pre></noscript></div>
+
+
+<h2>Using the templates</h2>
+
+<p>An example of using the template in a Backbone view:</p>
+
+<div><script src='https://gist.github.com/3880219.js?file=view.coffee'></script>
+<noscript><pre><code>NS = @NS
+NS.View.SomethingGreat = @Backbone.View.extend
+  className:'my-awesome-thing'
+
+  initialize: (options) -&gt;
+    # could also do this in render()
+    @template = NS.Templates.get('ourAwesomeTemplate')
+    this
+
+  render: -&gt;
+    $(@el).html(@template(@model.toJSON()))
+    this
+</code></pre></noscript></div>
+
+
+<p>In this case I&#8217;m registering and caching our templates on load. If we had more templates, or they were used less often, we could register them to be compiled on-demand which might be more efficient.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[MongoHQ vs MongoLab: Selecting a Hosted MongoDB Provider]]></title>
+    <link href="http://mrdanadams.com/2012/mongohq-mongolab-mongodb-customer-service/"/>
+    <updated>2012-09-26T10:19:00-04:00</updated>
+    <id>http://mrdanadams.com/2012/mongohq-mongolab-mongodb-customer-service</id>
+    <content type="html"><![CDATA[<p><img class="feature" src="http://mrdanadams.com/images/mongohq_mongolab.jpg" title="MongoLab vs MongoHQ" ></p>
+
+<p>In the course of building <a href="http://blockavenue.com">BlockAvenue</a>, one of the decisions I made was whether to host our own <a href="http://www.mongodb.org">MongoDB</a> or use a hosted provider. Here&#8217;s the short tale of what I selected and the importance of top-tier customer service.</p>
+
+<!-- more -->
+
+
+<h2>Self-hosted or managed hosting?</h2>
+
+<p>We were under intense deadline, had no resources to spend setting up or maintaining a MongoDB cluster, needed no heavy customizations, and needed the database up and running yesterday. Since the app was Heroku hosted, we also needed some control over which region it would be located in. The decision to use a hosted service was a no-brainer even if it meant higher costs for the EC2 instances in the short term. <a href="https://www.mongohq.com">MongoHQ</a> and <a href="https://mongolab.com">MongoLab</a> were clearly the top two choices. But which provider to use? And which size deployment?</p>
+
+<h2>A first-look at MongoHQ and MongoLab</h2>
+
+<p>My first impression comparing MongoHQ and MongoLab put me slightly in favor of MongoLab. In fact, we used the free plan on MongoLab for a short period (and I&#8217;ve used them for small stuff on other projects). As a customer walking in the door, I found the MongoLab pricing and info about their offering much clearer and more informative. Even when choosing a database, having clear pricing and product info is important and eye candy makes some difference. The MongoHQ page provides the basics on pricing but not much else.</p>
+
+<p>With their dedicated plans, for instance, you know the pricing for a Large instance without a replica set ($525 / mo) and the Extra Large instance with replica set ($1,950 / mo). But what about starting with a single Extra Large instance and going to replica set later? How do I expand my cluster? What&#8217;s the process and costs involved?</p>
+
+<p><img src="http://mrdanadams.com/images/mongohq_pricing.png" title="MongoHQ pricing" ></p>
+
+<p>The MongoLab documentation is much clearer and their technical architecture page (aka &#8220;What will I get?&#8221;) makes a <strong>lot</strong> of sense is and very well done. Overall, MongoLab was more informative and, frankly, better looking. Even when choosing a back end technology, visual goodness conveys a sense of quality.</p>
+
+<p><img src="http://mrdanadams.com/images/mongolab_pricing.png" title="MongoLab pricing" ></p>
+
+<p><img src="http://mrdanadams.com/images/mongolab_arch.jpg" title="MongoLab architecture" ></p>
+
+<h2>Interaction with a real human</h2>
+
+<p>At this point, I&#8217;m on the fence and out of time; I need a deployment up, my data loaded, and to start setting up the production environment. I still have big questions about the specifics of the data we are handling; large amounts of geospatial data with very fast response times and a lot of queries.</p>
+
+<p>I email <a href="http://www.10gen.com">10gen</a> asking to get on the phone with someone to ask a few questions about index structure, the amount of memory needed and overhead to plan for, and other performance concerns. Within 30 minutes I am on the phone with a 10gen engineer. Awesome. I could not have had a better experience with 10gen and would absolutely recommend people with non-trivial deployments consider a support contract or initial consultation.</p>
+
+<p>Having my strategy worked out, I need to select a vendor and get the deployment up. I fire off emails to MongoHQ and MongoLab. Within 10 minutes, a real person with real experience and knowledge of MongoDB calls my cell (Chris from Birmingham). Chris is awesome; I explain our project particulars and he immediately comes back with solid questions and recommendations based on their experiences with other customers. 15 minutes on the phone and I am ready to pull the trigger. This was, without a doubt, one of the best customer experiences I&#8217;ve ever had (I sent him an email later saying as much).</p>
+
+<p>I walk back to my desk, create my account, set up a new deployment, wait for the EC2 instances to come up (which took a few minutes), create my database, and am off and running. 30 minutes in and I have my instance with GBs of data and many millions of documents loaded and serving our Heroku-hosted app. Everything should be this easy. Rock on, MongoHQ.</p>
+
+<p>I hear back from MongoLab several hours later (which, admittedly, isn&#8217;t <strong>that</strong> bad) but MongoHQ beat them to it and totally delighted me with their customer service. My production db was up and serving our app by the time MongoLab responded.</p>
+
+<h2>Living with MongoHQ</h2>
+
+<p>A few days later, we need to make the move to a replica set in preparation for <a href="http://blog.blockavenue.com/corporate/we-are-live-n-kickin/">go-live</a>. I email support with specific questions about cost, process, time line, and scaling up / down as needed based on traffic (<a href="http://techcrunch.com/2012/09/20/blockavenue-launch">we knew we were going to get TechCrunch&#8217;d</a>). Again, I have a response within minutes. A day or two later, on a Saturday, we circle back on this and are ready to make a decision. Email is sent to support giving them the go-ahead to both increase the instance size and create the replica set. Response was that they are on it but may not get to it by Monday. A few hours later, I&#8217;m delighted to see an email that the new cluster is up with the URLs for each server. Again, MongoHQ goes above expectations for customer support.</p>
+
+<p>Once up and running, the clusters are largely self-service and we&#8217;ve had no problems so far. An admin panel shows the status of each node, connection and database info, and what&#8217;s happening on each instance now and in recent history. The old admin is a bit ugly and dated but the new admin (in alpha) is already awesome. It&#8217;s also responsive meaning it works well as a large view showing and as a mini dashboard. In fact, on launch day, I left it running in the corner of my second monitor all day to keep an eye on things.</p>
+
+<h2>Final thoughts</h2>
+
+<p>In the end, the offerings between MongoHQ and MongoLab may be marginally different, at least in terms of pricing and technology. However, MongoHQ support has so far proven to be top notch. For many of my clients without IT or dev ops resources, this makes the price increase over running their own MongoDB cluster on EC2 well worth it.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Creating a custom OpenLayers build by profiling usage]]></title>
+    <link href="http://mrdanadams.com/2012/custom-openlayers-build/"/>
+    <updated>2012-08-18T12:45:00-04:00</updated>
+    <id>http://mrdanadams.com/2012/custom-openlayers-build</id>
+    <content type="html"><![CDATA[<p><a href="http://openlayers.org/">OpenLayers</a> is a great library for integrating maps especially when creating custom mapping interfaces. However, with great functionality can come great size. Weighing in at nearly 1MB for the full library, you should pair it down to only the modules used.</p>
+
+<p><a href="https://github.com/mrdanadams/openlayers-instrumenter">openlayers-instrumenter</a> creates a custom OpenLayers build profile by instrumenting the JavaScript dynamically and tracking what&#8217;s used.</p>
+
+<!-- more -->
+
+
+<h2>Instrument the OpenLayers JS</h2>
+
+<p>Load the instrumenter after OpenLayers but before using it:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/OpenLayers-2.12/lib/OpenLayers.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;lib/openlayers-instrumenter.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;you-app-code.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>  <strong>Note:</strong> It&#8217;s not for production use so only include it while creating the build profile.</p>
+
+<p>Load your page. About 2 seconds after page load, you&#8217;ll see something like this console.log&#8217;d:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>[first]
+</span><span class='line'>
+</span><span class='line'>[last]
+</span><span class='line'>
+</span><span class='line'>[include]
+</span><span class='line'>OpenLayers/Map.js
+</span><span class='line'>OpenLayers/BaseTypes/Size.js
+</span><span class='line'>OpenLayers/BaseTypes/Bounds.js
+</span><span class='line'>OpenLayers/Util.js
+</span><span class='line'>OpenLayers/BaseTypes/Element.js
+</span><span class='line'>OpenLayers/Events.js
+</span><span class='line'>OpenLayers/Function.js
+</span><span class='line'>OpenLayers/Event.js
+</span><span class='line'>OpenLayers/String.js
+</span><span class='line'>OpenLayers/Control/Navigation.js
+</span><span class='line'>OpenLayers/Control/Zoom.js
+</span><span class='line'>OpenLayers/Control/ArgParser.js
+</span><span class='line'>OpenLayers/Control/Attribution.js
+</span><span class='line'>OpenLayers/Handler/Click.js
+</span><span class='line'>OpenLayers/Control/DragPan.js
+</span><span class='line'>OpenLayers/Control/ZoomBox.js
+</span><span class='line'>OpenLayers/Handler/Drag.js
+</span><span class='line'>OpenLayers/Handler/Box.js
+</span><span class='line'>OpenLayers/Handler/MouseWheel.js
+</span><span class='line'>OpenLayers/Control/PinchZoom.js
+</span><span class='line'>OpenLayers/Handler/Pinch.js
+</span><span class='line'>OpenLayers/Events/buttonclick.js
+</span><span class='line'>OpenLayers/Layer/WMS.js
+</span><span class='line'>OpenLayers/Layer/Vector.js
+</span><span class='line'>OpenLayers/Renderer/SVG.js
+</span><span class='line'>OpenLayers/StyleMap.js
+</span><span class='line'>OpenLayers/Style.js
+</span><span class='line'>OpenLayers/Projection.js
+</span><span class='line'>OpenLayers/Control/LayerSwitcher.js
+</span><span class='line'>OpenLayers/Lang.js
+</span><span class='line'>OpenLayers/Control/MousePosition.js
+</span><span class='line'>OpenLayers/Control/DrawFeature.js
+</span><span class='line'>OpenLayers/Handler/Point.js
+</span><span class='line'>OpenLayers/Handler/Path.js
+</span><span class='line'>OpenLayers/Handler/Polygon.js
+</span><span class='line'>OpenLayers/Handler/RegularPolygon.js
+</span><span class='line'>OpenLayers/BaseTypes/LonLat.js
+</span><span class='line'>OpenLayers/Animation.js
+</span><span class='line'>OpenLayers/BaseTypes/Pixel.js
+</span><span class='line'>
+</span><span class='line'>[exclude]
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is the build profile used by OpenLayers to create a custom distribution for your app.</p>
+
+<p>If you load new OpenLayers classes during page use, exercise those functions then call <code>OLI.createProfile()</code> in the console to dump the updated profile.</p>
+
+<h2>Using the OpenLayers build profile</h2>
+
+<p>Save the build profile into <code>OpenLayers-2.12/build/custom.cfg</code>. OpenLayers ships with a script to load the profile and create the distribution:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">cd </span>OpenLayers-2.12/build/
+</span><span class='line'><span class="nv">$ </span>./build.py custom
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The compiled file is put in the same directory as <code>OpenLayers.js</code>.</p>
+
+<p>The full build includes <strong>261 files</strong> weighing in at whopping <strong>942 KB</strong> (minified!). For most builds it will probably be reduced to about <strong>60 files</strong> totaling <strong>271 KB</strong>.</p>
+
+<h2>Room for improvement</h2>
+
+<p>A &#8220;reduced&#8221; build of nearly 300 KB minified is still quite large. I&#8217;ve used it in a Rails app targeted for the iPad and it worked great. Using a custom build made a noticable difference both in page load speed and responsivess when using the UI. However, I&#8217;d be surprised if we didn&#8217;t see a mapping microlibrary or two give OpenLayers a run for it&#8217;s money.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Migrating a WordPress custom theme to Octopress / Jekyll]]></title>
+    <link href="http://mrdanadams.com/2012/migrating-wordpress-custom-theme-octopress-jekyll/"/>
+    <updated>2012-07-26T16:51:00-04:00</updated>
+    <id>http://mrdanadams.com/2012/migrating-wordpress-custom-theme-octopress-jekyll</id>
+    <content type="html"><![CDATA[<p>I decided to move from a VPS-hosted Wordpress with a custom theme to Octopress. Here&#8217;s how I did it, why, some things to watch out for, and a comparison of the experience.</p>
+
+<!-- more -->
+
+
+<h2>Why are you hating on Wordpress?</h2>
+
+<p>I&#8217;m not. Wordpress is popular for good reason and I&#8217;ve used it for a while. However, it&#8217;s not without it&#8217;s warts and I was often left wanting. Here&#8217;s what I require from whatever is running my blog:</p>
+
+<ul>
+<li>Creating posts should be easy</li>
+<li>Hosting should be <a href="http://mrdanadams.com/2011/how-to-host-all-your-projects-for-6-per-month">very cheap</a> ($s / month or even free)</li>
+<li>It should be fast. The output should be optimized for better user experience and SEO. Page load times should be low. <a href="https://developers.google.com/speed/pagespeed/">Google PageSpeed</a> rating should be > 90%.</li>
+<li>I want to spend time authoring, not maintaining. I don&#8217;t want to think about if my blog is running or not. I certainly don&#8217;t want to spend my evening repairing a hacked Wordpress or fixing a failed upgrade.</li>
+<li>I want to be able to customize the theme or functionality if needed.</li>
+</ul>
+
+
+<p>It&#8217;s easy to get most of these with Wordpress but difficult to get all. For instance, you could get a cheap and fast hosting service but you may be limited in what you can customize (themes and plugins). <a href="http://wpengine.com/pricing/">Managed services</a> that provide this often start in the range of <a href="https://purchase.websynthesis.com/plans.aspx?o=non">$27 / mo</a>.</p>
+
+<p>A VPS with nice specs can be had for $6 / mo but you may still have performance issues in a shared environment. This also requires you to setup (and maintain) everything yourself.</p>
+
+<p>Octopress gets much closer to meeting all the requirements:</p>
+
+<ul>
+<li>Hosting static files is fast, secure, and cheap or even free (with <a href="http://pages.github.com/">github pages</a> or the <a href="http://aws.amazon.com/free/">AWS free usage tier</a>)</li>
+<li>Once it&#8217;s up and running, it&#8217;s set and forget</li>
+<li>Octopress themes are easy to customize and writing plugins for Jekyll or Liquid is easier than for Wordpress.</li>
+</ul>
+
+
+<h3>Optimization &amp; performance</h3>
+
+<p><a href="http://wordpress.org/extend/plugins/w3-total-cache/">W3 Total Cache</a> is a great plugin. It&#8217;s a one-stop-shop for best practices in client-side optimization. Despite this, getting performance on par with static files with a self-hosted Wordpress isn&#8217;t trivial.</p>
+
+<p>Consider asset combination and minification, for instance. You need to know which scripts can be combined and which can&#8217;t (such as the lightbox library that, when combined, simply broke).</p>
+
+<p>With a single download for each asset, using image sprites or data-uri images, the correct caching headers, and a CDN for static assets you&#8217;d think that would be enough. But it&#8217;s not. I found my VPS suffering odd latencies upwards of 500ms establishing a connection to the server. A simple test with <a href="http://httpd.apache.org/docs/2.2/programs/ab.html">ab</a> proved failure to handle large traffic spikes. The VPS provided <a href="http://vpsfuze.com/pricing.html">great RAM for the money</a> but the Wordpress content caching ate that up quickly.</p>
+
+<p>Let&#8217;s back up for a second. The vast majority of Wordpress blogs consist of static content. Rendering PHP or hitting a MySQL db on each view is foolish. Why not use something like <a href="http://wordpress.org/extend/plugins/static-html-output-plugin/">this plugin</a> to export all content to S3 or some other service for cheap and scalable hosting? I could have thrown <a href="https://www.varnish-cache.org/">varnish</a> in the mix but that&#8217;s a lot of moving parts for rendering static content. It&#8217;s simply the wrong tool.</p>
+
+<p>Sometimes the old tech works best. Simplify. For blogs, serving static HTML is an elegant and simply solution. Most of the features Wordpress provides are focused on the editorial side. Why let that dictate how the content is served?</p>
+
+<h3>Post editing</h3>
+
+<p>When editing posts in Wordpress I would often write in HTML mode due to bugs in the WYSIWYG editor. For instance, it would sometimes insert errant P tags or start inserting DIVs instead of Ps altogether. It makes a difference in the rendered markup and how the post displays. It also makes the content less semantic.</p>
+
+<p>There are some nice features such as inserting and thumbnailing images. As you&#8217;ll see, however, a more minimalist approach using Octopress is even easier.</p>
+
+<h3>Trackbacks</h3>
+
+<p>I don&#8217;t really care about them. It was an interesting idea in the blog world for cross promotion but I care about real comments from real users. Trackbacks are spam at this point.</p>
+
+<h3>Remote / mobile posting</h3>
+
+<p>Not currently supported with Octopress. However, it&#8217;s conceivable to have a REST API talking to authoring apps that does a git clone / pull, authors a single post, and publishes. Log in with your github account and use your existing editors. It could certainly be done. I never did this anyway so I don&#8217;t miss it.</p>
+
+<p>Octopress, unlike Wordpress, does allow offline authoring thanks to git.</p>
+
+<h3>Post scheduling</h3>
+
+<p>The <a href="http://wordpress.org/extend/plugins/editorial-calendar/">editorial calendar plugin</a> is great if you author posts ahead of time and want them auto-published on a schedule.</p>
+
+<p>This is another instance where things often just don&#8217;t work. After one of the Wordpress upgrades I noticed my posts weren&#8217;t published as scheduled. Awesome. A little googling, cron jobs, and editing of PHP later it was working again. It&#8217;s a great feature, when it works (which is true of a lot in Wordpress).</p>
+
+<h2>Making the move</h2>
+
+<h3>Wordpress custom theme to Octopress theme</h3>
+
+<p>Octopress ships with a default theme. At first glance, it feels like <a href="http://mrdanadams.com/2011/tips-thematic-wordpress-theme-framework/">working with a Wordpress theme framework</a>. Here, however, you copy the entire theme down and edit the files directly rather than overriding base files in the parent theme that can be upgraded later (essentially the way WP was before parent themes were introduced).</p>
+
+<p>The default Octopress theme is well coded and nicely structured. Like any theme, it has it&#8217;s own markup structure and styles. Migrating from a custom theme (<a href="http://mrdanadams.com/2011/fluid-grids-responsive-design-thematic-wordpress">child theme based on the Thematic theme framework</a>), I already had my own markup and CSS that, since I&#8217;m just moving the site, should ideally stay the same.</p>
+
+<p>So that&#8217;s what I did.</p>
+
+<p>I started with the default theme and stripped it down to something minimal enough to fit my needs (you can also copy in files later if needed). Grabbing the rendered HTML for the pages on my WP site I made the page markup conform to that. I was able to <a href="http://mrdanadams.com/2011/wordpress-theme-sass-compass/">move the SCSS</a> in without any changes at all.</p>
+
+<h3>Featured images</h3>
+
+<p>Some posts have a featured image at the top. I include the images with a specific CSS class so they can be targeted:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>img featured /images/ios_xcode.jpg iOS universal frameworks with Xcode</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Image thumbnails</h3>
+
+<p>Creating thumbnails in Wordpress is quite easy. With a little help, they are even easier in Octopress. I want to take a source image and say &#8220;insert this image, optimized, into my content and make it a certain size while keeping the aspect ratio&#8221;. Nothing I found did exactly that so I created a Jekyll plugin, <a href="https://github.com/mrdanadams/jekyll-thumbnailer">jekyll-thumbnailer</a>. Using it is quite simple:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>thumbnail /path/to/local/image.png 50x50&lt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Compass sprites &amp; image paths</h3>
+
+<p>If you want to use <a href="http://mrdanadams.com/2011/wordpress-theme-sass-compass/">Compass sprites</a> like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nv">$sprites</span><span class="o">:</span> <span class="nf">sprite-map</span><span class="p">(</span><span class="s2">&quot;sprites/*.png&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="nc">.foo</span> <span class="nt">a</span> <span class="p">{</span> <span class="nt">background</span><span class="nd">:sprite</span><span class="o">(</span><span class="err">$</span><span class="nt">sprites</span><span class="o">,</span> <span class="nt">foo-icon</span><span class="o">)</span> <span class="nt">no-repeat</span><span class="o">;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The generated sprite image will be put in the source directory. That&#8217;s fine except the references in the CSS will look like <code>/source/images/sprites-2t3h2t31h3.png</code>. To reference the images at the correct path add this to config.rb:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nt">http_generated_images_path</span> <span class="o">=</span> <span class="s2">&quot;/images&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>exitwp</h3>
+
+<p><a href="https://github.com/thomasf/exitwp/">exitwp</a> did the general conversion (including grabbing the post images) but it was pretty rough.</p>
+
+<ul>
+<li>I have pretty standard markup and it did things like convert lists into multiple lists (also indented incorrectly)</li>
+<li>I had to manually edit every single post</li>
+<li>It put in weird spacing</li>
+<li>It didn&#8217;t preserve the more tag thus killing all my excerpts</li>
+<li>No support for images (or captions)</li>
+</ul>
+
+
+<p>So I wouldn&#8217;t say migrating the content is exactly seamless. In fact, this took the longest.</p>
+
+<h3>Minor observations</h3>
+
+<p>A few observations after doing the migration:</p>
+
+<ul>
+<li>I found broken and extra markup being generated by Wordpress</li>
+<li>I eliminated a <strong>ton</strong> of extra CSS classes and ids from the markup to make it more minimal. Simply a side-effect of most theme frameworks.</li>
+<li>The delay to regenerate files when editing can be really, really long. Isolating files can help with that. Also, you may have to get out of the habitual saving after each edit.</li>
+<li>The default Octopress theme is well structured but verbose. I paired mine down to only a few files.</li>
+<li>I didn&#8217;t care for the auto-capitalization</li>
+<li>The syntax highlighting (including the styles in the default theme) is great</li>
+</ul>
+
+
+<h2>The final setup</h2>
+
+<p>Once set up, Octopress is pretty great. Author a new post:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;My fancy new post&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run pow.cx to serve the files (you only need to do this once):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">cd</span> ~/.pow/
+</span><span class='line'>ln -s ~/path/to/my/octopress
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Watch for changes:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake watch
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Once you are ready to publish:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>rake generate
+</span><span class='line'>rake deploy
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Don&#8217;t forget to commit your source files and push to origin as well:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>git commit -a -m <span class="s2">&quot;i made some changes&quot;</span>
+</span><span class='line'>git push origin <span class="nb">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Octopress and Jekyll are both awesome. I&#8217;m sure improvements could be made and I&#8217;m excited to see (and help with) them in the future. Generating static sites is by no means new in the CMS world but it&#8217;s a great, simple alternative to Wordpress.</p>
+
+<p>The sources for the blog are <a href="https://github.com/mrdanadams/mrdanadams.github.com/tree/source">on github</a>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Round-up of iOS universal frameworks with Xcode]]></title>
+    <link href="http://mrdanadams.com/2012/ios-universal-frameworks-xcode/"/>
+    <updated>2012-04-18T13:38:39-04:00</updated>
+    <id>http://mrdanadams.com/2012/ios-universal-frameworks-xcode</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/ios_xcode.jpg" title="iOS universal frameworks with Xcode" ></p>
+
+<p>If you are looking to share code between projects or distribute a 3rd party framework (such as a product API) a bit of googling will find you a solution. Or two. Or three. The solutions are all similar with some subtle differences. Here I&#8217;ve collected the best solutions I&#8217;ve found (going back to 2008) and which one worked well for me.</p>
+
+<p>For the impatient, I recommend this <a href="https://github.com/jverkoey/iOS-Framework">iOS universal framework</a> solution.</p>
+
+<!-- more -->
+
+
+<h2>The problem: dynamic linked libraries, architectures and performance</h2>
+
+<p>All the system libraries for iOS are dynamically linked. This allows dynamic loading and sharing of libraries between applications for more efficient memory management. In order to simplify the handling of applications, this is not allowed for libraries shipped with an app even if two apps use the same library. These libraries must be statically linked. This is an issue simply because Xcode 4 does not directly support creating static iOS frameworks.</p>
+
+<p>Additionally, libraries need to support multiple architectures: arm6 / arm7 on the devices and<a href="http://stackoverflow.com/questions/7874519/ios-simulator-on-mac-is-running-i386-architecture-not-armv7"> i386 when run in the simulator</a>. Distributing a fat binary allows developers to drop the framework into their project but embedding the whole fat binary in the application should be avoided as it can substantially increase the size of the deployed app.</p>
+
+<p>The developer experience is also important. For instance, if you are developing the framework in the context of an app that is using it, minimizing turn-around time for changes in the framework appearing in the app could be a big win (as it likely is for most).</p>
+
+<h2>Documented solutions</h2>
+
+<h3>iOS-Framework by Jeff Verkoeyen</h3>
+
+<p>My preferred <a href="https://github.com/jverkoey/iOS-Framework">solution is by Jeff Verkoeyen</a> (jverkoey). It&#8217;s an evolution on the older solutions and focuses on an easier, faster build process while maintaining a good integration experience for users and optimal deployment. It still has some improvements to be made:</p>
+
+<ul>
+<li>A manual process. It&#8217;s easy, but not exactly a 1-step process. He&#8217;s documented it well enough that you could do it for a new project quickly if you couldn&#8217;t remember all the steps.</li>
+<li>Bundling resources requires more work on the part of both the framework author and users. Code-only frameworks shouldn&#8217;t have to deal with this, luckily.</li>
+</ul>
+
+
+<h3>Blog post by Jonah Williams of Carbon Five</h3>
+
+<p><a href="http://blog.carbonfive.com/2011/04/04/using-open-source-static-libraries-in-xcode-4/">This post</a> offers a well-written guide and explanation of the problem. However, it&#8217;s not as comprehensive as the others. It also uses the framework in a way that isn&#8217;t entirely representative of the way your users will. This increasing the risk that you might be missing something big when cutting a distribution. However, it&#8217;s a good guide and shares a lot of similarities with jverkoey&#8217;s approach.</p>
+
+<h3>iOS-Universal-Framework by Karl Stenerud</h3>
+
+<p><a href="https://github.com/kstenerud/iOS-Universal-Framework">iOS-Universal-Framework</a> offers a way of bending Xcode to your will so it will produce a static framework by introducing a new project template, possibly making life better if you need to do this a lot. The solution by jverkoey specifically improves on the method in a some marginal, yet important, ways such as resource handling and compile time. As with <a href="http://www.chrisboyd.net/2011/06/creating-ios-framework-projects/">Chris Boyd</a>, this method has made some people very happy.</p>
+
+<p>See <a href="https://github.com/michaeltyson/iOS-Universal-Library-Template">iOS-Universal-Library-Template</a> for a similar project not focused on frameworks.</p>
+
+<h3>Blog post by db-in</h3>
+
+<p>As noted by jverkoey, the approach in <a href="http://db-in.com/blog/2011/07/universal-framework-iphone-ios-2-0/">this post</a> is essentially the same as iOS-Universal-Framework but not as good.</p>
+
+<h2>Useful Links</h2>
+
+<p>An assortment of useful links related to this:</p>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/5584317/compile-build-or-archive-problems-with-xcode-4-and-dependancies">Compile, Build or Archive problems with Xcode 4</a></li>
+<li><a href="http://stackoverflow.com/questions/989738/how-to-get-headers-into-framework-in-xcode">Getting headers into frameworks in xcode</a></li>
+<li><a href="http://developer.apple.com/library/ios/#featuredarticles/XcodeConcepts/Concept-Workspace.html">Xcode workspaces</a> and <a href="http://developer.apple.com/library/mac/#recipes/xcode_help-structure_navigator/articles/adding_a_project_to_a_workspace.html">adding projects to workspaces</a></li>
+<li><a href="http://developer.apple.com/library/mac/#documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html#//apple_ref/doc/uid/TP40001873-SW">Xcode docs on dynamic libraries</a></li>
+<li><a href="https://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPFrameworks/Tasks/CreatingFrameworks.html#//apple_ref/doc/uid/20002258-BAJDHDAF">Creating Frameworks</a></li>
+<li><a href="http://developer.apple.com/library/mac/#documentation/MacOSX/Conceptual/BPFrameworks/Concepts/WhatAreFrameworks.html#//apple_ref/doc/uid/20002303-BBCEIJFI">Framework Programming Guide</a></li>
+<li><a href="https://developer.apple.com/library/mac/#documentation/CoreFOundation/Conceptual/CFBundles/AboutBundles/AboutBundles.html">Bundle Programming Guide</a></li>
+<li><a href="http://www.icodeblog.com/2011/04/07/creating-static-libraries-for-ios/">Creating static libraries for iOS</a></li>
+<li><a href="http://spin.atomicobject.com/2011/12/13/building-a-universal-framework-for-ios/">Building a Universal Framework for iOS</a></li>
+</ul>
+
+
+<p>Older, probably totally out of date (but possibly informative):</p>
+
+<ul>
+<li><a href="http://www.clintharris.net/2009/iphone-app-shared-libraries/">Sharing code across iPhone apps</a></li>
+<li><a href="http://www.cocoanetics.com/2010/05/making-your-own-iphone-frameworks-in-xcode/">Making your own iPhone framework</a></li>
+<li><a href="http://accu.org/index.php/articles/1594">Creating a framework for the iPhone</a></li>
+<li><a href="http://blog.stormyprods.com/2008/11/using-static-libraries-with-iphone-sdk.html">Building static libraries for the iPhone</a></li>
+<li><a href="http://the.ornyx.net/post/1222915969/universal-framework">Universal Framework</a></li>
+<li><a href="http://mobileorchard.com/sharing-compiled-code-building-static-libraries-in-xcode-for-the-iphone/">Building Static Libraries in Xcode for the iPhone</a></li>
+<li><a href="http://mobileorchard.com/code-sharing-via-static-libraries-and-cross-project-references/">Code sharing via static libraries and cross-project references</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[abnqe: A better Netflix queue experience]]></title>
+    <link href="http://mrdanadams.com/2012/abnqe/"/>
+    <updated>2012-04-02T11:29:37-04:00</updated>
+    <id>http://mrdanadams.com/2012/abnqe</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/queue-300x164.jpg"></p>
+
+<p><strong>UPDATE:</strong> abnqe is <a href="https://github.com/mrdanadams/abnqe">now on github</a>.</p>
+
+<p>I&#8217;m a long-time Netflix customer. As someone who uses the website to watch movies and shows connected to a <a href="http://en.wikipedia.org/wiki/Home_theater_PC">HTPC</a> it&#8217;s become very clear that the website user experience is not a priority. Specifically, the instant watch queue management and ability to finding something to watch is just horrible. <a href="http://abnqe.com/">abnqe</a> (<a href="http://abnqe.com/">A Better Netflix Queue Experience</a>) is a small project to fix this.</p>
+
+<!-- more -->
+
+
+<h2>The missing experience</h2>
+
+<p>The queue on Netflix, as used by instant queue customers, is an interesting example of an interface providing the basic functionality required in a way that is nearly useless to users. Well, that may be unfair. If you want to manage the order of physical DVDs that will be shipped to you in a specific order, it&#8217;s okay. However, for instant watching and finding something to watch from what is essentially my library of titles, it&#8217;s awful. The order of your shows simply doesn&#8217;t matter with instant as it did with shipping physical disks.</p>
+
+<p>Consider this: I&#8217;m plop down on the couch after a long day, craft beer in hand and to watch something. Not sure what. But something. Fire up the instant queue. What do I get? I text list of all my items in no meaningful order without the ability to filter, sort or otherwise grok the 200+ items present. Ugh.</p>
+
+<p>abnqe, as first released, is the bare minimum set of features I wanted: a nice UI for visually seeing my queue with the ability to instantly search titles. I&#8217;m already so much happier.</p>
+
+<h2>Future direction</h2>
+
+<p>I&#8217;ve got a long list of things I&#8217;d like to do to this thing. We&#8217;ll see what gets done. Here are some of the things I have in mind:</p>
+
+<ul>
+<li>Filtering by type (TV / movies)</li>
+<li>Basic queue management (removing, adding)</li>
+<li>Get more detailed movie info</li>
+<li>Adding movies to lists / tags (dude movies, wife movies, kids shows, documentaries, foreign flicks).</li>
+<li>Filter by genre, rating, recently watched</li>
+<li>Discovering new titles (without suggesting titles I&#8217;ve already seen; something that annoys me endlessly)</li>
+<li>Rotten tomatoes ratings</li>
+<li>See what&#8217;s trending with other users, added recently and expiring</li>
+<li>Social sharing and recommendations from friends</li>
+</ul>
+
+
+<h2>Under the hood</h2>
+
+<p>abnqe is a Rails 3 app hosted on Heroku using OAuth and the Netflix REST API to grab account and movie info. The first version was basically a saturday project.</p>
+
+<h2>Who is this for?</h2>
+
+<p>I made this for me (and my wife and kid). It&#8217;s free to use. Use it if you want. Or don&#8217;t. But if you do, drop me a comment. How are you using it? Have any problems? Any suggestions for improving the experience?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Heroku Postgres: Shared, Dedicated or use Amazon RDS?]]></title>
+    <link href="http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds/"/>
+    <updated>2012-03-28T12:20:44-04:00</updated>
+    <id>http://mrdanadams.com/2012/heroku-postgres-shared-dedicated-amazon-rds</id>
+    <content type="html"><![CDATA[<p><img class="featured right" src="http://mrdanadams.com/images/heroku_rds_postgres.png"></p>
+
+<p>Heroku shared databases can&#8217;t be beat for convenience or cost during development (assuming you are on Heroku already). What about when the app goes live? Here are some thoughts on whether the app should stay on a <a href="https://postgres.heroku.com/">Heroku shared Postgres database</a>, switch to a dedicated database or use something else entirely such as <a href="http://aws.amazon.com/rds/">Amazon RDS</a>.</p>
+
+<!-- more -->
+
+
+<h2>Basic Considerations</h2>
+
+<p>We have a startup Rails app hosted on Heroku getting ready to push for an early alpha release. For such an app, what are the questions you should be asking?</p>
+
+<ul>
+<li>How will you handle traffic spikes?</li>
+<li>What determines growth in the size of the database?</li>
+<li>Is the data read only/read mostly or does it contain quick growth data like page views and social activity?</li>
+<li>How closely do costs need to be controlled?</li>
+<li>How much traffic and data do you need to support?</li>
+<li>How much maintenance will the solution cost and what staff is needed to support it?</li>
+</ul>
+
+
+<p>For this app, the following were important to consider:</p>
+
+<ul>
+<li>Since Heroku runs on EC2 they recommend (not surprisingly) that you grab a database plan where your entire DB can be in RAM. Dedicated plans range from 1.7 GB to 68 GB. Both our databases, being loaded with just testing data for alpha testing, were under 1 MB. That&#8217;s not very helpful for evaluating the size we needed.</li>
+<li>We don&#8217;t store anything growth- or data-heavy in our DB: we don&#8217;t log analytics and all binary data is stored on S3. The data is going to grow with the number user accounts and related records. This is all very small, slow-growth data and even with a large number of new objects shouldn&#8217;t blow out the database size. All the search indexes are stored in <a href="http://websolr.com">WebSolr</a> which will help keep the DB size down.</li>
+<li>While it&#8217;s safer to go to a dedicated plan now, it&#8217;s starts at $200 in the door and we don&#8217;t appear to be anywhere near needing the storage or performance provided.</li>
+</ul>
+
+
+<h2>Heroku Database Migration Options</h2>
+
+<p>There are a few options for migrating databases if and when you want to go from shared to dedicated. Note that you should have a <a href="http://onehub.com/blog/posts/rails-maintenance-pages-done-right/">maintenance page</a> while migrating your database, especially if using a manual migration method. During migration your database won&#8217;t accept any modifications (or if it does they will be lost).</p>
+
+<h3>Backup &amp; Restore</h3>
+
+<p>This is the only option on Heroku for migrating from a shared to dedicated database. See <a href="https://devcenter.heroku.com/articles/pgbackups">PG Backups</a>.</p>
+
+<ul>
+<li>Works across all plans</li>
+<li>Can be slower than other migration methods (especially with large databases) since you need to export and re-import the entire database and transfer it across the network doing so. However, it&#8217;s a pretty simple process and appears to be easy and fairly low risk.</li>
+</ul>
+
+
+<h3>Fast Changeover</h3>
+
+<p>In <a href="https://devcenter.heroku.com/articles/fast-database-changeovers">fast database changeover</a>, you use followers (read-only slaves) or forking (snapshots) and then point the app at the new database. This isn&#8217;t an option for migrating from a shared to dedicated database or moving to or from the Heroku platform in general. However, it&#8217;s a good tool to know about.</p>
+
+<ul>
+<li>Works for large databases better than a manual migration</li>
+<li>Minimizes app downtime</li>
+<li>Migrating shouldn&#8217;t require changes to the <a href="http://websolr.com/">WebSolr</a> index as the IDs should be the same</li>
+</ul>
+
+
+<h2>Use Something Else (like Amazon RDS)</h2>
+
+<p>Rather than staying on <a href="https://postgres.heroku.com/">Heroku Postgres</a>, you could switch to something external such as Amazon RDS (which is clearly MySQL and not Postgres if that&#8217;s an issue for you).</p>
+
+<ul>
+<li>A switch from Postgres to MySQL might be an issue if you have lots of migrations and some use something database-specific</li>
+<li>Heroku offers Postgres as a service (outside hosting apps)</li>
+<li>Includes a nice admin panel and lots of scaling / migration features and support for scaling horizontally (if it should ever come to that)</li>
+<li>We could host a Postgres install on EC2 but we now have to roll all that scalability stuff ourselves (which we could do). We&#8217;d probably consider using RDS rather than any self-run db cluster.</li>
+<li>For us it&#8217;s mostly a matter of price and if the service Heroku provides is worth not doing it ourselves. Given that we don&#8217;t have a dedicated IT team for this project the time spent maintaining the cluster is an important factor.</li>
+</ul>
+
+
+<p>At the point of putting out an alpha we didn&#8217;t even need the 15 MB database which is $15 / month. Again, the DB should grow in proportion to the number of actually accounts, etc none of which should grow quickly (unless we are actually getting a ton of usage). If we started tracking analytics of any kind this would change.</p>
+
+<h2>Getting Heroku Database Size</h2>
+
+<p>You can use <code>heroku pg:info --remote=production</code> to get the database size. For shared databases the output is not very interesting:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>heroku pg:info --remote<span class="o">=</span><span class="nv">production</span>
+</span><span class='line'><span class="o">===</span> SHARED_DATABASE <span class="o">(</span>DATABASE_URL<span class="o">)</span>
+</span><span class='line'>Data Size 648k
+</span><span class='line'><span class="nv">$ </span>heroku pg:info --remote<span class="o">=</span><span class="nv">staging</span>
+</span><span class='line'><span class="o">===</span> SHARED_DATABASE <span class="o">(</span>DATABASE_URL<span class="o">)</span>
+</span><span class='line'>Data Size 688k
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Where We Left It: EC2 for Cost Reduction</h2>
+
+<p>If this app really takes off (like huge) we will likely move to EC2 / RDS to reduce cost. Again, this depends on the numbers (particularly how many staff we need to support an AWS deployment). <a href="http://www.quora.com/How-easy-is-it-to-get-off-Heroku-once-you-grow-out-of-it">This discussion</a> has a good example of an experience comparing Heroku and RDS in the long-term:</p>
+
+<blockquote><p>The only way to achieve any concurrency in Heroku is to turn up dynos and workers. These are 5c/hour each ~ $36/month. The first dyno (but not the worker) is free. Therefore, if you want a concurrency of 4 dynos and 1 worker, you are looking at $144/month. We have found that we can easily achieve 4 times this concurrency on one small EC2 instance. You would want load balancing and failover, so assuming that you are going to use 2 reserved small EC2 on the east coast (Heroku is on the east coast too), that comes to 2 X ($227.50 per year + 3c/hour) ~ $81/month. This can be equivalent of approximately $576/month on Heroku.</p>
+
+<p>Continuing with the $144/month figure for Heroku, shared database in Heroku is free, but the smallest dedicated instance is $200! Compare this with RDS, where an equivalent reserved multi-availability zone instance costs $455 yearly + 9.2c/hour ~ $104/month.</p>
+
+<p>In other words, at a concurrency of 4 dynos and 1 worker with a free shared database, Heroku costs $144 a month, while Amazon with a potential of atleast 4 times that concurrency with failover for the database and the server costs a total of $81 + $104 = $185/month. At the full capacity of the EC2 machines with a dedicated database instance, Heroku will cost approximately $776/month while Amazon will continue to run at under $200.</p>
+
+<p>&#8230;</p>
+
+<p>The operational cost of maintaining the databases on Amazon is near zero, except for the initial setup, which can be super easy too if you have used it in the past. Web server operations can be a little more ongoing work, compared to zero for Heroku. However, once you have load balancing set up, and like in our case, capistrano + git based push system, you can be off and running at almost nil system administration time.</p></blockquote>
+
+<p>What considerations and decisions have you made regarding where your database lives?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Career story, trajectory and context]]></title>
+    <link href="http://mrdanadams.com/2012/career-story-trajectory-context/"/>
+    <updated>2012-03-21T14:13:08-04:00</updated>
+    <id>http://mrdanadams.com/2012/career-story-trajectory-context</id>
+    <content type="html"><![CDATA[<p>An important aspect of good <a href="http://mrdanadams.com/2012/your-career-is-a-business/">career management</a> is understanding your career story. Where you came from, where are you now and where you are going. Knowing this is critical to maximizing your market value and communicating that value to others (such as in interviews).</p>
+
+<!-- more -->
+
+
+<h2>Career Trajectory</h2>
+
+<p><img src="http://mrdanadams.com/images/career_trajectory.png"></p>
+
+<p>Let&#8217;s assume you are considering buying a stock. The current price is $42 / share. Should you buy? I hope at this point you&#8217;re thinking &#8220;I have no idea!&#8221;. Exactly.</p>
+
+<p>If I&#8217;m interviewing software engineers I need to know not just where you are now but where you&#8217;ve been and where you&#8217;re going. Consider the following profiles for potential candidates:</p>
+
+<ul>
+<li>Middle-aged set in his ways who hasn&#8217;t changed in years</li>
+<li>Middle-aged who just changed markets and is slightly behind but clearly has a passion and ability to learn</li>
+<li>Middle-aged who is mature, rock solid and still has a passion for the craft</li>
+<li>Junior with very little experience but incredible work ethic and hunger to grow</li>
+<li>Mid-twenties &#8220;rock star&#8221; who&#8217;s smart with loads of talent but doesn&#8217;t have the hunger or humility to grow quickly</li>
+</ul>
+
+
+<p>This list is by no means comprehensive. The point is to show that someone&#8217;s career trajectory is critical in understanding their real value. Are you a good investment? Or a liability?</p>
+
+<h2>Context is Critical</h2>
+
+<p>A subtlety of history and trajectory is context. Understanding the situations someone has been in and decisions they&#8217;ve made is incredibly informative. Great people can come from all sorts of backgrounds and crush whatever preconceptions you had about where rock stars come from and what really makes one.</p>
+
+<p>For interviewers, the <a href="http://en.wikipedia.org/wiki/5_Whys">5 Why&#8217;s</a> is an excellent way of discovering someone&#8217;s depth. What was a big project you worked on or led? What were your responsibilities? What problems did you encounter and how did you solve them? Which design decisions did you make that you later discovered were wrong? How did you fix performance problems? What do you wish you had done? Dig down and find how they handle tough situations, how they think and their motivations.</p>
+
+<p>Be introspective. Consider your own history. What do you thrive on? What do you hate doing? Where are your opportunities for improvement?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[What every software engineer should know: your career is a business]]></title>
+    <link href="http://mrdanadams.com/2012/your-career-is-a-business/"/>
+    <updated>2012-03-21T13:59:47-04:00</updated>
+    <id>http://mrdanadams.com/2012/your-career-is-a-business</id>
+    <content type="html"><![CDATA[<p>Your career is a business and you should manage it like one. There is a lot to being a great software engineer and therein lies the problem: a focus on the technical (which is important, clearly) but a neglect of business, communication, and management skills needed to be your own career advisor. Without these skills many great, passionate engineers find themselves at a disadvantage working for too little pay or enjoyment. Here are some tips to set you in the right direction managing your career effectively.</p>
+
+<!-- more -->
+
+
+<h2>Business 101: Supply &amp; Demand</h2>
+
+<p>You have something to offer. There is some demand out here for it. In working, you exchange your time and effort for money and other goodies. The more demand there is the more you get and vice versa.</p>
+
+<p><img src="http://mrdanadams.com/images/supply_demand.png"></p>
+
+<p>The above is a basic <a href="http://en.wikipedia.org/wiki/Supply_and_demand">supply and demand</a> graph. Price tracks the demand line. If supply increases above demand prices drop. When the reverse happens price goes up. Like a good stock portfolio, your value (or price) over time should be increasing:</p>
+
+<p><img src="http://mrdanadams.com/images/career_growth.png" title="Which does your career value look like?" ></p>
+
+<p>So what&#8217;s your value? What do you have to offer? Here are a few examples:</p>
+
+<ul>
+<li><strong>Technical expertise:</strong> You just know it better and deeper. Someone has a question about <a href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting">JavaScript hoisting</a>? You the man.</li>
+<li><strong>Domain knowledge</strong>: You really get your business and it&#8217;s nuances.</li>
+<li><strong>Dependability:</strong> People know when they give you something it well get done. Really done. If you run into a weird bug you don&#8217;t give up; you pound on it until a solution is found.</li>
+<li><strong>Culture:</strong> You make the environment around you better. People like coming to work a little  more when they work with you.</li>
+<li><strong>Leadership:</strong> You can get people going in the same direction and get things done that require team effort.</li>
+<li><strong>Creativity and insight:</strong> You understand what is really going on and can find novel solutions to the problems at hand.</li>
+<li><strong>Communication:</strong> You work well with designers, project managers, clients, etc and can resolve conflict without freaking out.</li>
+</ul>
+
+
+<p>I&#8217;m sure you could come up with others. The critical point here is that a marketable skill set often extends way beyond the purely technical. Many recent graduates feel scammed by their Computer Science programs in being ill prepared for the &#8220;real world&#8221;.</p>
+
+<h2>Know Your Market(s)</h2>
+
+<p>First things first: what is your market?</p>
+
+<p>Your first market is simply where you work. The world that is your coworkers and clients / customers is a market all its own with a specific slant of supply and demand. What are the unmet needs? How can you increase your demand by improving existing skills or getting new ones? Can you get ahead of the curve by acquiring skills soon to be in demand? In some cases you can even create (artificial) demand by introducing a new technology or service. <a href="http://mrdanadams.com/2012/its-your-company-act-like-an-owner/">Act like an owner</a> and you&#8217;ll discover a number of opportunities to increase your value.</p>
+
+<p>The wider market is harder to define. It could be in a specific technology (Rails or Java), a specific industry (healthcare, finance, retail), a certain kind of company culture (startups) or an odd niche (such a project manager specializing in bailing out projects in trouble: I actually know one of these). Within this market how do you stack up? Who are the leaders? What skills are most in demand?</p>
+
+<p>Identifying and really understanding your markets can take a lot of thought and investigation but is well worth the effort. Once you&#8217;ve done this you can begin to strategically change your position. This means improving your current set of skills or changing your position altogether by picking up a new set.</p>
+
+<h2>Don&#8217;t Be a T-Rex: Awesome and Extinct</h2>
+
+<p>Being a &#8220;dinosaur&#8221; has little to do with age except the longer you work the more opportunity you have to let this happen. Being &#8220;dinosaured&#8221; is the result of being left with skills that have no demand in the market. For instance, focusing your skills on a niche may be a good idea as it could make you more specialized. If that market grows you could be a leader. However, if that market evaporates you may find yourself with something to sell and no buyers. Welcome to dinosaur-hood.</p>
+
+<h2>Talking Turkey</h2>
+
+<p>Talking money is rarely fun for engineers. It just feels dirty. Or selfish. I have one thing to say to this: get over it.</p>
+
+<p>You may love what you do, the people you work with and your company (and that&#8217;s awesome). You may even work for a company that really takes care of you. But don&#8217;t forget for a second this is a business relationship; I assure you the business hasn&#8217;t.</p>
+
+<p>This isn&#8217;t to say you shouldn&#8217;t love where you are (because I do and that&#8217;s always been important to me) or that there are company owners who are good people and try to do right by their people (because I know a few). The business has a bottom line and so should you. They write you a check (and provide benefits, vacation, etc) and get something in return. What that &#8220;something&#8221; is and how much it&#8217;s worth to them is the important bit.</p>
+
+<p>By advocating &#8220;talking turkey&#8221; I don&#8217;t mean negotiation skills (although that&#8217;s important). I&#8217;m emphasizing being more conscious of your bottom line. Your company isn&#8217;t doing you a favor by paying you and you owe them nothing. You have a responsibility to yourself (and others that depend on you) to maximize your value.</p>
+
+<p>Do you think about your career as a business? How do you manage your market value?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[It's your company too, act like an owner]]></title>
+    <link href="http://mrdanadams.com/2012/its-your-company-act-like-an-owner/"/>
+    <updated>2012-03-06T14:58:51-05:00</updated>
+    <id>http://mrdanadams.com/2012/its-your-company-act-like-an-owner</id>
+    <content type="html"><![CDATA[<p>Company ownership is a funny thing. Who really owns the company? Well, it&#8217;s probably the guy with risk in one pocket and a checkbook in the other. So your company isn&#8217;t exactly a co-op. You don&#8217;t have shares or equity. You aren&#8217;t a partner. Let&#8217;s assume you are at the &#8216;bottom&#8217; of the company. I propose there is tremendous value in an ownership mentality: this is my company and I&#8217;m going to work to make it the kind of company I think it should be.</p>
+
+<!-- more -->
+
+
+<p>I am, without question, a small company person. Large companies, bureaucracy, and overly defined roles give me hives. I like open air, accountability, no place to hide. It&#8217;s like a small town: everyone knows what everyone else is up to.</p>
+
+<p>In small companies (think consultancies, start-ups, small agencies) there simply isn&#8217;t room for depending on someone else to pick up the slack. When everyone collectively takes responsibility for what&#8217;s going on quality is higher, things get done, problems fixed.</p>
+
+<p>The company gets a lot out of the individuals acting like owners. Is the reverse true? Yes. Even in a company of great people, there will always be unmet needs. What can you do to add value? How can you make yourself indispensable? Perhaps something can be done better. Perhaps something isn&#8217;t being done at all and should be. Step into the gap and become a leader. Find roles you can play in your team and in your company.</p>
+
+<p>Act like an owner and you will find yourself taking ownership: first of roles, perhaps tools, then teams, departments, and even companies.</p>
+
+<p>If, like me, you want to stay at the tech level and don&#8217;t want to pursue company ownership, the rule is still the same: what can I do to add value that nobody else is doing?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Changing Dropbox location for 1Password storage]]></title>
+    <link href="http://mrdanadams.com/2012/change-dropbox-location-1password/"/>
+    <updated>2012-02-13T06:41:47-05:00</updated>
+    <id>http://mrdanadams.com/2012/change-dropbox-location-1password</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/dropbox_1password.png"></p>
+
+<p>Dropbox is awesome. 1Password is awesome. When their powers combine&#8230; it&#8217;s awesome. Except if you need to change where 1Password stores it&#8217;s file in Dropbox. Here&#8217;s a simple way to change that.</p>
+
+<!-- more -->
+
+
+<p>From the mouth of 1Password support:</p>
+
+<blockquote><p>You have 1Password 3.9 which is from the Mac App Store. Apple requires (or will soon be requiring) all applications on the Mac App Store to conform to various Sandboxing rules. One of those rules is strict limitations on where the data files the application accesses are located.</p>
+
+<p>In this case we allow 1Password to read the file 1Password.agilekeychain inside of ~/Dropbox/1Password/</p>
+
+<p>So it will always prompt you to tell you that it is copying the file to that location and that the other one will remain in the prior location as a backup.</p>
+
+<p>Long story short, you&#8217;ll have to keep your data file at ~/Dropbox/1Password/1Password.agilekeychain</p>
+
+<p>I do apologize for the inconvenience though. Hopefully this helps.</p></blockquote>
+
+<p>Bummer. Here&#8217;s how to change it:</p>
+
+<ol>
+<li>Open 1Password and go to <strong>1Password > Preferences&#8230; > General</strong></li>
+<li>Disable using Dropbox. This will now store the files under /Users/yourname/Dropbox/Personal/&#8230;</li>
+<li>Close 1Password</li>
+<li>Open a terminal and follow the script below</li>
+</ol>
+
+
+<p>Assuming you want to store your files in ~/Dropbox/Personal/1Password instead of ~/Dropbox/1Password (for instance, if you are using <a href="http://mrdanadams.com/multiple-dropbox-accounts-same-machine-sharing/">multiple Dropbox accounts on the same machine</a>) do the following in a Terminal:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>mv ~/Library/Containers/com.agilebits.onepassword-osx-helper/Data/Documents ~/Dropbox/Personal/1Password
+</span><span class='line'><span class="nv">$ </span>ln -s ~/Dropbox/Personal/1Password ~/Library/Containers/com.agilebits.onepassword-osx-helper/Data/Documents
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Enjoy.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Starting Emerging Business Tech meetup with first event on native / HTML5-based mobile apps]]></title>
+    <link href="http://mrdanadams.com/2012/emerging-business-tech-meetup-native-html5-mobile/"/>
+    <updated>2012-02-03T06:23:15-05:00</updated>
+    <id>http://mrdanadams.com/2012/emerging-business-tech-meetup-native-html5-mobile</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="http://mrdanadams.com/images/logo.png"></p>
+
+<p>I&#8217;m extremely excited to announce a new meetup, <a href="http://www.meetup.com/emerging-business-technology/">Emerging Business Technology</a>, lead by myself and sponsored by Cantina Consulting. We&#8217;ve tried very hard to make this meetup one that provides a lot of value to it&#8217;s members, extremely high quality events and content, and satisfies a need not currently met by other meetups in the Boston area. We&#8217;ve already seen rapid growth and intense interest from a wide range of people working in technology.</p>
+
+<!-- more -->
+
+
+<p>From the meetup description:</p>
+
+<blockquote><p>This meetup provides engineers, practitioners and managers the context needed to evaluate and adopt rapidly evolving business technologies. Leave with an understanding of what the technology is, why it’s used, when to use it, and next steps to take. We’ll review use cases, processes, tools, and practices in a mini-conference format through short presentations, hands-on tutorials, Q&A; and code walkthroughs.</p>
+
+<p>Topics may include Mobile app development, HTML5, responsive design, high-concurrency applications, interaction design, modern languages and frameworks, NoSQL databases, and mobile / tablet application design.</p></blockquote>
+
+<p>The first event, <strong><a href="http://www.meetup.com/emerging-business-technology/events/50411132/">Native and HTML5-based mobile: strategies for mobile app development</a></strong>, has been scheduled and will be an awesome event. We&#8217;ve got 3 or 4 sessions by some awesome speakers planned, both from inside Cantina and from outside vendors. It&#8217;s a free event so check it out if you have any interest in strategies for developing mobile apps.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Beware using active_admin and Sunspot Rails gems together]]></title>
+    <link href="http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together/"/>
+    <updated>2012-02-02T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/beware-using-active_admin-and-sunspot-rails-gems-together</id>
+    <content type="html"><![CDATA[<p>If you are using <a href="http://activeadmin.info/">Active Admin</a> and the <a href="http://sunspot.github.com/">Sunspot</a> gem for Rails, beware: they conflict on the search method leading to some very confusing results.</p>
+
+<!-- more -->
+
+
+<p>Active Admin has a dependency on <a href="https://github.com/ernie/meta_search">meta_search</a> which provides a <code>.search()</code> method on Active Record classes. Sunspot attempts to provide the same method, aliased from <code>solr_search</code>, but only if the method does not already exist.</p>
+
+<p>In short, searching can be done using <code>solr_search()</code> rather than <code>search()</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vi">@search</span> <span class="o">=</span> <span class="no">Profile</span><span class="o">.</span><span class="n">solr_search</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">keywords</span> <span class="n">params</span><span class="o">[</span><span class="ss">:q</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">paginate</span> <span class="ss">page</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:page</span><span class="o">]</span><span class="p">,</span> <span class="n">per_page</span><span class="p">:</span> <span class="n">page_size</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="vi">@results</span> <span class="o">=</span> <span class="vi">@search</span><span class="o">.</span><span class="n">results</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Using Sunspot, Websolr, and Solr on Heroku]]></title>
+    <link href="http://mrdanadams.com/2012/sunspot-websolr-solr-heroku/"/>
+    <updated>2012-02-01T11:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2012/sunspot-websolr-solr-heroku</id>
+    <content type="html"><![CDATA[<p>Having recently deployed a Rails app using Sunspot and Solr on Heroku, here are some tips for getting started, testing, searching, and deploying.</p>
+
+<!--more-->
+
+
+<h2>Getting the right gem</h2>
+
+<p>As noted in <a href="http://blog.derekperez.com/post/552826277/the-proper-websolr-gem-for-heroku" target="_blank">this post</a>, getting the right gem for Websolr is important (yet confusing): the Heroku documentation is not consistent on which gem to use. In short, use the <a href="https://github.com/onemorecloud/websolr-sunspot_rails" target="_blank">websolr-sunspot_rails</a> gem which tracks the version of <a href="http://sunspot.github.com/" target="_blank">Sunspot</a> needed by <a href="http://www.websolr.com/" target="_blank">Websolr</a>.</p>
+
+<p>The following gems are used:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=Gemfile'></script>
+<noscript><pre><code>gem 'sunspot_rails'
+gem 'kaminari'
+gem 'sunspot_with_kaminari'</code></pre></noscript></div>
+
+
+<p>UPDATE (per Nick Zadrozny):</p>
+
+<blockquote><p>the docs at https://devcenter.heroku.com/articles/websolr are correct: You want to use Sunspot directly, not websolr-sunspot_rails. The only thing the devcenter document gets wrong right now is the version. The current version of Sunspot is 1.3.0. I&#8217;ll add that to my todo list ;)</p>
+
+<p>The websolr-sunspot_rails gem was only needed for earlier versions of Sunspot in order to support the WEBSOLR_URL variable, which is supported natively in Sunspot as of its 1.2.0.</p>
+
+<p>So all you need is <code>gem 'sunspot_rails'</code> in your Gemfile and you&#8217;re all set!</p></blockquote>
+
+<h2>Configuration</h2>
+
+<p><em>config/sunspot.yml</em> provides a base config file for development and production only. <code>ENV['SOLR_URL']</code> and <code>ENV['WEBSOLR_URL']</code> override any values in this file.</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=solr.yml'></script>
+<noscript><pre><code># Note: ENV['SOLR_URL'] and ENV['WEBSOLR_URL'] override any values here
+# The defaults are same as what's below  so you only need to override as desired.
+# Removed production since that should never be used in heroku.
+# See Sunspot::Rails::Configuration.solr_url
+
+development:
+  solr:
+    hostname: localhost
+    port: 8982
+    log_level: INFO
+
+test:
+  solr:
+    hostname: localhost
+    port: 8981
+    log_level: WARNING
+</code></pre></noscript></div>
+
+
+<h2>Starting Solr (locally)</h2>
+
+<p>Solr can be started (and stopped) locally with:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=run.sh'></script>
+<noscript><pre><code>bundle exec rake sunspot:solr:start
+bundle exec rake sunspot:solr:stop
+</code></pre></noscript></div>
+
+
+<h2>Testing</h2>
+
+<p>If using rspec the following can get you started:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=rspec_solr.rb'></script>
+<noscript><pre><code>RSpec.configure do |c|
+  c.before :suite do
+    module Sunspot
+      def self.stub_session
+        @sub_session ||= Sunspot::Rails::StubSessionProxy.new self.session
+      end
+    end
+
+  end
+
+  c.before :each do
+    Sunspot.session = Sunspot.stub_session
+    Sunspot.session = Sunspot.session.original_session if example.metadata[:solr]
+
+    Sunspot.remove_all!
+  end
+end
+</code></pre></noscript></div>
+
+
+<p>Your search spec may look like this:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=search_spec.rb'></script>
+<noscript><pre><code>describe 'Search' do
+  def commit
+    Sunspot.commit
+  end
+
+  def search(q)
+    visit &quot;/search?q=#{q}&quot;
+  end
+
+  it 'does something interesting', :solr do
+    Something.create!
+    commit
+    search 'foobar'
+end
+</code></pre></noscript></div>
+
+
+<p>The following allows Cucumber features not to explode:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=cucumber_config.rb'></script>
+<noscript><pre><code># Solr faking.
+# see http://opensoul.org/blog/archives/2010/04/07/cucumber-and-sunspot/
+# Note: we need to do more than this if we start doing search tests in cucumber
+$original_sunspot_session = Sunspot.session
+
+Before(&quot;~@search&quot;) do
+  Sunspot.session = Sunspot::Rails::StubSessionProxy.new($original_sunspot_session)
+end
+</code></pre></noscript></div>
+
+
+<h2>Searching and paginating</h2>
+
+<p>Perform the search in the controller:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=search_controller.rb'></script>
+<noscript><pre><code>class SearchController &lt; ApplicationController
+    def search
+        page_size = 10
+
+        @search = Profile.solr_search do
+            keywords params[:q] do
+                boost_fields name: 10.0, user: 4.0
+            end
+
+            with :include_search, true
+            paginate page: params[:page], per_page: page_size
+        end
+
+        @results = @search.results
+
+        @total = @search.total
+        @paging = @total &gt; page_size
+        @start = (@search.current_page - 1) * page_size + 1
+        @end = [@start + page_size - 1, @total].min
+
+        render (if @results.empty? then :no_results else :results end)
+    end
+
+end
+</code></pre></noscript></div>
+
+
+<p>In the template show results and paging:</p>
+
+<div><script src='https://gist.github.com/2230763.js?file=results.html.erb'></script>
+<noscript><pre><code>&lt;h3 class=&quot;summary&quot;&gt;&lt;%= t('.your-search-header'), start: @start, end: @end, total: pluralize(@total, 'result') %&gt;&lt;/h3&gt;
+
+&lt;% @results.each do |p| %&gt;
+&lt;div class=&quot;result&quot;&gt;&lt;!-- ... --&gt;&lt;/div&gt;
+&lt;% end %&gt;
+
+&lt;%= paginate @search, window: 1 %&gt;
+</code></pre></noscript></div>
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

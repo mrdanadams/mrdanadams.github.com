@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Projects | Dan Adams]]></title>
+  <link href="http://mrdanadams.com/blog/categories/projects/atom.xml" rel="self"/>
+  <link href="http://mrdanadams.com/"/>
+  <updated>2013-06-03T22:14:42-04:00</updated>
+  <id>http://mrdanadams.com/</id>
+  <author>
+    <name><![CDATA[Dan Adams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[abnqe: A better Netflix queue experience]]></title>
+    <link href="http://mrdanadams.com/2012/abnqe/"/>
+    <updated>2012-04-02T11:29:37-04:00</updated>
+    <id>http://mrdanadams.com/2012/abnqe</id>
+    <content type="html"><![CDATA[<p><img class="featured" src="/images/queue-300x164.jpg"></p>
+
+<p><strong>UPDATE:</strong> abnqe is <a href="https://github.com/mrdanadams/abnqe">now on github</a>.</p>
+
+<p>I'm a long-time Netflix customer. As someone who uses the website to watch movies and shows connected to a <a href="http://en.wikipedia.org/wiki/Home_theater_PC">HTPC</a> it's become very clear that the website user experience is not a priority. Specifically, the instant watch queue management and ability to finding something to watch is just horrible. <a href="http://abnqe.com/">abnqe</a> (<a href="http://abnqe.com/">A Better Netflix Queue Experience</a>) is a small project to fix this.</p>
+
+<!-- more -->
+
+
+<h2>The missing experience</h2>
+
+<p>The queue on Netflix, as used by instant queue customers, is an interesting example of an interface providing the basic functionality required in a way that is nearly useless to users. Well, that may be unfair. If you want to manage the order of physical DVDs that will be shipped to you in a specific order, it's okay. However, for instant watching and finding something to watch from what is essentially my library of titles, it's awful. The order of your shows simply doesn't matter with instant as it did with shipping physical disks.</p>
+
+<p>Consider this: I'm plop down on the couch after a long day, craft beer in hand and to watch something. Not sure what. But something. Fire up the instant queue. What do I get? I text list of all my items in no meaningful order without the ability to filter, sort or otherwise grok the 200+ items present. Ugh.</p>
+
+<p>abnqe, as first released, is the bare minimum set of features I wanted: a nice UI for visually seeing my queue with the ability to instantly search titles. I'm already so much happier.</p>
+
+<h2>Future direction</h2>
+
+<p>I've got a long list of things I'd like to do to this thing. We'll see what gets done. Here are some of the things I have in mind:</p>
+
+<ul>
+<li>Filtering by type (TV / movies)</li>
+<li>Basic queue management (removing, adding)</li>
+<li>Get more detailed movie info</li>
+<li>Adding movies to lists / tags (dude movies, wife movies, kids shows, documentaries, foreign flicks).</li>
+<li>Filter by genre, rating, recently watched</li>
+<li>Discovering new titles (without suggesting titles I've already seen; something that annoys me endlessly)</li>
+<li>Rotten tomatoes ratings</li>
+<li>See what's trending with other users, added recently and expiring</li>
+<li>Social sharing and recommendations from friends</li>
+</ul>
+
+
+<h2>Under the hood</h2>
+
+<p>abnqe is a Rails 3 app hosted on Heroku using OAuth and the Netflix REST API to grab account and movie info. The first version was basically a saturday project.</p>
+
+<h2>Who is this for?</h2>
+
+<p>I made this for me (and my wife and kid). It's free to use. Use it if you want. Or don't. But if you do, drop me a comment. How are you using it? Have any problems? Any suggestions for improving the experience?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Logo Lifter launched for easier creation of blog post featured images]]></title>
+    <link href="http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images/"/>
+    <updated>2011-12-14T12:00:00-05:00</updated>
+    <id>http://mrdanadams.com/2011/logo-lifter-launched-for-easier-creation-of-blog-post-featured-images</id>
+    <content type="html"><![CDATA[<p>Introducing <a href="http://logolifter.com/">http://logolifter.com</a>, a free and simple tool for more easily creating images for blog posts and other content. Search for what you want, drag the images onto a canvas, customize, and download. This project came out of wanting good, relevant, unique images for blog posts and avoiding stock photos.</p>
+
+<p><strong>UPDATE:</strong> The project is <a href="https://github.com/mrdanadams/logolifter">now on github</a>.</p>
+
+<!-- more -->
+
+
+<p><img src="/images/screenshot-668x1024.jpg"></p>
+
+<p>While the name suggests it's meant for logos, it could be used for any kind of content pulling in other images. Search for "kitten" and you'll see what I mean.</p>
+
+<p>It allows you to currently do the following:</p>
+
+<ul>
+<li>Instantly search for images of various sizes (using Google image search)</li>
+<li>Drag multiple search results into a single image</li>
+<li>Arrange the images to your liking including auto-arrangements (horizontal and vertical), resizing all images to the same size, and adding padding to the outside of the image</li>
+<li>Downloading the resulting image</li>
+</ul>
+
+
+<p>Let me know if you have any feature comments. I'd love to hear feedback from people using it.</p>
+]]></content>
+  </entry>
+  
+</feed>
